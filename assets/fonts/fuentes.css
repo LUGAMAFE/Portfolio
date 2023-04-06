@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('./RobotoCondensed/RobotoCondensed-Light.eot');
+  src: url('./RobotoCondensed/RobotoCondensed-Light.eot?#iefix')
+      format('embedded-opentype'),
+    url('./RobotoCondensed/RobotoCondensed-Light.woff2') format('woff2'),
+    url('./RobotoCondensed/RobotoCondensed-Light.woff') format('woff'),
+    url('./RobotoCondensed/RobotoCondensed-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('./RobotoCondensed/RobotoCondensed-BoldItalic.eot');
+  src: url('./RobotoCondensed/RobotoCondensed-BoldItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('./RobotoCondensed/RobotoCondensed-BoldItalic.woff2') format('woff2'),
+    url('./RobotoCondensed/RobotoCondensed-BoldItalic.woff') format('woff'),
+    url('./RobotoCondensed/RobotoCondensed-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('./RobotoCondensed/RobotoCondensed-Italic.eot');
+  src: url('./RobotoCondensed/RobotoCondensed-Italic.eot?#iefix')
+      format('embedded-opentype'),
+    url('./RobotoCondensed/RobotoCondensed-Italic.woff2') format('woff2'),
+    url('./RobotoCondensed/RobotoCondensed-Italic.woff') format('woff'),
+    url('./RobotoCondensed/RobotoCondensed-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('./RobotoCondensed/RobotoCondensed-Bold.eot');
+  src: url('./RobotoCondensed/RobotoCondensed-Bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('./RobotoCondensed/RobotoCondensed-Bold.woff2') format('woff2'),
+    url('./RobotoCondensed/RobotoCondensed-Bold.woff') format('woff'),
+    url('./RobotoCondensed/RobotoCondensed-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('./RobotoCondensed/RobotoCondensed-LightItalic.eot');
+  src: url('./RobotoCondensed/RobotoCondensed-LightItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('./RobotoCondensed/RobotoCondensed-LightItalic.woff2') format('woff2'),
+    url('./RobotoCondensed/RobotoCondensed-LightItalic.woff') format('woff'),
+    url('./RobotoCondensed/RobotoCondensed-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('./RobotoCondensed/RobotoCondensed-Regular.eot');
+  src: url('./RobotoCondensed/RobotoCondensed-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('./RobotoCondensed/RobotoCondensed-Regular.woff2') format('woff2'),
+    url('./RobotoCondensed/RobotoCondensed-Regular.woff') format('woff'),
+    url('./RobotoCondensed/RobotoCondensed-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('./Nunito/Nunito-ExtraLight.eot');
+  src: url('./Nunito/Nunito-ExtraLightItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('./Nunito/Nunito-ExtraLightItalic.woff2') format('woff2'),
+    url('./Nunito/Nunito-ExtraLightItalic.woff') format('woff'),
+    url('./Nunito/Nunito-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('./Nunito/Nunito-ExtraLight.eot');
+  src: url('./Nunito/Nunito-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('./Nunito/Nunito-ExtraLight.woff2') format('woff2'),
+    url('./Nunito/Nunito-ExtraLight.woff') format('woff'),
+    url('./Nunito/Nunito-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('./FiraCode/FiraCode-Light.eot');
+  src: url('./FiraCode/FiraCode-Light.eot?#iefix') format('embedded-opentype'),
+    url('./FiraCode/FiraCode-Light.woff2') format('woff2'),
+    url('./FiraCode/FiraCode-Light.woff') format('woff'),
+    url('./FiraCode/FiraCode-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
