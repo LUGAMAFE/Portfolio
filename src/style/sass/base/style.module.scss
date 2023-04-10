@@ -1,8 +1,8 @@
-@import '-generals';
+@use '-navbar.module.scss';
 
-@import '-navbar';
+@use '-generals.module.scss';
 
-@import '-intro';
+@import '-intro.module.scss';
 
 @import '-mision';
 

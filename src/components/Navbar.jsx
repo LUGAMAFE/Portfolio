@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import index from '../style/sass/index.module.scss'
+
 
 
 export const Navbar = () => {
@@ -10,28 +12,28 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className='myTopNavbar'>
-        <div className='logo'>
+      <div className= {index.myTopNavbar}>
+        <div className={index.logo}>
           <p>{'<LUGAMAFE/>'}</p>
         </div>
-        <div className='lights'>
+        <div className={index.lights}>
           <p>Encender luces</p>
-          <label className="toggle">
-            <button onClick={handleChangeColor} className="toggle-checkbox" type="checkbox"></button>
-            <div className="toggle-switch"></div>
+          <label className={index.toggle}>
+            <input onClick={handleChangeColor} className={index.toggleCheckbox} type="checkbox"></input>
+            <div className={index.toggleSwitch}></div>
           </label>
         </div>
-        <div className='changeIdiom'>
-         <div className="buttons">
-          <button className='EsButton'>
+        <div className={index.changeIdiom}>
+         <div className={index.buttons}>
+          <button className={index.EsButton}>
             <p>Español</p>
           </button>
-          <button className='InButton'>
+          <button className={index.InButton}>
             <p>English</p>
           </button>
         </div>
         </div>
-        <div className='menuToggle'>
+        <div className={index.menuToggle}>
           <button>
             <svg>
               <image href="../../assets/images/bx-menu.svg"/>

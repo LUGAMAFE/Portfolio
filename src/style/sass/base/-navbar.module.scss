@@ -53,7 +53,7 @@
       cursor: pointer;
       display: inline-block;
       margin-top: 5px;
-      .toggle-switch {
+      .toggleSwitch {
         display: inline-block;
         background: rgba(19, 20, 22, 0.2);
         box-shadow: inset 2px 2px 8px rgba(4, 4, 5, 0.6);
@@ -82,17 +82,17 @@
           transition: left 0.25s;
         }
       }
-      .toggle-checkbox {
+      .toggleCheckbox {
         position: absolute;
         visibility: hidden;
-        &:checked + .toggle-switch {
+        &:checked + .toggleSwitch {
           background: #56c080;
           &:before {
             left: 25px;
           }
         }
       }
-      &:hover .toggle-switch {
+      &:hover .toggleSwitch {
         &:before {
           background: linear-gradient(to bottom, #fff 0%, #fff 100%);
           box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
