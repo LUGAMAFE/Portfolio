@@ -7,19 +7,19 @@ import { BrandsSection } from './BrandsSection'
 import { SkillSection } from './SkillSection'
 import { ProyectSection } from './ProyectSection'
 import { MisionSection } from './MisionSection'
-
+import { StyleProvider } from './context/StyleProvider'
 
 export const PortfolioApp = () => {
   return (
-    <>
-          <Navbar/>
-          <IntroSection/>
-          <MisionSection/>
-          <ProyectSection/>
-          <SkillSection/>
-          <BrandsSection/>
-          <CodeSection/>
-          <ContactSection/>
-    </>
+    <StyleProvider>
+      <Navbar />
+      <IntroSection />
+      <MisionSection />
+      <ProyectSection />
+      <SkillSection />
+      <BrandsSection />
+      <CodeSection />
+      <ContactSection />
+    </StyleProvider>
   )
 }
