@@ -8,7 +8,11 @@
   height: 90px;
   left: 0px;
   right: 0px;
-  background: var(--darkColorNavbar);
+  background: linear-gradient(
+    180deg,
+    var(--primary-color-3) 0%,
+    var(--primary-color-1) 100%
+  );
   z-index: 999;
   .logo {
     font-family: 'Roboto Condensed';
@@ -53,7 +57,7 @@
       cursor: pointer;
       display: inline-block;
       margin-top: 5px;
-      .toggle-switch {
+      .toggleSwitch {
         display: inline-block;
         background: rgba(19, 20, 22, 0.2);
         box-shadow: inset 2px 2px 8px rgba(4, 4, 5, 0.6);
@@ -82,17 +86,17 @@
           transition: left 0.25s;
         }
       }
-      .toggle-checkbox {
+      .toggleCheckbox {
         position: absolute;
         visibility: hidden;
-        &:checked + .toggle-switch {
+        &:checked + .toggleSwitch {
           background: #56c080;
           &:before {
             left: 25px;
           }
         }
       }
-      &:hover .toggle-switch {
+      &:hover .toggleSwitch {
         &:before {
           background: linear-gradient(to bottom, #fff 0%, #fff 100%);
           box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
@@ -110,7 +114,7 @@
 
     /* Middle Color Black */
 
-    background: #26292e;
+    background: var(--primary-color-2);
     box-shadow: -4px -5px 10px #484d54;
     border-radius: 16px;
     .buttons {
@@ -120,17 +124,17 @@
       align-content: center;
       width: 352px;
       height: 34px;
-      .EsButton {
+      .esBoton {
         width: 172px;
         height: 34px;
         margin-right: 5px;
 
         /* Middle Color Black */
 
-        background: #26292e;
+        background: var(--primary-color-2);
         /* Middle Color Black */
 
-        border: 1px solid #26292e;
+        border: 1px solid var(--primary-color-3);
         box-shadow: inset 3px 4px 10px #1a1b1d, inset -4px -5px 10px #31353a;
         border-radius: 8px;
         p {

@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.scss'
-import { PortfolioApp } from './PortfolioApp'
+import { PortfolioApp } from './components/PortfolioApp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
