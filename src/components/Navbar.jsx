@@ -4,16 +4,8 @@ import { StyleContext } from './context/StyleContext'
 import NeumorphicElement from './NeomorphicElement'
 export const Navbar = () => {
   const {
-    style,
     handleChangeColor: styleHandleChangeColor,
-    handleChangeSize,
-    handleChangeRadius,
-    handleChangeShape,
-    handleChangeDistance,
-    handleChangeColorDifference,
-    handleChangeMaxSize,
-    handleChangeMaxRadius,
-    handleChangeGradient,
+    styles: { mainColor },
   } = useContext(StyleContext)
 
   const handleChangeColor = (event) => {
@@ -21,28 +13,12 @@ export const Navbar = () => {
     styleHandleChangeColor(isChecked)
   }
   return (
-    <NeumorphicElement
-      positionX={10}
-      positionY={10}
-      angle={180}
-      blur={1}
-      color={style.secondaryColor}
-      darkColor="#333"
-      lightColor="#ddd"
-      firstGradientColor={style.thirdColor}
-      secondGradientColor={style.primaryColor}
-      radius={5}
-      maxRadius={0}
-      gradient={5}
-      shape={5}
-      form="primary"
-      className={index.myTopNavbar}
-    >
+    <NeumorphicElement form={'convex'} className={index.myTopNavbar}>
       <div className={index.logo}>
         <p>{'<LUGAMAFE/>'}</p>
       </div>
       <div className={index.lights}>
-        <p>{style?.primaryColor}</p>
+        <p>{mainColor}</p>
         <label className={index.toggle}>
           <input
             onChange={handleChangeColor}
