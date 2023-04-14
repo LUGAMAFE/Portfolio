@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import index from '../style/sass/index.module.scss'
+import style from '../style/sass/style.module.scss'
 import { StyleContext } from './context/StyleContext'
 import NeumorphicElement from './NeomorphicElement'
 export const Navbar = () => {
@@ -13,32 +13,32 @@ export const Navbar = () => {
     styleHandleChangeColor(isChecked)
   }
   return (
-    <NeumorphicElement form={'convex'} className={index.myTopNavbar}>
-      <div className={index.logo}>
+    <NeumorphicElement form={'convex'} className={style.myTopNavbar}>
+      <div className={style.logo}>
         <p>{'<LUGAMAFE/>'}</p>
       </div>
-      <div className={index.lights}>
+      <div className={style.lights}>
         <p>{mainColor}</p>
-        <label className={index.toggle}>
+        <label className={style.toggle}>
           <input
             onChange={handleChangeColor}
-            className={index.toggleCheckbox}
+            className={style.toggleCheckbox}
             type="checkbox"
           ></input>
-          <div className={index.toggleSwitch}></div>
+          <div className={style.toggleSwitch}></div>
         </label>
       </div>
-      <div className={index.changeIdiom} form="convex" size="20px">
-        <div className={index.buttons}>
-          <button className={index.esBoton}>
+      <div className={style.changeIdiom} form="convex" size="20px">
+        <div className={style.buttons}>
+          <button className={style.esBoton}>
             <p>Español</p>
           </button>
-          <button className={index.InButton}>
+          <button className={style.InButton}>
             <p>English</p>
           </button>
         </div>
       </div>
-      <div className={index.menuToggle}>
+      <div className={style.menuToggle}>
         <button>
           <svg>
             <image href="../../assets/images/bx-menu.svg" />

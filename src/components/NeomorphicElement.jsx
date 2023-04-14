@@ -1,17 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, forwardRef } from 'react'
 import {
   angleGradient,
   colorLuminance,
-  handleDistance,
-  handleSize,
   getContrast,
   getIntFormValue,
   getIfGradient,
 } from '../utils'
 import { StyleContext } from './context/StyleContext'
-import styles from '../style/sass/index.module.scss'
+import styles from '../style/sass/style.module.scss'
 
-const NeumorphicElement = React.forwardRef(
+const NeumorphicElement = forwardRef(
   (
     {
       element: Element = 'div',
