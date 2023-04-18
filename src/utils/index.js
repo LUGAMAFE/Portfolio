@@ -12,10 +12,11 @@ export function angleGradient(shapeId, distance) {
 
 export function getIntFormValue(form) {
   const values = {
-    flat: { value: 1 },
+    flat: { value: 4 },
     concave: { value: 2 },
     convex: { value: 3 },
-    pressed: { value: 4 },
+    level: { value: 1 },
+    pressed: { value: 0 },
   }
   return values[form].value
 }
@@ -68,4 +69,23 @@ export const getIfGradient = (shapeId) => {
   } else {
     return false
   }
+}
+
+export const isValidColor = hex => /^#[0-9A-F]{6}$/i.test(hex);
+
+export const camelize = str => {
+  return str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+      return index === 0 ? word.toLowerCase() : word.toUpperCase()
+    })
+    .replace(/\s+/g, '')
+}
+
+export const deleteFalsyProperties = obj => {
+  for (const prop in obj) {
+    if (!obj[prop]) {
+      delete obj[prop];
+    }
+  }
+  return obj;
 }

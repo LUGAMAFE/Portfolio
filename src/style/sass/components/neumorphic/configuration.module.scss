@@ -1,0 +1,112 @@
+.container{
+  --blur: 60px;
+  --textColor: #001f3f;
+  --textColorOpposite: #f6f5f7;
+  --baseColor: #aab7ea;
+  --darkColor: #dadada;
+  --firstGradientColor: #dadada;
+  --lightColor: #adadad;
+  --secondGradientColor: #adadad;
+  --positionX: 30px;
+  --positionXOpposite: -30px;
+  --positionY: 30px;
+  --positionYOpposite: -30px;
+  --angle: 145deg;
+  --size: 150px;
+  --radius: 30px;
+  --main-color:#26292e;
+  // background-color: var(--main-color);
+  background-color: #f6f5f7;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #001f3f;
+  margin-bottom: 5px;
+  margin-top: 0px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &--label {
+    margin-bottom: 6px;
+  }
+
+  @media only screen and (max-width: 680px) and (max-height: 715px),
+    screen and (max-height: 720px) {
+    margin-bottom: 10px;
+
+    &.row--checkbox {
+      margin-bottom: 7px;
+    }
+  }
+
+  @media only screen and (max-width: 680px) and (max-height: 650px),
+    screen and (max-height: 600px) {
+    margin-bottom: 5px;
+
+    &.row--checkbox {
+      margin-bottom: 7px;
+    }
+  }
+
+  label {
+    padding-right: 10px;
+    user-select: none;
+    font-size: 12px;
+
+    @media only screen and (max-width: 950px) {
+      padding-right: 6px;
+    }
+  }
+}
+
+.copy {
+  position: absolute;
+  right: 12px;
+  border-radius: 2px;
+  background-color: #3b843c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 11px;
+}
+
+.shapeSwitch {
+  display: flex;
+  overflow: hidden;
+  border-radius: 3px;
+  flex-grow: 1;
+
+  button {
+    flex-grow: 1;
+    background: var(--textColor);
+    color: var(--textColorOpposite);
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    opacity: 0.9;
+
+    svg {
+      stroke: var(--textColorOpposite);
+      width: 30px;
+      height: 30px;
+    }
+
+    * {
+      pointer-events: none;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+@import 'inputs.module.scss';

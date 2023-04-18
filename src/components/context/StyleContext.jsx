@@ -1,13 +1,26 @@
-import { useEffect, useMemo } from 'react'
-import { createContext } from 'react'
-import React, { useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { colorLuminance } from '../../utils'
 
 export const StyleContext = createContext()
 
-const obtainMainClass = (cssVaribleName) => {
+const obtainMainClass = (cssVariableName) => {
   const rootStyles = getComputedStyle(document.documentElement)
-  return rootStyles.getPropertyValue(cssVaribleName)
+  return rootStyles.getPropertyValue(cssVariableName)
+}
+
+const updateColors = (color, colorDifference) => {
+  const darkColor = colorLuminance(color, colorDifference * -1)
+  const lightColor = colorLuminance(color, colorDifference)
+  const darkGradientColor = colorLuminance(color, 0.07)
+  const lightGradientColor = colorLuminance(color, -0.1)
+
+  return {
+    darkColor,
+    mainColor: color,
+    lightColor,
+    darkGradientColor,
+    lightGradientColor,
+  }
 }
 
 export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
@@ -19,35 +32,26 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
     lightGradientColor: '',
   })
 
+  const [editorMode, setEditorMode] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEditorMode(true)
+    }, 1200)
+  }, [])
+
   const [initialMainColor, setInitialMainColor] = useState('')
 
   useEffect(() => {
-    const mainColor = obtainMainClass('--main-color')
+    const mainColor = obtainMainClass('--main-color').trim()
     setInitialMainColor(mainColor)
-    const darkColor = colorLuminance(mainColor, colorDifference * -1)
-    const lightColor = colorLuminance(mainColor, colorDifference)
-    const darkGradientColor = colorLuminance(mainColor, 0.07)
-    const lightGradientColor = colorLuminance(mainColor, -0.1)
-    setStyles({
-      darkColor,
-      mainColor: mainColor,
-      lightColor,
-      darkGradientColor,
-      lightGradientColor,
-    })
+    setStyles(updateColors(mainColor, colorDifference))
   }, [])
 
   const handleChangeColor = (isChecked) => {
-    let newMainColor = isChecked ? '#d9d6d1' : initialMainColor
-    console.log(newMainColor)
-
-    document.documentElement.style.cssText = `
-      --main-color: ${newMainColor};
-    `
-
-    setStyles({
-      mainColor: newMainColor,
-    })
+    const newMainColor = isChecked ? '#e0e0e0' : initialMainColor
+    document.documentElement.style.setProperty('--main-color', newMainColor)
+    setStyles(updateColors(newMainColor, colorDifference))
   }
 
   return (
@@ -56,6 +60,8 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
         styles,
         colorDifference,
         handleChangeColor,
+        editorMode,
+        setEditorMode
       }}
     >
       {children}
