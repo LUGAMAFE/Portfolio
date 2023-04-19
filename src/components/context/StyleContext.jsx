@@ -32,7 +32,8 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
     lightGradientColor: '',
   })
 
-  const [editorMode, setEditorMode] = useState(false)
+  const [editorMode, setEditorMode] = useState(false);
+  const [ctrlButton, setCtrlButton] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,7 +62,8 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
         colorDifference,
         handleChangeColor,
         editorMode,
-        setEditorMode
+        setEditorMode,
+        ctrlButton,
       }}
     >
       {children}

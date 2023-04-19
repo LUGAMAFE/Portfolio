@@ -47,7 +47,7 @@ export function getContrast(hex) {
     g = parseInt(hex.substr(3, 2), 16),
     b = parseInt(hex.substr(5, 2), 16),
     yiq = (r * 299 + g * 587 + b * 114) / 1000
-  return yiq >= 128 ? '#001f3f' : '#F6F5F7'
+  return yiq >= 128 ? '#2e3133' : '#F6F5F7'
 }
 
 export const handleDistance = (value) => {

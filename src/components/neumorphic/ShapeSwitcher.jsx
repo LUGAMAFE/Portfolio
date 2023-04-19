@@ -8,7 +8,7 @@ import { ReactComponent as Pressed } from '../svg/pressed.svg';
 const ShapeSwitcher = ({ shape, setShape }) => {
   return (
     <>
-      <div className={`${style.row} --label`}>
+      <div className={`${style.row} ${style.label}`}>
         <label>Form: </label>
       </div>
       <div className={style.row}>

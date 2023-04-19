@@ -1,22 +1,7 @@
 .container{
-  --blur: 60px;
-  --textColor: #001f3f;
+  --textColor: #2e3133;
   --textColorOpposite: #f6f5f7;
-  --baseColor: #aab7ea;
-  --darkColor: #dadada;
-  --firstGradientColor: #dadada;
-  --lightColor: #adadad;
-  --secondGradientColor: #adadad;
-  --positionX: 30px;
-  --positionXOpposite: -30px;
-  --positionY: 30px;
-  --positionYOpposite: -30px;
-  --angle: 145deg;
-  --size: 150px;
-  --radius: 30px;
-  --main-color:#26292e;
-  // background-color: var(--main-color);
-  background-color: #f6f5f7;
+  background-color: var(--textColor);
   padding: 12px;
   border-radius: 10px;
 }
@@ -25,7 +10,7 @@
   display: flex;
   align-items: center;
   font-weight: bold;
-  color: #001f3f;
+  color: var(--textColorOpposite);
   margin-bottom: 5px;
   margin-top: 0px;
 
@@ -33,7 +18,7 @@
     margin-bottom: 0;
   }
 
-  &--label {
+  &.label {
     margin-bottom: 6px;
   }
 
@@ -66,6 +51,49 @@
   }
 }
 
+.lightArrows{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 8px;
+  &.disabled{
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .arrow{
+    border: var(--textColorOpposite) 1px solid;
+    background-color: transparent;
+    width: 12px;
+    height: 12px;
+    &.active{
+      background-color: rgb(255, 255, 0);
+    }
+    &:nth-of-type(1){
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: unset;
+      border-top-left-radius: unset;
+    }
+    &:nth-of-type(2){
+      border-bottom-right-radius: unset;
+      border-bottom-left-radius: 30px;
+      border-top-right-radius: unset;
+      border-top-left-radius: unset;
+    }
+    &:nth-of-type(3){
+      border-bottom-right-radius: unset;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 30px;
+      border-top-left-radius: unset;
+    }
+    &:nth-of-type(4){
+      border-bottom-right-radius: unset;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: unset;
+      border-top-left-radius: 30px;
+    }
+  }
+}
+
 .copy {
   position: absolute;
   right: 12px;
@@ -86,15 +114,15 @@
 
   button {
     flex-grow: 1;
-    background: var(--textColor);
-    color: var(--textColorOpposite);
+    background: var(--textColorOpposite);
+    color: var(--textColor);
     cursor: pointer;
     outline: 0;
     border: none;
     opacity: 0.9;
 
     svg {
-      stroke: var(--textColorOpposite);
+      stroke: var(--textColor);
       width: 30px;
       height: 30px;
     }

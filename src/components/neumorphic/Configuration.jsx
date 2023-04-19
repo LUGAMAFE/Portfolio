@@ -1,55 +1,66 @@
-import React, { useEffect, useContext, useState, useRef } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import ShapeSwitcher from './ShapeSwitcher'
 import ConfigurationRow from './ConfigurationRow'
 import { isValidColor } from '../../utils'
 import style from '../../style/sass/components/neumorphic/configuration.module.scss'
-// import '../../style/sass/components/neumorphic/inputs.scss';
 import { NeuElementContext } from './context/NeuElementContext'
 import { deleteFalsyProperties } from '../../utils'
 import { StyleContext } from '../context/StyleContext'
+import LightSourceSelector from './LightSourceSelector'
+import { getContrast } from '../../utils'
 
-const Configuration = ({}) => {
+const maxSize = 500
+
+const Configuration = () => {
   const { contextConfig, updateContextConfigProp } =
     useContext(NeuElementContext)
   const [color, setColor] = useState('#ffffff')
-  const [maxSize, setMaxSize] = useState(410)
+  const [defaultCssVariables, setDefaultCssVariables] = useState({})
   const {
     styles: { mainColor: mainColorContext },
   } = useContext(StyleContext)
 
-  const copyToClipboard = (e) => {
-    let textConfig = JSON.stringify(deleteFalsyProperties(contextConfig))
-    // Copy the text inside the text field
-    textConfig = `neumorphicOptions={${textConfig}}`
+  const copyToClipboard = () => {
+    const textConfig = `neumorphicOptions={${JSON.stringify(
+      deleteFalsyProperties(contextConfig)
+    )}}`
     navigator.clipboard.writeText(textConfig)
-
-    // Alert the copied text
     alert(`Copied neumorphic element config: \n ${textConfig}`)
   }
 
-  const colorOnChange = ({ target: { value } }) => {
+  const colorOnChange = (e) => {
+    const { value } = e.target
     if (isValidColor(value)) {
-      updateContextConfigProp('color', e.target.value)
+      updateContextConfigProp('color', value)
     }
   }
 
-  const handleShape = ({ target: { name } }) => {
-    updateContextConfigProp('form', name)
+  const handleShape = (e) => {
+    updateContextConfigProp('form', e.target.name)
+  }
+
+  const handleDirection = (e) => {
+    updateContextConfigProp('lightSource', +e.target.name)
   }
 
   useEffect(() => {
+    const updateColorAndCssVariables = (newColor) => {
+      setColor(newColor)
+      setDefaultCssVariables({
+        '--textColor': `${getContrast(newColor)}`,
+        '--textColorOpposite': `${newColor}`,
+      })
+    }
+
     if (!contextConfig.color) {
-      if (!mainColorContext) {
-        setColor('#ffffff')
-      }
-      setColor(mainColorContext)
+      updateColorAndCssVariables(mainColorContext || '#ffffff')
     } else {
-      setColor(contextConfig.color)
+      updateColorAndCssVariables(contextConfig.color)
     }
   }, [contextConfig.color, mainColorContext])
 
   return (
-    <div className={style.container}>
+    <div className={style.container} style={defaultCssVariables}>
       <div className={style.row}>
         <label htmlFor="color">Pick a color:</label>
         <input
@@ -72,6 +83,11 @@ const Configuration = ({}) => {
           onChange={colorOnChange}
         />
       </div>
+      <LightSourceSelector
+        lightSource={contextConfig.lightSource}
+        onClick={handleDirection}
+        disabled={contextConfig.form === 'flat' ? true : false}
+      />
       <ConfigurationRow
         label={'Size'}
         type={'range'}
@@ -113,7 +129,6 @@ const Configuration = ({}) => {
         className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
-      
       {/* {contextConfig.form === 'flat' && (
         <ConfigurationRow
           label={'Angle'}
@@ -133,18 +148,6 @@ const Configuration = ({}) => {
         >
           Shadow:
           <input type="checkbox" name="noShadow" />
-        </label> */}
-        {/* <label htmlFor="noShadow">
-          Shadow:
-          <input
-            type="checkbox"
-            name="noShadow"
-            checked={contextConfig.noShadows}
-            onChange={(e) => {
-              //console.log(e.target.checked);
-              updateContextConfigProp('noShadows', e.target.checked)
-            }}
-          />
         </label> */}
       </div>
       <button className={style.copy} onClick={copyToClipboard}>
