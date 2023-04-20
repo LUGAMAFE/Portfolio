@@ -3,7 +3,7 @@ import { camelize } from '../../utils';
 const ConfigurationRow = ({ className, label, type, value, min, max, step = '1', disabled, onChange }) => {
   return (
     <div className={className}>
-      <label htmlFor={camelize(label)}>{label}: </label>
+      <label>{label}: </label>
       <input
         type={type}
         name={camelize(label)}
@@ -13,7 +13,7 @@ const ConfigurationRow = ({ className, label, type, value, min, max, step = '1',
         max={max}
         step={step}
         id={camelize(label)}
-        disabled={disabled}
+        disabled={disabled || !value}
       />
     </div>
   )

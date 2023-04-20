@@ -31,7 +31,7 @@ const eventClose = new CustomEvent('closeNeu', {
   bubbles: true,
 })
 
-const NeuTooltipTool = ({ refElement, setRefProps }) => {
+const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
   const { ctrlButton, styles: { mainColor } } = useContext(StyleContext);
   const { contextConfig: {color }} = useContext(NeuElementContext);
   const [isOpen, setIsOpen] = useState(false)
@@ -91,6 +91,7 @@ const NeuTooltipTool = ({ refElement, setRefProps }) => {
             })
             e.currentTarget.dispatchEvent(eventClose)
           }
+          if(onClick) onClick(e);
         },
       }),
     })

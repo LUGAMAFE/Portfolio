@@ -22,17 +22,17 @@ const LightSourceSelector = ({lightSource, onClick, disabled}) => {
         ></button>
         <button
           className={`${style.arrow} ${
-            lightSource == 3 && style.active
-          }`}
-          onClick={onClick}
-          name="3"
-        ></button>
-        <button
-          className={`${style.arrow} ${
             lightSource == 4 && style.active
           }`}
           onClick={onClick}
           name="4"
+        ></button>
+        <button
+          className={`${style.arrow} ${
+            lightSource == 3 && style.active
+          }`}
+          onClick={onClick}
+          name="3"
         ></button>
       </div>
     </div>

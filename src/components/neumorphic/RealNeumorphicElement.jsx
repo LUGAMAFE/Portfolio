@@ -25,6 +25,7 @@ const RealNeumorphicElement = ({
   neumorphicOptions = {}, // Add this new prop
   style,
   nTestId = null,
+  onClick = null,
   ...rest
 }) => {
   const { contextConfig, setContextConfig } = useContext(NeuElementContext)
@@ -200,6 +201,7 @@ const RealNeumorphicElement = ({
         <NeuTooltipTool
           refElement={refElement}
           setRefProps={setTooltipReferenceProps}
+          onClick={onClick}
         />
       )}
     </>

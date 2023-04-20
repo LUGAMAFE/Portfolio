@@ -1,20 +1,19 @@
 import React, { useEffect, useContext, useState } from 'react'
 import ShapeSwitcher from './ShapeSwitcher'
 import ConfigurationRow from './ConfigurationRow'
-import { isValidColor } from '../../utils'
+import { isValidColor, deleteFalsyProperties, getContrast } from '../../utils'
 import style from '../../style/sass/components/neumorphic/configuration.module.scss'
 import { NeuElementContext } from './context/NeuElementContext'
-import { deleteFalsyProperties } from '../../utils'
 import { StyleContext } from '../context/StyleContext'
 import LightSourceSelector from './LightSourceSelector'
-import { getContrast } from '../../utils'
 
 const maxSize = 500
 
 const Configuration = () => {
-  const { contextConfig, updateContextConfigProp } =
+  const { contextConfig, updateContextConfigProp, setContextConfig } =
     useContext(NeuElementContext)
-  const [color, setColor] = useState('#ffffff')
+  const [color, setColor] = useState("#ffffff");
+  const [colorInputText, setColorInputText] = useState("#ffffff");
   const [defaultCssVariables, setDefaultCssVariables] = useState({})
   const {
     styles: { mainColor: mainColorContext },
@@ -28,11 +27,31 @@ const Configuration = () => {
     alert(`Copied neumorphic element config: \n ${textConfig}`)
   }
 
-  const colorOnChange = (e) => {
+  const handleColorChange = (e) => {
     const { value } = e.target
+    setColorInputText(value);
     if (isValidColor(value)) {
-      updateContextConfigProp('color', value)
+      updateContextConfigProp('color', value);
     }
+  }
+
+  const handleSizeChange = (e) => {
+    const { value } = e.target;
+    setContextConfig((prev) => ({
+      ...prev,
+      size: value,
+      blur: Math.round(value * 0.2),
+      distance: Math.round(value * 0.1),
+    }))
+  }
+
+  const handleDistanceChange = (e) => {
+    const { value } = e.target;
+    setContextConfig((prev) => ({
+      ...prev,
+      distance: value,
+      blur: value * 2
+    }))
   }
 
   const handleShape = (e) => {
@@ -45,7 +64,8 @@ const Configuration = () => {
 
   useEffect(() => {
     const updateColorAndCssVariables = (newColor) => {
-      setColor(newColor)
+      setColor(newColor);
+      setColorInputText(newColor);
       setDefaultCssVariables({
         '--textColor': `${getContrast(newColor)}`,
         '--textColorOpposite': `${newColor}`,
@@ -79,8 +99,8 @@ const Configuration = () => {
           placeholder="#ffffff"
           name="color"
           id="colorInput"
-          value={color}
-          onChange={colorOnChange}
+          value={colorInputText}
+          onChange={handleColorChange}
         />
       </div>
       <LightSourceSelector
@@ -92,7 +112,7 @@ const Configuration = () => {
         label={'Size'}
         type={'range'}
         value={contextConfig.size}
-        onChange={(e) => updateContextConfigProp('size', e.target.value)}
+        onChange={handleSizeChange}
         min={'10'}
         max={maxSize}
         className={style.row}
@@ -102,7 +122,7 @@ const Configuration = () => {
         label={'Distance'}
         type={'range'}
         value={contextConfig.distance}
-        onChange={(e) => updateContextConfigProp('distance', e.target.value)}
+        onChange={handleDistanceChange}
         min={'2'}
         max={'50'}
         className={style.row}
