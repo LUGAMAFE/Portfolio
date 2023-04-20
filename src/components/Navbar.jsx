@@ -1,68 +1,106 @@
-import React, { useContext } from 'react'
-import index from '../style/sass/index.module.scss'
+import React, { useContext, useState } from 'react'
+import style from '../style/sass/style.module.scss'
 import { StyleContext } from './context/StyleContext'
-import NeumorphicElement from './NeomorphicElement'
+import NeumorphicElement from './neumorphic/NeumorphicElement'
 export const Navbar = () => {
   const {
-    style,
     handleChangeColor: styleHandleChangeColor,
-    handleChangeSize,
-    handleChangeRadius,
-    handleChangeShape,
-    handleChangeDistance,
-    handleChangeColorDifference,
-    handleChangeMaxSize,
-    handleChangeMaxRadius,
-    handleChangeGradient,
+    styles: { mainColor },
   } = useContext(StyleContext)
+  const initialButtonConfigs = [
+    {
+      id: 'esBoton',
+      text: 'Español',
+      className: style.esBoton,
+      neumorphicOptions: {
+        form: 'flat',
+        size: 100,
+        intensity: 0.15,
+        lightSource: 1,
+      },
+    },
+    {
+      id: 'InButton',
+      text: 'English',
+      className: style.InButton,
+      neumorphicOptions: {
+        form: 'pressed',
+        size: 100,
+        intensity: 0.13,
+        lightSource: 1,
+      },
+    },
+  ]
 
+  const [buttonConfigs, setButtonConfigs] = useState(initialButtonConfigs)
+
+  const handleButtonClick = (id) => {
+    setButtonConfigs((prev) =>
+      prev.map((button) =>
+        button.id === id
+          ? {
+              ...button,
+              neumorphicOptions: {
+                ...button.neumorphicOptions,
+                form:
+                  button.neumorphicOptions.form === 'flat' ? 'pressed' : 'flat',
+              },
+            }
+          : button
+      )
+    )
+  }
   const handleChangeColor = (event) => {
     const isChecked = event.target.checked
     styleHandleChangeColor(isChecked)
   }
+
   return (
     <NeumorphicElement
-      positionX={10}
-      positionY={10}
-      angle={180}
-      blur={1}
-      color={style.secondaryColor}
-      darkColor="#333"
-      lightColor="#ddd"
-      firstGradientColor={style.thirdColor}
-      secondGradientColor={style.primaryColor}
-      radius={5}
-      maxRadius={0}
-      gradient={5}
-      shape={5}
-      form="primary"
-      className={index.myTopNavbar}
+      form={'flat'}
+      className={style.myTopNavbar}
+      nTestId="navbar"
     >
-      <div className={index.logo}>
+      <div className={style.logo}>
         <p>{'<LUGAMAFE/>'}</p>
       </div>
-      <div className={index.lights}>
-        <p>{style?.primaryColor}</p>
-        <label className={index.toggle}>
+      <div className={style.lights}>
+        <p>{mainColor}</p>
+        <label className={style.toggle}>
           <input
             onChange={handleChangeColor}
-            className={index.toggleCheckbox}
+            className={style.toggleCheckbox}
             type="checkbox"
           ></input>
-          <div className={index.toggleSwitch}></div>
+          <div className={style.toggleSwitch}></div>
         </label>
       </div>
-      <div className={index.changeIdiom} form="convex" size="20px">
-        <div className={index.buttons}>
-          <button className={index.esBoton}>
-            <p>Español</p>
-          </button>
-          <button className={index.InButton}>
-            <p>English</p>
-          </button>
+      <NeumorphicElement
+        className={style.changeIdiom}
+        neumorphicOptions={{
+          form: 'level',
+          size: '55',
+          intensity: '0.19',
+          lightSource: 1,
+          distance: 6,
+          blur: 11,
+        }}
+      >
+        <div className={style.buttons}>
+          {buttonConfigs.map((button) => (
+            <NeumorphicElement
+              key={button.id}
+              element={'button'}
+              onClick={() => handleButtonClick(button.id)}
+              neumorphicOptions={button.neumorphicOptions}
+              className={button.className}
+            >
+              <p>{button.text}</p>
+            </NeumorphicElement>
+          ))}
         </div>
-      </div>
-      <div className={index.menuToggle}>
+      </NeumorphicElement>
+      <div className={style.menuToggle}>
         <button>
           <svg>
             <image href="../../assets/images/bx-menu.svg" />
