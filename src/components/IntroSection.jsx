@@ -36,6 +36,7 @@ export const IntroSection = () => {
             <div className={style.diseño}>
               <svg>
                 <image href="../../assets/images/Ilustracion-Diseño.svg" />
+                <image></image>
               </svg>
             </div>
           </div>

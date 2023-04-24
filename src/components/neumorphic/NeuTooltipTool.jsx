@@ -20,7 +20,7 @@ import {
 } from '@floating-ui/react'
 import Configuration from './Configuration'
 import { NeuElementContext } from './context/NeuElementContext'
-import { StyleContext } from '../context/StyleContext'
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext'
 import { getContrast } from '../../utils'
 
 const ARROW_HEIGHT = 10
@@ -32,7 +32,7 @@ const eventClose = new CustomEvent('closeNeu', {
 })
 
 const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
-  const { ctrlButton, styles: { mainColor } } = useContext(StyleContext);
+  const { ctrlButton, styles: { mainColor } } = useContext(NeumorphicStylesContext);
   const { contextConfig: {color }} = useContext(NeuElementContext);
   const [isOpen, setIsOpen] = useState(false)
   const arrowRef = useRef(null)

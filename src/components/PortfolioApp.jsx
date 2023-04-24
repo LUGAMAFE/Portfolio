@@ -7,7 +7,7 @@ import { BrandsSection } from './BrandsSection'
 import { SkillSection } from './SkillSection'
 import { ProyectSection } from './ProyectSection'
 import { MisionSection } from './MisionSection'
-import { StyleProvider } from './context/StyleContext'
+import { StyleProvider } from './context/NeumorphicStylesContext'
 
 export const PortfolioApp = () => {
   return (

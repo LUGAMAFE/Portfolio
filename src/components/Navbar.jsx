@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import style from '../style/sass/style.module.scss'
-import { StyleContext } from './context/StyleContext'
+import { NeumorphicStylesContext } from './context/NeumorphicStylesContext'
 import NeumorphicElement from './neumorphic/NeumorphicElement'
 export const Navbar = () => {
   const {
     handleChangeColor: styleHandleChangeColor,
     styles: { mainColor },
-  } = useContext(StyleContext)
+  } = useContext(NeumorphicStylesContext)
   const initialButtonConfigs = [
     {
       id: 'esBoton',

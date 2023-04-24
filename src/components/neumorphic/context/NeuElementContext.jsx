@@ -10,28 +10,16 @@ export const NeuElementProvider = ({ children }) => {
     intensity: null,
     lightSource: null,
     distance: null,
-    blur: null,
-    angle: null
+    blur: null
   })
 
   const updateContextConfigProp = useCallback((property, value) => {
-    if(property === 'size') {
-      setContextConfig((prevContextConfig) => {
-        return {
-          ...prevContextConfig,
-          [property]: value,
-          blur: "",
-          distance: "",
-        }
-      });
-      return;
-    }
-    setContextConfig((prevContextConfig) => {
-      return {
+    setContextConfig((prevContextConfig) => (
+      {
         ...prevContextConfig,
         [property]: value,
       }
-    });
+    ));
   }, []);
 
   return (

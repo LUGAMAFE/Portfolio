@@ -4,7 +4,7 @@ import ConfigurationRow from './ConfigurationRow'
 import { isValidColor, deleteFalsyProperties, getContrast } from '../../utils'
 import style from '../../style/sass/components/neumorphic/configuration.module.scss'
 import { NeuElementContext } from './context/NeuElementContext'
-import { StyleContext } from '../context/StyleContext'
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext'
 import LightSourceSelector from './LightSourceSelector'
 
 const maxSize = 500
@@ -17,7 +17,7 @@ const Configuration = () => {
   const [defaultCssVariables, setDefaultCssVariables] = useState({})
   const {
     styles: { mainColor: mainColorContext },
-  } = useContext(StyleContext)
+  } = useContext(NeumorphicStylesContext)
 
   const copyToClipboard = () => {
     const textConfig = `neumorphicOptions={${JSON.stringify(

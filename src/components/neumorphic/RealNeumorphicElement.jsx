@@ -6,7 +6,7 @@ import {
   getIntFormValue,
   getIfGradient,
 } from '../../utils'
-import { StyleContext } from '../context/StyleContext'
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext'
 import styles from '../../style/sass/style.module.scss'
 import NeuTooltipTool from './NeuTooltipTool'
 import { NeuElementContext } from './context/NeuElementContext'
@@ -15,20 +15,20 @@ import useDeepCompareEffect from 'use-deep-compare-effect'
 const RealNeumorphicElement = ({
   element: Element = 'div',
   className = '',
-  form,
-  color,
-  size,
-  intensity,
-  lightSource,
-  distance,
-  blur,
   neumorphicOptions = {}, // Add this new prop
-  style,
-  nTestId = null,
-  onClick = null,
+  form = undefined,
+  color = undefined,
+  size = undefined,
+  intensity = undefined,
+  lightSource = undefined,
+  distance = undefined,
+  blur = undefined,
+  style = undefined,
+  nTestId = undefined,
+  onClick = undefined,
   ...rest
 }) => {
-  const { contextConfig, setContextConfig } = useContext(NeuElementContext)
+  const { contextConfig, setContextConfig } = useContext(NeuElementContext);
   // Set default values for individual props if they are not provided
   const defaultProps = {
     form: null,
@@ -81,7 +81,7 @@ const RealNeumorphicElement = ({
       darkGradientColor: darkGradientColorContext,
       lightGradientColor: lightGradientColorContext,
     },
-  } = useContext(StyleContext)
+  } = useContext(NeumorphicStylesContext)
 
   const [refElement, setRefElement] = useState(null)
   const [tooltipReferenceProps, setTooltipReferenceProps] = useState({})
