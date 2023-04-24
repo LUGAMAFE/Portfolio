@@ -16,7 +16,7 @@ const ConfigurationRow = ({ className, label, type, value, min, max, step = '1',
         disabled={disabled || !value}
       />
     </div>
-  )
-}
+  );
+};
 
-export default ConfigurationRow
+export default ConfigurationRow;

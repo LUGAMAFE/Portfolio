@@ -1,39 +1,36 @@
-import React, { useEffect, useContext, useState } from 'react'
-import ShapeSwitcher from './ShapeSwitcher'
-import ConfigurationRow from './ConfigurationRow'
-import { isValidColor, deleteFalsyProperties, getContrast } from '../../utils'
-import style from '../../style/sass/components/neumorphic/configuration.module.scss'
-import { NeuElementContext } from './context/NeuElementContext'
-import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext'
-import LightSourceSelector from './LightSourceSelector'
+import React, { useEffect, useContext, useState } from 'react';
+import ShapeSwitcher from './ShapeSwitcher';
+import ConfigurationRow from './ConfigurationRow';
+import { isValidColor, deleteFalsyProperties, getContrast } from '../../utils';
+import style from '../../style/sass/components/neumorphic/configuration.module.scss';
+import { NeuElementContext } from './context/NeuElementContext';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import LightSourceSelector from './LightSourceSelector';
 
-const maxSize = 500
+const maxSize = 500;
 
 const Configuration = () => {
-  const { contextConfig, updateContextConfigProp, setContextConfig } =
-    useContext(NeuElementContext)
-  const [color, setColor] = useState("#ffffff");
-  const [colorInputText, setColorInputText] = useState("#ffffff");
-  const [defaultCssVariables, setDefaultCssVariables] = useState({})
+  const { contextConfig, updateContextConfigProp, setContextConfig } = useContext(NeuElementContext);
+  const [color, setColor] = useState('#ffffff');
+  const [colorInputText, setColorInputText] = useState('#ffffff');
+  const [defaultCssVariables, setDefaultCssVariables] = useState({});
   const {
     styles: { mainColor: mainColorContext },
-  } = useContext(NeumorphicStylesContext)
+  } = useContext(NeumorphicStylesContext);
 
   const copyToClipboard = () => {
-    const textConfig = `neumorphicOptions={${JSON.stringify(
-      deleteFalsyProperties(contextConfig)
-    )}}`
-    navigator.clipboard.writeText(textConfig)
-    alert(`Copied neumorphic element config: \n ${textConfig}`)
-  }
+    const textConfig = `neumorphicOptions={${JSON.stringify(deleteFalsyProperties(contextConfig))}}`;
+    navigator.clipboard.writeText(textConfig);
+    alert(`Copied neumorphic element config: \n ${textConfig}`);
+  };
 
   const handleColorChange = (e) => {
-    const { value } = e.target
+    const { value } = e.target;
     setColorInputText(value);
     if (isValidColor(value)) {
       updateContextConfigProp('color', value);
     }
-  }
+  };
 
   const handleSizeChange = (e) => {
     const { value } = e.target;
@@ -42,25 +39,25 @@ const Configuration = () => {
       size: value,
       blur: Math.round(value * 0.2),
       distance: Math.round(value * 0.1),
-    }))
-  }
+    }));
+  };
 
   const handleDistanceChange = (e) => {
     const { value } = e.target;
     setContextConfig((prev) => ({
       ...prev,
       distance: value,
-      blur: value * 2
-    }))
-  }
+      blur: value * 2,
+    }));
+  };
 
   const handleShape = (e) => {
-    updateContextConfigProp('form', e.target.name)
-  }
+    updateContextConfigProp('form', e.target.name);
+  };
 
   const handleDirection = (e) => {
-    updateContextConfigProp('lightSource', +e.target.name)
-  }
+    updateContextConfigProp('lightSource', +e.target.name);
+  };
 
   useEffect(() => {
     const updateColorAndCssVariables = (newColor) => {
@@ -69,15 +66,15 @@ const Configuration = () => {
       setDefaultCssVariables({
         '--textColor': `${getContrast(newColor)}`,
         '--textColorOpposite': `${newColor}`,
-      })
-    }
+      });
+    };
 
     if (!contextConfig.color) {
-      updateColorAndCssVariables(mainColorContext || '#ffffff')
+      updateColorAndCssVariables(mainColorContext || '#ffffff');
     } else {
-      updateColorAndCssVariables(contextConfig.color)
+      updateColorAndCssVariables(contextConfig.color);
     }
-  }, [contextConfig.color, mainColorContext])
+  }, [contextConfig.color, mainColorContext]);
 
   return (
     <div className={style.container} style={defaultCssVariables}>
@@ -175,7 +172,7 @@ const Configuration = () => {
       </button>
       <ShapeSwitcher shape={contextConfig.form} setShape={handleShape} />
     </div>
-  )
-}
+  );
+};
 
-export default Configuration
+export default Configuration;

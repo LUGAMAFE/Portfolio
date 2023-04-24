@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react'
-import style from '../style/sass/style.module.scss'
-import { NeumorphicStylesContext } from './context/NeumorphicStylesContext'
-import NeumorphicElement from './neumorphic/NeumorphicElement'
+import React, { useContext, useState } from 'react';
+import style from '../style/sass/style.module.scss';
+import { NeumorphicStylesContext } from './context/NeumorphicStylesContext';
+import NeumorphicElement from './neumorphic/NeumorphicElement';
 export const Navbar = () => {
   const {
     handleChangeColor: styleHandleChangeColor,
     styles: { mainColor },
-  } = useContext(NeumorphicStylesContext)
+  } = useContext(NeumorphicStylesContext);
   const initialButtonConfigs = [
     {
       id: 'esBoton',
@@ -30,9 +30,9 @@ export const Navbar = () => {
         lightSource: 1,
       },
     },
-  ]
+  ];
 
-  const [buttonConfigs, setButtonConfigs] = useState(initialButtonConfigs)
+  const [buttonConfigs, setButtonConfigs] = useState(initialButtonConfigs);
 
   const handleButtonClick = (id) => {
     setButtonConfigs((prev) =>
@@ -42,36 +42,27 @@ export const Navbar = () => {
               ...button,
               neumorphicOptions: {
                 ...button.neumorphicOptions,
-                form:
-                  button.neumorphicOptions.form === 'flat' ? 'pressed' : 'flat',
+                form: button.neumorphicOptions.form === 'flat' ? 'pressed' : 'flat',
               },
             }
           : button
       )
-    )
-  }
+    );
+  };
   const handleChangeColor = (event) => {
-    const isChecked = event.target.checked
-    styleHandleChangeColor(isChecked)
-  }
+    const isChecked = event.target.checked;
+    styleHandleChangeColor(isChecked);
+  };
 
   return (
-    <NeumorphicElement
-      form={'flat'}
-      className={style.myTopNavbar}
-      nTestId="navbar"
-    >
+    <NeumorphicElement form={'flat'} className={style.myTopNavbar} nTestId="navbar">
       <div className={style.logo}>
         <p>{'<LUGAMAFE/>'}</p>
       </div>
       <div className={style.lights}>
         <p>{mainColor}</p>
         <label className={style.toggle}>
-          <input
-            onChange={handleChangeColor}
-            className={style.toggleCheckbox}
-            type="checkbox"
-          ></input>
+          <input onChange={handleChangeColor} className={style.toggleCheckbox} type="checkbox"></input>
           <div className={style.toggleSwitch}></div>
         </label>
       </div>
@@ -108,5 +99,5 @@ export const Navbar = () => {
         </button>
       </div>
     </NeumorphicElement>
-  )
-}
+  );
+};

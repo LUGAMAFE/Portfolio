@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export const ContactSection = () => {
   return (
     <>
-        <div className='contact'></div>
+      <div className="contact"></div>
     </>
-  )
-}
+  );
+};

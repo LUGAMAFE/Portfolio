@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export const ProyectSection = () => {
   return (
     <>
-        <div className='proyects'></div>
+      <div className="proyects"></div>
     </>
-  )
-}
+  );
+};

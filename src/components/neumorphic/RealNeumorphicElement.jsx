@@ -1,16 +1,10 @@
-import React, { useContext, useEffect, useState, useMemo } from 'react'
-import {
-  angleGradient,
-  colorLuminance,
-  getContrast,
-  getIntFormValue,
-  getIfGradient,
-} from '../../utils'
-import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext'
-import styles from '../../style/sass/style.module.scss'
-import NeuTooltipTool from './NeuTooltipTool'
-import { NeuElementContext } from './context/NeuElementContext'
-import useDeepCompareEffect from 'use-deep-compare-effect'
+import React, { useContext, useEffect, useState, useMemo } from 'react';
+import { angleGradient, colorLuminance, getContrast, getIntFormValue, getIfGradient } from '../../utils';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import styles from '../../style/sass/style.module.scss';
+import NeuTooltipTool from './NeuTooltipTool';
+import { NeuElementContext } from './context/NeuElementContext';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 
 const RealNeumorphicElement = ({
   element: Element = 'div',
@@ -38,7 +32,7 @@ const RealNeumorphicElement = ({
     lightSource: 1,
     distance: '',
     blur: '',
-  }
+  };
 
   // Merge individual props with neumorphicOptions object and prioritize individual props
   const options = useMemo(
@@ -46,30 +40,17 @@ const RealNeumorphicElement = ({
       form: form ?? (neumorphicOptions.form || defaultProps.form),
       color: color ?? (neumorphicOptions.color || defaultProps.color),
       size: size ?? (neumorphicOptions.size || defaultProps.size),
-      intensity:
-        intensity ?? (neumorphicOptions.intensity || defaultProps.intensity),
-      lightSource:
-        lightSource ??
-        (neumorphicOptions.lightSource || defaultProps.lightSource),
-      distance:
-        distance ?? (neumorphicOptions.distance || defaultProps.distance),
+      intensity: intensity ?? (neumorphicOptions.intensity || defaultProps.intensity),
+      lightSource: lightSource ?? (neumorphicOptions.lightSource || defaultProps.lightSource),
+      distance: distance ?? (neumorphicOptions.distance || defaultProps.distance),
       blur: blur ?? (neumorphicOptions.blur || defaultProps.blur),
     }),
-    [
-      form,
-      color,
-      size,
-      intensity,
-      lightSource,
-      distance,
-      blur,
-      neumorphicOptions,
-    ]
-  )
+    [form, color, size, intensity, lightSource, distance, blur, neumorphicOptions]
+  );
 
   useDeepCompareEffect(() => {
-    setContextConfig(options)
-  }, [options])
+    setContextConfig(options);
+  }, [options]);
 
   const {
     colorDifference,
@@ -81,81 +62,70 @@ const RealNeumorphicElement = ({
       darkGradientColor: darkGradientColorContext,
       lightGradientColor: lightGradientColorContext,
     },
-  } = useContext(NeumorphicStylesContext)
+  } = useContext(NeumorphicStylesContext);
 
-  const [refElement, setRefElement] = useState(null)
-  const [tooltipReferenceProps, setTooltipReferenceProps] = useState({})
-  const [classesToApply, setClassesToApply] = useState(styles.softShadow)
-  const [defaultCssVariables, setDefaultCssVariables] = useState({})
+  const [refElement, setRefElement] = useState(null);
+  const [tooltipReferenceProps, setTooltipReferenceProps] = useState({});
+  const [classesToApply, setClassesToApply] = useState(styles.softShadow);
+  const [defaultCssVariables, setDefaultCssVariables] = useState({});
 
   useEffect(() => {
-    if (!mainColorContext) return
+    if (!mainColorContext) return;
     if (contextConfig.form == null) {
-      throw new Error('Form for neumorphic element not provided')
+      throw new Error('Form for neumorphic element not provided');
     }
 
-    let colorToUse, usingContextColor
+    let colorToUse, usingContextColor;
     if (contextConfig.color != null) {
-      usingContextColor = false
-      colorToUse = contextConfig.color
+      usingContextColor = false;
+      colorToUse = contextConfig.color;
     } else {
-      usingContextColor = true
-      colorToUse = mainColorContext
+      usingContextColor = true;
+      colorToUse = mainColorContext;
     }
 
-    let darkColor
-    let lightColor
-    let darkGradientColor
-    let lightGradientColor
+    let darkColor;
+    let lightColor;
+    let darkGradientColor;
+    let lightGradientColor;
 
     if (usingContextColor && contextConfig.intensity == colorDifference) {
-      darkColor = darkColorContext
-      lightColor = lightColorContext
-      darkGradientColor = darkGradientColorContext
-      lightGradientColor = lightGradientColorContext
+      darkColor = darkColorContext;
+      lightColor = lightColorContext;
+      darkGradientColor = darkGradientColorContext;
+      lightGradientColor = lightGradientColorContext;
     } else {
-      darkColor = colorLuminance(colorToUse, contextConfig.intensity * -1)
-      lightColor = colorLuminance(colorToUse, contextConfig.intensity)
-      darkGradientColor = colorLuminance(colorToUse, -0.1)
-      lightGradientColor = colorLuminance(colorToUse, 0.07)
+      darkColor = colorLuminance(colorToUse, contextConfig.intensity * -1);
+      lightColor = colorLuminance(colorToUse, contextConfig.intensity);
+      darkGradientColor = colorLuminance(colorToUse, -0.1);
+      lightGradientColor = colorLuminance(colorToUse, 0.07);
     }
-    const shapeId = getIntFormValue(contextConfig.form)
-    const gradient = getIfGradient(shapeId)
+    const shapeId = getIntFormValue(contextConfig.form);
+    const gradient = getIfGradient(shapeId);
 
     if (shapeId == 4) {
-      darkColor = '#00000000'
-      lightColor = '#00000000'
+      darkColor = '#00000000';
+      lightColor = '#00000000';
     }
     const firstGradientColor =
-      gradient && shapeId !== 1
-        ? shapeId === 3
-          ? lightGradientColor
-          : darkGradientColor
-        : colorToUse
+      gradient && shapeId !== 1 ? (shapeId === 3 ? lightGradientColor : darkGradientColor) : colorToUse;
     const secondGradientColor =
-      gradient && shapeId !== 1
-        ? shapeId === 2
-          ? lightGradientColor
-          : darkGradientColor
-        : colorToUse
+      gradient && shapeId !== 1 ? (shapeId === 2 ? lightGradientColor : darkGradientColor) : colorToUse;
 
-    let finalDistance = contextConfig.distance
-    let finalBlur = contextConfig.blur
+    let finalDistance = contextConfig.distance;
+    let finalBlur = contextConfig.blur;
 
-    finalDistance = Math.round(contextConfig.size * 0.1)
-    finalBlur = Math.round(contextConfig.size * 0.2)
+    finalDistance = Math.round(contextConfig.size * 0.1);
+    finalBlur = Math.round(contextConfig.size * 0.2);
 
     if (contextConfig.distance) {
-      finalDistance = contextConfig.distance
-      finalBlur = contextConfig.blur * 2
+      finalDistance = contextConfig.distance;
+      finalBlur = contextConfig.blur * 2;
     }
     if (contextConfig.blur) {
-      finalBlur = contextConfig.blur
+      finalBlur = contextConfig.blur;
     }
-    const { positionX, positionY, angle } = angleGradient(
-      contextConfig.lightSource,
-      finalDistance
-    )
+    const { positionX, positionY, angle } = angleGradient(contextConfig.lightSource, finalDistance);
 
     setDefaultCssVariables({
       '--positionX': `${positionX}px`,
@@ -171,12 +141,12 @@ const RealNeumorphicElement = ({
       '--lightColor': `${lightColor}`,
       '--firstGradientColor': `${firstGradientColor}`,
       '--secondGradientColor': `${secondGradientColor}`,
-    })
+    });
 
     if (shapeId == 0) {
-      setClassesToApply(`${styles.pressed}`)
+      setClassesToApply(`${styles.pressed}`);
     } else {
-      setClassesToApply(``)
+      setClassesToApply(``);
     }
   }, [
     contextConfig,
@@ -186,7 +156,7 @@ const RealNeumorphicElement = ({
     darkGradientColorContext,
     lightGradientColorContext,
     colorDifference,
-  ])
+  ]);
 
   return (
     <>
@@ -197,15 +167,9 @@ const RealNeumorphicElement = ({
         {...tooltipReferenceProps}
         {...rest}
       />
-      {editorMode && (
-        <NeuTooltipTool
-          refElement={refElement}
-          setRefProps={setTooltipReferenceProps}
-          onClick={onClick}
-        />
-      )}
+      {editorMode && <NeuTooltipTool refElement={refElement} setRefProps={setTooltipReferenceProps} onClick={onClick} />}
     </>
-  )
-}
+  );
+};
 
-export default RealNeumorphicElement
+export default RealNeumorphicElement;

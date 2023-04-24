@@ -1,6 +1,6 @@
-import React, { createContext, useCallback, useState, useEffect } from 'react'
+import React, { createContext, useCallback, useState, useEffect } from 'react';
 
-export const NeuElementContext = createContext()
+export const NeuElementContext = createContext();
 
 export const NeuElementProvider = ({ children }) => {
   const [contextConfig, setContextConfig] = useState({
@@ -10,16 +10,14 @@ export const NeuElementProvider = ({ children }) => {
     intensity: null,
     lightSource: null,
     distance: null,
-    blur: null
-  })
+    blur: null,
+  });
 
   const updateContextConfigProp = useCallback((property, value) => {
-    setContextConfig((prevContextConfig) => (
-      {
-        ...prevContextConfig,
-        [property]: value,
-      }
-    ));
+    setContextConfig((prevContextConfig) => ({
+      ...prevContextConfig,
+      [property]: value,
+    }));
   }, []);
 
   return (
@@ -27,10 +25,10 @@ export const NeuElementProvider = ({ children }) => {
       value={{
         contextConfig,
         setContextConfig,
-        updateContextConfigProp
+        updateContextConfigProp,
       }}
     >
       {children}
     </NeuElementContext.Provider>
-  )
-}
+  );
+};

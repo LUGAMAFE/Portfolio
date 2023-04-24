@@ -1,12 +1,4 @@
-import React, {
-  useLayoutEffect,
-  useState,
-  useEffect,
-  useRef,
-  useMemo,
-  useCallback,
-  useContext
-} from 'react'
+import React, { useLayoutEffect, useState, useEffect, useRef, useMemo, useCallback, useContext } from 'react';
 import {
   useFloating,
   offset,
@@ -17,25 +9,30 @@ import {
   useDismiss,
   FloatingArrow,
   arrow,
-} from '@floating-ui/react'
-import Configuration from './Configuration'
-import { NeuElementContext } from './context/NeuElementContext'
-import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext'
-import { getContrast } from '../../utils'
+} from '@floating-ui/react';
+import Configuration from './Configuration';
+import { NeuElementContext } from './context/NeuElementContext';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import { getContrast } from '../../utils';
 
-const ARROW_HEIGHT = 10
-const ARROW_WIDTH = 16
-const GAP = 0
+const ARROW_HEIGHT = 10;
+const ARROW_WIDTH = 16;
+const GAP = 0;
 
 const eventClose = new CustomEvent('closeNeu', {
   bubbles: true,
-})
+});
 
 const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
-  const { ctrlButton, styles: { mainColor } } = useContext(NeumorphicStylesContext);
-  const { contextConfig: {color }} = useContext(NeuElementContext);
-  const [isOpen, setIsOpen] = useState(false)
-  const arrowRef = useRef(null)
+  const {
+    ctrlButton,
+    styles: { mainColor },
+  } = useContext(NeumorphicStylesContext);
+  const {
+    contextConfig: { color },
+  } = useContext(NeuElementContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef(null);
   const { x, y, strategy, refs, context } = useFloating({
     whileElementsMounted: autoUpdate,
     placement: 'bottom',
@@ -49,57 +46,55 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
     ],
     open: isOpen,
     onOpenChange: setIsOpen,
-  })
+  });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    useDismiss(context),
-  ])
+  const { getReferenceProps, getFloatingProps } = useInteractions([useDismiss(context)]);
 
   const closeTooltip = useCallback((e) => {
     if (e.target !== e.currentTarget) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    if (refElement === null) return
-    refElement.addEventListener('closeNeu', closeTooltip)
-    return () => refElement.removeEventListener('closeNeu', closeTooltip)
-  }, [refElement, closeTooltip])
+    if (refElement === null) return;
+    refElement.addEventListener('closeNeu', closeTooltip);
+    return () => refElement.removeEventListener('closeNeu', closeTooltip);
+  }, [refElement, closeTooltip]);
 
   const display = useMemo(() => {
-    if (refElement === null) return
-    const computedStyle = window.getComputedStyle(refElement)
-    const position = computedStyle.getPropertyValue('position')
-    return position === 'fixed' ? { zIndex: 10000 } : {}
-  }, [refElement])
+    if (refElement === null) return;
+    const computedStyle = window.getComputedStyle(refElement);
+    const position = computedStyle.getPropertyValue('position');
+    return position === 'fixed' ? { zIndex: 10000 } : {};
+  }, [refElement]);
 
   useEffect(() => {
     setRefProps({
       ...getReferenceProps({
         onClick(e) {
-          const closest = e.target.closest('.neuElement')
+          const closest = e.target.closest('.neuElement');
           if (closest == e.currentTarget) {
             setIsOpen((prev) => {
-              if(!ctrlButton){
-                return !prev
+              if (!ctrlButton) {
+                return !prev;
               }
               if (e.ctrlKey) {
-                return !prev
+                return !prev;
               }
-              return false
-            })
-            e.currentTarget.dispatchEvent(eventClose)
+              return false;
+            });
+            e.currentTarget.dispatchEvent(eventClose);
           }
-          if(onClick) onClick(e);
+          if (onClick) onClick(e);
         },
       }),
-    })
-  }, [getReferenceProps, setRefProps])
+    });
+  }, [getReferenceProps, setRefProps]);
 
   useLayoutEffect(() => {
-    refs.setReference(refElement)
-  }, [refs, refElement])
+    refs.setReference(refElement);
+  }, [refs, refElement]);
 
   return (
     <>
@@ -117,7 +112,7 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
           }}
           {...getFloatingProps({
             onClick(e) {
-              e.stopPropagation()
+              e.stopPropagation();
             },
           })}
         >
@@ -133,7 +128,7 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default NeuTooltipTool
+export default NeuTooltipTool;

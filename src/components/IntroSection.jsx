@@ -1,8 +1,8 @@
-import React from 'react'
-import style from '../style/sass/style.module.scss'
-import NeumorphicElement from './neumorphic/NeumorphicElement'
+import React from 'react';
+import style from '../style/sass/style.module.scss';
+import NeumorphicElement from './neumorphic/NeumorphicElement';
 export const IntroSection = () => {
-  const n = 50 // Or something else
+  const n = 50; // Or something else
   return (
     <>
       <div className={style.intro}>
@@ -55,5 +55,5 @@ export const IntroSection = () => {
         ></NeumorphicElement>
       ))}
     </>
-  )
-}
+  );
+};

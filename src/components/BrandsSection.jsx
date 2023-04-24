@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export const BrandsSection = () => {
   return (
     <>
-        <div className='brands'></div>
+      <div className="brands"></div>
     </>
-  )
-}
+  );
+};

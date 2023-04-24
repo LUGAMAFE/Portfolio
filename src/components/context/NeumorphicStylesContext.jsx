@@ -1,18 +1,18 @@
-import React, { createContext, useEffect, useState } from 'react'
-import { colorLuminance } from '../../utils'
+import React, { createContext, useEffect, useState } from 'react';
+import { colorLuminance } from '../../utils';
 
-export const NeumorphicStylesContext = createContext()
+export const NeumorphicStylesContext = createContext();
 
 const obtainMainClass = (cssVariableName) => {
-  const rootStyles = getComputedStyle(document.documentElement)
-  return rootStyles.getPropertyValue(cssVariableName)
-}
+  const rootStyles = getComputedStyle(document.documentElement);
+  return rootStyles.getPropertyValue(cssVariableName);
+};
 
 const updateColors = (color, colorDifference) => {
-  const darkColor = colorLuminance(color, colorDifference * -1)
-  const lightColor = colorLuminance(color, colorDifference)
-  const darkGradientColor = colorLuminance(color, 0.07)
-  const lightGradientColor = colorLuminance(color, -0.1)
+  const darkColor = colorLuminance(color, colorDifference * -1);
+  const lightColor = colorLuminance(color, colorDifference);
+  const darkGradientColor = colorLuminance(color, 0.07);
+  const lightGradientColor = colorLuminance(color, -0.1);
 
   return {
     darkColor,
@@ -20,8 +20,8 @@ const updateColors = (color, colorDifference) => {
     lightColor,
     darkGradientColor,
     lightGradientColor,
-  }
-}
+  };
+};
 
 export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
   const [styles, setStyles] = useState({
@@ -37,22 +37,21 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setEditorMode(true)
-    }, 1200)
-  }, [])
-
+      setEditorMode(true);
+    }, 1200);
+  }, []);
 
   useEffect(() => {
-    const mainColor = obtainMainClass('--main-color').trim()
-    setInitialMainColor(mainColor)
-    setStyles(updateColors(mainColor, colorDifference))
-  }, [])
+    const mainColor = obtainMainClass('--main-color').trim();
+    setInitialMainColor(mainColor);
+    setStyles(updateColors(mainColor, colorDifference));
+  }, []);
 
   const handleChangeColor = (isChecked) => {
-    const newMainColor = isChecked ? '#e0e0e0' : initialMainColor
-    document.documentElement.style.setProperty('--main-color', newMainColor)
-    setStyles(updateColors(newMainColor, colorDifference))
-  }
+    const newMainColor = isChecked ? '#e0e0e0' : initialMainColor;
+    document.documentElement.style.setProperty('--main-color', newMainColor);
+    setStyles(updateColors(newMainColor, colorDifference));
+  };
 
   return (
     <NeumorphicStylesContext.Provider
@@ -63,10 +62,10 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
         editorMode,
         setEditorMode,
         ctrlButton,
-        setCtrlButton
+        setCtrlButton,
       }}
     >
       {children}
     </NeumorphicStylesContext.Provider>
-  )
-}
+  );
+};

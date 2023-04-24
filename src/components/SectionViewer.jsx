@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const SectionViewer = () => {
-  return (
-    <div>SectionViewer</div>
-  )
-}
+  return <div>SectionViewer</div>;
+};
