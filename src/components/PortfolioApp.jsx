@@ -1,12 +1,11 @@
-import React from 'react';
-import { Navbar } from './Navbar';
-import { IntroSection } from './IntroSection';
-import { ContactSection } from './ContactSection';
-import { CodeSection } from './CodeSection';
 import { BrandsSection } from './BrandsSection';
-import { SkillSection } from './SkillSection';
-import { ProyectSection } from './ProyectSection';
+import { CodeSection } from './CodeSection';
+import { ContactSection } from './ContactSection';
+import { IntroSection } from './IntroSection';
 import { MisionSection } from './MisionSection';
+import { Navbar } from './Navbar';
+import { ProyectSection } from './ProyectSection';
+import { SkillSection } from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
 
 export const PortfolioApp = () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import style from '../style/sass/style.module.scss';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
 export const IntroSection = () => {

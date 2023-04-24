@@ -1,11 +1,11 @@
-import React, { useEffect, useContext, useState } from 'react';
-import ShapeSwitcher from './ShapeSwitcher';
-import ConfigurationRow from './ConfigurationRow';
-import { isValidColor, deleteFalsyProperties, getContrast } from '../../utils';
+import { useContext, useEffect, useState } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
-import { NeuElementContext } from './context/NeuElementContext';
+import { deleteFalsyProperties, getContrast, isValidColor } from '../../utils';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import ConfigurationRow from './ConfigurationRow';
 import LightSourceSelector from './LightSourceSelector';
+import ShapeSwitcher from './ShapeSwitcher';
+import { NeuElementContext } from './context/NeuElementContext';
 
 const maxSize = 500;
 

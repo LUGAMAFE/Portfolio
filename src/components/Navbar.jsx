@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import style from '../style/sass/style.module.scss';
 import { NeumorphicStylesContext } from './context/NeumorphicStylesContext';
 import NeumorphicElement from './neumorphic/NeumorphicElement';

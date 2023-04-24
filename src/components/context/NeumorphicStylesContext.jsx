@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { colorLuminance } from '../../utils';
 
 export const NeumorphicStylesContext = createContext();

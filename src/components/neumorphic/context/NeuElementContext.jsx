@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState, useEffect } from 'react';
+import { createContext, useCallback, useState } from 'react';
 
 export const NeuElementContext = createContext();
 

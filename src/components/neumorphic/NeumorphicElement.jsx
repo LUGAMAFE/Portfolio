@@ -1,4 +1,3 @@
-import React from 'react';
 import { NeuElementProvider } from './context/NeuElementContext';
 import RealNeumorphicElement from './RealNeumorphicElement';
 const NeumorphicElement = ({ ...props }) => {

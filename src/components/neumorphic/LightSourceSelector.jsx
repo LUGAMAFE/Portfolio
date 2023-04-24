@@ -1,4 +1,3 @@
-import React from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 
 const LightSourceSelector = ({ lightSource, onClick, disabled }) => {

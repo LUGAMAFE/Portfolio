@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState, useMemo } from 'react';
-import { angleGradient, colorLuminance, getContrast, getIntFormValue, getIfGradient } from '../../utils';
-import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import { useContext, useEffect, useMemo, useState } from 'react';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import styles from '../../style/sass/style.module.scss';
+import { angleGradient, colorLuminance, getContrast, getIfGradient, getIntFormValue } from '../../utils';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeuTooltipTool from './NeuTooltipTool';
 import { NeuElementContext } from './context/NeuElementContext';
-import useDeepCompareEffect from 'use-deep-compare-effect';
 
 const RealNeumorphicElement = ({
   element: Element = 'div',
@@ -18,7 +18,6 @@ const RealNeumorphicElement = ({
   distance = undefined,
   blur = undefined,
   style = undefined,
-  nTestId = undefined,
   onClick = undefined,
   ...rest
 }) => {
