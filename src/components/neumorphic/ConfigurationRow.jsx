@@ -1,4 +1,3 @@
-import React from 'react';
 import { camelize } from '../../utils';
 const ConfigurationRow = ({ className, label, type, value, min, max, step = '1', disabled, onChange }) => {
   return (

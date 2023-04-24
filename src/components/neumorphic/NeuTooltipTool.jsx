@@ -1,19 +1,19 @@
-import React, { useLayoutEffect, useState, useEffect, useRef, useMemo, useCallback, useContext } from 'react';
 import {
-  useFloating,
-  offset,
-  flip,
-  shift,
-  autoUpdate,
-  useInteractions,
-  useDismiss,
   FloatingArrow,
   arrow,
+  autoUpdate,
+  flip,
+  offset,
+  shift,
+  useDismiss,
+  useFloating,
+  useInteractions,
 } from '@floating-ui/react';
+import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { getContrast } from '../../utils';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import Configuration from './Configuration';
 import { NeuElementContext } from './context/NeuElementContext';
-import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
-import { getContrast } from '../../utils';
 
 const ARROW_HEIGHT = 10;
 const ARROW_WIDTH = 16;
