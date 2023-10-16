@@ -55,7 +55,6 @@
     "stylelint-order": "6.0.3"
   },
   "volta": {
-    "node": "18.14.0",
-    "pnpm": "8.7.6"
+    "node": "18.14.0"
   }
 }

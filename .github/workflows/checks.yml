@@ -44,9 +44,12 @@ jobs:
           labels: 'do not merge'
         # This checks to ensure the "do not merge" label is not present.
 
-
       - name: volta-cli/action
         uses: volta-cli/action@v4.0.0
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Install dependencies
         run: pnpm install
