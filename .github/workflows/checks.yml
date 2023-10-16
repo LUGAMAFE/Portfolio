@@ -49,10 +49,10 @@ jobs:
         uses: volta-cli/action@v4.0.0
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Run prettier check
-        run: yarn prettier
+        run: pnpm prettier
 
       - name: Run lint check
-        run: yarn lint
+        run: pnpm lint
