@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 
 const LightSourceSelector = ({ lightSource, onClick, disabled }) => {
@@ -12,6 +13,12 @@ const LightSourceSelector = ({ lightSource, onClick, disabled }) => {
       </div>
     </div>
   );
+};
+
+LightSourceSelector.propTypes = {
+  lightSource: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
 };
 
 export default LightSourceSelector;

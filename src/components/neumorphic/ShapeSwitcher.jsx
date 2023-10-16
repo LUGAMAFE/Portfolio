@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
+
 import { ReactComponent as Concave } from '../svg/concave.svg';
 import { ReactComponent as Convex } from '../svg/convex.svg';
 import { ReactComponent as Flat } from '../svg/flat.svg';
@@ -31,6 +33,11 @@ const ShapeSwitcher = ({ shape, setShape }) => {
       </div>
     </>
   );
+};
+
+ShapeSwitcher.propTypes = {
+  shape: PropTypes.oneOf(['concave', 'convex', 'level', 'pressed', 'flat']).isRequired,
+  setShape: PropTypes.func.isRequired,
 };
 
 export default ShapeSwitcher;

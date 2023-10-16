@@ -9,6 +9,7 @@ import {
   useFloating,
   useInteractions,
 } from '@floating-ui/react';
+import PropTypes from 'prop-types';
 import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { getContrast } from '../../utils';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
@@ -129,6 +130,12 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
       )}
     </>
   );
+};
+
+NeuTooltipTool.propTypes = {
+  refElement: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.instanceOf(Element) })]),
+  setRefProps: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default NeuTooltipTool;

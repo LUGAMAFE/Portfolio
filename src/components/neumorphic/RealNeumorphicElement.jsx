@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import styles from '../../style/sass/style.module.scss';
@@ -169,6 +170,34 @@ const RealNeumorphicElement = ({
       {editorMode && <NeuTooltipTool refElement={refElement} setRefProps={setTooltipReferenceProps} onClick={onClick} />}
     </>
   );
+};
+
+RealNeumorphicElement.propTypes = {
+  element: PropTypes.elementType,
+  className: PropTypes.string,
+  neumorphicOptions: PropTypes.shape({
+    form: PropTypes.any,
+    color: PropTypes.string,
+    size: PropTypes.number,
+    intensity: PropTypes.number,
+    lightSource: PropTypes.number,
+    distance: PropTypes.string,
+    blur: PropTypes.string,
+  }),
+  form: PropTypes.any,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  intensity: PropTypes.number,
+  lightSource: PropTypes.number,
+  distance: PropTypes.string,
+  blur: PropTypes.string,
+  style: PropTypes.object,
+  onClick: PropTypes.func,
+};
+
+RealNeumorphicElement.defaultProps = {
+  className: '',
+  neumorphicOptions: {},
 };
 
 export default RealNeumorphicElement;

@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import { createContext, useCallback, useState } from 'react';
-
 export const NeuElementContext = createContext();
 
 export const NeuElementProvider = ({ children }) => {
@@ -31,4 +31,8 @@ export const NeuElementProvider = ({ children }) => {
       {children}
     </NeuElementContext.Provider>
   );
+};
+
+NeuElementProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
