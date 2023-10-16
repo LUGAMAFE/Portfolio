@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types';
 import { camelize } from '../../utils';
-const ConfigurationRow = ({ className, label, type, value, min, max, step = '1', disabled, onChange }) => {
+const ConfigurationRow = ({
+  className,
+  label,
+  type,
+  value,
+  min,
+  max,
+  step = '1',
+  disabled,
+  onChange,
+}) => {
   return (
     <div className={className}>
       <label>{label}: </label>

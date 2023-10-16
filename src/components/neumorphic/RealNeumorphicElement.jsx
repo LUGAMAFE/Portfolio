@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import styles from '../../style/sass/style.module.scss';
-import { angleGradient, colorLuminance, getContrast, getIfGradient, getIntFormValue } from '../../utils';
+import {
+  angleGradient,
+  colorLuminance,
+  getContrast,
+  getIfGradient,
+  getIntFormValue,
+} from '../../utils';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeuTooltipTool from './NeuTooltipTool';
 import { NeuElementContext } from './context/NeuElementContext';
@@ -108,9 +114,17 @@ const RealNeumorphicElement = ({
       lightColor = '#00000000';
     }
     const firstGradientColor =
-      gradient && shapeId !== 1 ? (shapeId === 3 ? lightGradientColor : darkGradientColor) : colorToUse;
+      gradient && shapeId !== 1
+        ? shapeId === 3
+          ? lightGradientColor
+          : darkGradientColor
+        : colorToUse;
     const secondGradientColor =
-      gradient && shapeId !== 1 ? (shapeId === 2 ? lightGradientColor : darkGradientColor) : colorToUse;
+      gradient && shapeId !== 1
+        ? shapeId === 2
+          ? lightGradientColor
+          : darkGradientColor
+        : colorToUse;
 
     let finalDistance = contextConfig.distance;
     let finalBlur = contextConfig.blur;
@@ -167,7 +181,13 @@ const RealNeumorphicElement = ({
         {...tooltipReferenceProps}
         {...rest}
       />
-      {editorMode && <NeuTooltipTool refElement={refElement} setRefProps={setTooltipReferenceProps} onClick={onClick} />}
+      {editorMode && (
+        <NeuTooltipTool
+          refElement={refElement}
+          setRefProps={setTooltipReferenceProps}
+          onClick={onClick}
+        />
+      )}
     </>
   );
 };

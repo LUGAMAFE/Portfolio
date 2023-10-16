@@ -10,7 +10,8 @@ import { NeuElementContext } from './context/NeuElementContext';
 const maxSize = 500;
 
 const Configuration = () => {
-  const { contextConfig, updateContextConfigProp, setContextConfig } = useContext(NeuElementContext);
+  const { contextConfig, updateContextConfigProp, setContextConfig } =
+    useContext(NeuElementContext);
   const [color, setColor] = useState('#ffffff');
   const [colorInputText, setColorInputText] = useState('#ffffff');
   const [defaultCssVariables, setDefaultCssVariables] = useState({});
@@ -19,7 +20,9 @@ const Configuration = () => {
   } = useContext(NeumorphicStylesContext);
 
   const copyToClipboard = () => {
-    const textConfig = `neumorphicOptions={${JSON.stringify(deleteFalsyProperties(contextConfig))}}`;
+    const textConfig = `neumorphicOptions={${JSON.stringify(
+      deleteFalsyProperties(contextConfig)
+    )}}`;
     navigator.clipboard.writeText(textConfig);
     alert(`Copied neumorphic element config: \n ${textConfig}`);
   };

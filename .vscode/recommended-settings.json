@@ -3,7 +3,7 @@
   "editor.formatOnPaste": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    // "source.fixAll.stylelint": true,
+    "source.fixAll.stylelint": true,
     "source.organizeImports": true
   },
   // "stylelint.ignoreDisables": true,
@@ -18,7 +18,7 @@
   },
   "css.validate": false,
   "scss.validate": false,
-  // "stylelint.validate": ["css", "scss", ".module.css", ".module.scss"],
+  "stylelint.validate": ["css", "scss", ".module.css", ".module.scss"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "vue.features.codeActions.enable": false
 }

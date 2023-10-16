@@ -10,7 +10,15 @@ import {
   useInteractions,
 } from '@floating-ui/react';
 import PropTypes from 'prop-types';
-import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { getContrast } from '../../utils';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import Configuration from './Configuration';
@@ -133,7 +141,10 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }) => {
 };
 
 NeuTooltipTool.propTypes = {
-  refElement: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.instanceOf(Element) })]),
+  refElement: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
   setRefProps: PropTypes.func.isRequired,
   onClick: PropTypes.func,
 };

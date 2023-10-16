@@ -56,5 +56,10 @@
   },
   "volta": {
     "node": "18.14.0"
-  }
+  },
+  "browserslist": [
+    ">1% and last 3 versions",
+    "not OperaMini all",
+    "not dead"
+  ]
 }

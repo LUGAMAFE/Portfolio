@@ -62,7 +62,11 @@ export const Navbar = () => {
       <div className={style.lights}>
         <p>{mainColor}</p>
         <label className={style.toggle}>
-          <input onChange={handleChangeColor} className={style.toggleCheckbox} type="checkbox"></input>
+          <input
+            onChange={handleChangeColor}
+            className={style.toggleCheckbox}
+            type="checkbox"
+          ></input>
           <div className={style.toggleSwitch}></div>
         </label>
       </div>

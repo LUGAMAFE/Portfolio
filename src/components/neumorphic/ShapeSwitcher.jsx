@@ -14,19 +14,44 @@ const ShapeSwitcher = ({ shape, setShape }) => {
       </div>
       <div className={style.row}>
         <div className={style.shapeSwitch}>
-          <button className={shape === 'concave' ? style.active : ''} onClick={setShape} name="concave" title="Concave">
+          <button
+            className={shape === 'concave' ? style.active : ''}
+            onClick={setShape}
+            name="concave"
+            title="Concave"
+          >
             <Concave />
           </button>
-          <button className={shape === 'convex' ? style.active : ''} onClick={setShape} name="convex" title="Convex">
+          <button
+            className={shape === 'convex' ? style.active : ''}
+            onClick={setShape}
+            name="convex"
+            title="Convex"
+          >
             <Convex />
           </button>
-          <button className={shape === 'level' ? style.active : ''} onClick={setShape} name="level" title="Level">
+          <button
+            className={shape === 'level' ? style.active : ''}
+            onClick={setShape}
+            name="level"
+            title="Level"
+          >
             <Level />
           </button>
-          <button className={shape === 'pressed' ? style.active : ''} onClick={setShape} name="pressed" title="Pressed">
+          <button
+            className={shape === 'pressed' ? style.active : ''}
+            onClick={setShape}
+            name="pressed"
+            title="Pressed"
+          >
             <Pressed />
           </button>
-          <button className={shape === 'flat' ? style.active : ''} onClick={setShape} name="flat" title="Flat">
+          <button
+            className={shape === 'flat' ? style.active : ''}
+            onClick={setShape}
+            name="flat"
+            title="Flat"
+          >
             <Flat />
           </button>
         </div>
