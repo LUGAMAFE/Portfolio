@@ -10,7 +10,8 @@
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "yarn run lint --fix",
     "prettier": "prettier --check src/**/*.{js,jsx,ts,tsx,css,scss,json}",
-    "prettier:fix": "yarn run prettier --write"
+    "prettier:fix": "yarn run prettier --write",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@floating-ui/react": "^0.23.0",
@@ -34,7 +35,19 @@
     "prettier": "^2.8.7",
     "sass": "^1.60.0",
     "vite": "^4.1.0",
-    "vite-plugin-svgr": "^2.4.0"
+    "vite-plugin-svgr": "^2.4.0",
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
+    "branch-name-lint": "^2.1.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
+    "stylelint": "^15.10.3",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-recommended-scss": "^13.0.0",
+    "stylelint-no-unsupported-browser-features": "^7.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-scss": "^5.2.1",
+    "stylelint-selector-bem-pattern": "^3.0.1"
   },
   "volta": {
     "node": "18.14.0",
