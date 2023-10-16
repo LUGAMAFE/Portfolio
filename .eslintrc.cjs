@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -21,9 +22,6 @@ module.exports = {
     },
   },
   rules: {
-    indent: ['error', 2],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
     'no-unused-vars': ['error', { ignoreRestSiblings: true }],
   },
 };
