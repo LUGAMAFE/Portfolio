@@ -160,7 +160,7 @@ const RealNeumorphicElement = ({
     if (shapeId == 0) {
       setClassesToApply(`${styles.pressed}`);
     } else {
-      setClassesToApply(``);
+      setClassesToApply('');
     }
   }, [
     contextConfig,

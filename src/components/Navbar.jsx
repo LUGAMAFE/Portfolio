@@ -39,12 +39,12 @@ export const Navbar = () => {
       prev.map((button) =>
         button.id === id
           ? {
-              ...button,
-              neumorphicOptions: {
-                ...button.neumorphicOptions,
-                form: button.neumorphicOptions.form === 'flat' ? 'pressed' : 'flat',
-              },
-            }
+            ...button,
+            neumorphicOptions: {
+              ...button.neumorphicOptions,
+              form: button.neumorphicOptions.form === 'flat' ? 'pressed' : 'flat',
+            },
+          }
           : button
       )
     );
