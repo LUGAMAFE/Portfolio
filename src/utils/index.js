@@ -9,9 +9,32 @@ export function angleGradient(shapeId, distance) {
   };
   return positions[shapeId];
 }
+// export function angleGradient(angle, distance) {
+//   const radians = (angle - 90) * (Math.PI / 180); // Convierte el ángulo a radianes
+//   distance = Math.round(Math.cos(radians) * 10); // Ajusta el valor de 10 según la intensidad deseada
+//   const positionX = Math.round(Math.cos(radians) * 10); // Ajusta el valor de 10 según la intensidad deseada
+//   const positionY = Math.round(Math.sin(radians) * 10); // Ajusta el valor de 10 según la intensidad deseada
 
+//   return {
+//     angleLightSource: angle,
+//     distance: distance,
+//     positionX: positionX,
+//     positionY: positionY,
+//   };
+// }
+// export function angleGradient(angle, distance) {
+//   // Convierte el ángulo de grados a radianes
+//   const angleInRadians = (angle * Math.PI) / 180;
+
+//   // Calcula las coordenadas X e Y basadas en el ángulo y la distancia
+//   const positionX = Math.cos(angleInRadians) * distance;
+//   const positionY = Math.sin(angleInRadians) * distance;
+
+//   return { positionX, positionY, angle };
+// }
 export function getIntFormValue(form) {
   const values = {
+    svgInnerShadow: { value: 5 },
     flat: { value: 4 },
     concave: { value: 2 },
     convex: { value: 3 },

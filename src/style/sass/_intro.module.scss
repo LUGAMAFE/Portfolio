@@ -1,10 +1,11 @@
 .intro {
   display: flex;
-  height: 938px;
+  height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-around;
+  background: linear-gradient(180deg, #32373d 0%, #16171b 100%);
   background: linear-gradient(180deg, var(--primary-color-3) 0%, var(--primary-color-1) 100%);
   .circleAnimation {
     position: relative;
@@ -61,10 +62,12 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 25px;
+    gap: 14px;
     p:first-child {
       flex-grow: 0;
       align-self: stretch;
+
+      /* Inside auto layout */
 
       /* Inside auto layout */
 
@@ -80,7 +83,7 @@
       font-weight: bold;
       line-height: 64px;
 
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 4px #515151;
+      text-shadow: 0px 0px 4px #515151, 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     p:nth-child(3) {
       top: calc(50% - 73px / 2 + 114.15px);
@@ -153,7 +156,7 @@
       display: inline;
       width: 595px;
       height: 366px;
-      margin-top: 38px;
+
       .diseño {
         position: absolute; /* Establecer la posición absoluta del contenido */
         top: 55px;
@@ -161,10 +164,15 @@
 
         width: 370px;
         height: 303px;
+        fill: red;
         svg {
           position: absolute;
           width: 370px;
           height: 303px;
+          fill: red;
+          image {
+            fill: red;
+          }
         }
       }
       .svgContainer {

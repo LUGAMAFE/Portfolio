@@ -1,9 +1,216 @@
 .contact {
-  height: 938px;
-  background: var(--darkColorIntro);
   display: flex;
+  height: 110vh;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: center;
+  .contactContainer {
+    display: flex;
+    width: 1440px;
+    height: 842px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 60px;
+    .section {
+      z-index: 1;
+      width: 1320px;
+      height: 752px;
+      flex-shrink: 0;
+      border-radius: 25px;
+      .textContainer {
+        position: relative;
+        top: 50px;
+        left: 500px;
+        width: 516px;
+        height: 66px;
+        flex-shrink: 0;
+        p {
+          position: absolute;
+          color: var(--Middle-Color-White, #e4ebf2);
+          font-family: Roboto;
+          font-size: 75px;
+          font-style: normal;
+          font-weight: 700;
+          letter-spacing: -0.4px;
+          line-height: 68px; /* 90.667% */
+          text-align: center;
+          text-shadow: 0px 0px 5px #fff;
+        }
+      }
+      .content {
+        position: relative;
+        display: flex;
+        width: 1320px;
+        height: 703px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+
+        .svgContainer {
+          position: absolute;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          svg {
+            overflow: visible;
+            width: fit-content;
+            height: fit-content;
+          }
+        }
+        p {
+          &:first-child {
+            color: var(--Middle-Color-White, #e4ebf2);
+            font-family: Nunito;
+            font-size: 47px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: -0.4px;
+            line-height: 60px; /* 127.66% */
+            text-align: center;
+            text-shadow: 0px 0px 2px #94b8da, 0px 4px 4px rgba(0, 0, 0, 0.25),
+              0px 6px 4px rgba(0, 0, 0, 0.3);
+          }
+          &:nth-child(2) {
+            color: #d2dae4;
+            font-family: Nunito;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: -0.64px;
+            line-height: normal;
+            span {
+              background: var(
+                --Lava-Linear-Vertical,
+                linear-gradient(180deg, #ff6161 0%, #f6d 100%)
+              );
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+        .form {
+          display: flex;
+          width: 574px;
+          height: 586px;
+          flex-direction: column;
+          flex-shrink: 0;
+          justify-content: flex-start;
+          padding-top: 30px;
+          gap: 17px;
+          button {
+            width: 268px;
+            height: 56px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: var(
+              --Lava-Linear-Horizontal,
+              linear-gradient(90deg, #ff6161 0.16%, #f6d 99.81%)
+            );
+            box-shadow: 0px 0px 3px 0px rgba(255, 185, 191, 0.61);
+            cursor: pointer;
+
+            /* Flare Lava */
+            p {
+              color: #fff;
+              font-family: Nunito;
+              font-size: 30px;
+              font-style: normal;
+              font-weight: 800;
+              letter-spacing: -0.6px;
+              line-height: normal;
+              text-align: center;
+            }
+          }
+          input {
+            width: 600px;
+            height: 56px;
+            flex-shrink: 0;
+            border-radius: 12px;
+
+            color: var(--placeholder, #9c9c9c);
+            font-family: Nunito;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            line-height: normal;
+          }
+          textarea {
+            width: 600px;
+            height: 198.897px;
+            flex-shrink: 0;
+            border: none;
+            border-radius: 12px;
+            color: var(--placeholder, #9c9c9c);
+            font-family: Nunito;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            line-height: normal;
+          }
+        }
+        .mensaje {
+          display: flex;
+          width: 525px;
+          flex-direction: column;
+          align-items: center;
+          gap: 55px;
+
+          .number {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 13px 17.5px 20px 29.5px;
+            border-radius: 29px;
+            gap: 13px;
+
+            .socialIconContainer {
+              display: flex;
+              width: 96px;
+              height: 96px;
+              align-items: center;
+              justify-content: center;
+              padding: 23px 24px 24px 23px;
+              border-radius: 76px;
+
+              .svgContainer2 {
+                width: 100%;
+                height: 100%;
+                transform: translate(-8px, -8px);
+                svg {
+                  overflow: visible;
+                  width: fit-content;
+                  height: fit-content;
+                }
+              }
+            }
+            p {
+              background: var(
+                --Lava-Linear-Horizontal,
+                linear-gradient(90deg, #ff6161 0.16%, #f6d 99.81%)
+              );
+              -webkit-background-clip: text;
+              background-clip: text;
+              font-family: Roboto;
+              font-size: 60px;
+              font-style: normal;
+              font-weight: 900;
+              letter-spacing: 1.5px;
+              line-height: normal;
+              text-align: center;
+              -webkit-text-fill-color: transparent;
+              text-shadow: var(
+                --Lava-Linear-Horizontal,
+                linear-gradient(90deg, #ff6161 0.16%, #f6d 99.81%)
+              );
+            }
+          }
+        }
+      }
+    }
+  }
 }

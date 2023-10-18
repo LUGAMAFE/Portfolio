@@ -6,7 +6,7 @@
       true,
       {
         "severity": "warning",
-        "ignore": ["css-nesting"]
+        "ignore": ["css-nesting", "intrinsic-width"]
       }
     ],
     "font-family-no-missing-generic-family-keyword": null,

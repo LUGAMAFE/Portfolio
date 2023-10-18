@@ -1,22 +1,21 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   position: relative;
-  height: 6989px;
 }
 
 .soft-element {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   width: var(--size);
   height: var(--size);
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius);
+  text-align: center;
 }
 
 .soft-shadow {
@@ -28,4 +27,9 @@ body {
     box-shadow: inset var(--positionX) var(--positionY) var(--blur) var(--darkColor),
       inset var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor);
   }
+}
+.svgInnerShadow {
+  background: none;
+  filter: drop-shadow(var(--positionX) var(--positionY) var(--blur) var(--darkColor))
+    drop-shadow(var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor));
 }

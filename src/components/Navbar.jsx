@@ -3,10 +3,7 @@ import style from '../style/sass/style.module.scss';
 import { NeumorphicStylesContext } from './context/NeumorphicStylesContext';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
 export const Navbar = () => {
-  const {
-    handleChangeColor: styleHandleChangeColor,
-    styles: { mainColor },
-  } = useContext(NeumorphicStylesContext);
+  const { handleChangeColor: styleHandleChangeColor } = useContext(NeumorphicStylesContext);
   const initialButtonConfigs = [
     {
       id: 'esBoton',
@@ -55,12 +52,23 @@ export const Navbar = () => {
   };
 
   return (
-    <NeumorphicElement form={'flat'} className={style.myTopNavbar} nTestId="navbar">
+    <NeumorphicElement
+      className={style.myTopNavbar}
+      nTestId="navbar"
+      neumorphicOptions={{
+        form: 'pressed',
+        size: '196',
+        intensity: '0.51',
+        lightSource: 3,
+        distance: '23',
+        blur: 46,
+      }}
+    >
       <div className={style.logo}>
         <p>{'<LUGAMAFE/>'}</p>
       </div>
       <div className={style.lights}>
-        <p>{mainColor}</p>
+        <p>{'Encender Luces'}</p>
         <label className={style.toggle}>
           <input
             onChange={handleChangeColor}
@@ -96,11 +104,21 @@ export const Navbar = () => {
         </div>
       </NeumorphicElement>
       <div className={style.menuToggle}>
-        <button>
+        <NeumorphicElement
+          element={'button'}
+          neumorphicOptions={{
+            form: 'level',
+            size: '55',
+            intensity: '0.19',
+            lightSource: 1,
+            distance: 6,
+            blur: 11,
+          }}
+        >
           <svg>
             <image href="../../assets/images/bx-menu.svg" />
           </svg>
-        </button>
+        </NeumorphicElement>
       </div>
     </NeumorphicElement>
   );

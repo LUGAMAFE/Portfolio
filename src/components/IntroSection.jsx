@@ -1,12 +1,32 @@
 import style from '../style/sass/style.module.scss';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
 export const IntroSection = () => {
-  const n = 50; // Or something else
   return (
     <>
-      <div className={style.intro}>
+      <NeumorphicElement
+        id="seccion1"
+        className={style.intro}
+        neumorphicOptions={{
+          form: 'pressed',
+          size: '500',
+          intensity: '0.65',
+          lightSource: 3,
+          distance: '45',
+          blur: 90,
+        }}
+      >
         <div className={style.circleAnimation}>
-          <NeumorphicElement form={'flat'} className={style.imageComparer}>
+          <NeumorphicElement
+            className={style.imageComparer}
+            neumorphicOptions={{
+              form: 'convex',
+              size: '439',
+              intensity: '0.9',
+              lightSource: 1,
+              distance: 44,
+              blur: 88,
+            }}
+          >
             <div className={style.divisorAndCircle}>
               <div className={style.circle}>
                 <div className={style.line}></div>
@@ -27,32 +47,29 @@ export const IntroSection = () => {
             <strong>Programador</strong> y <em>diseñador</em> de sitios web
           </p>
           <div className={style.ilustration}>
-            <div className={style.svgContainer}>
+            <NeumorphicElement
+              className={style.svgContainer}
+              neumorphicOptions={{
+                form: 'svgInnerShadow',
+                size: '500',
+                intensity: '0.65',
+                lightSource: 3,
+                distance: '45',
+                blur: 90,
+              }}
+            >
               <svg>
                 <image href="../../assets/images/Vector-12.svg" />
               </svg>
-            </div>
+            </NeumorphicElement>
             <div className={style.diseño}>
               <svg>
                 <image href="../../assets/images/Ilustracion-Diseño.svg" />
-                <image></image>
               </svg>
             </div>
           </div>
         </div>
-      </div>
-      {[...Array(n)].map((e, i) => (
-        <NeumorphicElement
-          neumorphicOptions={{
-            form: 'level',
-            size: '60',
-            intensity: '0.26',
-            lightSource: 1,
-          }}
-          key={i}
-          style={{ width: '200px', height: '200px', margin: '20px' }}
-        ></NeumorphicElement>
-      ))}
+      </NeumorphicElement>
     </>
   );
 };

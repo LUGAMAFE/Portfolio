@@ -1,84 +1,89 @@
 .myTopNavbar {
   position: fixed;
+  z-index: 999;
+  right: 0px;
+  left: 0px;
   display: flex;
+  height: 90px;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
   align-content: center;
-  height: 90px;
-  left: 0px;
-  right: 0px;
-  z-index: 999;
+  justify-content: space-around;
   .logo {
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 0px;
     /* or 0% */
 
     display: flex;
     align-items: center;
-    text-align: center;
-    letter-spacing: 0.1px;
     color: white;
+    font-family: 'Roboto Condensed';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    line-height: 0px;
+    text-align: center;
   }
   .lights {
     display: flex;
     align-items: center;
-    text-align: right;
     color: white;
+    text-align: right;
     p {
       width: 194px;
       height: 34px;
       padding-right: 5px;
 
-      font-family: 'Nunito';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 22px;
-      line-height: 40px;
-      /* or 182% */
-
-      letter-spacing: 0.1px;
-
       /* Middle Color White */
 
       color: #e4ebf2;
 
+      font-family: 'Nunito';
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      /* or 182% */
+
+      letter-spacing: 0.1px;
+      line-height: 40px;
+
       text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.61);
     }
     .toggle {
-      cursor: pointer;
       display: inline-block;
       margin-top: 5px;
+      cursor: pointer;
       .toggleSwitch {
+        position: relative;
         display: inline-block;
-        background: rgba(19, 20, 22, 0.2);
-        box-shadow: inset 2px 2px 8px rgba(4, 4, 5, 0.6);
-        border-radius: 30px;
-        border-radius: 16px;
         width: 56px;
         height: 32px;
-        position: relative;
-        vertical-align: middle;
+        border-radius: 16px;
+        background: rgba(19, 20, 22, 0.2);
+        box-shadow: inset 2px 2px 8px rgba(4, 4, 5, 0.6);
         transition: background 0.25s;
+        vertical-align: middle;
         &:before,
         &:after {
           content: '';
         }
         &:before {
-          display: block;
-          background: #272b30;
-          box-shadow: inset 0px -1px 1px #181a1d;
-          border-radius: 32px;
-          border-radius: 50%;
-          width: 31px;
-          height: 31px;
           position: absolute;
           top: 0.9px;
           left: 0px;
+          display: block;
+          width: 31px;
+          height: 31px;
+          border-radius: 32px;
+          border-radius: 50%;
+          background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
           transition: left 0.25s;
+        }
+      }
+      &:hover .toggleSwitch {
+        &:before {
+          background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
         }
       }
       .toggleCheckbox {
@@ -91,33 +96,26 @@
           }
         }
       }
-      &:hover .toggleSwitch {
-        &:before {
-          background: linear-gradient(to bottom, #fff 0%, #fff 100%);
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-        }
-      }
     }
   }
 
   .changeIdiom {
-    display: block;
     position: relative;
-    padding: 8px;
+    display: block;
     width: 368px;
     height: 50px;
+    padding: 8px;
     border-radius: 16px;
     .buttons {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
       width: 352px;
       height: 34px;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
       .esBoton {
         width: 172px;
         height: 34px;
-        margin-right: 5px;
 
         /* Middle Color Black */
 
@@ -125,23 +123,24 @@
         /* Middle Color Black */
         border: 1px solid var(--light-color);
         border-radius: 8px;
+        margin-right: 5px;
         p {
           width: 100%;
           height: 100%;
-          font-family: 'Nunito';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 22px;
-          line-height: 30px;
-          /* or 182% */
-          letter-spacing: 0.1px;
 
           /* Lava Linear Vertical */
 
           background: linear-gradient(180deg, #ff6161 0%, #ff66dd 100%);
           -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
           background-clip: text;
+          font-family: 'Nunito';
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 400;
+          /* or 182% */
+          letter-spacing: 0.1px;
+          line-height: 30px;
+          -webkit-text-fill-color: transparent;
 
           /* Flare Lava */
 
@@ -151,24 +150,24 @@
       .InButton {
         width: 172px;
         height: 34px;
+        border: none;
 
         /* Middle Color Black */
         border-radius: 8px;
-        border: none;
         p {
           width: 100%;
           height: 100%;
-          font-family: 'Nunito';
-          font-style: normal;
-          font-size: 22px;
-          line-height: 30px;
-
-          /* or 182% */
-          letter-spacing: 0.1px;
 
           /* Middle Color White */
 
           color: #e4ebf2;
+          font-family: 'Nunito';
+          font-size: 22px;
+          font-style: normal;
+
+          /* or 182% */
+          letter-spacing: 0.1px;
+          line-height: 30px;
 
           text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.61);
         }
@@ -177,13 +176,11 @@
   }
   .menuToggle {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     button {
       width: 56px;
       height: 56px;
-      background: linear-gradient(327.43deg, #32383e -77.68%, #17191c 87.35%);
-      box-shadow: -4px -2px 16px rgba(195, 200, 205, 0.05), 4px 4px 18px rgba(0, 0, 0, 0.4);
       border-radius: 16px;
       svg {
         width: 35px;

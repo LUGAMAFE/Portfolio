@@ -1,9 +1,90 @@
 .mision {
-  height: 938px;
-  background: var(--darkColorIntro);
   display: flex;
+  height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: center;
+  .misionContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .ilustration {
+      width: 635px;
+      height: 100%;
+      margin-top: 100px;
+      .svgContainer {
+        width: 95%;
+        height: 50%;
+        svg {
+          overflow: visible;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .contactButton {
+        width: 338px;
+        height: 70px;
+        flex-shrink: 0;
+        border-radius: 50px;
+        background: linear-gradient(90deg, #ff6161 0.16%, #f6d 99.81%);
+        box-shadow: -6px -6px 15px 0px #2d3035, 6px 6px 15px 0px #1a1b1d;
+        p {
+          color: #fff;
+          font-family: Lato;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 800;
+          letter-spacing: -0.6px;
+          line-height: normal;
+          text-align: center;
+        }
+      }
+    }
+    .abilities {
+      display: flex;
+      width: 635px;
+      height: 100%;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-top: -80px;
+      transform: scale(0.9);
+      .svgContainer {
+        svg {
+          overflow: visible;
+        }
+        p {
+          position: absolute;
+          padding: 140px 160px;
+          color: #e4ebf2;
+          font-family: Lato;
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 900;
+          letter-spacing: -0.4px;
+          line-height: 50px; /* 104.167% */
+          text-shadow: 0px 0px 2px #94b8da,
+            0px 4px 4px rgba(0, 0, 0, 0.25) 0px 6px 4px rgba(0, 0, 0, 0.3);
+        }
+        &:nth-child(2) {
+          margin: 0 auto;
+
+          svg {
+            padding-left: 150px;
+          }
+        }
+        &:nth-child(3) {
+          transform: rotateZ(180deg);
+          transform-origin: center;
+          p {
+            padding: 150px;
+            transform: rotateZ(180deg);
+          }
+        }
+      }
+    }
+  }
 }
