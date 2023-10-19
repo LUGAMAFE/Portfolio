@@ -1,4 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { createContext, useEffect, useState } from 'react';
 import { colorLuminance } from '../../utils';
 
 export const NeumorphicStylesContext = createContext();
@@ -68,4 +69,13 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }) => {
       {children}
     </NeumorphicStylesContext.Provider>
   );
+};
+
+StyleProvider.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  colorDifference: PropTypes.number,
+};
+
+StyleProvider.defaultProps = {
+  colorDifference: 0.15,
 };

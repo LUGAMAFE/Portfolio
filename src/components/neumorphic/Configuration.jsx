@@ -1,16 +1,17 @@
-import React, { useEffect, useContext, useState } from 'react';
-import ShapeSwitcher from './ShapeSwitcher';
-import ConfigurationRow from './ConfigurationRow';
-import { isValidColor, deleteFalsyProperties, getContrast } from '../../utils';
+import { useContext, useEffect, useState } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
-import { NeuElementContext } from './context/NeuElementContext';
+import { deleteFalsyProperties, getContrast, isValidColor } from '../../utils';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import ConfigurationRow from './ConfigurationRow';
 import LightSourceSelector from './LightSourceSelector';
+import ShapeSwitcher from './ShapeSwitcher';
+import { NeuElementContext } from './context/NeuElementContext';
 
 const maxSize = 500;
 
 const Configuration = () => {
-  const { contextConfig, updateContextConfigProp, setContextConfig } = useContext(NeuElementContext);
+  const { contextConfig, updateContextConfigProp, setContextConfig } =
+    useContext(NeuElementContext);
   const [color, setColor] = useState('#ffffff');
   const [colorInputText, setColorInputText] = useState('#ffffff');
   const [defaultCssVariables, setDefaultCssVariables] = useState({});
@@ -19,7 +20,9 @@ const Configuration = () => {
   } = useContext(NeumorphicStylesContext);
 
   const copyToClipboard = () => {
-    const textConfig = `neumorphicOptions={${JSON.stringify(deleteFalsyProperties(contextConfig))}}`;
+    const textConfig = `neumorphicOptions={${JSON.stringify(
+      deleteFalsyProperties(contextConfig)
+    )}}`;
     navigator.clipboard.writeText(textConfig);
     alert(`Copied neumorphic element config: \n ${textConfig}`);
   };

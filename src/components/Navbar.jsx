@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import style from '../style/sass/style.module.scss';
 import { NeumorphicStylesContext } from './context/NeumorphicStylesContext';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
@@ -62,7 +62,11 @@ export const Navbar = () => {
       <div className={style.lights}>
         <p>{mainColor}</p>
         <label className={style.toggle}>
-          <input onChange={handleChangeColor} className={style.toggleCheckbox} type="checkbox"></input>
+          <input
+            onChange={handleChangeColor}
+            className={style.toggleCheckbox}
+            type="checkbox"
+          ></input>
           <div className={style.toggleSwitch}></div>
         </label>
       </div>

@@ -1,15 +1,4 @@
 {
-  "extends": [
-    "development"
-  ],
-  "hints": {
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "user-select"
-        ]
-      }
-    ]
-  }
+  "extends": ["web-recommended"],
+  "browserslist": [">1% and last 3 versions", "not OperaMini all", "not dead"]
 }

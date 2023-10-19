@@ -1,10 +1,17 @@
-import React, { useContext, useEffect, useState, useMemo } from 'react';
-import { angleGradient, colorLuminance, getContrast, getIntFormValue, getIfGradient } from '../../utils';
-import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import PropTypes from 'prop-types';
+import { useContext, useEffect, useMemo, useState } from 'react';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import styles from '../../style/sass/style.module.scss';
+import {
+  angleGradient,
+  colorLuminance,
+  getContrast,
+  getIfGradient,
+  getIntFormValue,
+} from '../../utils';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeuTooltipTool from './NeuTooltipTool';
 import { NeuElementContext } from './context/NeuElementContext';
-import useDeepCompareEffect from 'use-deep-compare-effect';
 
 const RealNeumorphicElement = ({
   element: Element = 'div',
@@ -18,7 +25,6 @@ const RealNeumorphicElement = ({
   distance = undefined,
   blur = undefined,
   style = undefined,
-  nTestId = undefined,
   onClick = undefined,
   ...rest
 }) => {
@@ -108,9 +114,17 @@ const RealNeumorphicElement = ({
       lightColor = '#00000000';
     }
     const firstGradientColor =
-      gradient && shapeId !== 1 ? (shapeId === 3 ? lightGradientColor : darkGradientColor) : colorToUse;
+      gradient && shapeId !== 1
+        ? shapeId === 3
+          ? lightGradientColor
+          : darkGradientColor
+        : colorToUse;
     const secondGradientColor =
-      gradient && shapeId !== 1 ? (shapeId === 2 ? lightGradientColor : darkGradientColor) : colorToUse;
+      gradient && shapeId !== 1
+        ? shapeId === 2
+          ? lightGradientColor
+          : darkGradientColor
+        : colorToUse;
 
     let finalDistance = contextConfig.distance;
     let finalBlur = contextConfig.blur;
@@ -146,7 +160,7 @@ const RealNeumorphicElement = ({
     if (shapeId == 0) {
       setClassesToApply(`${styles.pressed}`);
     } else {
-      setClassesToApply(``);
+      setClassesToApply('');
     }
   }, [
     contextConfig,
@@ -167,9 +181,43 @@ const RealNeumorphicElement = ({
         {...tooltipReferenceProps}
         {...rest}
       />
-      {editorMode && <NeuTooltipTool refElement={refElement} setRefProps={setTooltipReferenceProps} onClick={onClick} />}
+      {editorMode && (
+        <NeuTooltipTool
+          refElement={refElement}
+          setRefProps={setTooltipReferenceProps}
+          onClick={onClick}
+        />
+      )}
     </>
   );
+};
+
+RealNeumorphicElement.propTypes = {
+  element: PropTypes.elementType,
+  className: PropTypes.string,
+  neumorphicOptions: PropTypes.shape({
+    form: PropTypes.any,
+    color: PropTypes.string,
+    size: PropTypes.number,
+    intensity: PropTypes.number,
+    lightSource: PropTypes.number,
+    distance: PropTypes.string,
+    blur: PropTypes.string,
+  }),
+  form: PropTypes.any,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  intensity: PropTypes.number,
+  lightSource: PropTypes.number,
+  distance: PropTypes.string,
+  blur: PropTypes.string,
+  style: PropTypes.object,
+  onClick: PropTypes.func,
+};
+
+RealNeumorphicElement.defaultProps = {
+  className: '',
+  neumorphicOptions: {},
 };
 
 export default RealNeumorphicElement;
