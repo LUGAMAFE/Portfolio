@@ -1,6 +1,6 @@
 import { createContext, useCallback, useState } from 'react';
 
-export const NeuElementContext = createContext(null);
+export const NeuElementContext = createContext();
 
 export interface contextConfigNeomorphicElement {
   form?: string | null;
@@ -11,6 +11,7 @@ export interface contextConfigNeomorphicElement {
   angleLightSource?: number | null;
   distance?: string | null;
   blur?: string | null;
+  isSVG?: boolean | null;
 }
 
 interface Props {
@@ -27,6 +28,7 @@ export const NeuElementProvider = ({ children }: Props) => {
     lightSource: null,
     distance: null,
     blur: null,
+    isSVG: null,
   });
 
   const updateContextConfigProp = useCallback((property, value) => {

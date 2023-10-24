@@ -50,7 +50,8 @@ export const IntroSection = () => {
             <NeumorphicElement
               className={style.svgContainer}
               neumorphicOptions={{
-                form: 'svgInnerShadow',
+                form: 'concave',
+                isSVG: true,
                 size: '500',
                 intensity: '0.65',
                 lightSource: 3,
@@ -58,8 +59,30 @@ export const IntroSection = () => {
                 blur: 90,
               }}
             >
-              <svg>
-                <image href="../../assets/images/Vector-12.svg" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="635"
+                height="441"
+                viewBox="0 0 635 441"
+                fill="url(#paint0_linear_78_19)"
+              >
+                <g>
+                  <path
+                    d="M543.261 131.124C607.286 174.068 649 423 613.383 444C577.766 465 423.5 472 406.574 444C372 403.5 304.964 366.041 263.5 373.214C211.671 382.18 124.562 414.27 90.0091 373.214C80.6216 362.059 47.0441 299.596 32.0823 241.079C-40.0722 -41.1225 231.778 40.0457 297.326 56.0906C407.082 82.9564 491.272 96.2526 543.261 131.124Z"
+                    fill="url(#paint0_linear_78_19)"
+                  />
+                  <path
+                    d="M543.261 131.124C607.286 174.068 649 423 613.383 444C577.766 465 423.5 472 406.574 444C372 403.5 304.964 366.041 263.5 373.214C211.671 382.18 124.562 414.27 90.0091 373.214C80.6216 362.059 47.0441 299.596 32.0823 241.079C-40.0722 -41.1225 231.778 40.0457 297.326 56.0906C407.082 82.9564 491.272 96.2526 543.261 131.124Z"
+                    stroke="url(#paint0_linear_78_19)"
+                  />
+                </g>
+
+                <defs>
+                  <linearGradient id="paint0_linear_78_19" x1="1" y1="1" x2="0" y2="0">
+                    <stop stopColor="var(--firstGradientColor)" />
+                    <stop offset="1" stopColor="var(--secondGradientColor)" />
+                  </linearGradient>
+                </defs>
               </svg>
             </NeumorphicElement>
             <div className={style.diseño}>
