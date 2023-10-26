@@ -17,14 +17,15 @@ export const codigoEjemplo = `class LuisMartinez {
     }
 
     metaVida(): string {
-        return  'Establecerme como jefe en una empresa de clase mundial líder 
-        en diseño y nuevas tecnologias de software mediante mis habilidades crecientes 
-        de trabajo para poder ayudar a las personas a facilitar y alegrar su vida mediante 
-        las nuevas tecnologias y herramientas que ofrece el software.'
-  
+    return 'Establecerme como jefe en una empresa de clase mundial líder ' +
+        'en diseño y nuevas tecnologías de software mediante mis habilidades crecientes ' +
+        'de trabajo para poder ayudar a las personas a facilitar y alegrar su vida mediante ' +
+        'las nuevas tecnologías y herramientas que ofrece el software.'
     }
 
-    experienciaLaboral(): Array<object> {
+
+
+    experienciaLaboral(): Array<> {
         return [
             { '2020-now': 'Freelancer, Buscando Trabajo' },
             { '2018-2020': 'Gant Soluciones Empresariales.' },

@@ -9,18 +9,13 @@
   justify-content: space-around;
   line-height: -10px;
   word-spacing: initial;
-  .customCodeHighlighter {
-    .number-line:nth-child(n + 20):nth-child(-n + 27) {
-      font-weight: bold !important;
-    }
-  }
-  .lineCode {
-    position: absolute;
-    top: 37px;
-    left: 110px;
-    width: 4px;
-    height: 1250px;
-    flex-shrink: 0;
-    background: var(--Lava-Linear-Vertical, linear-gradient(180deg, #ff6161 0%, #f6d 100%));
-  }
+}
+.lineCode {
+  position: absolute;
+  top: 37px;
+  left: 110px;
+  width: 4px;
+  height: 1250px;
+  flex-shrink: 0;
+  background: var(--Lava-Linear-Vertical, linear-gradient(180deg, #ff6161 0%, #f6d 100%));
 }

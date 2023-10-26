@@ -1,20 +1,14 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { codigoEjemplo } from '../data/codeSintaxHighlighter';
 
 import style from '../style/sass/style.module.scss';
 
+import { codigoEjemplo } from '../data/codeSintaxHighlighter';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
 export const CodeSection = () => {
-  const customLineProps = (lineNumber) => ({
-    style: {
-      backgroundColor: lineNumber === 2 ? 'yellow' : 'transparent',
-      fontSize: lineNumber === 2 ? '100px' : '50px',
-    },
-  });
   const customLineNumberStyle = {
-    paddingRight: '50px',
-    color: 'white !important',
+    paddingRight: '51px',
+    color: 'black',
   };
 
   return (
@@ -36,7 +30,6 @@ export const CodeSection = () => {
         style={okaidia}
         showLineNumbers
         showInlineLineNumbers
-        lineProps={customLineProps}
         lineNumberStyle={customLineNumberStyle}
         customStyle={{
           background: 'transparent',
@@ -51,7 +44,7 @@ export const CodeSection = () => {
           },
         }}
       >
-        {String(codigoEjemplo).replace(/\n$/, '')}
+        {codigoEjemplo}
       </SyntaxHighlighter>
     </NeumorphicElement>
   );
