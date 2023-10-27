@@ -8,3 +8,20 @@
       inset var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor);
   }
 }
+.svgInnerShadow {
+  overflow: visible;
+  background: none;
+  filter: drop-shadow(var(--positionX) var(--positionY) var(--blur) var(--darkColor))
+    drop-shadow(var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor));
+  svg {
+    fill: url(#paint0_linear_78_20);
+  }
+}
+.svgInnerShadowPressed {
+  overflow: visible;
+  background: none;
+  filter: url(#inset-shadow-light) url(#inset-shadow);
+  svg {
+    fill: url(#paint0_linear_78_20);
+  }
+}

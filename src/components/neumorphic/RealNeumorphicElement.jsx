@@ -26,6 +26,9 @@ const RealNeumorphicElement = ({
   blur = undefined,
   style = undefined,
   onClick = undefined,
+  isSVG = undefined,
+  SVGElement = undefined,
+  children,
   ...rest
 }) => {
   const { contextConfig, setContextConfig } = useContext(NeuElementContext);
@@ -38,20 +41,24 @@ const RealNeumorphicElement = ({
     lightSource: 1,
     distance: '',
     blur: '',
+    isSVG: false,
+    SVGElement: null,
   };
 
   // Merge individual props with neumorphicOptions object and prioritize individual props
   const options = useMemo(
     () => ({
       form: form ?? (neumorphicOptions.form || defaultProps.form),
+      isSVG: isSVG ?? (neumorphicOptions.isSVG || defaultProps.isSVG),
       color: color ?? (neumorphicOptions.color || defaultProps.color),
       size: size ?? (neumorphicOptions.size || defaultProps.size),
       intensity: intensity ?? (neumorphicOptions.intensity || defaultProps.intensity),
       lightSource: lightSource ?? (neumorphicOptions.lightSource || defaultProps.lightSource),
       distance: distance ?? (neumorphicOptions.distance || defaultProps.distance),
       blur: blur ?? (neumorphicOptions.blur || defaultProps.blur),
+      SVGElement: SVGElement ?? (neumorphicOptions.SVGElement || defaultProps.SVGElement),
     }),
-    [form, color, size, intensity, lightSource, distance, blur, neumorphicOptions]
+    [form, isSVG, color, size, intensity, lightSource, distance, blur, neumorphicOptions]
   );
 
   useDeepCompareEffect(() => {
@@ -74,7 +81,7 @@ const RealNeumorphicElement = ({
   const [tooltipReferenceProps, setTooltipReferenceProps] = useState({});
   const [classesToApply, setClassesToApply] = useState(styles.softShadow);
   const [defaultCssVariables, setDefaultCssVariables] = useState({});
-
+  const [svgFilters, setSVGFilters] = useState(null);
   useEffect(() => {
     if (!mainColorContext) return;
     if (contextConfig.form == null) {
@@ -94,7 +101,7 @@ const RealNeumorphicElement = ({
     let lightColor;
     let darkGradientColor;
     let lightGradientColor;
-
+    console.log(SVGElement);
     if (usingContextColor && contextConfig.intensity == colorDifference) {
       darkColor = darkColorContext;
       lightColor = lightColorContext;
@@ -156,6 +163,42 @@ const RealNeumorphicElement = ({
       '--firstGradientColor': `${firstGradientColor}`,
       '--secondGradientColor': `${secondGradientColor}`,
     });
+    setSVGFilters(
+      <defs>
+        <linearGradient id="paint0_linear_78_20" x1="1" y1="1" x2="0" y2="0">
+          <stop stopColor="var(--firstGradientColor)" />
+          <stop offset="1" stopColor="var(--secondGradientColor)" />
+        </linearGradient>
+        <filter id="inset-shadow-light" x="-50%" y="-50%" width="200%" height="200%">
+          <feComponentTransfer in="SourceAlpha">
+            <feFuncA type="table" tableValues="1 0" />
+          </feComponentTransfer>
+          <feGaussianBlur stdDeviation={`${finalBlur}`} />
+          <feOffset dx={`${positionX}`} dy={`${positionY}`} result="offsetblur" />
+          <feFlood floodColor="var(--lightColor)" result="color" />
+          <feComposite in2="offsetblur" operator="in" />
+          <feComposite in2="SourceAlpha" operator="in" />
+          <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode />
+          </feMerge>
+        </filter>
+        <filter id="inset-shadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feComponentTransfer in="SourceAlpha">
+            <feFuncA type="table" tableValues="1 0" />
+          </feComponentTransfer>
+          <feGaussianBlur stdDeviation={`${finalBlur}`} />
+          <feOffset dx={`${positionX * -1}`} dy={`${positionY * -1}`} result="offsetblur" />
+          <feFlood floodColor="var(--darkColor)" result="color" />
+          <feComposite in2="offsetblur" operator="in" />
+          <feComposite in2="SourceAlpha" operator="in" />
+          <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode />
+          </feMerge>
+        </filter>
+      </defs>
+    );
 
     if (shapeId == 0) {
       setClassesToApply(`${styles.pressed}`);
@@ -174,13 +217,39 @@ const RealNeumorphicElement = ({
 
   return (
     <>
-      <Element
-        ref={(node) => setRefElement(node)}
-        style={{ ...defaultCssVariables, ...style }}
-        className={`neuElement ${styles.softShadow} ${classesToApply} ${className}`}
-        {...tooltipReferenceProps}
-        {...rest}
-      />
+      {Element === 'input' || Element === 'textarea' ? (
+        <Element
+          ref={(node) => setRefElement(node)}
+          style={{ ...defaultCssVariables, ...style }}
+          className={
+            contextConfig.isSVG === true
+              ? contextConfig.form === 'pressed'
+                ? `neuElement ${styles.svgInnerShadowPressed} ${className}`
+                : `neuElement ${styles.svgInnerShadow} ${className}`
+              : `neuElement ${styles.softShadow} ${classesToApply} ${className}`
+          }
+          {...tooltipReferenceProps}
+          {...rest}
+        />
+      ) : (
+        <Element
+          ref={(node) => setRefElement(node)}
+          style={{ ...defaultCssVariables, ...style }}
+          className={
+            contextConfig.isSVG === true
+              ? contextConfig.form === 'pressed'
+                ? `neuElement ${styles.svgInnerShadowPressed} ${className}`
+                : `neuElement ${styles.svgInnerShadow} ${className}`
+              : `neuElement ${styles.softShadow} ${classesToApply} ${className}`
+          }
+          {...tooltipReferenceProps}
+          {...rest}
+        >
+          {neumorphicOptions.isSVG && svgFilters}
+          {children}
+        </Element>
+      )}
+
       {editorMode && (
         <NeuTooltipTool
           refElement={refElement}
@@ -203,6 +272,8 @@ RealNeumorphicElement.propTypes = {
     lightSource: PropTypes.number,
     distance: PropTypes.string,
     blur: PropTypes.string,
+    isSVG: PropTypes.boolean,
+    SVGElement: PropTypes.boolean,
   }),
   form: PropTypes.any,
   color: PropTypes.string,
@@ -211,13 +282,10 @@ RealNeumorphicElement.propTypes = {
   lightSource: PropTypes.number,
   distance: PropTypes.string,
   blur: PropTypes.string,
+  isSVG: PropTypes.boolean,
   style: PropTypes.object,
   onClick: PropTypes.func,
+  SVGElement: PropTypes.any,
+  children: PropTypes.node,
 };
-
-RealNeumorphicElement.defaultProps = {
-  className: '',
-  neumorphicOptions: {},
-};
-
 export default RealNeumorphicElement;
