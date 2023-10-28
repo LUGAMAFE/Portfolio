@@ -7,8 +7,47 @@ import { codigoEjemplo } from '../data/codeSintaxHighlighter';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
 export const CodeSection = () => {
   const customLineNumberStyle = {
-    paddingRight: '51px',
-    color: 'black',
+    paddingRight: '60px',
+  };
+
+  const customTheme = {
+    ...okaidia,
+    comment: {
+      ...okaidia.comment,
+      color: '#fff',
+    },
+    string: {
+      ...okaidia.string,
+      color: '#e6db74',
+    },
+    keyword: {
+      ...okaidia.string,
+      color: '#fd971f',
+    },
+    function: {
+      ...okaidia.string,
+      color: '#a6e22e',
+    },
+    'class-name': {
+      ...okaidia.string,
+      color: '#a6e22e',
+    },
+    builtin: {
+      ...okaidia.string,
+      color: '#66d9ef',
+    },
+    property: {
+      ...okaidia.code,
+      color: '#e6db74',
+    },
+    operator: {
+      ...okaidia.code,
+      color: '#f92672',
+    },
+    'code[class*="language-"]': {
+      lineHeight: '1.1',
+      wordSpacing: '2px',
+    },
   };
 
   return (
@@ -27,11 +66,12 @@ export const CodeSection = () => {
 
       <SyntaxHighlighter
         language="typescript"
-        style={okaidia}
+        style={{ ...customTheme }}
         showLineNumbers
         showInlineLineNumbers
         lineNumberStyle={customLineNumberStyle}
         customStyle={{
+          paddingLeft: '70px',
           background: 'transparent',
           width: '1877px',
           height: '1248',
@@ -39,9 +79,6 @@ export const CodeSection = () => {
           fontWeight: '400',
           letterSpacing: '-1px',
           lineHeight: '0.1px',
-          comment: {
-            color: 'green', // Cambia el color de los comentarios a verde
-          },
         }}
       >
         {codigoEjemplo}

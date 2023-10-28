@@ -23,8 +23,6 @@ export const codigoEjemplo = `class LuisMartinez {
         'las nuevas tecnologías y herramientas que ofrece el software.'
     }
 
-
-
     experienciaLaboral(): Array<> {
         return [
             { '2020-now': 'Freelancer, Buscando Trabajo' },
@@ -33,7 +31,6 @@ export const codigoEjemplo = `class LuisMartinez {
             { '2016-now': 'Estudiante Ingenieria de Software, Enfocado en WEB' }
         ]
     }
-
 
     habilidades(): string[] {
         return ['Ingenieria de Software', 'HTML5.1/CSS4/JS', 'jQuery', 'PHP',
@@ -47,4 +44,7 @@ export const codigoEjemplo = `class LuisMartinez {
             'Computación', 'REACT']
     }
 }
+
+
+
 `;
