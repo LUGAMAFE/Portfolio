@@ -94,17 +94,58 @@
     url('./Nunito/Nunito-ExtraLight.ttf') format('truetype');
 }
 
+/* Fira Code */
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./FiraCode/FiraCode-Regular.woff2') format('woff2'),
+    url('./FiraCode/FiraCode-Regular.woff') format('woff'),
+    url('./FiraCode/FiraCode-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./FiraCode/FiraCode-Medium.woff2') format('woff2'),
+    url('./FiraCode/FiraCode-Medium.woff') format('woff'),
+    url('./FiraCode/FiraCode-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./FiraCode/FiraCode-SemiBold.woff2') format('woff2'),
+    url('./FiraCode/FiraCode-SemiBold.woff') format('woff'),
+    url('./FiraCode/FiraCode-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: bold;
+  src: url('./FiraCode/FiraCode-Bold.woff2') format('woff2'),
+    url('./FiraCode/FiraCode-Bold.woff') format('woff'),
+    url('./FiraCode/FiraCode-Bold.ttf') format('truetype');
+}
+
 @font-face {
   font-display: swap;
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 300;
-  src: url('./FiraCode/FiraCode-Light.eot');
-  src: url('./FiraCode/FiraCode-Light.eot?#iefix') format('embedded-opentype'),
-    url('./FiraCode/FiraCode-Light.woff2') format('woff2'),
+  src: url('./FiraCode/FiraCode-Light.woff2') format('woff2'),
     url('./FiraCode/FiraCode-Light.woff') format('woff'),
     url('./FiraCode/FiraCode-Light.ttf') format('truetype');
 }
+
 @font-face {
   font-display: swap;
   font-family: 'Lato';

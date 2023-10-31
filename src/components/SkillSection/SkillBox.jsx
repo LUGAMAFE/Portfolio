@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import style from '../../style/sass/style.module.scss';
+import iconSkill from '../../../assets/images/Icono.svg';
+import style from '../../style/sass/skills.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { Skill } from './Skill';
-
 export const SkillBox = ({ texto }) => {
   const array = ['Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java'];
   return (
@@ -31,9 +31,7 @@ export const SkillBox = ({ texto }) => {
             className={style.title}
           >
             <div className={style.svgContainer}>
-              <svg>
-                <image href="../../assets/images/Icono.svg" />
-              </svg>
+              <img src={iconSkill} alt="Skill icon" />
             </div>
             <p>{texto}</p>
           </NeumorphicElement>

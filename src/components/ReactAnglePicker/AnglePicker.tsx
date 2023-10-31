@@ -14,25 +14,18 @@ const BORDER_WIDTH: number = 1;
 const WIDTH: number = 30;
 
 const CIRCLE_WIDTH: number = 6;
-/** for props check */
+
 export interface PickerProps {
-  // 边框色
   borderColor?: string | undefined;
-  // 小圆点颜色
   pointerColor?: string | undefined;
-  // 小圆点尺寸
   pointerWidth?: number | undefined;
-  // 宽度
   width?: number | undefined;
-  // 角度值
   value?: number;
-  // 边框样式 dashed dotted solid ...
   borderStyle?: string | undefined;
-  // 边框宽度
   borderWidth?: number | undefined;
 
   angle: number;
-  /* exported render */
+
   onChange?: (newValue?: number) => void | undefined;
 
   onAfterChange?: (interactiveValue: number) => void | undefined;
@@ -95,7 +88,6 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return { x, y };
   }
 
-  // 计算点击位置的角度
   getNewAngleByEvent = (e: MouseEvent | React.MouseEvent) => {
     const wrapperEl = this.wrapperRef && this.wrapperRef.current;
     if (e && wrapperEl) {
@@ -103,9 +95,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
       const { clientX, clientY } = e;
       const rect = wrapperEl.getClientRects()[0];
       const { x, y } = rect;
-      // 中心点坐标
       const centerP = { x: x + center.x, y: y + center.y };
-      // 计算弧度
       const nx = clientX - centerP.x;
       const ny = clientY - centerP.y;
       const radian = Math.atan2(ny, nx);

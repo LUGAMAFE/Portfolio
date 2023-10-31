@@ -13,7 +13,6 @@ export const getCenter = (width: number, borderWidth: number) => ({
   y: width / 2 - borderWidth,
 });
 
-// 弧度转角度
 export const radianToAngle = (radian: number): number => {
   const angle = Math.round((radian * 180) / Math.PI);
   if (angle < 0) {

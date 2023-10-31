@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "lint:fix": "yarn run lint --fix",
+    "lint": "eslint --report-unused-disable-directives --max-warnings 0 && eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:fix": "pnpm run lint --fix",
     "prettier": "prettier --check src/**/*.{js,jsx,ts,tsx,css,scss,json}",
-    "prettier:fix": "yarn run prettier --write",
-    "prepare": "husky install"
+    "prettier:fix": "pnpm run prettier --write",
+    "prepare": "husky install",
+    "typeCheck": "tsc"
   },
   "dependencies": {
     "@floating-ui/react": "^0.23.0",

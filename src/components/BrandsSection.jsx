@@ -1,6 +1,13 @@
-import style from '../style/sass/style.module.scss';
+import ANGOLOLogo from '../../assets/images/logos/ANGOLO.svg';
+import CHILLSIDELogo from '../../assets/images/logos/CHILLSIDE.svg';
+import CULTURLogo from '../../assets/images/logos/CULTUR.svg';
+import GANTLogo from '../../assets/images/logos/GANT.svg';
+import MCPLogo from '../../assets/images/logos/MCP.svg';
+import SECOGEYLogo from '../../assets/images/logos/SECOGEY.svg';
+import SOCCERLogo from '../../assets/images/logos/SOCCER.svg';
+import SOLAREKLogo from '../../assets/images/logos/SOLAREK.svg';
+import style from '../style/sass/brands.module.scss';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
-
 export const BrandsSection = () => {
   return (
     <NeumorphicElement
@@ -43,44 +50,28 @@ export const BrandsSection = () => {
               </NeumorphicElement>
               <div className={style.brandsLogos}>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/SECOGEY.svg" />
-                  </svg>
+                  <img src={SECOGEYLogo} alt="brand logo" />
                 </div>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/CULTUR.svg" />
-                  </svg>
+                  <img src={CULTURLogo} alt="brand logo" />
                 </div>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/ANGOLO.svg" />
-                  </svg>
+                  <img src={ANGOLOLogo} alt="brand logo" />
                 </div>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/MCP.svg" />
-                  </svg>
+                  <img src={MCPLogo} alt="brand logo" />
                 </div>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/SOCCER.svg" />
-                  </svg>
+                  <img src={SOCCERLogo} alt="brand logo" />
                 </div>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/SOLAREK.svg" />
-                  </svg>
+                  <img src={SOLAREKLogo} alt="brand logo" />
                 </div>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/CHILLSIDE.svg" />
-                  </svg>
+                  <img src={CHILLSIDELogo} alt="brand logo" />
                 </div>
                 <div className={style.brand}>
-                  <svg>
-                    <image href="../../assets/images/logos/GANT.svg" />
-                  </svg>
+                  <img src={GANTLogo} alt="brand logo" />
                 </div>
               </div>
             </NeumorphicElement>

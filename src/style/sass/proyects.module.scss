@@ -44,10 +44,10 @@
           }
         }
         .snapContainer {
+          overflow: hidden;
           width: 719px;
-          height: 539px;
+          height: 525px;
           align-self: flex-end;
-          background: url('../../../assets/images/shotsnapp.png');
           transform: translateY(-24px);
         }
       }
@@ -108,12 +108,11 @@
             width: 479px;
             height: 8px;
             flex-shrink: 0;
-            justify-content: flex-start;
+            justify-content: center;
             margin-top: -25px;
-            svg {
-              overflow: visible;
-              width: fit-content;
-              height: fit-content;
+            margin-left: 25px;
+            img {
+              transform: scale(2);
             }
           }
         }

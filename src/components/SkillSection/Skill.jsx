@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import style from '../../style/sass/style.module.scss';
+import neomorphicCircleSVG from '../../../assets/images/Circulito-Carga.svg';
+import neonRectangleSVG from '../../../assets/images/Rectangle-neon.svg';
+import style from '../../style/sass/skills.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 export const Skill = ({ skillText }) => {
   return (
@@ -19,17 +21,13 @@ export const Skill = ({ skillText }) => {
             className={style.nullPart}
           ></NeumorphicElement>
           <div className={style.neonPart}>
-            <svg>
-              <image href="../../assets/images/Rectangle-neon.svg" />
-            </svg>
+            <img src={neonRectangleSVG} alt="Neon part of input" />
           </div>
         </div>
       </div>
       <div className={style.circleContainer}>
         <div className={style.svgContainer}>
-          <svg>
-            <image href="../../assets/images/Circulito-Carga.svg" />
-          </svg>
+          <img src={neomorphicCircleSVG} alt="circle part of input" />
         </div>
       </div>
     </div>

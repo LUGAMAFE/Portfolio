@@ -1,6 +1,7 @@
-import style from '../style/sass/style.module.scss';
+import callIcon from '../../assets/images/call-1.svg';
+import neonContainer from '../../assets/images/Vector-13.svg';
+import style from '../style/sass/contact.module.scss';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
-
 export const ContactSection = () => {
   return (
     <NeumorphicElement
@@ -21,9 +22,7 @@ export const ContactSection = () => {
           </div>
           <div className={style.content}>
             <div className={style.svgContainer}>
-              <svg>
-                <image href="../../assets/images/Vector-13.svg" />
-              </svg>
+              <img src={neonContainer} alt="neon container" />
             </div>
             <form className={style.form}>
               <NeumorphicElement
@@ -122,9 +121,7 @@ export const ContactSection = () => {
                   className={style.socialIconContainer}
                 >
                   <div className={style.svgContainer2}>
-                    <svg>
-                      <image href="../../assets/images/call-1.svg" />
-                    </svg>
+                    <img src={callIcon} alt="neomorphic svg shape" />
                   </div>
                 </NeumorphicElement>
                 <p>9993777732</p>
