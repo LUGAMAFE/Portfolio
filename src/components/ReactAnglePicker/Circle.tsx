@@ -1,33 +1,6 @@
-import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 
 const CIRCLE_WIDTH: number = 6;
-
-interface WrapperProps {
-  left: number;
-  top: number;
-}
-const CircleWrapper = styled.div<WrapperProps>`
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: ${(props: WrapperProps) => props.left}px;
-  top: ${(props: WrapperProps) => props.top}px;
-  z-index: 1;
-`;
-
-interface IconProps {
-  width: number | undefined;
-  color: string | undefined;
-}
-const IconCircle = styled.div<IconProps>`
-  width: ${(props: IconProps) => props.width || CIRCLE_WIDTH}px;
-  height: ${(props: IconProps) => props.width || CIRCLE_WIDTH}px;
-  background: ${(props: IconProps) => (props.color ? props.color : 'rgba(0,0,0,0.4)')};
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-`;
-
 interface CircelProps {
   x: number;
   y: number;
@@ -37,10 +10,32 @@ interface CircelProps {
 
 const Circle = (props: CircelProps) => {
   const { x, y, color, width } = props;
+  const [circleWrapperCssVariables, setCircleWrapperCssVariables] = useState({});
+  const [IconCircleCssVariables, setIconCircleCssVariables] = useState({});
+  useEffect(() => {
+    setCircleWrapperCssVariables({
+      width: `0px`,
+      height: `0px`,
+      position: `absolute`,
+      left: `${x}px`,
+      top: `${y}px`,
+      zIndex: `-1`,
+    });
+  }, [x, y]);
+  useEffect(() => {
+    setIconCircleCssVariables({
+      WebkitBorderRadius: '50 %',
+      width: `${width || CIRCLE_WIDTH}px`,
+      height: `${width || CIRCLE_WIDTH}px`,
+      background: `${color || 'rgba(255,0,0,0.4)'}`,
+      borderRadius: '50%',
+      transform: `translate(-50%, -50%)`,
+    });
+  }, []);
   return (
-    <CircleWrapper left={x} top={y}>
-      <IconCircle color={color} width={width} />
-    </CircleWrapper>
+    <div style={{ ...circleWrapperCssVariables }}>
+      <div style={{ ...IconCircleCssVariables }}></div>
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+import hamburgerIcon from '../../../assets/images/bx-menu.svg';
 import style from '../../style/sass/navbar.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -34,9 +35,7 @@ const Navbar = () => {
             blur: 11,
           }}
         >
-          <svg>
-            <image href="../../assets/images/bx-menu.svg" />
-          </svg>
+          <img src={hamburgerIcon} alt="circle part of input" />
         </NeumorphicElement>
       </div>
     </NeumorphicElement>

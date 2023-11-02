@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { forwardRef, useEffect, useState } from 'react';
 
 const WIDTH: number = 30;
 
@@ -7,21 +7,37 @@ interface BorderProps {
   borderColor?: string | undefined;
   borderStyle?: string | undefined;
   borderWidth?: number | undefined;
+  onMouseDown?: React.MouseEventHandler<HTMLDivElement>;
+  children: JSX.Element | JSX.Element[];
 }
 
-const Border = styled.div<BorderProps>`
-  width: ${(props: BorderProps) => props.width || WIDTH}px;
-  height: ${(props: BorderProps) => props.width || WIDTH}px;
-  border-style: ${(props: BorderProps) => props.borderStyle}px;
-  border-color: ;
-  position: relative;
-  border: ${(props: BorderProps) =>
-      typeof props.borderWidth === 'number' ? props.borderWidth : 1}px
-    solid ${(props: BorderProps) => props.borderColor || '#ccc'};
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
-  border-radius: 50%;
-  box-sizing: border-box;
-  z-index: 1;
-`;
+const Border = forwardRef<HTMLDivElement, BorderProps>((props, ref) => {
+  const { borderColor, borderStyle, borderWidth, width, children, onMouseDown } = props;
+  const [defaultCssVariables, setDefaultCssVariables] = useState({});
+
+  useEffect(() => {
+    setDefaultCssVariables({
+      width: `${width || WIDTH}px`,
+      height: `${width || WIDTH}px`,
+      borderStyle: `${borderStyle}px`,
+      position: 'relative',
+      boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.16)',
+      border: `${typeof borderWidth === 'number' ? borderWidth : 1}px solid ${
+        borderColor || '#ccc'
+      }`,
+      borderRadius: '50%',
+      boxSizing: 'border-box',
+      zIndex: '1',
+    });
+  }, []);
+
+  return (
+    <div onMouseDown={onMouseDown} ref={ref} style={{ ...defaultCssVariables }}>
+      {children}
+    </div>
+  );
+});
+
+Border.displayName = 'Border';
 
 export default Border;

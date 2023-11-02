@@ -207,27 +207,8 @@ const Configuration = () => {
         className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
-      {/* {contextConfig.form === 'flat' && (
-        <ConfigurationRow
-          label={'Angle'}
-          type={'range'}
-          value={contextConfig.angle}
-          onChange={(e) => updateContextConfigProp('angle', e.target.value)}
-          min={'0'}
-          max={'360'}
-          className={style.row}
-        />
-      )} */}
-      <div className={style.row}>
-        {/* <label
-          htmlFor="noShadow"
-          // checked={this.state.active}
-          // onClick={this.handleClick}
-        >
-          Shadow:
-          <input type="checkbox" name="noShadow" />
-        </label> */}
-      </div>
+
+      <div className={style.row}></div>
       <button className={style.copy} onClick={copyToClipboard}>
         Copy Config
       </button>

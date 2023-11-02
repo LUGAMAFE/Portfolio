@@ -4,7 +4,7 @@ import { codigoEjemplo } from '../data/codeSintaxHighlighter';
 
 import style from '../style/sass/code.module.scss';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
-export const CodeSection = () => {
+const CodeSection = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
@@ -43,3 +43,4 @@ export const CodeSection = () => {
     </NeumorphicElement>
   );
 };
+export default CodeSection;

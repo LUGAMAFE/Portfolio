@@ -1,26 +1,4 @@
-import styled from 'styled-components';
-
-interface IconProps {
-  width: number | undefined;
-  color: string | undefined;
-  angle?: number | undefined;
-}
-
-const LineIcon = styled.div<IconProps>`
-  --width: 5px;
-  --height: 17px;
-  width: var(--width);
-  height: var(--height);
-  background-color: black;
-  position: absolute;
-  left: calc(50% - var(--width) / 2);
-  top: calc(50% - var(--width) / 2);
-  border-radius: 5px;
-  rotate: ${(props: IconProps) => props.angle}deg;
-  transform-origin: center calc(var(--width) / 2);
-  z-index: -1;
-`;
-
+import { useEffect, useState } from 'react';
 interface CircelProps {
   x: number;
   y: number;
@@ -30,9 +8,26 @@ interface CircelProps {
 }
 
 const Line = (props: CircelProps) => {
-  const { color, width, angle } = props;
+  const { angle } = props;
+  const [defaultCssVariables, setDefaultCssVariables] = useState({});
+  useEffect(() => {
+    setDefaultCssVariables({
+      '--width': `5px`,
+      '--height': `5px`,
+      width: `5px`,
+      height: `17px`,
+      backgroundColor: `black`,
+      position: `absolute`,
+      left: `calc(50% - var(--width) / 2)`,
+      top: `calc(50% - var(--width) / 2)`,
+      borderRadius: `5px`,
+      transform: `rotate(${angle ? angle - 90 : angle}deg)`,
+      transformOrigin: `center calc(var(--width) / 2)`,
+      zIndex: `1`,
+    });
+  }, [angle]);
 
-  return <LineIcon color={color} width={width} angle={angle ? angle - 90 : angle} />;
+  return <div style={{ ...defaultCssVariables }}></div>;
 };
 
 export default Line;
