@@ -12,10 +12,6 @@ export interface contextConfigNeomorphicElement {
   distance?: string | null;
   blur?: string | null;
 }
-interface ContextConfigPropInterface {
-  property: keyof contextConfigNeomorphicElement;
-  value: string | number | null;
-}
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -33,7 +29,7 @@ export const NeuElementProvider = ({ children }: Props) => {
     blur: null,
   });
 
-  const updateContextConfigProp = useCallback(({ property, value }: ContextConfigPropInterface) => {
+  const updateContextConfigProp = useCallback((property: string, value: number) => {
     setContextConfig((prevContextConfig) => ({
       ...prevContextConfig,
       [property]: value,
