@@ -5,28 +5,34 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "lint:fix": "yarn run lint --fix",
+    "lint:fix": "pnpm run lint --fix",
     "prettier": "prettier --check src/**/*.{js,jsx,ts,tsx,css,scss,json}",
-    "prettier:fix": "yarn run prettier --write",
-    "prepare": "husky install"
+    "prettier:fix": "pnpm run prettier --write",
+    "prepare": "husky install",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@floating-ui/react": "^0.23.0",
     "gsap": "^3.11.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-angle-picker": "^1.0.6",
     "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "typescript": "^5.2.2",
     "use-deep-compare-effect": "^1.8.1",
-    "vite": "^4.4.11"
+    "vite": "^4.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-eslint": "^10.1.0",
     "branch-name-lint": "^2.1.1",
@@ -37,6 +43,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
     "husky": "^8.0.0",
     "lint-staged": "^14.0.1",
     "prettier": "^2.8.7",

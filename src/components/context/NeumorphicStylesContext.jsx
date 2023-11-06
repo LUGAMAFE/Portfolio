@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import { colorLuminance } from '../../utils';
-
 export const NeumorphicStylesContext = createContext();
 
 const obtainMainClass = (cssVariableName) => {

@@ -4,24 +4,25 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  parser: '@typescript-eslint/parser',
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'prettier',
   ],
+  plugins: ['@typescript-eslint', 'react', 'react-refresh'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
   settings: {
     react: {
       version: 'detect',
     },
-  },
-  rules: {
-    'no-unused-vars': ['error', { ignoreRestSiblings: true }],
   },
 };

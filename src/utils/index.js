@@ -1,5 +1,3 @@
-// TODO: replace with a map
-
 export function angleGradient(shapeId, distance) {
   const positions = {
     1: { positionX: distance, positionY: distance, angle: 145 },
@@ -12,6 +10,7 @@ export function angleGradient(shapeId, distance) {
 
 export function getIntFormValue(form) {
   const values = {
+    svgInnerShadow: { value: 5 },
     flat: { value: 4 },
     concave: { value: 2 },
     convex: { value: 3 },

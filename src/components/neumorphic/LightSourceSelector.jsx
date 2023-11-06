@@ -4,7 +4,6 @@ import style from '../../style/sass/components/neumorphic/configuration.module.s
 const LightSourceSelector = ({ lightSource, onClick, disabled }) => {
   return (
     <div className={`${style.row} ${style.label}`} style={{ margin: '12px 0px 8px' }}>
-      <label>Light Direction:</label>
       <div className={`${style.lightArrows} ${disabled && style.disabled}`}>
         <button
           className={`${style.arrow} ${lightSource == 1 && style.active}`}

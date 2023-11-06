@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 import { deleteFalsyProperties, getContrast, isValidColor } from '../../utils';
+import AnglePicker from '../ReactAnglePicker/AnglePicker';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import ConfigurationRow from './ConfigurationRow';
 import LightSourceSelector from './LightSourceSelector';
@@ -58,9 +59,48 @@ const Configuration = () => {
     updateContextConfigProp('form', e.target.name);
   };
 
+  const handleDirectionAngle = (angulo) => {
+    if (angulo >= 0 && angulo < 90) {
+      updateContextConfigProp('lightSource', 3);
+    } else if (angulo >= 90 && angulo < 180) {
+      updateContextConfigProp('lightSource', 4);
+    } else if (angulo >= 180 && angulo < 270) {
+      updateContextConfigProp('lightSource', 1);
+    } else if (angulo >= 270 && angulo < 360) {
+      updateContextConfigProp('lightSource', 2);
+    } else {
+      return -1;
+    }
+  };
   const handleDirection = (e) => {
     updateContextConfigProp('lightSource', +e.target.name);
+    if (e.target.name == 3) {
+      setAngle(45);
+    } else if (e.target.name == 4) {
+      setAngle(145);
+    } else if (e.target.name == 1) {
+      setAngle(225);
+    } else if (e.target.name == 2) {
+      setAngle(315);
+    } else {
+      return -1;
+    }
   };
+
+  const [angle, setAngle] = useState(() => {
+    switch (contextConfig.lightSource) {
+      case 1:
+        return 225;
+      case 2:
+        return 315;
+      case 3:
+        return 45;
+      case 4:
+        return 135;
+      default:
+        return 0;
+    }
+  });
 
   useEffect(() => {
     const updateColorAndCssVariables = (newColor) => {
@@ -103,11 +143,29 @@ const Configuration = () => {
           onChange={handleColorChange}
         />
       </div>
-      <LightSourceSelector
-        lightSource={contextConfig.lightSource}
-        onClick={handleDirection}
-        disabled={contextConfig.form === 'flat' ? true : false}
-      />
+      <div className={`${style.row} ${style.label}`}>
+        <label htmlFor="anglePicker">Pick an angle:</label>
+
+        <AnglePicker
+          id="anglePicker"
+          value={angle}
+          onChange={(newAngle) => {
+            setAngle(newAngle);
+            handleDirectionAngle(newAngle);
+          }}
+          onAfterChange={setAngle}
+          pointerColor="#000"
+          pointerWidth={5}
+        />
+
+        <div style={{ minWidth: '34px' }}>{`${angle}°`}</div>
+        <LightSourceSelector
+          lightSource={contextConfig.lightSource}
+          onClick={handleDirection}
+          disabled={contextConfig.form === 'flat' ? true : false}
+        />
+      </div>
+
       <ConfigurationRow
         label={'Size'}
         type={'range'}
@@ -149,27 +207,8 @@ const Configuration = () => {
         className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
-      {/* {contextConfig.form === 'flat' && (
-        <ConfigurationRow
-          label={'Angle'}
-          type={'range'}
-          value={contextConfig.angle}
-          onChange={(e) => updateContextConfigProp('angle', e.target.value)}
-          min={'0'}
-          max={'360'}
-          className={style.row}
-        />
-      )} */}
-      <div className={style.row}>
-        {/* <label
-          htmlFor="noShadow"
-          // checked={this.state.active}
-          // onClick={this.handleClick}
-        >
-          Shadow:
-          <input type="checkbox" name="noShadow" />
-        </label> */}
-      </div>
+
+      <div className={style.row}></div>
       <button className={style.copy} onClick={copyToClipboard}>
         Copy Config
       </button>

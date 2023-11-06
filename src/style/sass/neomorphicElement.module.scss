@@ -8,3 +8,8 @@
       inset var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor);
   }
 }
+.svgInnerShadow {
+  background: none;
+  filter: drop-shadow(var(--positionX) var(--positionY) var(--blur) var(--darkColor))
+    drop-shadow(var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor));
+}
