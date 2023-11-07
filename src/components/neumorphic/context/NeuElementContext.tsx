@@ -1,16 +1,22 @@
-import { createContext, useCallback, useState } from 'react';
+import { Dispatch, SetStateAction, createContext, useCallback, useState } from 'react';
+export interface NeuElementContextInterface {
+  contextConfig: contextConfigNeomorphicElementShape;
+  setContextConfig: Dispatch<SetStateAction<contextConfigNeomorphicElementShape>>;
+  updateContextConfigProp: (property: string, value: string | number) => void;
+}
+export const NeuElementContext = createContext<NeuElementContextInterface>(
+  {} as NeuElementContextInterface
+);
 
-export const NeuElementContext = createContext({});
-
-export interface contextConfigNeomorphicElement {
-  form?: string | null;
-  color?: string | null;
-  size?: number | string | null;
-  intensity?: number | null;
-  lightSource?: number | null;
-  angleLightSource?: number | null;
-  distance?: string | null;
-  blur?: string | null;
+export interface contextConfigNeomorphicElementShape {
+  [key: string]: number | string | null;
+  form: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;
+  color: string | null;
+  size: number | string | null;
+  intensity: number | null;
+  lightSource: number | null;
+  distance: number | null;
+  blur: number | null;
 }
 
 interface Props {
@@ -18,7 +24,7 @@ interface Props {
 }
 
 export const NeuElementProvider = ({ children }: Props) => {
-  const [contextConfig, setContextConfig] = useState<contextConfigNeomorphicElement>({
+  const [contextConfig, setContextConfig] = useState<contextConfigNeomorphicElementShape>({
     form: null,
     color: null,
     size: null,
@@ -29,7 +35,7 @@ export const NeuElementProvider = ({ children }: Props) => {
     blur: null,
   });
 
-  const updateContextConfigProp = useCallback((property: string, value: number) => {
+  const updateContextConfigProp = useCallback((property: string, value: number | string) => {
     setContextConfig((prevContextConfig) => ({
       ...prevContextConfig,
       [property]: value,

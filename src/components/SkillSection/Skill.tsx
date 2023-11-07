@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
 import neomorphicCircleSVG from '../../../assets/images/Circulito-Carga.svg';
 import neonRectangleSVG from '../../../assets/images/Rectangle-neon.svg';
 import style from '../../style/sass/skills.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
-export const Skill = ({ skillText }) => {
+interface SkillProps {
+  skillText: string;
+}
+export const Skill = ({ skillText }: SkillProps) => {
   return (
     <div className={style.skill}>
       <p>{skillText}</p>
@@ -12,10 +14,10 @@ export const Skill = ({ skillText }) => {
           <NeumorphicElement
             neumorphicOptions={{
               form: 'pressed',
-              size: '102',
-              intensity: '0.76',
+              size: 102,
+              intensity: 0.76,
               lightSource: 1,
-              distance: '9',
+              distance: 9,
               blur: 18,
             }}
             className={style.nullPart}
@@ -32,7 +34,4 @@ export const Skill = ({ skillText }) => {
       </div>
     </div>
   );
-};
-Skill.propTypes = {
-  skillText: PropTypes.string,
 };

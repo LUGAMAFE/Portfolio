@@ -8,8 +8,8 @@ export const ImageComparator = () => {
         className={style.imageComparer}
         neumorphicOptions={{
           form: 'convex',
-          size: '439',
-          intensity: '0.9',
+          size: 439,
+          intensity: 0.9,
           lightSource: 1,
           distance: 44,
           blur: 88,

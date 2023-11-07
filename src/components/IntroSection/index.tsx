@@ -10,10 +10,10 @@ const IntroSection = () => {
       className={style.intro}
       neumorphicOptions={{
         form: 'pressed',
-        size: '500',
-        intensity: '0.65',
+        size: 500,
+        intensity: 0.65,
         lightSource: 3,
-        distance: '45',
+        distance: 45,
         blur: 90,
       }}
     >

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEventHandler, createRef } from 'react';
 import style from '../../style/sass/components/AnglePicker/anglePicker.module.scss';
 import Border from './Border';
 import Circle from './Circle';
@@ -16,6 +16,7 @@ const WIDTH: number = 30;
 const CIRCLE_WIDTH: number = 6;
 
 export interface PickerProps {
+  id?: string | undefined;
   borderColor?: string | undefined;
   pointerColor?: string | undefined;
   pointerWidth?: number | undefined;
@@ -52,7 +53,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     this.getNewAngleByEvent = this.getNewAngleByEvent.bind(this);
   }
 
-  wrapperRef = React.createRef<HTMLDivElement>();
+  wrapperRef = createRef<HTMLDivElement>();
 
   static getDerivedStateFromProps(props: PickerProps, state: PickerState) {
     if (typeof props.value === 'number' && state.angle !== props.value) {
@@ -104,7 +105,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return null;
   };
 
-  mousedown: React.MouseEventHandler<HTMLDivElement> = (e: MouseEvent | React.MouseEvent) => {
+  mousedown: MouseEventHandler<HTMLDivElement> = (e: MouseEvent | React.MouseEvent) => {
     const angle = this.getNewAngleByEvent(e);
     if (typeof angle === 'number') {
       this.setState({ angle });

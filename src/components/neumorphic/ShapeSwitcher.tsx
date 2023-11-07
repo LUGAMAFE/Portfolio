@@ -1,12 +1,20 @@
-import PropTypes from 'prop-types';
+import { MouseEvent } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
-import { ReactComponent as Concave } from '../svg/concave.svg';
-import { ReactComponent as Convex } from '../svg/convex.svg';
-import { ReactComponent as Flat } from '../svg/flat.svg';
-import { ReactComponent as Level } from '../svg/level.svg';
+import Concave from '../svg/concave.svg';
+import Convex from '../svg/convex.svg';
+import Flat from '../svg/flat.svg';
+import Level from '../svg/level.svg';
+import Pressed from '../svg/pressed.svg';
 
-import { ReactComponent as Pressed } from '../svg/pressed.svg';
-const ShapeSwitcher = ({ shape, setShape }) => {
+export interface ShapeSwitcherProps {
+  shape?: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;
+  setShape?: (name: string) => void;
+}
+const ShapeSwitcher = ({ shape, setShape }: ShapeSwitcherProps) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    const name = (event.target as HTMLInputElement).name;
+    setShape!(name);
+  };
   return (
     <>
       <div className={`${style.row} ${style.label}`}>
@@ -16,53 +24,48 @@ const ShapeSwitcher = ({ shape, setShape }) => {
         <div className={style.shapeSwitch}>
           <button
             className={shape === 'concave' ? style.active : ''}
-            onClick={setShape}
+            onClick={handleClick}
             name="concave"
             title="Concave"
           >
-            <Concave />
+            <img src={Concave} alt="Concave" />
           </button>
           <button
             className={shape === 'convex' ? style.active : ''}
-            onClick={setShape}
+            onClick={handleClick}
             name="convex"
             title="Convex"
           >
-            <Convex />
+            <img src={Convex} alt="Concave" />
           </button>
           <button
             className={shape === 'level' ? style.active : ''}
-            onClick={setShape}
+            onClick={handleClick}
             name="level"
             title="Level"
           >
-            <Level />
+            <img src={Level} alt="Concave" />
           </button>
           <button
             className={shape === 'pressed' ? style.active : ''}
-            onClick={setShape}
+            onClick={handleClick}
             name="pressed"
             title="Pressed"
           >
-            <Pressed />
+            <img src={Pressed} alt="Concave" />
           </button>
           <button
             className={shape === 'flat' ? style.active : ''}
-            onClick={setShape}
+            onClick={handleClick}
             name="flat"
             title="Flat"
           >
-            <Flat />
+            <img src={Flat} alt="Concave" />
           </button>
         </div>
       </div>
     </>
   );
-};
-
-ShapeSwitcher.propTypes = {
-  shape: PropTypes.oneOf(['concave', 'convex', 'level', 'pressed', 'flat']).isRequired,
-  setShape: PropTypes.func.isRequired,
 };
 
 export default ShapeSwitcher;

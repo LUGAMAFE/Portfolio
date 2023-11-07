@@ -1,4 +1,4 @@
-export const codigoEjemplo = `class LuisMartinez {
+export const codigoEjemplo: string = `class LuisMartinez {
   name: string;
   fechaNacimientoTimestamp: number;
   email: string;

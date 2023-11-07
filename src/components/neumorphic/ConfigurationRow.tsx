@@ -1,5 +1,18 @@
-import PropTypes from 'prop-types';
+import { ChangeEvent } from 'react';
 import { camelize } from '../../utils';
+
+interface ConfigurationRowProps {
+  className?: string;
+  label: string;
+  type: string;
+  value: string | number;
+  min?: string | number;
+  max?: string | number;
+  step?: string | number;
+  disabled?: boolean;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
 const ConfigurationRow = ({
   className,
   label,
@@ -10,7 +23,7 @@ const ConfigurationRow = ({
   step = '1',
   disabled,
   onChange,
-}) => {
+}: ConfigurationRowProps) => {
   return (
     <div className={className}>
       <label>{label}: </label>
@@ -27,18 +40,6 @@ const ConfigurationRow = ({
       />
     </div>
   );
-};
-
-ConfigurationRow.propTypes = {
-  className: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  step: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
 };
 
 ConfigurationRow.defaultProps = {

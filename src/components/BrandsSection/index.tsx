@@ -25,10 +25,10 @@ const BrandsSection = () => {
     <NeumorphicElement
       neumorphicOptions={{
         form: 'pressed',
-        size: '500',
-        intensity: '0.65',
+        size: 500,
+        intensity: 0.65,
         lightSource: 3,
-        distance: '45',
+        distance: 45,
         blur: 90,
       }}
       className={style.brands}
@@ -39,10 +39,10 @@ const BrandsSection = () => {
             <NeumorphicElement
               neumorphicOptions={{
                 form: 'convex',
-                size: '500',
-                intensity: '0.65',
+                size: 500,
+                intensity: 0.65,
                 lightSource: 1,
-                distance: '45',
+                distance: 45,
                 blur: 90,
               }}
               className={style.section}
@@ -50,10 +50,10 @@ const BrandsSection = () => {
               <NeumorphicElement
                 neumorphicOptions={{
                   form: 'convex',
-                  size: '102',
-                  intensity: '0.76',
+                  size: 102,
+                  intensity: 0.76,
                   lightSource: 1,
-                  distance: '9',
+                  distance: 9,
                   blur: 18,
                 }}
                 className={style.title}

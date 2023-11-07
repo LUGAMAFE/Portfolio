@@ -1,19 +1,22 @@
-import PropTypes from 'prop-types';
 import iconSkill from '../../../assets/images/Icono.svg';
 import style from '../../style/sass/skills.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { Skill } from './Skill';
-export const SkillBox = ({ texto }) => {
+
+interface SkillBoxProps {
+  text: string;
+}
+export const SkillBox = ({ text }: SkillBoxProps) => {
   const array = ['Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java'];
   return (
     <div className={style.skillTopic}>
       <NeumorphicElement
         neumorphicOptions={{
           form: 'convex',
-          size: '500',
-          intensity: '0.65',
+          size: 500,
+          intensity: 0.65,
           lightSource: 1,
-          distance: '45',
+          distance: 45,
           blur: 90,
         }}
         className={style.section}
@@ -21,10 +24,10 @@ export const SkillBox = ({ texto }) => {
         <NeumorphicElement
           neumorphicOptions={{
             form: 'convex',
-            size: '102',
-            intensity: '0.76',
+            size: 102,
+            intensity: 0.76,
             lightSource: 1,
-            distance: '9',
+            distance: 9,
             blur: 18,
           }}
           className={style.title}
@@ -32,17 +35,14 @@ export const SkillBox = ({ texto }) => {
           <div className={style.svgContainer}>
             <img src={iconSkill} alt="Skill icon" />
           </div>
-          <p>{texto}</p>
+          <p>{text}</p>
         </NeumorphicElement>
         <div className={style.skillsInputs}>
-          {array.map((elemento, index) => (
-            <Skill key={index} skillText={elemento} />
+          {array.map((skillText, index) => (
+            <Skill key={index} skillText={skillText} />
           ))}
         </div>
       </NeumorphicElement>
     </div>
   );
-};
-SkillBox.propTypes = {
-  texto: PropTypes.string,
 };

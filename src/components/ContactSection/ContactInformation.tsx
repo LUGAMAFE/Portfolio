@@ -11,8 +11,8 @@ export const ContactInformation = () => {
       <NeumorphicElement
         neumorphicOptions={{
           form: 'convex',
-          size: '82',
-          intensity: '0.65',
+          size: 82,
+          intensity: 0.65,
           lightSource: 1,
           distance: 8,
           blur: 16,
@@ -22,8 +22,8 @@ export const ContactInformation = () => {
         <NeumorphicElement
           neumorphicOptions={{
             form: 'concave',
-            size: '88',
-            intensity: '0.65',
+            size: 88,
+            intensity: 0.65,
             lightSource: 1,
             distance: 9,
             blur: 18,

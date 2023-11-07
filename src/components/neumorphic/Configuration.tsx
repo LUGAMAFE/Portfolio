@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 import { deleteFalsyProperties, getContrast, isValidColor } from '../../utils';
 import AnglePicker from '../ReactAnglePicker/AnglePicker';
@@ -13,22 +13,20 @@ const maxSize = 500;
 const Configuration = () => {
   const { contextConfig, updateContextConfigProp, setContextConfig } =
     useContext(NeuElementContext);
-  const [color, setColor] = useState('#ffffff');
-  const [colorInputText, setColorInputText] = useState('#ffffff');
-  const [defaultCssVariables, setDefaultCssVariables] = useState({});
+  const [color, setColor] = useState<string>('#ffffff');
+  const [colorInputText, setColorInputText] = useState<string>('#ffffff');
+  const [defaultCssVariables, setDefaultCssVariables] = useState<Record<string, string>>({});
   const {
     styles: { mainColor: mainColorContext },
   } = useContext(NeumorphicStylesContext);
 
   const copyToClipboard = () => {
-    const textConfig = `neumorphicOptions={${JSON.stringify(
-      deleteFalsyProperties(contextConfig)
-    )}}`;
+    const textConfig = `neumorphicOptions=${JSON.stringify(deleteFalsyProperties(contextConfig))}`;
     navigator.clipboard.writeText(textConfig);
     alert(`Copied neumorphic element config: \n ${textConfig}`);
   };
 
-  const handleColorChange = (e) => {
+  const handleColorChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setColorInputText(value);
     if (isValidColor(value)) {
@@ -36,30 +34,43 @@ const Configuration = () => {
     }
   };
 
-  const handleSizeChange = (e) => {
+  const handleSizeChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setContextConfig((prev) => ({
       ...prev,
-      size: value,
-      blur: Math.round(value * 0.2),
-      distance: Math.round(value * 0.1),
+      size: Number(value),
+      blur: Math.round(Number(value) * 0.2),
+      distance: Math.round(Number(value) * 0.1),
     }));
   };
 
-  const handleDistanceChange = (e) => {
+  const handleDistanceChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setContextConfig((prev) => ({
       ...prev,
-      distance: value,
-      blur: value * 2,
+      distance: Number(value),
+      blur: Number(value) * 2,
     }));
   };
 
-  const handleShape = (e) => {
-    updateContextConfigProp('form', e.target.name);
+  const handleShape = (name: string) => {
+    updateContextConfigProp('form', name);
   };
 
-  const handleDirectionAngle = (angulo) => {
+  const handleDirection = (direction: number): void => {
+    updateContextConfigProp('lightSource', +name);
+    if (direction === 3) {
+      setAngle(45);
+    } else if (direction === 4) {
+      setAngle(145);
+    } else if (direction === 1) {
+      setAngle(225);
+    } else if (direction === 2) {
+      setAngle(315);
+    }
+  };
+
+  const handleDirectionAngle = (angulo: number) => {
     if (angulo >= 0 && angulo < 90) {
       updateContextConfigProp('lightSource', 3);
     } else if (angulo >= 90 && angulo < 180) {
@@ -72,22 +83,8 @@ const Configuration = () => {
       return -1;
     }
   };
-  const handleDirection = (e) => {
-    updateContextConfigProp('lightSource', +e.target.name);
-    if (e.target.name == 3) {
-      setAngle(45);
-    } else if (e.target.name == 4) {
-      setAngle(145);
-    } else if (e.target.name == 1) {
-      setAngle(225);
-    } else if (e.target.name == 2) {
-      setAngle(315);
-    } else {
-      return -1;
-    }
-  };
 
-  const [angle, setAngle] = useState(() => {
+  const [angle, setAngle] = useState<number>(() => {
     switch (contextConfig.lightSource) {
       case 1:
         return 225;
@@ -103,12 +100,12 @@ const Configuration = () => {
   });
 
   useEffect(() => {
-    const updateColorAndCssVariables = (newColor) => {
+    const updateColorAndCssVariables = (newColor: string) => {
       setColor(newColor);
       setColorInputText(newColor);
       setDefaultCssVariables({
         '--textColor': `${getContrast(newColor)}`,
-        '--textColorOpposite': `${newColor}`,
+        '--textColorOpposite': newColor,
       });
     };
 
@@ -150,18 +147,19 @@ const Configuration = () => {
           id="anglePicker"
           value={angle}
           onChange={(newAngle) => {
-            setAngle(newAngle);
-            handleDirectionAngle(newAngle);
+            setAngle(newAngle!);
+            handleDirectionAngle(newAngle!);
           }}
           onAfterChange={setAngle}
           pointerColor="#000"
           pointerWidth={5}
+          angle={0}
         />
 
         <div style={{ minWidth: '34px' }}>{`${angle}°`}</div>
         <LightSourceSelector
-          lightSource={contextConfig.lightSource}
-          onClick={handleDirection}
+          lightSource={contextConfig.lightSource!}
+          onDirectionChanged={handleDirection}
           disabled={contextConfig.form === 'flat' ? true : false}
         />
       </div>
@@ -169,9 +167,9 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Size'}
         type={'range'}
-        value={contextConfig.size}
+        value={contextConfig.size!}
         onChange={handleSizeChange}
-        min={'10'}
+        min={10}
         max={maxSize}
         className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
@@ -179,31 +177,31 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Distance'}
         type={'range'}
-        value={contextConfig.distance}
+        value={contextConfig.distance!}
         onChange={handleDistanceChange}
-        min={'2'}
-        max={'50'}
+        min={2}
+        max={50}
         className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
       <ConfigurationRow
         label={'Intensity'}
         type={'range'}
-        value={contextConfig.intensity}
+        value={contextConfig.intensity!}
         onChange={(e) => updateContextConfigProp('intensity', e.target.value)}
-        min={'0.01'}
-        max={'0.9'}
-        step={'0.01'}
+        min={0.01}
+        max={0.9}
+        step={0.01}
         className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
       <ConfigurationRow
         label={'Blur'}
         type={'range'}
-        value={contextConfig.blur}
+        value={contextConfig.blur!}
         onChange={(e) => updateContextConfigProp('blur', e.target.value)}
-        min={'0'}
-        max={'100'}
+        min={0}
+        max={100}
         className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />

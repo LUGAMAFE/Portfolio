@@ -1,5 +1,8 @@
-export function angleGradient(shapeId, distance) {
-  const positions = {
+export function angleGradient(
+  shapeId: number,
+  distance: number
+): { positionX: number; positionY: number; angle: number } {
+  const positions: { [key: number]: { positionX: number; positionY: number; angle: number } } = {
     1: { positionX: distance, positionY: distance, angle: 145 },
     2: { positionX: distance * -1, positionY: distance, angle: 225 },
     3: { positionX: distance * -1, positionY: distance * -1, angle: 315 },
@@ -8,8 +11,8 @@ export function angleGradient(shapeId, distance) {
   return positions[shapeId];
 }
 
-export function getIntFormValue(form) {
-  const values = {
+export function getIntFormValue(form: 'concave' | 'convex' | 'level' | 'pressed' | 'flat'): number {
+  const values: { [key: string]: { value: number } } = {
     svgInnerShadow: { value: 5 },
     flat: { value: 4 },
     concave: { value: 2 },
@@ -20,7 +23,7 @@ export function getIntFormValue(form) {
   return values[form].value;
 }
 
-export function colorLuminance(hex, lum) {
+export function colorLuminance(hex: string, lum: number): string {
   // validate hex string
   hex = String(hex).replace(/[^0-9a-f]/gi, '');
   if (hex.length < 6) {
@@ -41,7 +44,7 @@ export function colorLuminance(hex, lum) {
   return rgb;
 }
 
-export function getContrast(hex) {
+export function getContrast(hex: string): string {
   const r = parseInt(hex.substr(1, 2), 16),
     g = parseInt(hex.substr(3, 2), 16),
     b = parseInt(hex.substr(5, 2), 16),
@@ -49,20 +52,20 @@ export function getContrast(hex) {
   return yiq >= 128 ? '#2e3133' : '#F6F5F7';
 }
 
-export const handleDistance = (value) => {
-  let distance = value;
-  let blur = value * 2;
+export const handleDistance = (value: number): { blur: number; distance: number } => {
+  const distance = value;
+  const blur = value * 2;
   return { blur, distance };
 };
 
-export const handleSize = (value) => {
-  let size = value;
-  let distance = Math.round(value * 0.1);
-  let blur = Math.round(value * 0.2);
+export const handleSize = (value: number): { size: number; blur: number; distance: number } => {
+  const size = value;
+  const distance = Math.round(value * 0.1);
+  const blur = Math.round(value * 0.2);
   return { size, blur, distance };
 };
 
-export const getIfGradient = (shapeId) => {
+export const getIfGradient = (shapeId: number): boolean => {
   if (shapeId === 2 || shapeId === 3) {
     return true;
   } else {
@@ -70,9 +73,9 @@ export const getIfGradient = (shapeId) => {
   }
 };
 
-export const isValidColor = (hex) => /^#[0-9A-F]{6}$/i.test(hex);
+export const isValidColor = (hex: string): boolean => /^#[0-9A-F]{6}$/i.test(hex);
 
-export const camelize = (str) => {
+export const camelize = (str: string): string => {
   return str
     .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
       return index === 0 ? word.toLowerCase() : word.toUpperCase();
@@ -80,7 +83,9 @@ export const camelize = (str) => {
     .replace(/\s+/g, '');
 };
 
-export const deleteFalsyProperties = (obj) => {
+export const deleteFalsyProperties = <T extends Record<string | number, string | number | null>>(
+  obj: T
+): T => {
   for (const prop in obj) {
     if (!obj[prop]) {
       delete obj[prop];
