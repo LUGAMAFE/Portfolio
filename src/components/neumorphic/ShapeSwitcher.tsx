@@ -8,12 +8,12 @@ import Pressed from '../svg/pressed.svg';
 
 export interface ShapeSwitcherProps {
   shape?: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;
-  setShape?: (name: string) => void;
+  setShape: (name: string) => void;
 }
 const ShapeSwitcher = ({ shape, setShape }: ShapeSwitcherProps) => {
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     const name = (event.target as HTMLInputElement).name;
-    setShape!(name);
+    setShape(name);
   };
   return (
     <>

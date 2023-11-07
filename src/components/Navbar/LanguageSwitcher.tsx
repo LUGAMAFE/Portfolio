@@ -38,7 +38,11 @@ export const LanguageSwitcher = () => {
               ...button,
               neumorphicOptions: {
                 ...button.neumorphicOptions,
-                form: button.neumorphicOptions!.form === 'flat' ? 'pressed' : 'flat',
+                form: button.neumorphicOptions
+                  ? button.neumorphicOptions.form === 'flat'
+                    ? 'pressed'
+                    : 'flat'
+                  : 'flat',
               },
             }
           : button
@@ -62,7 +66,7 @@ export const LanguageSwitcher = () => {
           <NeumorphicElement
             key={button.id}
             element={'button'}
-            onClick={() => handleButtonClick(button.id!)}
+            onClick={() => handleButtonClick(button.id ? button.id : '')}
             neumorphicOptions={button.neumorphicOptions}
             className={button.className}
           >

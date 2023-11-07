@@ -100,8 +100,9 @@ const RealNeumorphicElement = ({
       darkGradientColor = darkGradientColorContext;
       lightGradientColor = lightGradientColorContext;
     } else {
-      darkColor = colorLuminance(colorToUse, contextConfig.intensity! * -1);
-      lightColor = colorLuminance(colorToUse, contextConfig.intensity!);
+      if (!contextConfig.intensity) return;
+      darkColor = colorLuminance(colorToUse, contextConfig.intensity * -1);
+      lightColor = colorLuminance(colorToUse, contextConfig.intensity);
       darkGradientColor = colorLuminance(colorToUse, -0.1);
       lightGradientColor = colorLuminance(colorToUse, 0.07);
     }
@@ -128,18 +129,18 @@ const RealNeumorphicElement = ({
     let finalDistance = contextConfig.distance;
     let finalBlur = contextConfig.blur;
 
-    finalDistance = Math.round(size! * 0.1);
-    finalBlur = Math.round(size! * 0.2);
+    finalDistance = Math.round(size ? size : defaultProps.size * 0.1);
+    finalBlur = Math.round(size ? size : defaultProps.size * 0.2);
 
     if (contextConfig.distance) {
-      finalDistance = contextConfig.distance!;
-      finalBlur = blur! * 2;
+      finalDistance = contextConfig.distance;
+      finalBlur = blur ? blur : defaultProps.blur * 2;
     }
     if (contextConfig.blur) {
       finalBlur = contextConfig.blur;
     }
     const { positionX, positionY, angle } = angleGradient(
-      contextConfig.lightSource!,
+      contextConfig.lightSource ? contextConfig.lightSource : defaultProps.lightSource,
       finalDistance
     );
 

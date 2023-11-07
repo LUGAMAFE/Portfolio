@@ -147,8 +147,8 @@ const Configuration = () => {
           id="anglePicker"
           value={angle}
           onChange={(newAngle) => {
-            setAngle(newAngle!);
-            handleDirectionAngle(newAngle!);
+            setAngle(newAngle ? newAngle : 0);
+            handleDirectionAngle(newAngle ? newAngle : 0);
           }}
           onAfterChange={setAngle}
           pointerColor="#000"
@@ -158,7 +158,7 @@ const Configuration = () => {
 
         <div style={{ minWidth: '34px' }}>{`${angle}°`}</div>
         <LightSourceSelector
-          lightSource={contextConfig.lightSource!}
+          lightSource={contextConfig.lightSource ? contextConfig.lightSource : 1}
           onDirectionChanged={handleDirection}
           disabled={contextConfig.form === 'flat' ? true : false}
         />
@@ -167,7 +167,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Size'}
         type={'range'}
-        value={contextConfig.size!}
+        value={contextConfig.size ? contextConfig.size : 100}
         onChange={handleSizeChange}
         min={10}
         max={maxSize}
@@ -177,7 +177,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Distance'}
         type={'range'}
-        value={contextConfig.distance!}
+        value={contextConfig.distance ? contextConfig.distance : 45}
         onChange={handleDistanceChange}
         min={2}
         max={50}
@@ -187,7 +187,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Intensity'}
         type={'range'}
-        value={contextConfig.intensity!}
+        value={contextConfig.intensity ? contextConfig.intensity : 0.15}
         onChange={(e) => updateContextConfigProp('intensity', e.target.value)}
         min={0.01}
         max={0.9}
@@ -198,7 +198,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Blur'}
         type={'range'}
-        value={contextConfig.blur!}
+        value={contextConfig.blur ? contextConfig.blur : 90}
         onChange={(e) => updateContextConfigProp('blur', e.target.value)}
         min={0}
         max={100}
