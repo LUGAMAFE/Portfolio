@@ -1,5 +1,6 @@
 import iconSkill from '../../../../assets/images/Icono.svg';
-import NeumorphicElement from '../../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
+
 import { Skill } from '../Skill';
 import style from './skillBox.module.scss';
 

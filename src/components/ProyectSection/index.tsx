@@ -1,4 +1,4 @@
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { CarrouselProyects } from './CarrouselProyects';
 import { DescriptionProyect } from './DescriptionProyect';
 import style from './proyects.module.scss';

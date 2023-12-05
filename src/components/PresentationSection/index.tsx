@@ -1,4 +1,4 @@
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { Abilities } from './Abilities';
 import { Ilustration } from './Ilustration';
 import style from './presentation.module.scss';

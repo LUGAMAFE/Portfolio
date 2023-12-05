@@ -1,5 +1,5 @@
 import callIcon from '../../../../assets/images/call-1.svg';
-import NeumorphicElement from '../../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './ContactInformation.module.scss';
 export const ContactInformation = () => {
   return (

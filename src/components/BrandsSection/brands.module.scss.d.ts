@@ -1,10 +1,11 @@
 import globalClassNames from '..../style.d';
 declare const classNames: typeof globalClassNames & {
-  readonly brands: 'brands';
-  readonly brandsContainer: 'brandsContainer';
-  readonly skillTopic: 'skillTopic';
-  readonly section: 'section';
-  readonly title: 'title';
-  readonly brandsLogos: 'brandsLogos';
+  readonly Brands: 'Brands';
+  readonly Brands_brandsContainer: 'Brands_brandsContainer';
+  readonly Brands_skillTopic: 'Brands_skillTopic';
+  readonly Brands_section: 'Brands_section';
+  readonly Brands_titleContainer: 'Brands_titleContainer';
+  readonly Brands_title: 'Brands_title';
+  readonly Brands_brandsLogos: 'Brands_brandsLogos';
 };
 export = classNames;

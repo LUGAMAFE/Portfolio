@@ -1,5 +1,5 @@
 import luisImage from '../../../../assets/images/luis.png';
-import NeumorphicElement from '../../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './ImageComparator.module.scss';
 export const ImageComparator = () => {
   return (

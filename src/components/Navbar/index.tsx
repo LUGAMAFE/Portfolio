@@ -1,5 +1,5 @@
 import hamburgerIcon from '../../../assets/images/bx-menu.svg';
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeColorSwitcher } from './ThemeColorSwitcher';
 import style from './navbar.module.scss';

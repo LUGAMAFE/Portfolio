@@ -1,5 +1,5 @@
 import neonContainer from '../../../assets/images/Vector-13.svg';
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { ContactInformation } from './ContactInformation';
 import { Form } from './Form';
 import style from './contact.module.scss';

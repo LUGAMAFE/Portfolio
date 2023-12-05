@@ -1,4 +1,4 @@
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { SkillBox } from './SkillBox';
 import style from './skills.module.scss';
 

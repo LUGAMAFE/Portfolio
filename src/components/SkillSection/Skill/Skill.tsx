@@ -1,6 +1,6 @@
 import neomorphicCircleSVG from '../../../../assets/images/Circulito-Carga.svg';
 import neonRectangleSVG from '../../../../assets/images/Rectangle-neon.svg';
-import NeumorphicElement from '../../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './skill.module.scss';
 interface SkillProps {
   skillText: string;

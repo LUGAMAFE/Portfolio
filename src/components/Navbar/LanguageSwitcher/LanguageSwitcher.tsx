@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { RealNeumorphicElementProps } from '../../../interfaces/neomorphism';
-import NeumorphicElement from '../../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './languageSwitcher.module.scss';
 
 export const LanguageSwitcher = () => {

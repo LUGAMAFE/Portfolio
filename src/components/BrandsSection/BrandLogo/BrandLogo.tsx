@@ -5,8 +5,6 @@ interface BrandLogoProps {
 }
 export const BrandLogo = ({ imageSource }: BrandLogoProps) => {
   return (
-    <div className={style.brandLogo}>
-      <img src={imageSource} alt="brand logo" />
-    </div>
+    <img className={style.BrandLogo} src={imageSource} alt="brand logo" />
   );
 };

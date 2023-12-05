@@ -1,4 +1,4 @@
-import NeumorphicElement from '../../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import { FormInputs } from '../FormInput';
 import style from './form.module.scss';
 

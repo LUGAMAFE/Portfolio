@@ -1,0 +1,34 @@
+.ilustration {
+  width: 635px;
+  height: 100%;
+  margin-top: 100px;
+  .svgContainer {
+    width: 95%;
+    height: 50%;
+    svg {
+      overflow: visible;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .contactButton {
+    width: 338px;
+    height: 70px;
+    flex-shrink: 0;
+
+    border-radius: 50px;
+    margin: 40px 100px;
+    background: linear-gradient(90deg, #ff6161 0.16%, #f6d 99.81%);
+    box-shadow: -6px -6px 15px 0px #2d3035, 6px 6px 15px 0px #1a1b1d;
+    p {
+      color: #fff;
+      font-family: Lato;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      line-height: normal;
+      text-align: center;
+    }
+  }
+}

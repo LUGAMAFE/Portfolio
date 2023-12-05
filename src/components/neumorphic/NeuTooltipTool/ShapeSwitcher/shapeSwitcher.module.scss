@@ -1,0 +1,30 @@
+.shapeSwitch {
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  border-radius: 3px;
+
+  button {
+    flex-grow: 1;
+    border: none;
+    background: var(--textColorOpposite);
+    color: var(--textColor);
+    cursor: pointer;
+    opacity: 0.9;
+    outline: 0;
+
+    img {
+      width: 30px;
+      height: 30px;
+      stroke: var(--textColor);
+    }
+
+    * {
+      pointer-events: none;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

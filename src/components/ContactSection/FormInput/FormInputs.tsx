@@ -1,4 +1,4 @@
-import NeumorphicElement from '../../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './FormInput.module.scss';
 interface Props {
   placeHolder: string;
