@@ -1,6 +1,6 @@
 import circleComputerSVG from '../../../assets/images/Circulito.svg';
 import neomorphicSVG from '../../../assets/images/Vector-10.svg';
-import style from '../../style/sass/presentation.module.scss';
+import style from './presentation.module.scss';
 export const Abilities = () => {
   return (
     <div className={style.abilities}>

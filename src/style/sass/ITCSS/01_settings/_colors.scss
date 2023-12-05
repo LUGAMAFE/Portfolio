@@ -1,0 +1,36 @@
+@use 'sass:color';
+/* ==========================================================================
+   #COLORS
+   ========================================================================== */
+
+/* Page */
+
+//Page Main Color Palette
+$color-primary-black-mode: #26292e;
+
+/* Neon */
+
+//Pink
+$color-first-gradient-neon-pink: #ff6161;
+$color-secondary-gradient-neon-pink: #f6d;
+/* Neutral */
+
+$color-black: #000000;
+$color-gray-90: color.adjust($color-black, $lightness: 10%);
+$color-gray-80: color.adjust($color-black, $lightness: 25%);
+$color-gray-70: color.adjust($color-black, $lightness: 30%);
+$color-gray-60: color.adjust($color-black, $lightness: 40%);
+$color-gray-50: color.adjust($color-black, $lightness: 50%);
+$color-gray-40: color.adjust($color-black, $lightness: 60%);
+$color-gray-20: color.adjust($color-black, $lightness: 80%);
+$color-gray-10: color.adjust($color-black, $lightness: 90%);
+$color-gray-05: color.adjust($color-black, $lightness: 95%);
+$color-white: #ffffff;
+
+// TODO We need to phase out these colors gradually and replace them with the ones above.
+$color-light-gray: #f3f3f3;
+$color-gray: #8a8a8a;
+
+/* Utility */
+
+// Define the background color sequence for ::after pseudo-elements

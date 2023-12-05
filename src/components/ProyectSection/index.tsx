@@ -1,7 +1,7 @@
-import style from '../../style/sass/proyects.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { CarrouselProyects } from './CarrouselProyects';
 import { DescriptionProyect } from './DescriptionProyect';
+import style from './proyects.module.scss';
 
 const ProyectSection = () => {
   return (

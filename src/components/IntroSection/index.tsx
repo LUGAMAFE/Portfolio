@@ -1,8 +1,8 @@
 import manIllustrationSVG from '../../../assets/images/Ilustracion-Diseño.svg';
 import neomorphicSVG from '../../../assets/images/Vector-12.svg';
-import style from '../../style/sass/intro.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { ImageComparator } from './ImageComparator';
+import style from './intro.module.scss';
 const IntroSection = () => {
   return (
     <NeumorphicElement

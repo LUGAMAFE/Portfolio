@@ -1,8 +1,8 @@
 import React, { Component, MouseEventHandler, createRef } from 'react';
-import style from '../../style/sass/components/AnglePicker/anglePicker.module.scss';
 import Border from './Border';
 import Circle from './Circle';
 import Line from './Line';
+import style from './anglePicker.module.scss';
 import { getCenter, getStartPoint, radianToAngle } from './service';
 
 export interface Point {

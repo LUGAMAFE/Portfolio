@@ -1,7 +1,7 @@
-import style from '../../style/sass/presentation.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { Abilities } from './Abilities';
 import { Ilustration } from './Ilustration';
+import style from './presentation.module.scss';
 
 const PresentationSection = () => {
   return (

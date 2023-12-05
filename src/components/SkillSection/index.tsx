@@ -1,6 +1,6 @@
-import style from '../../style/sass/skills.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { SkillBox } from './SkillBox';
+import style from './skills.module.scss';
 
 const SkillSection = () => {
   const array = ['Habilidades de programacion', 'Habilidades extra'];

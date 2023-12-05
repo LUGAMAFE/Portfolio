@@ -1,5 +1,5 @@
 import manComputerSVG from '../../../assets/images/Ilustracion-2.svg';
-import style from '../../style/sass/presentation.module.scss';
+import style from './presentation.module.scss';
 export const Ilustration = () => {
   return (
     <div className={style.ilustration}>

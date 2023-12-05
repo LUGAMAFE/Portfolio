@@ -1,0 +1,97 @@
+.contact {
+  display: flex;
+  height: 120vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .contactContainer {
+    display: flex;
+    width: 1440px;
+    height: 842px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 60px;
+    .section {
+      z-index: 1;
+      width: 1320px;
+      height: 752px;
+      flex-shrink: 0;
+      border-radius: 25px;
+      .textContainer {
+        position: relative;
+        top: 50px;
+        left: 500px;
+        width: 516px;
+        height: 66px;
+        flex-shrink: 0;
+        p {
+          position: absolute;
+          color: var(--Middle-Color-White, #e4ebf2);
+          font-family: Roboto;
+          font-size: 75px;
+          font-style: normal;
+          font-weight: 700;
+          letter-spacing: -0.4px;
+          line-height: 68px; /* 90.667% */
+          text-align: center;
+          text-shadow: 0px 0px 5px #fff;
+        }
+      }
+      .content {
+        position: relative;
+        display: flex;
+        width: 1320px;
+        height: 703px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+
+        .svgContainer {
+          position: absolute;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          svg {
+            overflow: visible;
+            width: fit-content;
+            height: fit-content;
+          }
+        }
+        p {
+          &:first-child {
+            color: var(--Middle-Color-White, #e4ebf2);
+            font-family: Nunito;
+            font-size: 47px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: -0.4px;
+            line-height: 60px; /* 127.66% */
+            text-align: center;
+            text-shadow: 0px 0px 2px #94b8da, 0px 4px 4px rgba(0, 0, 0, 0.25),
+              0px 6px 4px rgba(0, 0, 0, 0.3);
+          }
+          &:nth-child(2) {
+            color: #d2dae4;
+            font-family: Nunito;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: -0.64px;
+            line-height: normal;
+            span {
+              background: var(
+                --Lava-Linear-Vertical,
+                linear-gradient(180deg, #ff6161 0%, #f6d 100%)
+              );
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

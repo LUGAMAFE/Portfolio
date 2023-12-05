@@ -1,7 +1,7 @@
 import SVGLogo from '../../../assets/images/proyectlogo.svg';
 
 import snapShot from '../../../assets/images/shotsnapp.png';
-import style from '../../style/sass/proyects.module.scss';
+import style from './proyects.module.scss';
 
 export const CarrouselProyects = () => {
   return (

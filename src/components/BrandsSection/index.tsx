@@ -6,9 +6,9 @@ import MCPLogo from '../../../assets/images/logos/MCP.svg';
 import SECOGEYLogo from '../../../assets/images/logos/SECOGEY.svg';
 import SOCCERLogo from '../../../assets/images/logos/SOCCER.svg';
 import SOLAREKLogo from '../../../assets/images/logos/SOLAREK.svg';
-import style from '../../style/sass/brands.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { BrandLogo } from './BrandLogo';
+import style from './brands.module.scss';
 const BrandsSection = () => {
   const logosArray = [
     ANGOLOLogo,

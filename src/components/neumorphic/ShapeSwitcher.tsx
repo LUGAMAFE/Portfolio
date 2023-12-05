@@ -1,10 +1,10 @@
 import { MouseEvent } from 'react';
-import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 import Concave from '../svg/concave.svg';
 import Convex from '../svg/convex.svg';
 import Flat from '../svg/flat.svg';
 import Level from '../svg/level.svg';
 import Pressed from '../svg/pressed.svg';
+import style from './neumorphic/configuration.module.scss';
 
 export interface ShapeSwitcherProps {
   shape?: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;

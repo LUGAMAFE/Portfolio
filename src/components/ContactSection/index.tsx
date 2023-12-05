@@ -1,8 +1,8 @@
 import neonContainer from '../../../assets/images/Vector-13.svg';
-import style from '../../style/sass/contact.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { ContactInformation } from './ContactInformation';
 import { Form } from './Form';
+import style from './contact.module.scss';
 const ContactSection = () => {
   return (
     <NeumorphicElement

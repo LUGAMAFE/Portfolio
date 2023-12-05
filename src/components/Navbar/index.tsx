@@ -1,8 +1,8 @@
 import hamburgerIcon from '../../../assets/images/bx-menu.svg';
-import style from '../../style/sass/navbar.module.scss';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeColorSwitcher } from './ThemeColorSwitcher';
+import style from './navbar.module.scss';
 
 const Navbar = () => {
   return (

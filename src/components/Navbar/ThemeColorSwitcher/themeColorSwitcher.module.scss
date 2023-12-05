@@ -1,0 +1,75 @@
+.lights {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: right;
+  p {
+    width: 194px;
+    height: 34px;
+    padding-right: 5px;
+
+    /* Middle Color White */
+
+    color: #e4ebf2;
+
+    font-family: 'Nunito';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    /* or 182% */
+
+    letter-spacing: 0.1px;
+    line-height: 40px;
+
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.61);
+  }
+  .toggle {
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    .toggleSwitch {
+      position: relative;
+      display: inline-block;
+      width: 56px;
+      height: 32px;
+      border-radius: 16px;
+      background: rgba(19, 20, 22, 0.2);
+      box-shadow: inset 2px 2px 8px rgba(4, 4, 5, 0.6);
+      transition: background 0.25s;
+      vertical-align: middle;
+      &:before,
+      &:after {
+        content: '';
+      }
+      &:before {
+        position: absolute;
+        top: 0.9px;
+        left: 0px;
+        display: block;
+        width: 31px;
+        height: 31px;
+        border-radius: 32px;
+        border-radius: 50%;
+        background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+        transition: left 0.25s;
+      }
+    }
+    &:hover .toggleSwitch {
+      &:before {
+        background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+      }
+    }
+    .toggleCheckbox {
+      position: absolute;
+      visibility: hidden;
+      &:checked + .toggleSwitch {
+        background: #56c080;
+        &:before {
+          left: 25px;
+        }
+      }
+    }
+  }
+}

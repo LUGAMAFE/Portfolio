@@ -1,7 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import { RealNeumorphicElementProps } from '../../interfaces/neomorphism';
-import styles from '../../style/sass/style.module.scss';
 import {
   angleGradient,
   colorLuminance,
@@ -12,6 +11,7 @@ import {
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeuTooltipTool from './NeuTooltipTool';
 import { NeuElementContext } from './context/NeuElementContext';
+import styles from './neomorphicElement.module.scss';
 
 const RealNeumorphicElement = ({
   element: Element = 'div',

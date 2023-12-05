@@ -1,8 +1,7 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { codigoEjemplo } from '../data/codeSintaxHighlighter';
-
-import style from '../style/sass/code.module.scss';
+import style from './code.module.scss';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
 const CodeSection = () => {
   return (

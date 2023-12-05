@@ -1,5 +1,4 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
-import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 import { deleteFalsyProperties, getContrast, isValidColor } from '../../utils';
 import AnglePicker from '../ReactAnglePicker/AnglePicker';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
@@ -7,6 +6,7 @@ import ConfigurationRow from './ConfigurationRow';
 import LightSourceSelector from './LightSourceSelector';
 import ShapeSwitcher from './ShapeSwitcher';
 import { NeuElementContext } from './context/NeuElementContext';
+import style from './neumorphic/configuration.module.scss';
 
 const maxSize = 500;
 
@@ -58,7 +58,8 @@ const Configuration = () => {
   };
 
   const handleDirection = (direction: number): void => {
-    updateContextConfigProp('lightSource', +name);
+
+    updateContextConfigProp('lightSource', + direction);
     if (direction === 3) {
       setAngle(45);
     } else if (direction === 4) {

@@ -1,0 +1,45 @@
+.myTopNavbar {
+  position: fixed;
+  z-index: 999;
+  right: 0px;
+  left: 0px;
+  display: flex;
+  height: 90px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  .logo {
+    /* or 0% */
+
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto Condensed';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    line-height: 0px;
+    text-align: center;
+  }
+
+  .menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      svg {
+        width: 35px;
+        height: 36px;
+        image {
+          width: 35px;
+          height: 36px;
+        }
+      }
+    }
+  }
+}

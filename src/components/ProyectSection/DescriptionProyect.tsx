@@ -1,5 +1,5 @@
 import rectangleSVG from '../../../assets/images/Rectangle-378.svg';
-import style from '../../style/sass/proyects.module.scss';
+import style from './proyects.module.scss';
 export const DescriptionProyect = () => {
   return (
     <div className={style.description}>

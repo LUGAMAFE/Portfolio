@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import style from '../../style/sass/components/neumorphic/configuration.module.scss';
+import style from './neumorphic/configuration.module.scss';
 
 interface LightSourceSelectorProps {
   lightSource: number;
