@@ -14,7 +14,7 @@ const CodeSection = () => {
         distance: 45,
         blur: 90,
       }}
-      className={style.code}
+      className={style.Code}
     >
       <SyntaxHighlighter
         language="javascript"

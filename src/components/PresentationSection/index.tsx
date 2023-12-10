@@ -1,6 +1,6 @@
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { Abilities } from './Abilities';
-import { Ilustration } from './Ilustration';
+import { Illustration } from './Ilustration/index';
 import style from './presentation.module.scss';
 
 const PresentationSection = () => {
@@ -14,7 +14,7 @@ const PresentationSection = () => {
         distance: 45,
         blur: 90,
       }}
-      className={style.container}
+      className={style.Presentation}
     >
       <div
         style={{
@@ -22,9 +22,9 @@ const PresentationSection = () => {
           height: '90px',
         }}
       ></div>
-      <div className={style.Container}>
+      <div className={style.Presentation_container}>
         <Abilities />
-        <Ilustration />
+        <Illustration />
       </div>
     </NeumorphicElement>
   );

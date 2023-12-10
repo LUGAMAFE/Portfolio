@@ -3,9 +3,9 @@ import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElem
 import style from './ImageComparator.module.scss';
 export const ImageComparator = () => {
   return (
-    <div className={style.circleAnimation}>
+    <div className={style.ImageComparator}>
       <NeumorphicElement
-        className={style.imageComparer}
+        className={style.ImageComparator_imageComparer}
         neumorphicOptions={{
           form: 'convex',
           size: 439,
@@ -15,11 +15,10 @@ export const ImageComparator = () => {
           blur: 88,
         }}
       >
-        <div className={style.divisorAndCircle}>
-          <div className={style.circle}>
-            <div className={style.line}></div>
-            <img src={luisImage} alt="programer luis image" />
-          </div>
+
+        <div className={style.ImageComparator_circle}>
+          <div className={style.ImageComparator_line}></div>
+          <img className={style.ImageComparator_backImage} src={luisImage} alt="programer luis image" />
         </div>
       </NeumorphicElement>
     </div>

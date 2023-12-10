@@ -14,7 +14,7 @@ const SkillSection = () => {
         distance: 45,
         blur: 90,
       }}
-      className={style.skills}
+      className={style.Skills}
     >
       <div
         style={{
@@ -22,7 +22,7 @@ const SkillSection = () => {
           height: '90px',
         }}
       ></div>
-      <div className={style.skillsContainer}>
+      <div className={style.Skills_skillsContainer}>
         {array.map((text, index) => (
           <SkillBox key={index} text={text} />
         ))}

@@ -1,14 +1,9 @@
 import globalClassNames from '......../style.d';
 declare const classNames: typeof globalClassNames & {
-  readonly container: 'container';
-  readonly row: 'row';
-  readonly label: 'label';
-  readonly 'row--checkbox': 'row--checkbox';
-  readonly lightArrows: 'lightArrows';
-  readonly disabled: 'disabled';
-  readonly arrow: 'arrow';
-  readonly active: 'active';
-  readonly copy: 'copy';
-  readonly shapeSwitch: 'shapeSwitch';
+  readonly NeuTooltipTool_row: 'NeuTooltipTool_row';
+  readonly NeuTooltipTool_labelContainer: 'NeuTooltipTool_labelContainer';
+  readonly NeuTooltipTool_label: 'NeuTooltipTool_label';
+  readonly Configuration: 'Configuration';
+  readonly Configuration_copy: 'Configuration_copy';
 };
 export = classNames;

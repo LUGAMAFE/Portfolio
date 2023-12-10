@@ -5,7 +5,7 @@ import style from './form.module.scss';
 export const Form = () => {
   const InputsArray = ['Nombre', 'Correo Electronico', 'Telefono', 'Razon de Contacto'];
   return (
-    <form className={style.form}>
+    <form className={style.Form}>
       {InputsArray.map((placeHolder, index) => {
         return <FormInputs key={index} placeHolder={placeHolder} />;
       })}
@@ -21,9 +21,10 @@ export const Form = () => {
         }}
         element={'textarea'}
         placeholder="mensaje"
+        className={style.Form_textarea}
       />
-      <button>
-        <p>Enviar</p>
+      <button className={style.Form_button}>
+        <p className={style.Form_buttonText}>Enviar</p>
       </button>
     </form>
   );

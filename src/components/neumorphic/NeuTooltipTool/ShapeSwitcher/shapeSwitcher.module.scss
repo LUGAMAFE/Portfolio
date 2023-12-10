@@ -1,10 +1,11 @@
-.shapeSwitch {
+@import '../neuTooltipTool.module';
+
+.ShapeSwitcher {
   display: flex;
   overflow: hidden;
   flex-grow: 1;
   border-radius: 3px;
-
-  button {
+  &_button {
     flex-grow: 1;
     border: none;
     background: var(--textColorOpposite);
@@ -12,19 +13,14 @@
     cursor: pointer;
     opacity: 0.9;
     outline: 0;
-
-    img {
-      width: 30px;
-      height: 30px;
-      stroke: var(--textColor);
-    }
-
-    * {
-      pointer-events: none;
-    }
-
-    &.active {
-      opacity: 1;
-    }
+  }
+  &_icon {
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    stroke: var(--textColor);
+  }
+  &_active {
+    opacity: 1;
   }
 }

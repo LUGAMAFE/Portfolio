@@ -7,10 +7,10 @@ interface SkillProps {
 }
 export const Skill = ({ skillText }: SkillProps) => {
   return (
-    <div className={style.skill}>
-      <p>{skillText}</p>
-      <div className={style.chargeBarContainer}>
-        <div className={style.chargeBar}>
+    <div className={style.Skill}>
+      <p className={style.Skill_skillText}>{skillText}</p>
+      <div className={style.Skill_chargeBarContainer}>
+        <div className={style.Skill_chargeBar}>
           <NeumorphicElement
             neumorphicOptions={{
               form: 'pressed',
@@ -20,15 +20,15 @@ export const Skill = ({ skillText }: SkillProps) => {
               distance: 9,
               blur: 18,
             }}
-            className={style.nullPart}
+            className={style.Skill_nullPart}
           ></NeumorphicElement>
-          <div className={style.neonPart}>
+          <div className={style.Skill_neonPart}>
             <img src={neonRectangleSVG} alt="Neon part of input" />
           </div>
         </div>
       </div>
-      <div className={style.circleContainer}>
-        <div className={style.svgContainer}>
+      <div className={style.Skill_circleContainer}>
+        <div className={style.Skill_svgContainer}>
           <img src={neomorphicCircleSVG} alt="circle part of input" />
         </div>
       </div>

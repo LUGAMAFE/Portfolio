@@ -171,7 +171,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
         borderStyle={borderStyle}
         borderWidth={borderWidth}
       >
-        <div className={style.centro}></div>
+        <div className={style.Center}></div>
         <Circle
           x={rotatedPosition.x}
           y={rotatedPosition.y}

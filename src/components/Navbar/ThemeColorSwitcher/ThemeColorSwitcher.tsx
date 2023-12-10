@@ -9,15 +9,15 @@ export const ThemeColorSwitcher = () => {
     styleHandleChangeColor(isChecked);
   };
   return (
-    <div className={style.lights}>
-      <p>{'Encender Luces'}</p>
-      <label className={style.toggle}>
+    <div className={style.ThemeColorSwitcher}>
+      <p className={style.ThemeColorSwitcher_text}>{'Encender Luces'}</p>
+      <label className={style.ThemeColorSwitcher_toggle}>
         <input
           onChange={handleChangeColor}
-          className={style.toggleCheckbox}
+          className={style.ThemeColorSwitcher_toggleCheckbox}
           type="checkbox"
         ></input>
-        <div className={style.toggleSwitch}></div>
+        <div className={style.ThemeColorSwitcher_toggleSwitch}></div>
       </label>
     </div>
   );

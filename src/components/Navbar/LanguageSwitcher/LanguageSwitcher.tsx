@@ -3,12 +3,17 @@ import { RealNeumorphicElementProps } from '../../../interfaces/neomorphism';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './languageSwitcher.module.scss';
 
+
+interface ExtendedRealNeumorphicElementProps extends RealNeumorphicElementProps {
+  textClassName: string;
+}
 export const LanguageSwitcher = () => {
-  const initialButtonConfigs: Array<RealNeumorphicElementProps> = [
+  const initialButtonConfigs: Array<ExtendedRealNeumorphicElementProps> = [
     {
       id: 'esBoton',
       text: 'Español',
-      className: style.esBoton,
+      className: style.LanguageSwitcher_esButton,
+      textClassName: style.LanguageSwitcher_esButtonText,
       neumorphicOptions: {
         form: 'flat',
         size: 100,
@@ -19,7 +24,8 @@ export const LanguageSwitcher = () => {
     {
       id: 'InButton',
       text: 'English',
-      className: style.InButton,
+      className: style.LanguageSwitcher_enButton,
+      textClassName: style.LanguageSwitcher_enButtonText,
       neumorphicOptions: {
         form: 'pressed',
         size: 100,
@@ -51,7 +57,7 @@ export const LanguageSwitcher = () => {
   };
   return (
     <NeumorphicElement
-      className={style.changeIdiom}
+      className={style.LanguageSwitcher}
       neumorphicOptions={{
         form: 'level',
         size: 55,
@@ -61,7 +67,7 @@ export const LanguageSwitcher = () => {
         blur: 11,
       }}
     >
-      <div className={style.buttons}>
+      <div className={style.LanguageSwitcher_buttons}>
         {buttonConfigs.map((button) => (
           <NeumorphicElement
             key={button.id}
@@ -70,7 +76,7 @@ export const LanguageSwitcher = () => {
             neumorphicOptions={button.neumorphicOptions}
             className={button.className}
           >
-            <p>{button.text}</p>
+            <p className={button.textClassName}>{button.text}</p>
           </NeumorphicElement>
         ))}
       </div>

@@ -7,7 +7,7 @@ const IntroSection = () => {
   return (
     <NeumorphicElement
       id="seccion1"
-      className={style.intro}
+      className={style.Intro}
       neumorphicOptions={{
         form: 'pressed',
         size: 500,
@@ -18,22 +18,22 @@ const IntroSection = () => {
       }}
     >
       <ImageComparator />
-      <div className={style.myIntroduction}>
-        <p>
+      <div className={style.Intro_myIntroduction}>
+        <p className={style.Intro_text}>
           !Hola! mi nombre es: <br /> Luis martinez
         </p>
-        <div className={style.lineas}>
-          <div className={style.linea1}></div>
-          <div className={style.linea2}></div>
+        <div className={style.Intro_lines}>
+          <div className={style.Intro_line1}></div>
+          <div className={style.Intro_line2}></div>
         </div>
-        <p>
-          <strong>Programador</strong> y <em>diseñador</em> de sitios web
+        <p className={style.Intro_text}>
+          <strong className={style.Intro_strong} >Programador</strong> y <em className={style.Intro_em}>diseñador</em> de sitios web
         </p>
-        <div className={style.ilustration}>
-          <div className={style.svgContainer}>
+        <div className={style.Intro_ilustration}>
+          <div className={style.Intro_svgContainer}>
             <img src={neomorphicSVG} alt="neomorphic svg shape" />
           </div>
-          <div className={style.diseño}>
+          <div className={style.Intro_design}>
             <img src={manIllustrationSVG} alt="man and template boards illustration" />
           </div>
         </div>

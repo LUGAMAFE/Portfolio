@@ -3,10 +3,10 @@ import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElem
 import style from './ContactInformation.module.scss';
 export const ContactInformation = () => {
   return (
-    <div className={style.message}>
-      <p>Contactame y veamos como puedo ayudarle a tu proyecto o empresa.</p>
-      <p>
-        <span>Correo:</span> luisjavier004@hotmail.com
+    <div className={style.ContactInformation}>
+      <p className={style.ContactInformation_text}>Contactame y veamos como puedo ayudarle a tu proyecto o empresa.</p>
+      <p className={style.ContactInformation_text}>
+        <span className={style.ContactInformation_span}>Correo:</span> luisjavier004@hotmail.com
       </p>
       <NeumorphicElement
         neumorphicOptions={{
@@ -17,7 +17,7 @@ export const ContactInformation = () => {
           distance: 8,
           blur: 16,
         }}
-        className={style.number}
+        className={style.ContactInformation_numberContainer}
       >
         <NeumorphicElement
           neumorphicOptions={{
@@ -28,13 +28,11 @@ export const ContactInformation = () => {
             distance: 9,
             blur: 18,
           }}
-          className={style.socialIconContainer}
+          className={style.ContactInformation_socialIconContainer}
         >
-          <div className={style.svgContainer2}>
-            <img src={callIcon} alt="neomorphic svg shape" />
-          </div>
+          <img src={callIcon} alt="neomorphic svg shape" />
         </NeumorphicElement>
-        <p>9993777732</p>
+        <p className={style.ContactInformation_number}>9993777732</p>
       </NeumorphicElement>
     </div>
   );

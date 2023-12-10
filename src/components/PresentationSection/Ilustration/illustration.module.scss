@@ -1,0 +1,34 @@
+@use '../../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../../style/sass/ITCSS/01_settings/fonts' as *;
+.Illustration {
+  width: 635px;
+  height: 100%;
+  &_svgContainer {
+    display: flex;
+  }
+  &_svg {
+    width: 100%;
+    height: 100%;
+  }
+  &_contactButton {
+    width: 338px;
+    height: 70px;
+    flex-shrink: 0;
+
+    border-radius: 50px;
+    margin: 40px 100px;
+    background: $color-gradient-pink-linear-horizontal;
+    box-shadow: -6px -6px 15px 0px $color-box-shadow-button-illustration,
+      6px 6px 15px 0px $color-box-shadow-button-illustration-secondary;
+  }
+  &_contactButtonText {
+    color: $color-white;
+    font-family: Lato;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: $weight-bolder;
+    letter-spacing: -0.6px;
+    line-height: normal;
+    text-align: center;
+  }
+}

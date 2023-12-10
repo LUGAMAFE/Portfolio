@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { camelize } from '../../../../utils';
-
+import style from './configuration.module.scss';
 interface ConfigurationRowProps {
   className?: string;
   label: string;
@@ -14,7 +14,6 @@ interface ConfigurationRowProps {
 }
 
 const ConfigurationRow = ({
-  className,
   label,
   type,
   value,
@@ -25,8 +24,8 @@ const ConfigurationRow = ({
   onChange,
 }: ConfigurationRowProps) => {
   return (
-    <div className={className}>
-      <label>{label}: </label>
+    <div className={style.NeuTooltipTool_row}>
+      <label className={style.NeuTooltipTool_label}>{label}: </label>
       <input
         type={type}
         name={camelize(label)}

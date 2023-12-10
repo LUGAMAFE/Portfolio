@@ -1,4 +1,6 @@
-.form {
+@use '../../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../../style/sass/ITCSS/01_settings/fonts' as *;
+.Form {
   display: flex;
   width: 574px;
   height: 586px;
@@ -7,38 +9,36 @@
   justify-content: flex-start;
   padding-top: 30px;
   gap: 17px;
-  button {
+  &_button {
     width: 268px;
     height: 56px;
     flex-shrink: 0;
     border-radius: 12px;
-    background: var(--Lava-Linear-Horizontal, linear-gradient(90deg, #ff6161 0.16%, #f6d 99.81%));
-    box-shadow: 0px 0px 3px 0px rgba(255, 185, 191, 0.61);
+    background: $color-gradient-pink-linear-horizontal;
+    box-shadow: 0px 0px 3px 0px $color-box-shadow-neon-pink;
     cursor: pointer;
-
-    /* Flare Lava */
-    p {
-      color: #fff;
-      font-family: Nunito;
-      font-size: 15px;
-      font-style: normal;
-      font-weight: 800;
-      letter-spacing: -0.6px;
-      line-height: normal;
-      text-align: center;
-    }
   }
-  textarea {
+  &_buttonText {
+    color: $color-white;
+    font-family: Nunito;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: $weight-bolder;
+    letter-spacing: -0.6px;
+    line-height: normal;
+    text-align: center;
+  }
+  &_textarea {
     width: 600px;
     height: 198.897px;
     flex-shrink: 0;
     border: none;
     border-radius: 12px;
-    color: var(--placeholder, #9c9c9c);
+    color: $color-placeholder-contact-input-text-area;
     font-family: Nunito;
     font-size: 25px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: $weight-normal;
     letter-spacing: -0.5px;
     line-height: normal;
   }

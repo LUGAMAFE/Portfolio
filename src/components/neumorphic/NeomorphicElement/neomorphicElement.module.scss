@@ -1,3 +1,4 @@
+/* stylelint-disable plugin/selector-bem-pattern */
 .softShadow {
   background: linear-gradient(var(--angle), var(--firstGradientColor), var(--secondGradientColor));
   box-shadow: var(--positionX) var(--positionY) var(--blur) var(--darkColor),

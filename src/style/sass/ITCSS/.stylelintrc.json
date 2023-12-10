@@ -1,5 +1,5 @@
 {
-  "extends": "../../../../.stylelintrc",
+  "extends": "../../../../stylelint.config.cjs",
   "rules": {
     "itcss/no-at-important": [
       true,

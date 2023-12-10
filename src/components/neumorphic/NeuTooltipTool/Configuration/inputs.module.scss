@@ -1,4 +1,7 @@
+/* stylelint-disable  */
 /* eslint-disable */
+@use '../../../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../../../style/sass/ITCSS/01_settings/fonts' as *;
 input[type='range'] {
   position: relative;
   width: 100%;
@@ -25,12 +28,13 @@ input[type='range'] {
   @mixin slider-thumb {
     width: 12px;
     height: 12px;
-    border: 1px solid #000000;
+    border: 1px solid $color-black;
     border-radius: 50%;
     margin-top: -5px;
     -webkit-appearance: none;
     background: var(--textColorOpposite);
-    box-shadow: 1px 1px 1px #30302f, 0px 0px 1px #30302f;
+    box-shadow: 1px 1px 1px $color-box-shadow-inputs-configuration,
+      0px 0px 1px $color-box-shadow-inputs-configuration;
     cursor: pointer;
   }
   &::-webkit-slider-thumb {
@@ -119,10 +123,11 @@ input[type='range'] {
   &::-ms-thumb {
     width: 12px;
     height: 12px;
-    border: 1px solid #000000;
+    border: 1px solid $color-black;
     border-radius: 50%;
     background: var(--textColorOpposite);
-    box-shadow: 1px 1px 1px #30302f, 0px 0px 1px #30302f;
+    box-shadow: 1px 1px 1px $color-box-shadow-inputs-configuration,
+      0px 0px 1px $color-box-shadow-inputs-configuration;
     cursor: pointer;
   }
   &::-ms-track {
@@ -137,9 +142,10 @@ input[type='range'] {
   }
   &::-ms-fill-lower,
   &::-ms-fill-upper {
-    border: 0.2px solid #010101;
+    border: 0.2px solid $color-border-inputs-configuration;
     border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    box-shadow: 1px 1px 1px $color-black,
+      0px 0px 1px $color-box-shadow-inputs-configuration-intensity;
   }
 
   &:disabled {
@@ -156,7 +162,7 @@ input[type='text'] {
   border: 1px solid var(--textColorOpposite);
   color: #001f3f;
   font-size: 11px;
-  font-weight: bold;
+  font-weight: $weight-bold;
 }
 
 input[type='color'] {

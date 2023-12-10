@@ -1,4 +1,7 @@
-.centro {
+/* stylelint-disable plugin/selector-bem-pattern */
+@use '../../style/sass/ITCSS/01_settings/colors' as *;
+
+.Center {
   --width: 4px;
   position: absolute;
   top: calc(50% - var(--width) / 2);
@@ -6,5 +9,5 @@
   width: var(--width);
   height: var(--width);
   border-radius: 100%;
-  background-color: black;
+  background-color: $color-black;
 }

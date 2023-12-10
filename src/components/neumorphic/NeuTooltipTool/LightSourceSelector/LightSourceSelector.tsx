@@ -17,25 +17,25 @@ const LightSourceSelector = ({
     onDirectionChanged(direction);
   };
   return (
-    <div className={`${style.row} ${style.label}`} style={{ margin: '12px 0px 8px' }}>
-      <div className={`${style.lightArrows} ${disabled ? style.disabled : ''}`}>
+    <div style={{ margin: '12px 0px 8px' }}>
+      <div className={`${style.LightSourceSelector} ${disabled ? style.LightSourceSelector_disabled : ''}`}>
         <button
-          className={`${style.arrow} ${lightSource === 1 ? style.active : ''}`}
+          className={`${style.Arrow} ${style.Arrow_bottomRight} ${lightSource === 1 ? `${style.Arrow_active} ${style.Arrow_bottomRight___active}` : ''}`}
           onClick={handleClick}
           name="1"
         ></button>
         <button
-          className={`${style.arrow} ${lightSource === 2 ? style.active : ''}`}
+          className={`${style.Arrow} ${style.Arrow_bottomLeft} ${lightSource === 2 ? `${style.Arrow_active} ${style.Arrow_bottomLeft___active}` : ''}`}
           onClick={handleClick}
           name="2"
         ></button>
         <button
-          className={`${style.arrow} ${lightSource === 4 ? style.active : ''}`}
+          className={`${style.Arrow} ${style.Arrow_topRight} ${lightSource === 4 ? `${style.Arrow_active} ${style.Arrow_topRight___active}` : ''}`}
           onClick={handleClick}
           name="4"
         ></button>
         <button
-          className={`${style.arrow} ${lightSource === 3 ? style.active : ''}`}
+          className={`${style.Arrow} ${style.Arrow_topLeft} ${lightSource === 3 ? `${style.Arrow_active} ${style.Arrow_topLeft___active}` : ''}`}
           onClick={handleClick}
           name="3"
         ></button>

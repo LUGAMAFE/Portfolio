@@ -1,142 +1,99 @@
-.intro {
+@use '../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../style/sass/ITCSS/01_settings/fonts' as *;
+.Intro {
   display: flex;
   height: 110vh;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-around;
-
-  .myIntroduction {
+  &_myIntroduction {
     display: flex;
-
     width: 595px;
     height: 301.29px;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    p:first-child {
-      flex-grow: 0;
-      align-self: stretch;
+  }
+  &_text:first-child {
+    flex-grow: 0;
+    align-self: stretch;
+    order: 0;
+    color: $color-middle-white;
+    font-family: 'Lato';
+    font-size: 54px;
+    font-style: normal;
+    font-weight: $weight-bold;
+    line-height: 64px;
+    text-shadow: 0px 0px 4px $color-gray-text-shadow, 0px 4px 4px $color-black-text-shadow;
+  }
+  &_text:nth-child(3) {
+    top: calc(50% - 73px / 2 + 114.15px);
+    height: 73px;
+    color: $color-light-gray;
+    font-family: 'Fira code';
+    font-size: 31px;
+    font-weight: $weight-normal;
+    letter-spacing: -2.2px;
+    line-height: 38px;
+    word-spacing: -4px;
+  }
+  &_strong {
+    font-size: 31px;
+    font-weight: $weight-bold;
+    letter-spacing: 1px;
+    text-shadow: 0px 4px 4px $color-gray-text-shadow, 0px 4px 4px $color-gray-text-shadow,
+      0px 0px 0.8px $color-light-blue-text-shadow;
+  }
+  &_em {
+    font-display: swap;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: $weight-normal;
+  }
 
-      /* Inside auto layout */
+  &_lines {
+    width: 595px;
+    height: 50.29px;
+    flex-grow: 0;
+    align-self: stretch;
+  }
+  &_line1 {
+    left: 0px;
+    width: 595px;
+    height: 8.38px;
+    border-radius: 14px;
+    margin-bottom: 33.53px;
+    background: $color-gradient-pink-linear-horizontal;
+    box-shadow: 0px 0px 4px $color-box-shadow-neon-pink;
+  }
 
-      /* Inside auto layout */
+  &_line2 {
+    left: 0px;
+    width: 297.5px;
+    height: 8.38px;
+    border-radius: 14px;
+    background: $color-gradient-pink-linear-horizontal;
+    box-shadow: 0px 0px 4px $color-box-shadow-neon-pink;
+  }
 
-      order: 0;
-      /* or 119% */
-
-      /* Middle Color White */
-
-      color: #e4ebf2;
-      font-family: 'Lato';
-      font-size: 54px;
-      font-style: normal;
-      font-weight: bold;
-      line-height: 64px;
-
-      text-shadow: 0px 0px 4px #515151, 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-    p:nth-child(3) {
-      top: calc(50% - 73px / 2 + 114.15px);
-      right: 0px;
-      left: 0px;
-      height: 73px;
-
-      /* Second Gray */
-
-      color: #d2dae4;
-
-      font-family: 'Fira Code';
-      font-size: 31px;
-      font-style: normal;
-      font-weight: 700;
-      /* or 124% */
-
-      letter-spacing: -2.5px;
-      line-height: 38px;
-
-      /* Arrow Shadow */
-
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-        0px 0px 0.8px #94b8da;
-      strong {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 31px;
-        font-weight: bold;
-      }
-      em {
-        font-display: swap;
-        font-family: 'Times New Roman', Times, serif;
-        font-style: italic;
-        font-weight: normal;
-      }
-    }
-    .lineas {
-      width: 595px;
-      height: 50.29px;
-      flex-grow: 0;
-
-      /* Inside auto layout */
-
-      align-self: stretch;
-      .linea1 {
-        left: 0px;
-        width: 595px;
-        height: 8.38px;
-        border-radius: 14px;
-        margin-bottom: 33.53px;
-        /* Lava Linear Horizontal */
-
-        background: linear-gradient(89.78deg, #ff6161 0.16%, #ff66dd 99.81%);
-        box-shadow: 0px 0px 4px rgba(255, 185, 191, 0.61);
-      }
-      .linea2 {
-        left: 0px;
-        width: 297.5px;
-        height: 8.38px;
-        border-radius: 14px;
-
-        /* Lava Linear Horizontal */
-
-        background: linear-gradient(89.78deg, #ff6161 0.16%, #ff66dd 99.81%);
-        box-shadow: 0px 0px 4px rgba(255, 185, 191, 0.61);
-      }
-    }
-    .ilustration {
-      position: relative;
-      display: inline;
-      width: 595px;
-      height: 366px;
-
-      .diseño {
-        position: absolute; /* Establecer la posición absoluta del contenido */
-        top: 55px;
-        right: 140px;
-
-        width: 370px;
-        height: 303px;
-        fill: red;
-        svg {
-          position: absolute;
-          width: 370px;
-          height: 303px;
-          fill: red;
-          image {
-            fill: red;
-          }
-        }
-      }
-      .svgContainer {
-        position: relative; /* Establecer la posición absoluta del contenido */
-        width: 650px;
-
-        height: 440px;
-        svg {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
+  &_ilustration {
+    position: relative;
+    display: inline;
+    width: 595px;
+    height: 366px;
+  }
+  &_design {
+    position: absolute;
+    top: 55px;
+    right: 140px;
+    width: 370px;
+    height: 303px;
+  }
+  &_svgContainer {
+    position: relative;
+    width: 630px;
+    height: 440px;
   }
 }

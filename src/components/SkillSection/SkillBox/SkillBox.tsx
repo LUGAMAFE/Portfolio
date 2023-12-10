@@ -10,7 +10,7 @@ interface SkillBoxProps {
 export const SkillBox = ({ text }: SkillBoxProps) => {
   const array = ['Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java'];
   return (
-    <div className={style.skillTopic}>
+    <div className={style.SkillBox}>
       <NeumorphicElement
         neumorphicOptions={{
           form: 'convex',
@@ -20,7 +20,7 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
           distance: 45,
           blur: 90,
         }}
-        className={style.section}
+        className={style.SkillBox_section}
       >
         <NeumorphicElement
           neumorphicOptions={{
@@ -31,14 +31,12 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
             distance: 9,
             blur: 18,
           }}
-          className={style.title}
+          className={style.SkillBox_titleContainer}
         >
-          <div className={style.svgContainer}>
-            <img src={iconSkill} alt="Skill icon" />
-          </div>
-          <p>{text}</p>
+          <img src={iconSkill} alt="Skill icon" />
+          <p className={style.SkillBox_title}>{text}</p>
         </NeumorphicElement>
-        <div className={style.skillsInputs}>
+        <div className={style.SkillBox_skillsInputs}>
           {array.map((skillText, index) => (
             <Skill key={index} skillText={skillText} />
           ))}

@@ -17,50 +17,50 @@ const ShapeSwitcher = ({ shape, setShape }: ShapeSwitcherProps) => {
   };
   return (
     <>
-      <div className={`${style.row} ${style.label}`}>
-        <label>Form: </label>
+      <div className={`${style.NeuTooltipTool_row} ${style.NeuTooltipTool_labelContainer}`}>
+        <label className={style.NeuTooltipTool_label}>Form: </label>
       </div>
       <div className={style.row}>
-        <div className={style.shapeSwitch}>
+        <div className={style.ShapeSwitcher}>
           <button
-            className={shape === 'concave' ? style.active : ''}
+            className={`${shape === 'concave' ? style.ShapeSwitcher_active : ''} ${style.ShapeSwitcher_button}`}
             onClick={handleClick}
             name="concave"
             title="Concave"
           >
-            <img src={Concave} alt="Concave" />
+            <img className={style.ShapeSwitcher_icon} src={Concave} alt="Concave" />
           </button>
           <button
-            className={shape === 'convex' ? style.active : ''}
+            className={`${shape === 'convex' ? style.ShapeSwitcher_active : ''} ${style.ShapeSwitcher_button}`}
             onClick={handleClick}
             name="convex"
             title="Convex"
           >
-            <img src={Convex} alt="Concave" />
+            <img className={style.ShapeSwitcher_icon} src={Convex} alt="Concave" />
           </button>
           <button
-            className={shape === 'level' ? style.active : ''}
+            className={`${shape === 'level' ? style.ShapeSwitcher_active : ''} ${style.ShapeSwitcher_button}`}
             onClick={handleClick}
             name="level"
             title="Level"
           >
-            <img src={Level} alt="Concave" />
+            <img className={style.ShapeSwitcher_icon} src={Level} alt="Concave" />
           </button>
           <button
-            className={shape === 'pressed' ? style.active : ''}
+            className={`${shape === 'pressed' ? style.ShapeSwitcher_active : ''} ${style.ShapeSwitcher_button}`}
             onClick={handleClick}
             name="pressed"
             title="Pressed"
           >
-            <img src={Pressed} alt="Concave" />
+            <img className={style.ShapeSwitcher_icon} src={Pressed} alt="Concave" />
           </button>
           <button
-            className={shape === 'flat' ? style.active : ''}
+            className={`${shape === 'flat' ? style.ShapeSwitcher_active : ''} ${style.ShapeSwitcher_button}`}
             onClick={handleClick}
             name="flat"
             title="Flat"
           >
-            <img src={Flat} alt="Concave" />
+            <img className={style.ShapeSwitcher_icon} src={Flat} alt="Concave" />
           </button>
         </div>
       </div>

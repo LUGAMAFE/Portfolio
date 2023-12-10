@@ -118,9 +118,9 @@ const Configuration = () => {
   }, [contextConfig.color, mainColorContext]);
 
   return (
-    <div className={style.container} style={defaultCssVariables}>
-      <div className={style.row}>
-        <label htmlFor="color">Pick a color:</label>
+    <div className={style.Configuration} style={defaultCssVariables}>
+      <div className={style.NeuTooltipTool_row}>
+        <label className={style.NeuTooltipTool_label} htmlFor="color">Pick a color:</label>
         <input
           type="color"
           name="color"
@@ -129,7 +129,7 @@ const Configuration = () => {
           value={color}
           id="color"
         />
-        <label htmlFor="colorInput" style={{ paddingLeft: '10px' }}>
+        <label className={style.NeuTooltipTool_label} htmlFor="colorInput" style={{ paddingLeft: '10px' }}>
           or
         </label>
         <input
@@ -141,8 +141,8 @@ const Configuration = () => {
           onChange={handleColorChange}
         />
       </div>
-      <div className={`${style.row} ${style.label}`}>
-        <label htmlFor="anglePicker">Pick an angle:</label>
+      <div className={`${style.NeuTooltipTool_row} ${style.label}`}>
+        <label className={style.NeuTooltipTool_label} htmlFor="anglePicker">Pick an angle:</label>
 
         <AnglePicker
           id="anglePicker"
@@ -172,7 +172,6 @@ const Configuration = () => {
         onChange={handleSizeChange}
         min={10}
         max={maxSize}
-        className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
       <ConfigurationRow
@@ -182,7 +181,6 @@ const Configuration = () => {
         onChange={handleDistanceChange}
         min={2}
         max={50}
-        className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
       <ConfigurationRow
@@ -193,7 +191,6 @@ const Configuration = () => {
         min={0.01}
         max={0.9}
         step={0.01}
-        className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
       <ConfigurationRow
@@ -203,12 +200,11 @@ const Configuration = () => {
         onChange={(e) => updateContextConfigProp('blur', e.target.value)}
         min={0}
         max={100}
-        className={style.row}
         disabled={contextConfig.form === 'flat' ? true : false}
       />
 
-      <div className={style.row}></div>
-      <button className={style.copy} onClick={copyToClipboard}>
+      <div className={style.NeuTooltipTool_row}></div>
+      <button className={style.Configuration_copy} onClick={copyToClipboard}>
         Copy Config
       </button>
       <ShapeSwitcher shape={contextConfig.form} setShape={handleShape} />

@@ -1,12 +1,12 @@
 @use '../../style/sass/ITCSS/01_settings/colors' as *;
 
-.skills {
+.Skills {
   display: flex;
   height: 110vh;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  .skillsContainer {
+  &_skillsContainer {
     display: flex;
     width: 1440px;
     height: 842px;

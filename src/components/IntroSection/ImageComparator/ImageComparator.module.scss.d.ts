@@ -1,9 +1,9 @@
 import globalClassNames from '....../style.d';
 declare const classNames: typeof globalClassNames & {
-  readonly circleAnimation: 'circleAnimation';
-  readonly imageComparer: 'imageComparer';
-  readonly divisorAndCircle: 'divisorAndCircle';
-  readonly circle: 'circle';
-  readonly line: 'line';
+  readonly ImageComparator: 'ImageComparator';
+  readonly ImageComparator_imageComparer: 'ImageComparator_imageComparer';
+  readonly ImageComparator_circle: 'ImageComparator_circle';
+  readonly ImageComparator_line: 'ImageComparator_line';
+  readonly ImageComparator_backImage: 'ImageComparator_backImage';
 };
 export = classNames;

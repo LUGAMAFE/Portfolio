@@ -1,0 +1,84 @@
+@use '../../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../../style/sass/ITCSS/01_settings/fonts' as *;
+.DescriptionProject {
+  display: flex;
+  width: 50%;
+  height: calc(100% - 90px);
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  &_softTitleContainer {
+    display: flex;
+    width: 598px;
+    height: 148px;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+  }
+  &_softTitle {
+    background: $color-gradient-soft-title-project;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Roboto Mono;
+    font-size: 150px;
+    font-style: normal;
+    font-weight: $weight-bold;
+    letter-spacing: -0.4px;
+    line-height: 150px;
+    text-align: right;
+    -webkit-text-fill-color: transparent;
+  }
+  &_content {
+    display: flex;
+    width: 479.333px;
+    height: 400px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 30px;
+    &:nth-child(2) {
+      color: $color-middle-white;
+      font-family: Roboto;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: $weight-medium;
+      letter-spacing: -0.4px;
+      line-height: 35px;
+      text-align: right;
+    }
+  }
+  &_descriptionTextContainer {
+    width: 479.333px;
+    height: 151px;
+    flex-shrink: 0;
+  }
+  &_descriptionText {
+    color: $color-middle-white;
+    font-family: Lato;
+    font-size: 90px;
+    font-style: normal;
+    font-weight: $weight-semi-bold;
+    letter-spacing: -0.4px;
+    line-height: 150px;
+    text-align: right;
+    text-shadow: 0px 0px 5px $color-white;
+  }
+  &_contactButton {
+    width: 338px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    margin-left: 140px;
+    background: $color-gradient-pink-linear-horizontal;
+  }
+  &_contactButtonText {
+    color: $color-white;
+    font-family: Lato;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: $weight-bolder;
+    letter-spacing: -0.6px;
+    line-height: normal;
+    text-align: center;
+  }
+}

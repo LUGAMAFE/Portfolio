@@ -1,10 +1,11 @@
 import globalClassNames from '....../style.d';
 declare const classNames: typeof globalClassNames & {
-  readonly skill: 'skill';
-  readonly chargeBarContainer: 'chargeBarContainer';
-  readonly chargeBar: 'chargeBar';
-  readonly nullPart: 'nullPart';
-  readonly circleContainer: 'circleContainer';
-  readonly neonPart: 'neonPart';
+  readonly Skill: 'Skill';
+  readonly Skill_skillText: 'Skill_skillText';
+  readonly Skill_chargeBarContainer: 'Skill_chargeBarContainer';
+  readonly Skill_chargeBar: 'Skill_chargeBar';
+  readonly Skill_nullPart: 'Skill_nullPart';
+  readonly Skill_circleContainer: 'Skill_circleContainer';
+  readonly Skill_neonPart: 'Skill_neonPart';
 };
 export = classNames;

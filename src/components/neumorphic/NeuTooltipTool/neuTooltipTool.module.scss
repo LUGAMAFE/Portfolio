@@ -1,0 +1,24 @@
+@use '../../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../../style/sass/ITCSS/01_settings/fonts' as *;
+.NeuTooltipTool {
+  &_row {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: var(--textColorOpposite);
+    font-weight: $weight-bold;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &_labelContainer {
+    margin-bottom: 6px;
+  }
+  &_label {
+    padding-right: 10px;
+    font-size: 12px;
+    user-select: none;
+  }
+}

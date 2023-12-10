@@ -1,7 +1,7 @@
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
-import { CarrouselProyects } from './CarrouselProyects';
-import { DescriptionProyect } from './DescriptionProyect';
-import style from './proyects.module.scss';
+import { CarrouselProjects } from './CarrouselProjects';
+import { DescriptionProject } from './DescriptionProject';
+import style from './projects.module.scss';
 
 const ProyectSection = () => {
   return (
@@ -14,7 +14,7 @@ const ProyectSection = () => {
         distance: 45,
         blur: 90,
       }}
-      className={style.projects}
+      className={style.Projects}
       id="seccion3"
     >
       <div
@@ -23,9 +23,9 @@ const ProyectSection = () => {
           height: '90px',
         }}
       ></div>
-      <div className={style.projectsContainer}>
-        <CarrouselProyects />
-        <DescriptionProyect />
+      <div className={style.Projects_projectsContainer}>
+        <CarrouselProjects />
+        <DescriptionProject />
       </div>
     </NeumorphicElement>
   );

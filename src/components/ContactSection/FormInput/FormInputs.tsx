@@ -6,7 +6,7 @@ interface Props {
 export const FormInputs = ({ placeHolder }: Props) => {
   return (
     <NeumorphicElement
-      className={style.customInput}
+      className={style.FormInput}
       neumorphicOptions={{
         form: 'pressed',
         size: 174,

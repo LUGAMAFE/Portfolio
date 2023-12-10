@@ -1,4 +1,6 @@
-.myTopNavbar {
+@use '../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../style/sass/ITCSS/01_settings/fonts' as *;
+.Navbar {
   position: fixed;
   z-index: 999;
   right: 0px;
@@ -9,37 +11,27 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-around;
-  .logo {
-    /* or 0% */
-
+  &_logo {
     display: flex;
     align-items: center;
-    color: white;
+    color: $color-white;
     font-family: 'Roboto Condensed';
     font-size: 28px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: $weight-bold;
     letter-spacing: 0.1px;
     line-height: 0px;
     text-align: center;
   }
-
-  .menuToggle {
+  &_menuToggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    button {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      svg {
-        width: 35px;
-        height: 36px;
-        image {
-          width: 35px;
-          height: 36px;
-        }
-      }
-    }
+  }
+
+  &_button {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
   }
 }
