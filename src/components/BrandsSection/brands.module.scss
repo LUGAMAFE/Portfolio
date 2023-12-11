@@ -1,5 +1,7 @@
 @use '../../style/sass/ITCSS/01_settings/colors' as *;
 @use '../../style/sass/ITCSS/01_settings/fonts' as *;
+@use '../../style/sass/ITCSS/01_settings/global' as *;
+@use '../../style/sass/ITCSS/02_tools/mixins' as *;
 .Brands {
   display: flex;
   height: 120vh;
@@ -48,15 +50,14 @@
     letter-spacing: -0.4px;
     line-height: 68px;
     text-align: center;
-    text-shadow: 0px 0px 5px $color-white;
+    text-shadow: $base-text-shadow-title;
   }
 
   &_brandsLogos {
-    display: grid;
+    @include grid(2, 5px);
     overflow: visible;
     width: 1264px;
     height: 583px;
-    grid-template-columns: repeat(2, 1fr);
     place-items: center;
   }
 }

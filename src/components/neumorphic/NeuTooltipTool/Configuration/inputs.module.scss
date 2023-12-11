@@ -2,6 +2,7 @@
 /* eslint-disable */
 @use '../../../../style/sass/ITCSS/01_settings/colors' as *;
 @use '../../../../style/sass/ITCSS/01_settings/fonts' as *;
+@use '../../../../style/sass/ITCSS/01_settings/global' as *;
 input[type='range'] {
   position: relative;
   width: 100%;
@@ -33,8 +34,7 @@ input[type='range'] {
     margin-top: -5px;
     -webkit-appearance: none;
     background: var(--textColorOpposite);
-    box-shadow: 1px 1px 1px $color-box-shadow-inputs-configuration,
-      0px 0px 1px $color-box-shadow-inputs-configuration;
+    box-shadow: $base-box-shadow-inputs-configuration;
     cursor: pointer;
   }
   &::-webkit-slider-thumb {
@@ -126,8 +126,7 @@ input[type='range'] {
     border: 1px solid $color-black;
     border-radius: 50%;
     background: var(--textColorOpposite);
-    box-shadow: 1px 1px 1px $color-box-shadow-inputs-configuration,
-      0px 0px 1px $color-box-shadow-inputs-configuration;
+    box-shadow: $base-box-shadow-inputs-configuration;
     cursor: pointer;
   }
   &::-ms-track {
@@ -144,8 +143,7 @@ input[type='range'] {
   &::-ms-fill-upper {
     border: 0.2px solid $color-border-inputs-configuration;
     border-radius: 2.6px;
-    box-shadow: 1px 1px 1px $color-black,
-      0px 0px 1px $color-box-shadow-inputs-configuration-intensity;
+    box-shadow: $base-box-shadow-inputs-configuration-intensity;
   }
 
   &:disabled {
@@ -214,6 +212,6 @@ input[type='checkbox']:checked::before {
 }
 
 input[type='checkbox']:focus {
-  box-shadow: 0 0 0 1px var(--textColorOpposite);
+  box-shadow: $base-box-shadow-inputs-configuration-checkbox;
   outline: none;
 }

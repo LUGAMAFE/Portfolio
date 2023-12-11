@@ -1,5 +1,6 @@
 @use '../../../style/sass/ITCSS/01_settings/colors' as *;
 @use '../../../style/sass/ITCSS/01_settings/fonts' as *;
+@use '../../../style/sass/ITCSS/01_settings/global' as *;
 .Illustration {
   width: 635px;
   height: 100%;
@@ -18,8 +19,7 @@
     border-radius: 50px;
     margin: 40px 100px;
     background: $color-gradient-pink-linear-horizontal;
-    box-shadow: -6px -6px 15px 0px $color-box-shadow-button-illustration,
-      6px 6px 15px 0px $color-box-shadow-button-illustration-secondary;
+    box-shadow: $base-box-shadow-neon-pink-button;
   }
   &_contactButtonText {
     color: $color-white;

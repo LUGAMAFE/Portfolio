@@ -5,13 +5,7 @@
    ========================================================================== */
 
 a {
-  // color: $color-brand;
-  text-decoration: underline;
+  color: $color-middle-white;
+  text-decoration: none;
   transition: color 0.25s;
-
-  &:active,
-  &:focus,
-  &:hover {
-    // color: $color-brand-secondary;
-  }
 }

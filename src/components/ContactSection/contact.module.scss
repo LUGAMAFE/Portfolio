@@ -1,5 +1,6 @@
 @use '../../style/sass/ITCSS/01_settings/colors' as *;
 @use '../../style/sass/ITCSS/01_settings/fonts' as *;
+@use '../../style/sass/ITCSS/01_settings/global' as *;
 .Contact {
   display: flex;
   height: 120vh;
@@ -40,7 +41,7 @@
     letter-spacing: -0.4px;
     line-height: 68px;
     text-align: center;
-    text-shadow: 0px 0px 5px $color-white;
+    text-shadow: $base-text-shadow-title;
   }
 
   &_content {

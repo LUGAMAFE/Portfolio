@@ -36,7 +36,7 @@ const Navbar = () => {
           }}
           className={style.Navbar_button}
         >
-          <img src={hamburgerIcon} alt="circle part of input" />
+          <img className={style.Navbar_hamburger} src={hamburgerIcon} alt="circle part of input" />
         </NeumorphicElement>
       </div>
     </NeumorphicElement>

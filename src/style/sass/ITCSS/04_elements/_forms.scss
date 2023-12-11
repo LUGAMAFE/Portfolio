@@ -8,19 +8,12 @@
 
 label {
   display: inline-block;
-  margin-bottom: $spacing-xs;
   font-weight: $weight-bold;
 
   /* Checkbox or Radio Button */
 
   [type='checkbox'],
   [type='radio'] {
-    margin-right: $spacing-xs;
+    margin-right: $spacing-sm;
   }
-}
-
-/* Legend */
-
-legend {
-  font-weight: $weight-bold;
 }

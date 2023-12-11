@@ -6,6 +6,7 @@
    ========================================================================== */
 /* stylelint-disable-next-line plugin/selector-bem-pattern */
 %titleCommon {
+  font-style: normal;
   font-weight: $weight-bold;
   text-transform: uppercase;
 }
@@ -13,33 +14,17 @@
 .title {
   &--level-1 {
     @extend %titleCommon;
-    @include fluid-text(3.6rem, 9.8rem, 9vw);
-    // color: $color-headings;
   }
 
-  &--level-2 {
+  &___level2 {
+    color: $color-middle-white;
+    font-family: Roboto;
+    font-size: 75px;
+    text-align: center;
     @extend %titleCommon;
-    @include fluid-text(2.4rem, 7.2rem);
-    // color: $color-headings;
   }
 
   &--level-3 {
     @extend %titleCommon;
-    @include fluid-text(1.6rem, 6rem);
-    position: relative;
-    // color: $brand-color;
-    text-align: center;
-
-    &::after {
-      position: absolute;
-      bottom: -1rem;
-      left: 50%;
-      width: 100%;
-      max-width: 70rem;
-      height: 0.3rem;
-      // background-color: $color-light-blue;
-      content: '';
-      transform: translateX(-50%);
-    }
   }
 }

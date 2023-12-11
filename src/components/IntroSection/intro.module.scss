@@ -1,5 +1,6 @@
 @use '../../style/sass/ITCSS/01_settings/colors' as *;
 @use '../../style/sass/ITCSS/01_settings/fonts' as *;
+@use '../../style/sass/ITCSS/01_settings/global' as *;
 .Intro {
   display: flex;
   height: 110vh;
@@ -26,7 +27,7 @@
     font-style: normal;
     font-weight: $weight-bold;
     line-height: 64px;
-    text-shadow: 0px 0px 4px $color-gray-text-shadow, 0px 4px 4px $color-black-text-shadow;
+    text-shadow: $base-text-shadow-sub-title;
   }
   &_text:nth-child(3) {
     top: calc(50% - 73px / 2 + 114.15px);
@@ -43,8 +44,7 @@
     font-size: 31px;
     font-weight: $weight-bold;
     letter-spacing: 1px;
-    text-shadow: 0px 4px 4px $color-gray-text-shadow, 0px 4px 4px $color-gray-text-shadow,
-      0px 0px 0.8px $color-light-blue-text-shadow;
+    text-shadow: $base-text-shadow-sub-title;
   }
   &_em {
     font-display: swap;
@@ -66,7 +66,7 @@
     border-radius: 14px;
     margin-bottom: 33.53px;
     background: $color-gradient-pink-linear-horizontal;
-    box-shadow: 0px 0px 4px $color-box-shadow-neon-pink;
+    box-shadow: $base-box-shadow-neon;
   }
 
   &_line2 {
@@ -75,7 +75,7 @@
     height: 8.38px;
     border-radius: 14px;
     background: $color-gradient-pink-linear-horizontal;
-    box-shadow: 0px 0px 4px $color-box-shadow-neon-pink;
+    box-shadow: $base-box-shadow-neon;
   }
 
   &_ilustration {

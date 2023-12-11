@@ -1,15 +1,17 @@
 @use '../../../style/sass/ITCSS/01_settings/colors' as *;
-
+@use '../../../style/sass/ITCSS/02_tools/mixins' as *;
+@use '../../../style/sass/ITCSS/01_settings/global' as *;
 .CarrouselProjects {
   overflow: hidden;
   width: 50%;
   height: calc(100% - 90px);
   background: $color-middle-white;
-  box-shadow: 12px 12px 15px 0px $color-box-shadow-carrousel-projects inset;
+  box-shadow: $base-box-shadow-carrousel-projects;
   &_carrouselContainer {
-    display: grid;
     height: 100%;
     align-items: center;
+    padding-top: 10px;
+    @include grid(1, 5px);
   }
   &_textContainer {
     display: flex;
@@ -22,8 +24,7 @@
     border: 2px solid $color-middle-white;
     border-radius: 40px;
     background: var(--Middle-Color-White, $color-middle-white);
-    box-shadow: 5px 5px 20px 0px $color-box-shadow-text-container-carrousel-projects,
-      -5px -5px 20px 0px $color-white;
+    box-shadow: $base-box-shadow-carrousel-projects-text-container;
     justify-self: center;
   }
   &_snapContainer {

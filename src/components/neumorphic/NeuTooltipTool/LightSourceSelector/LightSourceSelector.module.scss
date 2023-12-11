@@ -1,12 +1,11 @@
 @use '../../../../style/sass/ITCSS/01_settings/colors' as *;
+@use '../../../../style/sass/ITCSS/02_tools/mixins' as *;
 @import 'Arrow.module';
 .LightSourceSelector {
-  display: grid;
+  @include grid(2, 5px);
   padding: 3px;
   border-radius: 5px;
   background-color: $color-background-light-source-selector;
-  gap: 3px 6px;
-  grid-template-columns: 1fr 1fr;
   &_disabled {
     opacity: 0.3;
     pointer-events: none;
