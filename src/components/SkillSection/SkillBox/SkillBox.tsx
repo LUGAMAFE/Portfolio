@@ -1,14 +1,14 @@
 import iconSkill from '../../../../assets/images/Icono.svg';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
+import { ReactRange } from '../React-range';
 
-import { Skill } from '../Skill';
 import style from './skillBox.module.scss';
 
 interface SkillBoxProps {
   text: string;
 }
 export const SkillBox = ({ text }: SkillBoxProps) => {
-  const array = ['Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java'];
+  const array = ['Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java'];
   return (
     <div className={style.SkillBox}>
       <NeumorphicElement
@@ -38,7 +38,7 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
         </NeumorphicElement>
         <div className={style.SkillBox_skillsInputs}>
           {array.map((skillText, index) => (
-            <Skill key={index} skillText={skillText} />
+            <ReactRange />
           ))}
         </div>
       </NeumorphicElement>
