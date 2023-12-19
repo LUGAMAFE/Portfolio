@@ -20,7 +20,6 @@ const BrandsSection = () => {
     SOCCERLogo,
     SOLAREKLogo,
   ];
-  console.log(logosArray);
   return (
     <NeumorphicElement
       neumorphicOptions={{
