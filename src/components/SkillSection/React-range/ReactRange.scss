@@ -1,8 +1,10 @@
 /* stylelint-disable plugin/selector-bem-pattern */
 @use '../../../style/sass/ITCSS/01_settings/colors' as *;
 .range-slider {
-  width: 480px;
-  margin: 24px auto 0;
+  width: 420px;
+  height: 10px;
+  margin: 3px 2.5px;
+  background: transparent;
 }
 
 .range-slider input[type='range'] {
