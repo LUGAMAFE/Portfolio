@@ -16,20 +16,20 @@ const WIDTH: number = 30;
 const CIRCLE_WIDTH: number = 6;
 
 export interface PickerProps {
-  id?: string | undefined;
-  borderColor?: string | undefined;
-  pointerColor?: string | undefined;
-  pointerWidth?: number | undefined;
-  width?: number | undefined;
+  id?: string;
+  borderColor?: string;
+  pointerColor?: string;
+  pointerWidth?: number;
+  width?: number;
   value?: number;
-  borderStyle?: string | undefined;
-  borderWidth?: number | undefined;
+  borderStyle?: string;
+  borderWidth?: number;
 
   angle: number;
 
-  onChange?: (newValue?: number) => void | undefined;
+  onChange?: (newValue?: number) => void;
 
-  onAfterChange?: (interactiveValue: number) => void | undefined;
+  onAfterChange?: (interactiveValue: number) => void;
 
   preventDefault?: boolean;
 }

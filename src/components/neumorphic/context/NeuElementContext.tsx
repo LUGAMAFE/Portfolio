@@ -1,4 +1,6 @@
-import { Dispatch, SetStateAction, createContext, useCallback, useState } from 'react';
+import { Dispatch, ReactNode, SetStateAction, createContext, useCallback, useState } from 'react';
+import { contextConfigNeomorphicElementShape } from '../../../types/neomorphism';
+
 export interface NeuElementContextInterface {
   contextConfig: contextConfigNeomorphicElementShape;
   setContextConfig: Dispatch<SetStateAction<contextConfigNeomorphicElementShape>>;
@@ -8,22 +10,11 @@ export const NeuElementContext = createContext<NeuElementContextInterface>(
   {} as NeuElementContextInterface
 );
 
-export interface contextConfigNeomorphicElementShape {
-  [key: string]: number | string | null;
-  form: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;
-  color: string | null;
-  size: number | string | null;
-  intensity: number | null;
-  lightSource: number | null;
-  distance: number | null;
-  blur: number | null;
+interface NeuElementProviderProps {
+  children: ReactNode;
 }
 
-interface Props {
-  children: JSX.Element | JSX.Element[];
-}
-
-export const NeuElementProvider = ({ children }: Props) => {
+export const NeuElementProvider = ({ children }: NeuElementProviderProps) => {
   const [contextConfig, setContextConfig] = useState<contextConfigNeomorphicElementShape>({
     form: null,
     color: null,
@@ -35,12 +26,18 @@ export const NeuElementProvider = ({ children }: Props) => {
     blur: null,
   });
 
-  const updateContextConfigProp = useCallback((property: string, value: number | string) => {
-    setContextConfig((prevContextConfig) => ({
-      ...prevContextConfig,
-      [property]: value,
-    }));
-  }, []);
+  const updateContextConfigProp = useCallback(
+    <K extends keyof contextConfigNeomorphicElementShape>(
+      property: K,
+      value: contextConfigNeomorphicElementShape[K]
+    ) => {
+      setContextConfig((prevContextConfig) => ({
+        ...prevContextConfig,
+        [property]: value,
+      }));
+    },
+    []
+  );
 
   return (
     <NeuElementContext.Provider

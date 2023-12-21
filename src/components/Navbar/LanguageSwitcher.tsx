@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { RealNeumorphicElementProps } from '../../interfaces/neomorphism';
 import style from '../../style/sass/navbar.module.scss';
+import { RealNeumorphicElementProps } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 
 export const LanguageSwitcher = () => {
-  const initialButtonConfigs: Array<RealNeumorphicElementProps> = [
+  const initialButtonConfigs: RealNeumorphicElementProps[] = [
     {
       id: 'esBoton',
       text: 'Español',
@@ -30,7 +30,7 @@ export const LanguageSwitcher = () => {
   ];
 
   const [buttonConfigs, setButtonConfigs] = useState(initialButtonConfigs);
-  const handleButtonClick = (id: string | number) => {
+  const handleButtonClick = (id: string) => {
     setButtonConfigs((prev) =>
       prev.map((button) =>
         button.id === id

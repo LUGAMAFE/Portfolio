@@ -58,27 +58,29 @@ const Configuration = () => {
   };
 
   const handleDirection = (direction: number): void => {
-    updateContextConfigProp('lightSource', +name);
-    if (direction === 3) {
-      setAngle(45);
-    } else if (direction === 4) {
-      setAngle(145);
-    } else if (direction === 1) {
-      setAngle(225);
-    } else if (direction === 2) {
-      setAngle(315);
+    updateContextConfigProp('lightSource', +direction);
+    const angleMap: { [key: number]: number } = {
+      3: 45,
+      4: 145,
+      1: 225,
+      2: 315,
+    };
+    const angle = angleMap[direction];
+    if (angle !== undefined) {
+      setAngle(angle);
     }
   };
 
   const handleDirectionAngle = (angulo: number) => {
-    if (angulo >= 0 && angulo < 90) {
-      updateContextConfigProp('lightSource', 3);
-    } else if (angulo >= 90 && angulo < 180) {
-      updateContextConfigProp('lightSource', 4);
-    } else if (angulo >= 180 && angulo < 270) {
-      updateContextConfigProp('lightSource', 1);
-    } else if (angulo >= 270 && angulo < 360) {
-      updateContextConfigProp('lightSource', 2);
+    const ranges = [
+      { min: 0, max: 90, lightSource: 3 },
+      { min: 90, max: 180, lightSource: 4 },
+      { min: 180, max: 270, lightSource: 1 },
+      { min: 270, max: 360, lightSource: 2 },
+    ];
+    const match = ranges.find((range) => angulo >= range.min && angulo < range.max);
+    if (match) {
+      updateContextConfigProp('lightSource', match.lightSource);
     } else {
       return -1;
     }
@@ -147,8 +149,8 @@ const Configuration = () => {
           id="anglePicker"
           value={angle}
           onChange={(newAngle) => {
-            setAngle(newAngle ? newAngle : 0);
-            handleDirectionAngle(newAngle ? newAngle : 0);
+            setAngle(newAngle || 0);
+            handleDirectionAngle(newAngle || 0);
           }}
           onAfterChange={setAngle}
           pointerColor="#000"
@@ -158,7 +160,7 @@ const Configuration = () => {
 
         <div style={{ minWidth: '34px' }}>{`${angle}°`}</div>
         <LightSourceSelector
-          lightSource={contextConfig.lightSource ? contextConfig.lightSource : 1}
+          lightSource={contextConfig.lightSource ?? 1}
           onDirectionChanged={handleDirection}
           disabled={contextConfig.form === 'flat' ? true : false}
         />
@@ -167,7 +169,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Size'}
         type={'range'}
-        value={contextConfig.size ? contextConfig.size : 100}
+        value={contextConfig.size ?? 100}
         onChange={handleSizeChange}
         min={10}
         max={maxSize}
@@ -177,7 +179,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Distance'}
         type={'range'}
-        value={contextConfig.distance ? contextConfig.distance : 45}
+        value={contextConfig.distance ?? 45}
         onChange={handleDistanceChange}
         min={2}
         max={50}
@@ -187,7 +189,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Intensity'}
         type={'range'}
-        value={contextConfig.intensity ? contextConfig.intensity : 0.15}
+        value={contextConfig.intensity ?? 0.15}
         onChange={(e) => updateContextConfigProp('intensity', e.target.value)}
         min={0.01}
         max={0.9}
@@ -198,7 +200,7 @@ const Configuration = () => {
       <ConfigurationRow
         label={'Blur'}
         type={'range'}
-        value={contextConfig.blur ? contextConfig.blur : 90}
+        value={contextConfig.blur ?? 90}
         onChange={(e) => updateContextConfigProp('blur', e.target.value)}
         min={0}
         max={100}

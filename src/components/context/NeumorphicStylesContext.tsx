@@ -17,7 +17,7 @@ export interface NeumorphicStylesContext {
   setCtrlButton: Dispatch<SetStateAction<boolean>>;
 }
 
-export interface Props {
+export interface StyleProviderProps {
   children?: JSX.Element | JSX.Element[];
   colorDifference?: number;
 }
@@ -45,7 +45,7 @@ const updateColors = (color: string, colorDifference: number) => {
   };
 };
 
-export const StyleProvider = ({ children, colorDifference = 0.15 }: Props) => {
+export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProviderProps) => {
   const [styles, setStyles] = useState({
     darkColor: '',
     mainColor: '',
@@ -67,6 +67,7 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: Props) => {
     const mainColor = obtainMainClass('--main-color').trim();
     setInitialMainColor(mainColor);
     setStyles(updateColors(mainColor, colorDifference));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChangeColor = (isChecked: boolean) => {

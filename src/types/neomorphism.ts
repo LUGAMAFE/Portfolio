@@ -1,5 +1,24 @@
 import { CSSProperties, ElementType } from 'react';
 
+export enum FormShape {
+  Concave = 'concave',
+  Convex = 'convex',
+  Level = 'level',
+  Pressed = 'pressed',
+  Flat = 'flat',
+}
+
+export interface contextConfigNeomorphicElementShape {
+  [key: string]: number | string | null;
+  form: FormShape | null;
+  color: string | null;
+  size: number | string | null;
+  intensity: number | null;
+  lightSource: number | null;
+  distance: number | null;
+  blur: number | null;
+}
+
 export interface RealNeumorphicElementProps {
   element?: ElementType;
   className?: string;
@@ -23,7 +42,7 @@ export interface RealNeumorphicElementProps {
   onClick?: () => void;
   children?: JSX.Element | JSX.Element[];
   nTestId?: string | number;
-  id?: string | number;
+  id?: string;
   type?: string;
   placeholder?: string;
   text?: string;

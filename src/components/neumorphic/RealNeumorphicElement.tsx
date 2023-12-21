@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import { RealNeumorphicElementProps } from '../../interfaces/neomorphism';
 import styles from '../../style/sass/style.module.scss';
+import { RealNeumorphicElementProps } from '../../types/neomorphism';
 import {
   angleGradient,
   colorLuminance,

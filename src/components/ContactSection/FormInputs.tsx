@@ -1,9 +1,9 @@
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 
-interface Props {
+interface FormInputsProps {
   placeHolder: string;
 }
-export const FormInputs = ({ placeHolder }: Props) => {
+export const FormInputs = ({ placeHolder }: FormInputsProps) => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
