@@ -89,7 +89,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return { x, y };
   }
 
-  getNewAngleByEvent = (e: MouseEvent | React.MouseEvent) => {
+  getNewAngleByEvent = (e: React.MouseEvent) => {
     const wrapperEl = this.wrapperRef && this.wrapperRef.current;
     if (e && wrapperEl) {
       const center = this.getCenter();
@@ -105,7 +105,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return null;
   };
 
-  mousedown: MouseEventHandler<HTMLDivElement> = (e: MouseEvent | React.MouseEvent) => {
+  mousedown: MouseEventHandler<HTMLDivElement> = (e: React.MouseEvent) => {
     const angle = this.getNewAngleByEvent(e);
     if (typeof angle === 'number') {
       this.setState({ angle });
@@ -117,16 +117,28 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
   };
 
   addMouseListeners() {
-    document.addEventListener('mousemove', this.mousemove);
-    document.addEventListener('mouseup', this.mouseup);
+    document.addEventListener(
+      'mousemove',
+      this.mousemove as unknown as EventListenerOrEventListenerObject
+    );
+    document.addEventListener(
+      'mouseup',
+      this.mouseup as unknown as EventListenerOrEventListenerObject
+    );
   }
 
   removeMouseListeners() {
-    document.removeEventListener('mousemove', this.mousemove);
-    document.removeEventListener('mouseup', this.mouseup);
+    document.removeEventListener(
+      'mousemove',
+      this.mousemove as unknown as EventListenerOrEventListenerObject
+    );
+    document.removeEventListener(
+      'mouseup',
+      this.mouseup as unknown as EventListenerOrEventListenerObject
+    );
   }
 
-  mousemove(e: MouseEvent) {
+  mousemove(e: React.MouseEvent) {
     if (this.props.preventDefault) {
       e.preventDefault();
     }
@@ -139,7 +151,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     }
   }
 
-  mouseup(e: MouseEvent) {
+  mouseup(e: React.MouseEvent) {
     if (this.props.preventDefault) {
       e.preventDefault();
     }

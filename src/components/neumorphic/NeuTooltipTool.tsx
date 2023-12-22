@@ -30,7 +30,7 @@ const ARROW_HEIGHT = 10;
 const ARROW_WIDTH = 16;
 const GAP = 0;
 
-interface Props {
+interface NeuTooltipProps {
   refElement: HTMLElement | null;
   setRefProps: Dispatch<SetStateAction<object>>;
   onClick?: (e: React.MouseEvent) => void;
@@ -39,7 +39,7 @@ const eventClose = new CustomEvent('closeNeu', {
   bubbles: true,
 });
 
-const NeuTooltipTool = ({ refElement, setRefProps, onClick }: Props) => {
+const NeuTooltipTool = ({ refElement, setRefProps, onClick }: NeuTooltipProps) => {
   const {
     ctrlButton,
     styles: { mainColor },

@@ -1,6 +1,7 @@
 import neomorphicCircleSVG from '../../../assets/images/Circulito-Carga.svg';
 import neonRectangleSVG from '../../../assets/images/Rectangle-neon.svg';
 import style from '../../style/sass/skills.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 interface SkillProps {
   skillText: string;
@@ -13,7 +14,7 @@ export const Skill = ({ skillText }: SkillProps) => {
         <div className={style.chargeBar}>
           <NeumorphicElement
             neumorphicOptions={{
-              form: 'pressed',
+              form: FormShape.Flat,
               size: 102,
               intensity: 0.76,
               lightSource: 1,

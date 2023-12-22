@@ -60,8 +60,8 @@ const Configuration = () => {
   const handleDirection = (direction: number): void => {
     updateContextConfigProp('lightSource', +direction);
     const angleMap: { [key: number]: number } = {
-      3: 45,
-      4: 145,
+      4: 45,
+      3: 145,
       1: 225,
       2: 315,
     };
@@ -73,8 +73,8 @@ const Configuration = () => {
 
   const handleDirectionAngle = (angulo: number) => {
     const ranges = [
-      { min: 0, max: 90, lightSource: 3 },
-      { min: 90, max: 180, lightSource: 4 },
+      { min: 0, max: 90, lightSource: 4 },
+      { min: 90, max: 180, lightSource: 3 },
       { min: 180, max: 270, lightSource: 1 },
       { min: 270, max: 360, lightSource: 2 },
     ];

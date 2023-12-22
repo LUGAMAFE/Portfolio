@@ -100,9 +100,11 @@ const RealNeumorphicElement = ({
       darkGradientColor = darkGradientColorContext;
       lightGradientColor = lightGradientColorContext;
     } else {
-      if (!contextConfig.intensity) return;
-      darkColor = colorLuminance(colorToUse, contextConfig.intensity * -1);
-      lightColor = colorLuminance(colorToUse, contextConfig.intensity);
+      darkColor = colorLuminance(
+        colorToUse,
+        contextConfig.intensity ?? defaultProps.intensity * -1
+      );
+      lightColor = colorLuminance(colorToUse, contextConfig.intensity ?? defaultProps.intensity);
       darkGradientColor = colorLuminance(colorToUse, -0.1);
       lightGradientColor = colorLuminance(colorToUse, 0.07);
     }

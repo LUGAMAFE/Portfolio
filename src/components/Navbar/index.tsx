@@ -1,5 +1,6 @@
 import hamburgerIcon from '../../../assets/images/bx-menu.svg';
 import style from '../../style/sass/navbar.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeColorSwitcher } from './ThemeColorSwitcher';
@@ -10,7 +11,7 @@ const Navbar = () => {
       className={style.myTopNavbar}
       nTestId="navbar"
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 196,
         intensity: 0.51,
         lightSource: 3,
@@ -27,7 +28,7 @@ const Navbar = () => {
         <NeumorphicElement
           element={'button'}
           neumorphicOptions={{
-            form: 'level',
+            form: FormShape.Level,
             size: 55,
             intensity: 0.19,
             lightSource: 1,

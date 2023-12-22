@@ -1,4 +1,5 @@
 import style from '../../style/sass/contact.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { FormInputs } from './FormInputs';
 
@@ -12,7 +13,7 @@ export const Form = () => {
 
       <NeumorphicElement
         neumorphicOptions={{
-          form: 'pressed',
+          form: FormShape.Pressed,
           size: 174,
           intensity: 0.55,
           lightSource: 1,

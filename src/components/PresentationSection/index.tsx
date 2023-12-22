@@ -1,4 +1,5 @@
 import style from '../../style/sass/presentation.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { Abilities } from './Abilities';
 import { Ilustration } from './Ilustration';
@@ -7,7 +8,7 @@ const PresentationSection = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 500,
         intensity: 0.65,
         lightSource: 3,

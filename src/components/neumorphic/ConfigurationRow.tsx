@@ -5,10 +5,10 @@ interface ConfigurationRowProps {
   className?: string;
   label: string;
   type: string;
-  value: string;
-  min?: string;
-  max?: string;
-  step?: string;
+  value: number;
+  min?: number;
+  max?: number;
+  step?: number;
   disabled?: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -20,7 +20,7 @@ const ConfigurationRow = ({
   value,
   min,
   max,
-  step = '1',
+  step = 1,
   disabled,
   onChange,
 }: ConfigurationRowProps) => {

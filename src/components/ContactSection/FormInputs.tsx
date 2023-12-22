@@ -1,3 +1,4 @@
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 
 interface FormInputsProps {
@@ -7,7 +8,7 @@ export const FormInputs = ({ placeHolder }: FormInputsProps) => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 174,
         intensity: 0.55,
         lightSource: 1,

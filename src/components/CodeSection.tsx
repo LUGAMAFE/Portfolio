@@ -3,12 +3,13 @@ import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { codigoEjemplo } from '../data/codeSintaxHighlighter';
 
 import style from '../style/sass/code.module.scss';
+import { FormShape } from '../types/neomorphism';
 import NeumorphicElement from './neumorphic/NeumorphicElement';
 const CodeSection = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 500,
         intensity: 0.65,
         lightSource: 3,
@@ -22,7 +23,7 @@ const CodeSection = () => {
         style={synthwave84}
         showLineNumbers
         customStyle={{
-          background: 'transparent',
+          background: FormShape.Pressed,
           width: '100%',
           height: 'auto',
           fontSize: '20px',

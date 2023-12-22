@@ -12,7 +12,7 @@ export interface contextConfigNeomorphicElementShape {
   [key: string]: number | string | null;
   form: FormShape | null;
   color: string | null;
-  size: number | string | null;
+  size: number | null;
   intensity: number | null;
   lightSource: number | null;
   distance: number | null;
@@ -23,7 +23,7 @@ export interface RealNeumorphicElementProps {
   element?: ElementType;
   className?: string;
   neumorphicOptions?: {
-    form?: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;
+    form?: FormShape | null;
     color?: string;
     size?: number;
     intensity?: number;
@@ -31,7 +31,7 @@ export interface RealNeumorphicElementProps {
     distance?: number;
     blur?: number;
   };
-  form?: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;
+  form?: FormShape | null;
   color?: string | null;
   size?: number | null;
   intensity?: number | null;

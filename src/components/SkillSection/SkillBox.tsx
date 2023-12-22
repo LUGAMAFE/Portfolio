@@ -1,5 +1,6 @@
 import iconSkill from '../../../assets/images/Icono.svg';
 import style from '../../style/sass/skills.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { Skill } from './Skill';
 
@@ -12,7 +13,7 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
     <div className={style.skillTopic}>
       <NeumorphicElement
         neumorphicOptions={{
-          form: 'convex',
+          form: FormShape.Convex,
           size: 500,
           intensity: 0.65,
           lightSource: 1,
@@ -23,7 +24,7 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
       >
         <NeumorphicElement
           neumorphicOptions={{
-            form: 'convex',
+            form: FormShape.Convex,
             size: 102,
             intensity: 0.76,
             lightSource: 1,
