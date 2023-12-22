@@ -8,22 +8,21 @@ export enum FormShape {
   Flat = 'flat',
 }
 
-export interface contextConfigNeomorphicElementShape {
-  [key: string]: number | string | null;
-  form: FormShape | null;
-  color: string | null;
-  size: number | null;
-  intensity: number | null;
-  lightSource: number | null;
-  distance: number | null;
-  blur: number | null;
+export interface NeomorphicElementShape {
+  form?: FormShape;
+  color?: string;
+  size?: number;
+  intensity?: number;
+  lightSource?: number;
+  distance?: number;
+  blur?: number;
 }
 
 export interface RealNeumorphicElementProps {
   element?: ElementType;
   className?: string;
   neumorphicOptions?: {
-    form?: FormShape | null;
+    form?: FormShape;
     color?: string;
     size?: number;
     intensity?: number;
@@ -31,13 +30,13 @@ export interface RealNeumorphicElementProps {
     distance?: number;
     blur?: number;
   };
-  form?: FormShape | null;
-  color?: string | null;
-  size?: number | null;
-  intensity?: number | null;
-  lightSource?: number | null;
-  distance?: number | null;
-  blur?: number | null;
+  form?: FormShape;
+  color?: string;
+  size?: number;
+  intensity?: number;
+  lightSource?: number;
+  distance?: number;
+  blur?: number;
   style?: CSSProperties;
   onClick?: () => void;
   children?: JSX.Element | JSX.Element[];

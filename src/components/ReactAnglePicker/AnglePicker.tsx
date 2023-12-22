@@ -89,7 +89,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return { x, y };
   }
 
-  getNewAngleByEvent = (e: React.MouseEvent) => {
+  getNewAngleByEvent = (e: MouseEvent) => {
     const wrapperEl = this.wrapperRef && this.wrapperRef.current;
     if (e && wrapperEl) {
       const center = this.getCenter();
@@ -105,8 +105,8 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return null;
   };
 
-  mousedown: MouseEventHandler<HTMLDivElement> = (e: React.MouseEvent) => {
-    const angle = this.getNewAngleByEvent(e);
+  mousedown: MouseEventHandler<HTMLDivElement> = (e: React.MouseEvent<HTMLDivElement>) => {
+    const angle = this.getNewAngleByEvent(e.nativeEvent);
     if (typeof angle === 'number') {
       this.setState({ angle });
       if (this.props.onChange) {
@@ -117,28 +117,16 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
   };
 
   addMouseListeners() {
-    document.addEventListener(
-      'mousemove',
-      this.mousemove as unknown as EventListenerOrEventListenerObject
-    );
-    document.addEventListener(
-      'mouseup',
-      this.mouseup as unknown as EventListenerOrEventListenerObject
-    );
+    document.addEventListener('mousemove', this.mousemove);
+    document.addEventListener('mouseup', this.mouseup);
   }
 
   removeMouseListeners() {
-    document.removeEventListener(
-      'mousemove',
-      this.mousemove as unknown as EventListenerOrEventListenerObject
-    );
-    document.removeEventListener(
-      'mouseup',
-      this.mouseup as unknown as EventListenerOrEventListenerObject
-    );
+    document.removeEventListener('mousemove', this.mousemove);
+    document.removeEventListener('mouseup', this.mouseup);
   }
 
-  mousemove(e: React.MouseEvent) {
+  mousemove(e: MouseEvent) {
     if (this.props.preventDefault) {
       e.preventDefault();
     }
@@ -151,7 +139,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     }
   }
 
-  mouseup(e: React.MouseEvent) {
+  mouseup(e: MouseEvent) {
     if (this.props.preventDefault) {
       e.preventDefault();
     }

@@ -1,10 +1,13 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useCallback, useState } from 'react';
-import { contextConfigNeomorphicElementShape } from '../../../types/neomorphism';
+import { NeomorphicElementShape } from '../../../types/neomorphism';
 
 export interface NeuElementContextInterface {
-  contextConfig: contextConfigNeomorphicElementShape;
-  setContextConfig: Dispatch<SetStateAction<contextConfigNeomorphicElementShape>>;
-  updateContextConfigProp: (property: string, value: string | number) => void;
+  contextConfig: NeomorphicElementShape;
+  setContextConfig: Dispatch<SetStateAction<NeomorphicElementShape>>;
+  updateContextConfigProp: <K extends keyof NeomorphicElementShape>(
+    property: K,
+    value: NeomorphicElementShape[K]
+  ) => void;
 }
 export const NeuElementContext = createContext<NeuElementContextInterface>(
   {} as NeuElementContextInterface
@@ -15,23 +18,11 @@ interface NeuElementProviderProps {
 }
 
 export const NeuElementProvider = ({ children }: NeuElementProviderProps) => {
-  const [contextConfig, setContextConfig] = useState<contextConfigNeomorphicElementShape>({
-    form: null,
-    color: null,
-    size: null,
-    intensity: null,
-    angleLightSource: null,
-    lightSource: null,
-    distance: null,
-    blur: null,
-  });
+  const [contextConfig, setContextConfig] = useState<NeomorphicElementShape>({});
 
   const updateContextConfigProp = useCallback(
-    <K extends keyof contextConfigNeomorphicElementShape>(
-      property: K,
-      value: contextConfigNeomorphicElementShape[K]
-    ) => {
-      setContextConfig((prevContextConfig) => ({
+    <K extends keyof NeomorphicElementShape>(property: K, value: NeomorphicElementShape[K]) => {
+      setContextConfig((prevContextConfig: NeomorphicElementShape) => ({
         ...prevContextConfig,
         [property]: value,
       }));

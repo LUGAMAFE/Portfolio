@@ -1,5 +1,6 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import { deleteFalsyProperties, getContrast, isValidColor } from '../../utils';
 import AnglePicker from '../ReactAnglePicker/AnglePicker';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
@@ -53,7 +54,7 @@ const Configuration = () => {
     }));
   };
 
-  const handleShape = (name: string) => {
+  const handleShape = (name: FormShape) => {
     updateContextConfigProp('form', name);
   };
 
@@ -190,7 +191,7 @@ const Configuration = () => {
         label={'Intensity'}
         type={'range'}
         value={contextConfig.intensity ?? 0.15}
-        onChange={(e) => updateContextConfigProp('intensity', e.target.value)}
+        onChange={(e) => updateContextConfigProp('intensity', Number(e.target.value))}
         min={0.01}
         max={0.9}
         step={0.01}
@@ -201,7 +202,7 @@ const Configuration = () => {
         label={'Blur'}
         type={'range'}
         value={contextConfig.blur ?? 90}
-        onChange={(e) => updateContextConfigProp('blur', e.target.value)}
+        onChange={(e) => updateContextConfigProp('blur', Number(e.target.value))}
         min={0}
         max={100}
         className={style.row}
