@@ -3,10 +3,10 @@ import { MouseEventHandler, forwardRef, useEffect, useState } from 'react';
 const WIDTH: number = 30;
 
 interface BorderProps {
-  width?: number | undefined;
-  borderColor?: string | undefined;
-  borderStyle?: string | undefined;
-  borderWidth?: number | undefined;
+  width?: number;
+  borderColor?: string;
+  borderStyle?: string;
+  borderWidth?: number;
   onMouseDown?: MouseEventHandler<HTMLDivElement>;
   children: JSX.Element | JSX.Element[];
 }
@@ -22,9 +22,8 @@ const Border = forwardRef<HTMLDivElement, BorderProps>((props, ref) => {
       borderStyle: `${borderStyle}px`,
       position: 'relative',
       boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.16)',
-      border: `${typeof borderWidth === 'number' ? borderWidth : 1}px solid ${
-        borderColor || '#ccc'
-      }`,
+      border: `${typeof borderWidth === 'number' ? borderWidth : 1}px solid ${borderColor || '#ccc'
+        }`,
       borderRadius: '50%',
       boxSizing: 'border-box',
       zIndex: '1',

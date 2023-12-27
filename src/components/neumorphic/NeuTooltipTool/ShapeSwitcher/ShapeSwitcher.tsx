@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import { FormShape } from '../../../../types/neomorphism';
 import Concave from '../../../svg/concave.svg';
 import Convex from '../../../svg/convex.svg';
 import Flat from '../../../svg/flat.svg';
@@ -7,12 +8,13 @@ import Pressed from '../../../svg/pressed.svg';
 import style from './shapeSwitcher.module.scss';
 
 export interface ShapeSwitcherProps {
-  shape?: 'concave' | 'convex' | 'level' | 'pressed' | 'flat' | null;
-  setShape: (name: string) => void;
+  shape?: FormShape;
+  setShape: (name: FormShape) => void;
 }
 const ShapeSwitcher = ({ shape, setShape }: ShapeSwitcherProps) => {
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    const name = (event.target as HTMLInputElement).name;
+    const nameString = (event.target as HTMLInputElement).name;
+    const name: FormShape = FormShape[nameString as keyof typeof FormShape];
     setShape(name);
   };
   return (

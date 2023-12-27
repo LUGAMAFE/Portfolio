@@ -1,4 +1,5 @@
 import iconSkill from '../../../../assets/images/Icono.svg';
+import { FormShape } from '../../../types/neomorphism';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import { ReactRange } from '../React-range';
 
@@ -13,7 +14,7 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
     <div className={style.SkillBox}>
       <NeumorphicElement
         neumorphicOptions={{
-          form: 'convex',
+          form: FormShape.Convex,
           size: 500,
           intensity: 0.65,
           lightSource: 1,
@@ -24,7 +25,7 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
       >
         <NeumorphicElement
           neumorphicOptions={{
-            form: 'convex',
+            form: FormShape.Convex,
             size: 102,
             intensity: 0.76,
             lightSource: 1,
@@ -38,7 +39,7 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
         </NeumorphicElement>
         <div className={style.SkillBox_skillsInputs}>
           {array.map((skillText, index) => (
-            <ReactRange />
+            <ReactRange key={index} />
           ))}
         </div>
       </NeumorphicElement>

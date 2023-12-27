@@ -1,5 +1,6 @@
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
+import { FormShape } from '../../../types/neomorphism';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from '../Skill/skill.module.scss';
 import './ReactRange.scss';
@@ -7,7 +8,7 @@ export const ReactRange = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 102,
         intensity: 0.76,
         lightSource: 1,

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import { RealNeumorphicElementProps } from '../../../interfaces/neomorphism';
+import { NeomorphicElementShape, RealNeumorphicElementProps } from '../../../types/neomorphism';
 import {
   angleGradient,
   colorLuminance,
@@ -8,6 +8,7 @@ import {
   getIfGradient,
   getIntFormValue,
 } from '../../../utils';
+import { MakeRequired } from '../../../utils/type-utils';
 import { NeumorphicStylesContext } from '../../context/NeumorphicStylesContext';
 import NeuTooltipTool from '../NeuTooltipTool/index';
 import { NeuElementContext } from '../context/NeuElementContext';
@@ -30,9 +31,12 @@ const RealNeumorphicElement = ({
 }: RealNeumorphicElementProps) => {
   const { contextConfig, setContextConfig } = useContext(NeuElementContext);
 
-  const defaultProps = {
-    form: null,
-    color: null,
+  const defaultProps: MakeRequired<
+    NeomorphicElementShape,
+    'size' | 'intensity' | 'lightSource' | 'distance' | 'blur'
+  > = {
+    form: undefined,
+    color: undefined,
     size: 100,
     intensity: 0.15,
     lightSource: 1,
@@ -40,7 +44,7 @@ const RealNeumorphicElement = ({
     blur: 90,
   };
 
-  const options = useMemo(
+  const options: NeomorphicElementShape = useMemo(
     () => ({
       form: form ?? (neumorphicOptions.form || defaultProps.form),
       color: color ?? (neumorphicOptions.color || defaultProps.color),
@@ -100,9 +104,8 @@ const RealNeumorphicElement = ({
       darkGradientColor = darkGradientColorContext;
       lightGradientColor = lightGradientColorContext;
     } else {
-      if (!contextConfig.intensity) return;
-      darkColor = colorLuminance(colorToUse, contextConfig.intensity * -1);
-      lightColor = colorLuminance(colorToUse, contextConfig.intensity);
+      darkColor = colorLuminance(colorToUse, contextConfig.intensity! * -1);
+      lightColor = colorLuminance(colorToUse, contextConfig.intensity!);
       darkGradientColor = colorLuminance(colorToUse, -0.1);
       lightGradientColor = colorLuminance(colorToUse, 0.07);
     }

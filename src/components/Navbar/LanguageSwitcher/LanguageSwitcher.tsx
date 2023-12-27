@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { RealNeumorphicElementProps } from '../../../interfaces/neomorphism';
+import { FormShape, RealNeumorphicElementProps } from '../../../types/neomorphism';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './languageSwitcher.module.scss';
 
@@ -8,14 +8,14 @@ interface ExtendedRealNeumorphicElementProps extends RealNeumorphicElementProps 
   textClassName: string;
 }
 export const LanguageSwitcher = () => {
-  const initialButtonConfigs: Array<ExtendedRealNeumorphicElementProps> = [
+  const initialButtonConfigs: ExtendedRealNeumorphicElementProps[] = [
     {
       id: 'esBoton',
       text: 'Español',
       className: style.LanguageSwitcher_esButton,
       textClassName: style.LanguageSwitcher_esButtonText,
       neumorphicOptions: {
-        form: 'flat',
+        form: FormShape.Flat,
         size: 100,
         intensity: 0.15,
         lightSource: 1,
@@ -27,7 +27,7 @@ export const LanguageSwitcher = () => {
       className: style.LanguageSwitcher_enButton,
       textClassName: style.LanguageSwitcher_enButtonText,
       neumorphicOptions: {
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 100,
         intensity: 0.13,
         lightSource: 1,
@@ -45,10 +45,10 @@ export const LanguageSwitcher = () => {
             neumorphicOptions: {
               ...button.neumorphicOptions,
               form: button.neumorphicOptions
-                ? button.neumorphicOptions.form === 'flat'
-                  ? 'pressed'
-                  : 'flat'
-                : 'flat',
+                ? button.neumorphicOptions.form === FormShape.Flat
+                  ? FormShape.Pressed
+                  : FormShape.Flat
+                : FormShape.Flat,
             },
           }
           : button
@@ -59,7 +59,7 @@ export const LanguageSwitcher = () => {
     <NeumorphicElement
       className={style.LanguageSwitcher}
       neumorphicOptions={{
-        form: 'level',
+        form: FormShape.Level,
         size: 55,
         intensity: 0.19,
         lightSource: 1,

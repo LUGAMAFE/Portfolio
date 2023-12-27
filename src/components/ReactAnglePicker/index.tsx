@@ -16,20 +16,20 @@ const WIDTH: number = 30;
 const CIRCLE_WIDTH: number = 6;
 
 export interface PickerProps {
-  id?: string | undefined;
-  borderColor?: string | undefined;
-  pointerColor?: string | undefined;
-  pointerWidth?: number | undefined;
-  width?: number | undefined;
+  id?: string;
+  borderColor?: string;
+  pointerColor?: string;
+  pointerWidth?: number;
+  width?: number;
   value?: number;
-  borderStyle?: string | undefined;
-  borderWidth?: number | undefined;
+  borderStyle?: string;
+  borderWidth?: number;
 
   angle: number;
 
-  onChange?: (newValue?: number) => void | undefined;
+  onChange?: (newValue?: number) => void;
 
-  onAfterChange?: (interactiveValue: number) => void | undefined;
+  onAfterChange?: (interactiveValue: number) => void;
 
   preventDefault?: boolean;
 }
@@ -89,7 +89,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return { x, y };
   }
 
-  getNewAngleByEvent = (e: MouseEvent | React.MouseEvent) => {
+  getNewAngleByEvent = (e: MouseEvent) => {
     const wrapperEl = this.wrapperRef && this.wrapperRef.current;
     if (e && wrapperEl) {
       const center = this.getCenter();
@@ -105,8 +105,8 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return null;
   };
 
-  mousedown: MouseEventHandler<HTMLDivElement> = (e: MouseEvent | React.MouseEvent) => {
-    const angle = this.getNewAngleByEvent(e);
+  mousedown: MouseEventHandler<HTMLDivElement> = (e: React.MouseEvent<HTMLDivElement>) => {
+    const angle = this.getNewAngleByEvent(e.nativeEvent);
     if (typeof angle === 'number') {
       this.setState({ angle });
       if (this.props.onChange) {
@@ -171,7 +171,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
         borderStyle={borderStyle}
         borderWidth={borderWidth}
       >
-        <div className={style.Center}></div>
+        <div className={style.centro}></div>
         <Circle
           x={rotatedPosition.x}
           y={rotatedPosition.y}

@@ -1,13 +1,14 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { codigoEjemplo } from '../../data/codeSintaxHighlighter';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './code.module.scss';
 const CodeSection = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 500,
         intensity: 0.65,
         lightSource: 3,

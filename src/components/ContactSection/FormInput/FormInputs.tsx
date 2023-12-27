@@ -1,14 +1,15 @@
+import { FormShape } from '../../../types/neomorphism';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './FormInput.module.scss';
-interface Props {
+interface FormInputsProps {
   placeHolder: string;
 }
-export const FormInputs = ({ placeHolder }: Props) => {
+export const FormInputs = ({ placeHolder }: FormInputsProps) => {
   return (
     <NeumorphicElement
       className={style.FormInput}
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 174,
         intensity: 0.55,
         lightSource: 1,

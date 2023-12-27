@@ -1,3 +1,4 @@
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { CarrouselProjects } from './CarrouselProjects';
 import { DescriptionProject } from './DescriptionProject';
@@ -7,7 +8,7 @@ const ProyectSection = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 500,
         intensity: 0.65,
         lightSource: 3,

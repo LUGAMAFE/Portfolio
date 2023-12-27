@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-interface CircelProps {
+interface LineProps {
   x: number;
   y: number;
-  color?: string | undefined;
-  width?: number | undefined;
-  angle?: number | undefined;
+  color?: string;
+  width?: number;
+  angle?: number;
 }
-
-const Line = (props: CircelProps) => {
+const Line = (props: LineProps) => {
   const { angle } = props;
   const [defaultCssVariables, setDefaultCssVariables] = useState({});
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { RealNeumorphicElementProps } from '../../../interfaces/neomorphism';
+import { RealNeumorphicElementProps } from '../../../types/neomorphism';
 import { NeuElementProvider } from '../context/NeuElementContext';
 import RealNeumorphicElement from './RealNeumorphicElement';
 const NeumorphicElement = ({ ...props }: RealNeumorphicElementProps) => {

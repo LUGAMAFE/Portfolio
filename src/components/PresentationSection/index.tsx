@@ -1,3 +1,4 @@
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { Abilities } from './Abilities';
 import { Illustration } from './Ilustration/index';
@@ -7,7 +8,7 @@ const PresentationSection = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
+        form: FormShape.Pressed,
         size: 500,
         intensity: 0.65,
         lightSource: 3,

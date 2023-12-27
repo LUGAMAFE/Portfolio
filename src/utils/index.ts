@@ -83,9 +83,7 @@ export const camelize = (str: string): string => {
     .replace(/\s+/g, '');
 };
 
-export const deleteFalsyProperties = <T extends Record<string | number, string | number | null>>(
-  obj: T
-): T => {
+export const deleteFalsyProperties = <T>(obj: T): T => {
   for (const prop in obj) {
     if (!obj[prop]) {
       delete obj[prop];
