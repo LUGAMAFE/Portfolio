@@ -2,8 +2,6 @@
 @use '../../../style/sass/ITCSS/01_settings/fonts' as *;
 @use '../../../style/sass/ITCSS/01_settings/global' as *;
 .Illustration {
-  width: 635px;
-  height: 100%;
   &_svgContainer {
     display: flex;
   }

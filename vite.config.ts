@@ -26,10 +26,6 @@ export default defineConfig({
     svgr(),
     sassDts({
       enabledMode: ['development', 'production'],
-      global: {
-        generate: true,
-        outputFilePath: path.resolve(__dirname, './src/style.d.ts'),
-      },
       sourceDir: path.resolve(__dirname, './src'),
       outputDir: path.resolve(__dirname, './dist'),
     }),

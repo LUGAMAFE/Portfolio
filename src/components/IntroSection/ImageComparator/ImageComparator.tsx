@@ -16,12 +16,11 @@ export const ImageComparator = () => {
           blur: 88,
         }}
       >
-
-        <div className={style.ImageComparator_circle}>
-          <div className={style.ImageComparator_line}></div>
-          <img className={style.ImageComparator_backImage} src={luisImage} alt="programer luis image" />
-        </div>
       </NeumorphicElement>
+      <div className={style.ImageComparator_circle}>
+        <div className={style.ImageComparator_line}></div>
+        <img className={style.ImageComparator_backImage} src={luisImage} alt="programer luis image" />
+      </div>
     </div>
   );
 };

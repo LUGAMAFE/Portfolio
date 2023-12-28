@@ -2,20 +2,17 @@
 @use '../../style/sass/ITCSS/01_settings/fonts' as *;
 @use '../../style/sass/ITCSS/01_settings/global' as *;
 .Intro {
+  position: relative;
   display: flex;
-  height: 110vh;
+  height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-around;
   &_myIntroduction {
-    display: flex;
-    width: 595px;
-    height: 301.29px;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 14px;
+    display: grid;
+    height: calc(100% - 150px);
+    margin-top: 150px;
   }
   &_text:first-child {
     flex-grow: 0;
@@ -31,7 +28,6 @@
   }
   &_text:nth-child(3) {
     top: calc(50% - 73px / 2 + 114.15px);
-    height: 73px;
     color: $color-light-gray;
     font-family: 'Fira code';
     font-size: 31px;
@@ -54,8 +50,6 @@
   }
 
   &_lines {
-    width: 595px;
-    height: 50.29px;
     flex-grow: 0;
     align-self: stretch;
   }
@@ -80,20 +74,15 @@
 
   &_ilustration {
     position: relative;
-    display: inline;
-    width: 595px;
-    height: 366px;
+  }
+  &_ilustrationImage {
+    height: 100%;
   }
   &_design {
     position: absolute;
-    top: 55px;
-    right: 140px;
+    top: 88px;
+    left: 140px;
     width: 370px;
     height: 303px;
-  }
-  &_svgContainer {
-    position: relative;
-    width: 630px;
-    height: 440px;
   }
 }

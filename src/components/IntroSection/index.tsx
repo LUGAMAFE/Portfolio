@@ -31,9 +31,7 @@ const IntroSection = () => {
           <strong className={style.Intro_strong} >Programador</strong> y <em className={style.Intro_em}>diseñador</em> de sitios web
         </p>
         <div className={style.Intro_ilustration}>
-          <div className={style.Intro_svgContainer}>
-            <img src={neomorphicSVG} alt="neomorphic svg shape" />
-          </div>
+          <img className={style.Intro_ilustrationImage} src={neomorphicSVG} alt="neomorphic svg shape" />
           <div className={style.Intro_design}>
             <img src={manIllustrationSVG} alt="man and template boards illustration" />
           </div>
