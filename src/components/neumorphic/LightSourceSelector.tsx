@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 
 interface LightSourceSelectorProps {
@@ -12,10 +11,6 @@ const LightSourceSelector = ({
   onDirectionChanged,
   disabled,
 }: LightSourceSelectorProps) => {
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    const direction = Number((event.target as HTMLButtonElement).name);
-    onDirectionChanged(direction);
-  };
   const directions = [1, 2, 3, 4];
   return (
     <div className={`${style.row} ${style.lightSourceSelector} ${style.label}`}>
@@ -24,7 +19,7 @@ const LightSourceSelector = ({
           <button
             key={direction}
             className={`${style.arrow} ${lightSource === direction ? style.active : ''}`}
-            onClick={handleClick}
+            onClick={() => onDirectionChanged(direction)}
             name={`${direction}`}
           ></button>
         ))}

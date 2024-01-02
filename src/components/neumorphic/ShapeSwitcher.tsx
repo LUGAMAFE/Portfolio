@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import style from '../../style/sass/components/neumorphic/configuration.module.scss';
 import { FormShape } from '../../types/neomorphism';
 import Concave from '../svg/concave.svg';
@@ -11,12 +10,35 @@ export interface ShapeSwitcherProps {
   shape?: FormShape;
   setShape: (name: FormShape) => void;
 }
+
+export interface ShapeButtonProps {
+  shape?: FormShape;
+  name: FormShape;
+  title: string;
+  image: string;
+  setShape: (name: FormShape) => void;
+}
+
+const ShapeButton = ({ shape, setShape, name, title, image }: ShapeButtonProps) => (
+  <button
+    className={shape === name ? style.active : ''}
+    onClick={() => setShape(name)}
+    name={name}
+    title={title}
+  >
+    <img src={image} alt={title} />
+  </button>
+);
+
 const ShapeSwitcher = ({ shape, setShape }: ShapeSwitcherProps) => {
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    const nameString = (event.target as HTMLInputElement).name;
-    const name: FormShape = FormShape[nameString as keyof typeof FormShape];
-    setShape(name);
-  };
+  const shapes = [
+    { name: 'concave', title: 'Concave', Image: Concave },
+    { name: 'convex', title: 'Convex', Image: Convex },
+    { name: 'level', title: 'Level', Image: Level },
+    { name: 'pressed', title: 'Pressed', Image: Pressed },
+    { name: 'flat', title: 'Flat', Image: Flat },
+  ];
+
   return (
     <>
       <div className={`${style.row} ${style.label}`}>
@@ -24,46 +46,16 @@ const ShapeSwitcher = ({ shape, setShape }: ShapeSwitcherProps) => {
       </div>
       <div className={style.row}>
         <div className={style.shapeSwitch}>
-          <button
-            className={shape === 'concave' ? style.active : ''}
-            onClick={handleClick}
-            name="concave"
-            title="Concave"
-          >
-            <img src={Concave} alt="Concave" />
-          </button>
-          <button
-            className={shape === 'convex' ? style.active : ''}
-            onClick={handleClick}
-            name="convex"
-            title="Convex"
-          >
-            <img src={Convex} alt="Concave" />
-          </button>
-          <button
-            className={shape === 'level' ? style.active : ''}
-            onClick={handleClick}
-            name="level"
-            title="Level"
-          >
-            <img src={Level} alt="Concave" />
-          </button>
-          <button
-            className={shape === 'pressed' ? style.active : ''}
-            onClick={handleClick}
-            name="pressed"
-            title="Pressed"
-          >
-            <img src={Pressed} alt="Concave" />
-          </button>
-          <button
-            className={shape === 'flat' ? style.active : ''}
-            onClick={handleClick}
-            name="flat"
-            title="Flat"
-          >
-            <img src={Flat} alt="Concave" />
-          </button>
+          {shapes.map((btnShape) => (
+            <ShapeButton
+              key={btnShape.name}
+              shape={shape}
+              setShape={setShape}
+              name={btnShape.name as FormShape}
+              title={btnShape.title}
+              image={btnShape.Image}
+            />
+          ))}
         </div>
       </div>
     </>

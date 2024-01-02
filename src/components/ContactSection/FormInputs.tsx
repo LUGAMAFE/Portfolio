@@ -15,7 +15,7 @@ export const FormInputs = ({ placeHolder }: FormInputsProps) => {
         distance: 13,
         blur: 23,
       }}
-      element={'input'}
+      element="input"
       type="text"
       placeholder={placeHolder}
     />

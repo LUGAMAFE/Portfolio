@@ -18,7 +18,7 @@ export interface NeumorphicStylesContext {
 }
 
 export interface StyleProviderProps {
-  children?: JSX.Element | JSX.Element[];
+  children?: React.ReactNode;
   colorDifference?: number;
 }
 export const NeumorphicStylesContext = createContext<NeumorphicStylesContext>(

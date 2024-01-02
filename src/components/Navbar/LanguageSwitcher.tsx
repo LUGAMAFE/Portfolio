@@ -2,6 +2,7 @@ import { useState } from 'react';
 import style from '../../style/sass/navbar.module.scss';
 import { FormShape, RealNeumorphicElementProps } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import { LanguageButton } from './LanguageButton';
 
 export const LanguageSwitcher = () => {
   const initialButtonConfigs: RealNeumorphicElementProps[] = [
@@ -38,11 +39,10 @@ export const LanguageSwitcher = () => {
               ...button,
               neumorphicOptions: {
                 ...button.neumorphicOptions,
-                form: button.neumorphicOptions
-                  ? button.neumorphicOptions.form === FormShape.Flat
+                form:
+                  button.neumorphicOptions?.form === FormShape.Flat
                     ? FormShape.Pressed
-                    : FormShape.Flat
-                  : FormShape.Flat,
+                    : FormShape.Flat,
               },
             }
           : button
@@ -62,16 +62,8 @@ export const LanguageSwitcher = () => {
       }}
     >
       <div className={style.buttons}>
-        {buttonConfigs.map((button) => (
-          <NeumorphicElement
-            key={button.id}
-            element={'button'}
-            onClick={() => handleButtonClick(button.id ? button.id : '')}
-            neumorphicOptions={button.neumorphicOptions}
-            className={button.className}
-          >
-            <p>{button.text}</p>
-          </NeumorphicElement>
+        {buttonConfigs.map((button, index) => (
+          <LanguageButton key={index} config={button} onClick={handleButtonClick} />
         ))}
       </div>
     </NeumorphicElement>

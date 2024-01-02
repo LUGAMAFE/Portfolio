@@ -39,10 +39,16 @@ export interface RealNeumorphicElementProps {
   blur?: number;
   style?: CSSProperties;
   onClick?: () => void;
-  children?: JSX.Element | JSX.Element[];
+  children?: React.ReactNode;
   nTestId?: string | number;
   id?: string;
   type?: string;
   placeholder?: string;
   text?: string;
+}
+
+export interface UseFloatingLogicProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  arrowRef: React.MutableRefObject<null>;
 }
