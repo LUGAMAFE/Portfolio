@@ -3,8 +3,8 @@
    ========================================================================== */
 @use 'sass:math';
 @use 'sass:color';
-@use '../01_settings/fonts' as *;
-@use '../01_settings/colors' as *;
+@import '../01_settings/fonts';
+@import '../01_settings/colors';
 /**
  * Clearfix: contain floats.
  *

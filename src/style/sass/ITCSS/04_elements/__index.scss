@@ -17,8 +17,8 @@
  * Tables..............Tabular data styles.
  **/
 
-@forward './page';
-@forward './headings';
 @forward './links';
 @forward './forms';
 @forward './images';
+@import './page';
+@import './headings';

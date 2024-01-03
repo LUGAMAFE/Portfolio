@@ -1,6 +1,6 @@
-@use '../01_settings/fonts' as *;
-@use '../01_settings/colors' as *;
-@use '../02_tools/mixins' as *;
+@import '../01_settings/fonts';
+@import '../01_settings/colors';
+@import '../02_tools/mixins';
 /* ==========================================================================
    #Titles
    ========================================================================== */

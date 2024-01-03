@@ -10,7 +10,7 @@
  * Fonts...............Font family, sizing and weights.
  * Sizes.......... Breakpoints Sizes for media queries.
  **/
-@forward './global';
-@forward './colors';
-@forward './fonts';
-@forward './sizes';
+@import './global';
+@import './colors';
+@import './fonts';
+@import './sizes';

@@ -1,5 +1,5 @@
 /* stylelint-disable plugin/selector-bem-pattern */
-@use '../../style/sass/ITCSS/01_settings/colors' as *;
+@import '../../style/sass/ITCSS/01_settings/colors';
 
 .Center {
   --width: 4px;

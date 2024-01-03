@@ -1,6 +1,6 @@
-@use '../../../style/sass/ITCSS/01_settings/colors' as *;
-@use '../../../style/sass/ITCSS/01_settings/fonts' as *;
-@use '../../../style/sass/ITCSS/01_settings/global' as *;
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
+@import '../../../style/sass/ITCSS/01_settings/global';
 .LanguageSwitcher {
   position: relative;
   display: block;

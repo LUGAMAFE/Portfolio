@@ -1,5 +1,5 @@
-@use '../../../style/sass/ITCSS/01_settings/colors' as *;
-@use '../../../style/sass/ITCSS/01_settings/fonts' as *;
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
 .NeuTooltipTool {
   &_row {
     display: flex;
