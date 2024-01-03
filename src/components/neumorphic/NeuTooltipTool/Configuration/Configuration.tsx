@@ -248,7 +248,7 @@ const Configuration = () => {
       ))}
 
       <div className={style.NeuTooltipTool_row}></div>
-      <button className={style.copy} onClick={copyToClipboard}>
+      <button className={style.Configuration_copy} onClick={copyToClipboard}>
         Copy Config
       </button>
       <ShapeSwitcher shape={contextConfig.form} setShape={handleShape} />
