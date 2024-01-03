@@ -41,8 +41,4 @@ const ConfigurationRow = ({
   );
 };
 
-ConfigurationRow.defaultProps = {
-  step: '1',
-};
-
 export default ConfigurationRow;

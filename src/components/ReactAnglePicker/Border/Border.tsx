@@ -8,7 +8,7 @@ interface BorderProps {
   borderStyle?: string;
   borderWidth?: number;
   onMouseDown?: MouseEventHandler<HTMLDivElement>;
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
 }
 
 const Border = forwardRef<HTMLDivElement, BorderProps>((props, ref) => {

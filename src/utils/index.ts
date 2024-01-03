@@ -1,3 +1,6 @@
+import { arrow, autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react';
+import { FormShape, UseFloatingLogicProps } from '../types/neomorphism';
+
 export function angleGradient(
   shapeId: number,
   distance: number
@@ -11,7 +14,7 @@ export function angleGradient(
   return positions[shapeId];
 }
 
-export function getIntFormValue(form: 'concave' | 'convex' | 'level' | 'pressed' | 'flat'): number {
+export function getIntFormValue(form: FormShape): number {
   const values: { [key: string]: { value: number } } = {
     svgInnerShadow: { value: 5 },
     flat: { value: 4 },
@@ -90,4 +93,33 @@ export const deleteFalsyProperties = <T>(obj: T): T => {
     }
   }
   return obj;
+};
+
+export const calculateDisplayStyle = (refElement: HTMLElement | null) => {
+  if (refElement === null) return;
+  const computedStyle = window.getComputedStyle(refElement);
+  const position = computedStyle.getPropertyValue('position');
+  return position === 'fixed' ? { zIndex: 10000 } : {};
+};
+
+const ARROW_HEIGHT = 10;
+const GAP = 0;
+
+export const useFloatingLogic = ({ isOpen, setIsOpen, arrowRef }: UseFloatingLogicProps) => {
+  const { x, y, strategy, refs, context } = useFloating({
+    whileElementsMounted: autoUpdate,
+    placement: 'bottom',
+    middleware: [
+      arrow({
+        element: arrowRef,
+      }),
+      offset(ARROW_HEIGHT + GAP),
+      flip(),
+      shift(),
+    ],
+    open: isOpen,
+    onOpenChange: setIsOpen,
+  });
+
+  return { x, y, strategy, refs, context };
 };

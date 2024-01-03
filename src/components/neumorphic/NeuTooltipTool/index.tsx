@@ -1,15 +1,4 @@
-import {
-  FloatingArrow,
-  arrow,
-  autoUpdate,
-  flip,
-  offset,
-  shift,
-  useDismiss,
-  useFloating,
-  useInteractions,
-} from '@floating-ui/react';
-
+import { FloatingArrow, useDismiss, useInteractions } from '@floating-ui/react';
 import React, {
   Dispatch,
   SetStateAction,
@@ -21,14 +10,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { getContrast } from '../../../utils';
+import { calculateDisplayStyle, getContrast, useFloatingLogic } from '../../../utils';
 import { NeumorphicStylesContext } from '../../context/NeumorphicStylesContext';
 import { NeuElementContext } from '../context/NeuElementContext';
 import Configuration from './Configuration/Configuration';
 
 const ARROW_HEIGHT = 10;
 const ARROW_WIDTH = 16;
-const GAP = 0;
 
 interface NeuToolTipProps {
   refElement: HTMLElement | null;
@@ -49,20 +37,8 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }: NeuToolTipProps) =
   } = useContext(NeuElementContext);
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
-  const { x, y, strategy, refs, context } = useFloating({
-    whileElementsMounted: autoUpdate,
-    placement: 'bottom',
-    middleware: [
-      arrow({
-        element: arrowRef,
-      }),
-      offset(ARROW_HEIGHT + GAP),
-      flip(),
-      shift(),
-    ],
-    open: isOpen,
-    onOpenChange: setIsOpen,
-  });
+
+  const { x, y, strategy, refs, context } = useFloatingLogic({ isOpen, setIsOpen, arrowRef });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([useDismiss(context)]);
 
@@ -72,18 +48,13 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }: NeuToolTipProps) =
     }
   }, []);
 
+  const display = useMemo(() => calculateDisplayStyle(refElement), [refElement]);
+
   useEffect(() => {
     if (refElement === null) return;
     refElement.addEventListener('click', closeTooltip);
     return () => refElement.removeEventListener('click', closeTooltip);
   }, [refElement, closeTooltip]);
-
-  const display = useMemo(() => {
-    if (refElement === null) return;
-    const computedStyle = window.getComputedStyle(refElement);
-    const position = computedStyle.getPropertyValue('position');
-    return position === 'fixed' ? { zIndex: 10000 } : {};
-  }, [refElement]);
 
   useEffect(() => {
     setRefProps({
@@ -118,12 +89,10 @@ const NeuTooltipTool = ({ refElement, setRefProps, onClick }: NeuToolTipProps) =
         <div
           ref={refs.setFloating}
           style={{
-            ...{
-              position: strategy,
-              top: y ?? 0,
-              left: x ?? 0,
-              width: 'max-content',
-            },
+            position: strategy,
+            top: y ?? 0,
+            left: x ?? 0,
+            width: 'max-content',
             ...display,
           }}
           {...getFloatingProps({

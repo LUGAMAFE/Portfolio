@@ -18,7 +18,7 @@ export interface NeumorphicStylesContext {
 }
 
 export interface StyleProviderProps {
-  children?: JSX.Element | JSX.Element[];
+  children?: React.ReactNode;
   colorDifference?: number;
 }
 export const NeumorphicStylesContext = createContext<NeumorphicStylesContext>(
@@ -67,6 +67,7 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     const mainColor = obtainMainClass('--main-color').trim();
     setInitialMainColor(mainColor);
     setStyles(updateColors(mainColor, colorDifference));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChangeColor = (isChecked: boolean) => {

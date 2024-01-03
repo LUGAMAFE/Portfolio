@@ -22,7 +22,7 @@ const CodeSection = () => {
         style={synthwave84}
         showLineNumbers
         customStyle={{
-          background: 'transparent',
+          background: FormShape.Pressed,
           width: '100%',
           height: 'auto',
           fontSize: '20px',
