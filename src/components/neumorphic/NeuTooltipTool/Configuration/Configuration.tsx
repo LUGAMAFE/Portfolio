@@ -179,7 +179,9 @@ const Configuration = () => {
   return (
     <div className={style.Configuration} style={defaultCssVariables}>
       <div className={style.NeuTooltipTool_row}>
-        <label htmlFor="color">Pick a color:</label>
+        <label className={style.NeuTooltipTool_label} htmlFor="color">
+          Pick a color:
+        </label>
         <input
           type="color"
           name="color"
@@ -188,7 +190,11 @@ const Configuration = () => {
           value={color}
           id="color"
         />
-        <label htmlFor="colorInput" style={{ paddingLeft: '10px' }}>
+        <label
+          htmlFor="colorInput"
+          className={style.NeuTooltipTool_label}
+          style={{ paddingLeft: '10px' }}
+        >
           or
         </label>
         <input
@@ -201,7 +207,9 @@ const Configuration = () => {
         />
       </div>
       <div className={`${style.NeuTooltipTool_row} ${style.NeuTooltipTool_label}`}>
-        <label htmlFor="anglePicker">Pick an angle:</label>
+        <label htmlFor="anglePicker" className={style.NeuTooltipTool_label}>
+          Pick an angle:
+        </label>
 
         <AnglePicker
           id="anglePicker"
