@@ -1,13 +1,12 @@
 import { RealNeumorphicElementProps } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 
-export const LanguageButton = ({
-  config,
-  onClick,
-}: {
+interface LanguageSwitcherProps {
   config: RealNeumorphicElementProps;
   onClick: (id: string) => void;
-}) => {
+}
+
+export const LanguageButton = ({ config, onClick }: LanguageSwitcherProps) => {
   return (
     <NeumorphicElement
       key={config.id}
