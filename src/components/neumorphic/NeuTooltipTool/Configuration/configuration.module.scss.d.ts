@@ -1,4 +1,9 @@
 declare const classNames: {
+  readonly container: 'container';
+  readonly firstContainer: 'firstContainer';
+  readonly lastContainer: 'lastContainer';
+  readonly panel: 'panel';
+  readonly componente: 'componente';
   readonly Input: 'Input';
   readonly NeuTooltipTool_row: 'NeuTooltipTool_row';
   readonly NeuTooltipTool_labelContainer: 'NeuTooltipTool_labelContainer';

@@ -62,3 +62,50 @@ $base-box-shadow-active-bottom-right: 2px 2px 3px 2px $color-box-shadow-light-so
 $base-box-shadow-active-bottom-left: -2px 2px 3px 2px $color-box-shadow-light-source-selector-active;
 $base-box-shadow-active-top-right: 2px -2px 3px 2px $color-box-shadow-light-source-selector-active;
 $base-box-shadow-active-top-left: -2px -2px 3px 2px $color-box-shadow-light-source-selector-active;
+html {
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+html,
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 400vw;
+  height: 100vh;
+  flex-wrap: wrap;
+  padding-top: 90px;
+}
+
+.firstContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: yellow;
+}
+
+.lastContainer {
+  display: flex;
+  height: 100vh;
+  background: yellow;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+}
+.componente {
+  width: 100vw;
+  height: 100vh;
+}

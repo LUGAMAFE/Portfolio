@@ -1,4 +1,9 @@
 declare const classNames: {
+  readonly container: 'container';
+  readonly firstContainer: 'firstContainer';
+  readonly lastContainer: 'lastContainer';
+  readonly panel: 'panel';
+  readonly componente: 'componente';
   readonly Abilities: 'Abilities';
   readonly Abilities_svgContainer: 'Abilities_svgContainer';
   readonly Abilities_text: 'Abilities_text';

@@ -2,18 +2,15 @@
 
 .Skills {
   display: flex;
-  height: 110vh;
+  height: 300vh;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-top: 90px;
   &_skillsContainer {
     display: flex;
-    width: 1440px;
-    height: 842px;
-    flex-shrink: 0;
-    align-items: flex-start;
     justify-content: center;
-    padding: 0px 120px;
+
     gap: 50px;
   }
 }

@@ -18,16 +18,12 @@ const SkillSection = () => {
       }}
       className={style.Skills}
     >
-      <div
-        style={{
-          width: '100%',
-          height: '90px',
-        }}
-      ></div>
-      <div className={style.Skills_skillsContainer}>
-        {array.map((text, index) => (
-          <SkillBox key={index} text={text} />
-        ))}
+      <div className='box-c' >
+        <div className={style.Skills_skillsContainer}>
+          {array.map((text, index) => (
+            <SkillBox key={index} text={text} />
+          ))}
+        </div>
       </div>
     </NeumorphicElement>
   );

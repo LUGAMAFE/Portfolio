@@ -8,6 +8,7 @@
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
+  will-change: transform;
   &_section {
     display: flex;
     flex-direction: column;

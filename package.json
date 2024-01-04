@@ -19,6 +19,7 @@
   "dependencies": {
     "@floating-ui/react": "^0.23.0",
     "gsap": "^3.11.5",
+    "gsap-trial": "^3.12.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-angle-picker": "^1.0.6",

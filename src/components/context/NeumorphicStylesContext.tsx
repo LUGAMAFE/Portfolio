@@ -76,7 +76,9 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     setStyles(updateColors(newMainColor, colorDifference));
   };
 
+
   return (
+
     <NeumorphicStylesContext.Provider
       value={{
         styles,
@@ -90,5 +92,6 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     >
       {children}
     </NeumorphicStylesContext.Provider>
+
   );
 };

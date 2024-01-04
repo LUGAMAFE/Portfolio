@@ -1,3 +1,5 @@
+import gsap from 'gsap-trial';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 import ANGOLOLogo from '../../../assets/images/logos/ANGOLO.svg';
 import CHILLSIDELogo from '../../../assets/images/logos/CHILLSIDE.svg';
 import CULTURLogo from '../../../assets/images/logos/CULTUR.svg';
@@ -11,6 +13,8 @@ import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement
 import { BrandLogo } from './BrandLogo';
 import style from './brands.module.scss';
 const BrandsSection = () => {
+
+  gsap.registerPlugin(ScrollTrigger);
   const logosArray = [
     ANGOLOLogo,
     CHILLSIDELogo,
@@ -21,6 +25,7 @@ const BrandsSection = () => {
     SOCCERLogo,
     SOLAREKLogo,
   ];
+
   return (
     <NeumorphicElement
       neumorphicOptions={{
@@ -34,8 +39,9 @@ const BrandsSection = () => {
       className={style.Brands}
     >
       <div className={style.Brands_brandsContainer}>
-        <div className={style.Brands_programingSkills}>
-          <div className={style.Brands_skillTopic}>
+
+        <div className={style.Brands_skillTopic}>
+          <div className='box-b' >
             <NeumorphicElement
               neumorphicOptions={{
                 form: FormShape.Convex,
@@ -68,6 +74,7 @@ const BrandsSection = () => {
             </NeumorphicElement>
           </div>
         </div>
+
       </div>
     </NeumorphicElement>
   );
