@@ -17,6 +17,7 @@ const ProyectSection = () => {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
         scrollTrigger: {
+          markers: true,
           trigger: slider.current,
           pin: true,
           scrub: 1,
@@ -24,40 +25,40 @@ const ProyectSection = () => {
           end: () => "+=" + slider.current.offsetWidth
         }
       });
-    }, component);
+    });
     return () => ctx.revert();
   });
 
   return (
 
-    <div className="App" ref={component}>
-      <div ref={slider} className="container">
-        <div className="description panel ">
-          <div className={style.Projects_projectsContainer}>
-            <CarrouselProjects />
-            <DescriptionProject />
-          </div>
+
+    <div ref={slider} className="container">
+      <div className="description panel ">
+        <div className={style.Projects_projectsContainer}>
+          <CarrouselProjects />
+          <DescriptionProject />
         </div>
-        <div className="panel red">
-          <div className={style.Projects_projectsContainer}>
-            <CarrouselProjects />
-            <DescriptionProject />
-          </div>
+      </div>
+      <div className="panel red">
+        <div className={style.Projects_projectsContainer}>
+          <CarrouselProjects />
+          <DescriptionProject />
         </div>
-        <div className="panel orange">
-          <div className={style.Projects_projectsContainer}>
-            <CarrouselProjects />
-            <DescriptionProject />
-          </div>
+      </div>
+      <div className="panel orange">
+        <div className={style.Projects_projectsContainer}>
+          <CarrouselProjects />
+          <DescriptionProject />
         </div>
-        <div className="panel purple">
-          <div className={style.Projects_projectsContainer}>
-            <CarrouselProjects />
-            <DescriptionProject />
-          </div>
+      </div>
+      <div className="panel purple">
+        <div className={style.Projects_projectsContainer}>
+          <CarrouselProjects />
+          <DescriptionProject />
         </div>
       </div>
     </div>
+
 
   );
 };

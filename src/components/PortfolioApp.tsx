@@ -13,7 +13,8 @@ import ProjectSection from './ProjectSection';
 import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
 export const PortfolioApp = () => {
-
+  const component = useRef();
+  const slider = useRef();
   const componente = useRef();
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -26,7 +27,7 @@ export const PortfolioApp = () => {
       const smoother = ScrollSmoother.create({
         smooth: 2,
         effects: true,
-        normalizeScroll: true
+        normalizeScroll: true,
       });
 
       ScrollTrigger.create({
@@ -50,8 +51,8 @@ export const PortfolioApp = () => {
   return (
     <StyleProvider>
       <Navbar />
-      <div id="smooth-wrapper" ref={componente}>
-        <div id="smooth-content" ref={componente}>
+      <div id="smooth-wrapper" ref={componente} >
+        <div id="smooth-content" >
           <IntroSection />
           <PresentationSection />
           <ProjectSection />
