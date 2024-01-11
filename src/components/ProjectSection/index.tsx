@@ -1,60 +1,57 @@
-import gsap from 'gsap-trial';
-import ScrollTrigger from 'gsap-trial/ScrollTrigger';
-import { useLayoutEffect, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import { CarrouselProjects } from './CarrouselProjects';
 import { DescriptionProject } from './DescriptionProject';
 import style from './projects.module.scss';
-
+gsap.registerPlugin(ScrollTrigger)
 const ProyectSection = () => {
-  const component = useRef();
-  const slider = useRef();
-  gsap.registerPlugin(ScrollTrigger);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const panels = gsap.utils.toArray(".panel");
-      gsap.to(panels, {
-        xPercent: -100 * (panels.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          markers: true,
-          trigger: slider.current,
-          pin: true,
-          scrub: 1,
-          snap: 1 / (panels.length - 1),
-          end: () => "+=" + slider.current.offsetWidth
-        }
-      });
+  const container = useRef();
+  useGSAP(() => {
+    const slider = document.querySelector(".container")
+    const panels = gsap.utils.toArray(".panel");
+    gsap.to(panels, {
+      xPercent: -100 * (panels.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        pin: true,
+        scrub: 1,
+
+        end: () => "+=" + slider.offsetWidth
+      }
     });
-    return () => ctx.revert();
-  });
+
+  }, { scope: container, });
 
   return (
-
-
-    <div ref={slider} className="container">
-      <div className="description panel ">
-        <div className={style.Projects_projectsContainer}>
-          <CarrouselProjects />
-          <DescriptionProject />
+    <div ref={container}>
+      <div className="container" >
+        <div className="description panel">
+          <div className={style.Projects_projectsContainer}>
+            <CarrouselProjects />
+            <DescriptionProject />
+          </div>
         </div>
-      </div>
-      <div className="panel red">
-        <div className={style.Projects_projectsContainer}>
-          <CarrouselProjects />
-          <DescriptionProject />
+        <div className="panel red">
+          <div className={style.Projects_projectsContainer}>
+            <CarrouselProjects />
+            <DescriptionProject />
+          </div>
         </div>
-      </div>
-      <div className="panel orange">
-        <div className={style.Projects_projectsContainer}>
-          <CarrouselProjects />
-          <DescriptionProject />
+        <div className="panel orange">
+          <div className={style.Projects_projectsContainer}>
+            <CarrouselProjects />
+            <DescriptionProject />
+          </div>
         </div>
-      </div>
-      <div className="panel purple">
-        <div className={style.Projects_projectsContainer}>
-          <CarrouselProjects />
-          <DescriptionProject />
+        <div className="panel purple">
+          <div className={style.Projects_projectsContainer}>
+            <CarrouselProjects />
+            <DescriptionProject />
+          </div>
         </div>
       </div>
     </div>

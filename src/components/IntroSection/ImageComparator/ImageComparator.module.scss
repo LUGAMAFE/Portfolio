@@ -4,6 +4,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  transform: translateX(300px);
   &_imageComparer {
     position: absolute;
     left: -300px;

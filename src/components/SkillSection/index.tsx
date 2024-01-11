@@ -1,11 +1,35 @@
 
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
+import { useRef } from 'react';
 import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { SkillBox } from './SkillBox';
 import style from './skills.module.scss';
+gsap.registerPlugin(ScrollTrigger);
 
 const SkillSection = () => {
+
+  const components = useRef();
   const array = ['Habilidades de programacion', 'Habilidades extra'];
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: ".box-c",
+      pin: true,
+      start: "10% center",
+      end: "+=1750",
+      markers: true
+    });
+    ScrollTrigger.create({
+      trigger: ".box-b",
+      pin: true,
+      start: "45% center",
+      end: "+=1750",
+      markers: true
+    });
+
+  }, { scope: components });
   return (
     <NeumorphicElement
       neumorphicOptions={{
@@ -18,11 +42,14 @@ const SkillSection = () => {
       }}
       className={style.Skills}
     >
-      <div className='box-c' >
-        <div className={style.Skills_skillsContainer}>
-          {array.map((text, index) => (
-            <SkillBox key={index} text={text} />
-          ))}
+      <div ref={components}>
+
+        <div className='box box-c' >
+          <div className={style.Skills_skillsContainer}>
+            {array.map((text, index) => (
+              <SkillBox key={index} text={text} />
+            ))}
+          </div>
         </div>
       </div>
     </NeumorphicElement>

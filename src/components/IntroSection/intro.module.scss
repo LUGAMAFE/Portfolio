@@ -14,7 +14,9 @@
     height: calc(100% - 150px);
     margin-top: 150px;
   }
+
   &_text:first-child {
+    overflow: hidden;
     flex-grow: 0;
     align-self: stretch;
     order: 0;
@@ -24,10 +26,12 @@
     font-style: normal;
     font-weight: $weight-bold;
     line-height: 64px;
+    opacity: 1;
     text-shadow: $base-text-shadow-sub-title;
   }
   &_text:nth-child(3) {
     top: calc(50% - 73px / 2 + 114.15px);
+    overflow: hidden;
     color: $color-light-gray;
     font-family: 'Fira code';
     font-size: 31px;

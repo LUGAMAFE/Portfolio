@@ -1,8 +1,8 @@
 
-import gsap from 'gsap-trial';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import ScrollSmoother from 'gsap-trial/ScrollSmoother';
-import ScrollTrigger from 'gsap-trial/ScrollTrigger';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import BrandsSection from './BrandsSection';
 import CodeSection from './CodeSection';
 import ContactSection from './ContactSection';
@@ -12,41 +12,19 @@ import PresentationSection from './PresentationSection';
 import ProjectSection from './ProjectSection';
 import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
+gsap.registerPlugin(ScrollSmoother);
 export const PortfolioApp = () => {
-  const component = useRef();
-  const slider = useRef();
+
   const componente = useRef();
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  const smoother = useRef();
 
-  useLayoutEffect(() => {
-    const ctx2 = gsap.context(() => {
+  useGSAP(() => {
+    smoother.current = ScrollSmoother.create({
+      smooth: 2, // seconds it takes to "catch up" to native scroll position
+      effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
+    });
+  }, { scope: componente });
 
-      ScrollTrigger.normalizeScroll(true)
-
-      // create the smooth scroller FIRST!
-      const smoother = ScrollSmoother.create({
-        smooth: 2,
-        effects: true,
-        normalizeScroll: true,
-      });
-
-      ScrollTrigger.create({
-        trigger: ".box-c",
-        pin: true,
-        start: "10% center",
-        end: "+=1750",
-        markers: true
-      });
-      ScrollTrigger.create({
-        trigger: ".box-b",
-        pin: true,
-        start: "45% center",
-        end: "+=1750",
-        markers: true
-      });
-    }, componente);
-    return () => ctx2.revert();
-  });
 
   return (
     <StyleProvider>
