@@ -2,6 +2,7 @@ declare const classNames: {
   readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
+  readonly Illustration: 'Illustration';
   readonly Illustration_svgContainer: 'Illustration_svgContainer';
   readonly Illustration_svg: 'Illustration_svg';
   readonly Illustration_contactButton: 'Illustration_contactButton';

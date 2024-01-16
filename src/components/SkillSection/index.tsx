@@ -15,16 +15,16 @@ const SkillSection = () => {
   const array = ['Habilidades de programacion', 'Habilidades extra'];
   useGSAP(() => {
     ScrollTrigger.create({
-      trigger: ".box-c",
-      pin: true,
-      start: "10% center",
+      trigger: `.${style.Skills}`,
+      pin: ".box-c",
+      start: "20% 60%",
       end: "+=1750",
       markers: true
     });
     ScrollTrigger.create({
       trigger: ".box-b",
       pin: true,
-      start: "45% center",
+      start: "49% center",
       end: "+=1750",
       markers: true
     });
@@ -41,6 +41,7 @@ const SkillSection = () => {
         blur: 90,
       }}
       className={style.Skills}
+      id="seccion4"
     >
       <div ref={components}>
 

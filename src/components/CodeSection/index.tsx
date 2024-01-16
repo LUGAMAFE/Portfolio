@@ -15,6 +15,7 @@ const CodeSection = () => {
         distance: 45,
         blur: 90,
       }}
+      id="seccion6"
       className={style.Code}
     >
       <SyntaxHighlighter

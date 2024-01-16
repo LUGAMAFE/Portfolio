@@ -10,6 +10,7 @@
   justify-content: space-between;
   margin-top: -85px;
   transform: scale(0.9);
+  will-change: transform;
   &_svgContainer {
     position: relative;
     &:first-child {

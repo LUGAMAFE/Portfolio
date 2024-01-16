@@ -2,6 +2,7 @@
 @import '../../../style/sass/ITCSS/01_settings/fonts';
 @import '../../../style/sass/ITCSS/01_settings/global';
 .Illustration {
+  will-change: transform;
   &_svgContainer {
     display: flex;
   }

@@ -1,10 +1,18 @@
+import { useGSAP } from '@gsap/react';
+import style from './sectionPoint.module.scss';
 
-export const SectionPoint = ({ onclicksave }) => {
+export const SectionPoint = ({ onClick, classPointer, onMouseOver, index }) => {
+    useGSAP(() => {
+
+    }, {});
     return (
-        <div onClick={onclicksave}>
+        <button className={style.SectionPoint} name={`${classPointer}`} onClick={onClick} onMouseEnter={onMouseOver}>
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
                 <g filter="url(#filter0_d_42_14)">
                     <circle cx="18" cy="18" r="10" fill="url(#paint0_linear_42_14)" />
+                </g>
+                <g filter="url(#filter0_d_42_14)">
+                    <circle id={`hello${index}`} cx="18" cy="18" r="0" fill="white" />
                 </g>
                 <defs>
                     <filter id="filter0_d_42_14" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -22,6 +30,7 @@ export const SectionPoint = ({ onclicksave }) => {
                     </linearGradient>
                 </defs>
             </svg>
-        </div>
+
+        </button>
     )
 }

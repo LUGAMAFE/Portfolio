@@ -27,9 +27,9 @@ const ProyectSection = () => {
   }, { scope: container, });
 
   return (
-    <div ref={container}>
+    <div ref={container} id="seccion3">
       <div className="container" >
-        <div className="description panel">
+        <div className="description panel" >
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
