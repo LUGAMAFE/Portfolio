@@ -6,7 +6,6 @@ declare const classNames: {
   readonly Intro_myIntroduction: 'Intro_myIntroduction';
   readonly Intro_text: 'Intro_text';
   readonly Intro_strong: 'Intro_strong';
-  readonly Intro_strong3: 'Intro_strong3';
   readonly Intro_em: 'Intro_em';
   readonly Intro_lines: 'Intro_lines';
   readonly Intro_line1: 'Intro_line1';

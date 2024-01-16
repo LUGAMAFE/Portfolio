@@ -49,8 +49,11 @@
     font-weight: $weight-bold;
     letter-spacing: -0.4px;
     line-height: 50px;
+    opacity: 0;
     text-shadow: $base-text-shadow-abilities;
+    transform: translateX(-50px);
     &___rotated {
+      transform: translateX(400px);
       transform: rotateZ(180deg);
     }
   }

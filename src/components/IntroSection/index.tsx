@@ -1,53 +1,27 @@
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap-trial';
 import SplitText from 'gsap-trial/SplitText';
-import { useEffect, useRef, useState } from 'react';
-import manIllustrationSVG from '../../../assets/images/Ilustracion-Diseño.svg';
-import neomorphicSVG from '../../../assets/images/Vector-12.svg';
+import TextPlugin from 'gsap-trial/TextPlugin';
+import { useRef } from 'react';
+import manIllustrationSVG from "../../../assets/images/Ilustracion-Diseño.svg";
+import neomorphicSVG from "../../../assets/images/Vector-12.svg";
 import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { ImageComparator } from './ImageComparator';
 import style from './intro.module.scss';
+gsap.registerPlugin(SplitText, TextPlugin);
 const IntroSection = () => {
   const splitTextElement = useRef();
-  const [showFirstStrong, setShowFirstStrong] = useState(false);
-  const [showSecondStrong, setShowSecondStrong] = useState(false);
   // Añade más estados si hay más elementos strong
 
-  useEffect(() => {
-    // Mostrar el primer strong después de un breve retraso
-    const timer1 = setTimeout(() => {
-      setShowFirstStrong(true);
-      // Eliminar el primer strong después de un tiempo
-      const removeFirstTimer = setTimeout(() => {
-        setShowFirstStrong(false);
-        // Mostrar el segundo strong después de eliminar el primero
-        const timer2 = setTimeout(() => {
-          setShowSecondStrong(true);
-          // Eliminar el segundo strong después de un tiempo
-          const removeSecondTimer = setTimeout(() => {
-            setShowSecondStrong(false);
-            // Aquí puedes continuar la secuencia con más strongs si es necesario
-          }, 1000); // Ajusta el tiempo según sea necesario
-          return () => clearTimeout(removeSecondTimer);
-        }, 500); // Ajusta el tiempo según sea necesario
-        return () => clearTimeout(timer2);
-      }, 1000);
-      return () => clearTimeout(removeFirstTimer);
-    }, 500); // Ajusta el tiempo según sea necesario
-
-    return () => clearTimeout(timer1);
-  }, []);
-
-
-  useEffect(() => {
+  useGSAP(() => {
     const tl = gsap.timeline({
       repeat: -1,
     });
     const tl2 = gsap.timeline({
-      delay: 4,
       repeat: -1,
     });
-    gsap.registerPlugin(SplitText);
+
 
     const mySplitText = new SplitText(splitTextElement.current, { type: "chars" });
 
@@ -64,8 +38,6 @@ const IntroSection = () => {
 
     const mysplitText2 = new SplitText(`.${style.Intro_strong}`, { type: "words" });
     const chars2 = mysplitText2.words;
-    const mysplitText3 = new SplitText(`.${style.Intro_strong3}`, { type: "words" });
-    const chars3 = mysplitText3.words;
     tl.from(chars2, {
       transformOrigin: "50% top",
       rotationX: 90,
@@ -83,24 +55,6 @@ const IntroSection = () => {
         duration: 1,
         ease: 'linear', delay: 4
       })
-
-    tl2.from(chars3, {
-      transformOrigin: "50% top",
-      rotationX: 90,
-      y: -50,
-      duration: 1,
-      ease: 'linear', delay: 2,
-
-    })
-      .to(chars3, {
-        transformOrigin: "50% top",
-        rotationX: -90,
-        y: 100,
-        stagger: 1,
-        duration: 1,
-        ease: 'linear', delay: 2
-      })
-
   }, []);
 
 
@@ -128,8 +82,7 @@ const IntroSection = () => {
           <div className={style.Intro_line2}></div>
         </div>
         <p className={style.Intro_text} >
-          <strong className={style.Intro_strong}>Programador</strong>
-          <strong className={style.Intro_strong3}>Diseñador</strong>
+          <strong className={style.Intro_strong}>Hello</strong>
         </p>
         <div className={style.Intro_ilustration}>
           <img className={style.Intro_ilustrationImage} src={neomorphicSVG} alt="neomorphic svg shape" />
