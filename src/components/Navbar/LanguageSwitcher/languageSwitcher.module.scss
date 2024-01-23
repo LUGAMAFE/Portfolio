@@ -1,0 +1,58 @@
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
+@import '../../../style/sass/ITCSS/01_settings/global';
+.LanguageSwitcher {
+  position: relative;
+  display: block;
+  width: 368px;
+  height: 50px;
+  padding: 8px;
+  border-radius: 16px;
+  &_buttons {
+    display: flex;
+    width: 352px;
+    height: 34px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+  }
+  &_esButton {
+    width: 172px;
+    height: 34px;
+    border: 1px solid var(--light-color);
+    border-radius: 8px;
+    margin-right: 5px;
+  }
+  &_esButtonText {
+    width: 100%;
+    height: 100%;
+    background: $color-gradient-pink-linear-vertical;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: 'Nunito';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: $weight-normal;
+    letter-spacing: 0.1px;
+    line-height: 30px;
+    -webkit-text-fill-color: transparent;
+    text-shadow: $base-box-shadow-neon;
+  }
+  &_enButton {
+    width: 172px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+  }
+  &_enButtonText {
+    width: 100%;
+    height: 100%;
+    color: $color-middle-white;
+    font-family: 'Nunito';
+    font-size: 22px;
+    font-style: normal;
+    letter-spacing: 0.1px;
+    line-height: 30px;
+    text-shadow: $base-box-shadow-gray;
+  }
+}

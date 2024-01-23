@@ -1,14 +1,14 @@
 import hamburgerIcon from '../../../assets/images/bx-menu.svg';
-import style from '../../style/sass/navbar.module.scss';
 import { FormShape } from '../../types/neomorphism';
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeColorSwitcher } from './ThemeColorSwitcher';
+import style from './navbar.module.scss';
 
 const Navbar = () => {
   return (
     <NeumorphicElement
-      className={style.myTopNavbar}
+      className={style.Navbar}
       nTestId="navbar"
       neumorphicOptions={{
         form: FormShape.Pressed,
@@ -19,12 +19,12 @@ const Navbar = () => {
         blur: 46,
       }}
     >
-      <div className={style.logo}>
+      <div className={style.Navbar_logo}>
         <p>{'<LUGAMAFE/>'}</p>
       </div>
       <ThemeColorSwitcher />
       <LanguageSwitcher />
-      <div className={style.menuToggle}>
+      <div className={style.Navbar_menuToggle}>
         <NeumorphicElement
           element={'button'}
           neumorphicOptions={{
@@ -35,10 +35,12 @@ const Navbar = () => {
             distance: 6,
             blur: 11,
           }}
+          className={style.Navbar_button}
         >
-          <img src={hamburgerIcon} alt="circle part of input" />
+          <img className={style.Navbar_hamburger} src={hamburgerIcon} alt="circle part of input" />
         </NeumorphicElement>
       </div>
+      <div className={style.Navbar_bottomNeon}></div>
     </NeumorphicElement>
   );
 };

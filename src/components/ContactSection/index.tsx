@@ -1,9 +1,9 @@
 import neonContainer from '../../../assets/images/Vector-13.svg';
-import style from '../../style/sass/contact.module.scss';
 import { FormShape } from '../../types/neomorphism';
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { ContactInformation } from './ContactInformation';
 import { Form } from './Form';
+import style from './contact.module.scss';
 const ContactSection = () => {
   return (
     <NeumorphicElement
@@ -15,15 +15,15 @@ const ContactSection = () => {
         distance: 45,
         blur: 90,
       }}
-      className={style.contact}
+      className={style.Contact}
     >
-      <div className={style.contactContainer}>
-        <div className={style.section}>
-          <div className={style.textContainer}>
-            <p>CONTACTO</p>
+      <div className={style.Contact_contactContainer}>
+        <div className={style.Contact_section}>
+          <div className={style.Contact_textContainer}>
+            <p className={style.Contact_text}>CONTACTO</p>
           </div>
-          <div className={style.content}>
-            <div className={style.svgContainer}>
+          <div className={style.Contact_content}>
+            <div className={style.Contact_svgContainer}>
               <img src={neonContainer} alt="neon container" />
             </div>
             <Form />

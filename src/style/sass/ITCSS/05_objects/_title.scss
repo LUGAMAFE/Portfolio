@@ -1,0 +1,30 @@
+@import '../01_settings/fonts';
+@import '../01_settings/colors';
+@import '../02_tools/mixins';
+/* ==========================================================================
+   #Titles
+   ========================================================================== */
+/* stylelint-disable-next-line plugin/selector-bem-pattern */
+%titleCommon {
+  font-style: normal;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+}
+
+.title {
+  &--level-1 {
+    @extend %titleCommon;
+  }
+
+  &___level2 {
+    color: $color-middle-white;
+    font-family: Roboto;
+    font-size: 75px;
+    text-align: center;
+    @extend %titleCommon;
+  }
+
+  &--level-3 {
+    @extend %titleCommon;
+  }
+}

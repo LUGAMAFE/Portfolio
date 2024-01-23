@@ -1,0 +1,23 @@
+@import '../01_settings/global';
+@import '../01_settings/colors';
+@import '../01_settings/fonts';
+/* ==========================================================================
+   #PAGE
+   ========================================================================== */
+
+/**
+ * The page-level setup.
+ */
+
+html {
+  color: $color-middle-white;
+  font-family: 'Roboto';
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: $color-primary-black-mode;
+}

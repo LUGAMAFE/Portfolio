@@ -4,7 +4,7 @@ import ContactSection from './ContactSection';
 import IntroSection from './IntroSection';
 import Navbar from './Navbar';
 import PresentationSection from './PresentationSection';
-import ProyectSection from './ProyectSection';
+import ProjectSection from './ProjectSection';
 import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
 
@@ -14,7 +14,7 @@ export const PortfolioApp = () => {
       <Navbar />
       <IntroSection />
       <PresentationSection />
-      <ProyectSection />
+      <ProjectSection />
       <SkillSection />
       <BrandsSection />
       <CodeSection />

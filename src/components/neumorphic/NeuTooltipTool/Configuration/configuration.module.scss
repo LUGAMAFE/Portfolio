@@ -1,0 +1,19 @@
+@import '../../../../style/sass/ITCSS/01_settings/colors';
+@import 'inputs.module';
+@import '../neuTooltipTool.module';
+.Configuration {
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--textColor);
+  &_copy {
+    position: absolute;
+    right: 12px;
+    padding: 2px 4px;
+    border: none;
+    border-radius: 2px;
+    background-color: $color-configuration-copy-button;
+    color: white;
+    cursor: pointer;
+    font-size: 11px;
+  }
+}

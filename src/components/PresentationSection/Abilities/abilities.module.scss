@@ -1,0 +1,57 @@
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
+@import '../../../style/sass/ITCSS/01_settings/global';
+.Abilities {
+  display: flex;
+  width: 635px;
+  height: 800px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-top: -85px;
+  transform: scale(0.9);
+  &_svgContainer {
+    position: relative;
+    &:first-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:nth-child(2) {
+      position: absolute;
+      top: 42%;
+      left: 39%;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    &:nth-child(3) {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: rotateZ(180deg);
+    }
+  }
+  &_text {
+    position: absolute;
+    padding: 140px 160px;
+    color: $color-middle-white;
+    font-family: Lato;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: $weight-bold;
+    letter-spacing: -0.4px;
+    line-height: 50px;
+    text-shadow: $base-text-shadow-abilities;
+    &___rotated {
+      transform: rotateZ(180deg);
+    }
+  }
+}

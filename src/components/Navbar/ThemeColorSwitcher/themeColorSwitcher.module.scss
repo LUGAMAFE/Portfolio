@@ -1,0 +1,71 @@
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
+@import '../../../style/sass/ITCSS/01_settings/global';
+.ThemeColorSwitcher {
+  display: flex;
+  align-items: center;
+  color: $color-white;
+  text-align: right;
+  &_text {
+    width: 194px;
+    height: 34px;
+    padding-right: 5px;
+    color: $color-middle-white;
+    font-family: 'Nunito';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: $weight-normal;
+    letter-spacing: 0.1px;
+    line-height: 40px;
+    text-shadow: $base-box-shadow-gray;
+  }
+  &_toggle {
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  &_toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 32px;
+    border-radius: 16px;
+    background: $color-normal-state-color-switcher-button;
+    box-shadow: $base-box-shadow-toggle-switch;
+    transition: background 0.25s;
+    vertical-align: middle;
+    &:before,
+    &:after {
+      content: '';
+    }
+    &:before {
+      position: absolute;
+      top: 0.9px;
+      left: 0px;
+      display: block;
+      width: 31px;
+      height: 31px;
+      border-radius: 32px;
+      border-radius: 50%;
+      background: $color-color-switcher-before;
+      box-shadow: $base-box-shadow-toggle-switch-before;
+      transition: left 0.25s;
+    }
+  }
+  &:hover .ThemeColorSwitcher_toggleSwitch {
+    &:before {
+      background: $color-color-switcher-before;
+      box-shadow: $base-box-shadow-toggle-switch-before;
+    }
+  }
+  &_toggleCheckbox {
+    position: absolute;
+    visibility: hidden;
+    &:checked + .ThemeColorSwitcher_toggleSwitch {
+      background: $color-checked-state-color-switcher-button;
+      &:before {
+        left: 25px;
+      }
+    }
+  }
+}

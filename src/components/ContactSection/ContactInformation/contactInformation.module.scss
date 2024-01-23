@@ -1,0 +1,69 @@
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
+@import '../../../style/sass/ITCSS/01_settings/global';
+.ContactInformation {
+  display: flex;
+  width: 525px;
+  flex-direction: column;
+  align-items: center;
+  gap: 55px;
+  &_text {
+    &:first-child {
+      color: $color-middle-white;
+      font-family: Nunito;
+      font-size: 47px;
+      font-style: normal;
+      font-weight: $weight-normal;
+      letter-spacing: -0.4px;
+      line-height: 60px;
+      text-align: center;
+      text-shadow: $base-text-shadow-contact-information;
+    }
+    &:nth-child(2) {
+      color: $color-light-gray;
+      font-family: Nunito;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: $weight-normal;
+      letter-spacing: -0.64px;
+      line-height: normal;
+    }
+  }
+  &_numberContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 13px 17.5px 20px 29.5px;
+    border-radius: 29px;
+    gap: 13px;
+  }
+  &_number {
+    background: $color-gradient-pink-linear-horizontal;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Roboto;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: $weight-boldest;
+    letter-spacing: 1.5px;
+    line-height: normal;
+    text-align: center;
+    -webkit-text-fill-color: transparent;
+    text-shadow: $color-gradient-pink-linear-horizontal;
+  }
+  &_socialIconContainer {
+    display: flex;
+    width: 96px;
+    height: 96px;
+    align-items: center;
+    justify-content: center;
+    padding: 23px 24px 24px 23px;
+    border-radius: 76px;
+  }
+  &_span {
+    background: $color-gradient-pink-linear-vertical;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

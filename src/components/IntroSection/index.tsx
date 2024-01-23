@@ -1,14 +1,14 @@
 import manIllustrationSVG from '../../../assets/images/Ilustracion-Diseño.svg';
 import neomorphicSVG from '../../../assets/images/Vector-12.svg';
-import style from '../../style/sass/intro.module.scss';
 import { FormShape } from '../../types/neomorphism';
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { ImageComparator } from './ImageComparator';
+import style from './intro.module.scss';
 const IntroSection = () => {
   return (
     <NeumorphicElement
       id="seccion1"
-      className={style.intro}
+      className={style.Intro}
       neumorphicOptions={{
         form: FormShape.Pressed,
         size: 500,
@@ -19,22 +19,25 @@ const IntroSection = () => {
       }}
     >
       <ImageComparator />
-      <div className={style.myIntroduction}>
-        <p>
+      <div className={style.Intro_myIntroduction}>
+        <p className={style.Intro_text}>
           !Hola! mi nombre es: <br /> Luis martinez
         </p>
-        <div className={style.lineas}>
-          <div className={style.linea1}></div>
-          <div className={style.linea2}></div>
+        <div className={style.Intro_lines}>
+          <div className={style.Intro_line1}></div>
+          <div className={style.Intro_line2}></div>
         </div>
-        <p>
-          <strong>Programador</strong> y <em>diseñador</em> de sitios web
+        <p className={style.Intro_text}>
+          <strong className={style.Intro_strong}>Programador</strong> y{' '}
+          <em className={style.Intro_em}>diseñador</em> de sitios web
         </p>
-        <div className={style.ilustration}>
-          <div className={style.svgContainer}>
-            <img src={neomorphicSVG} alt="neomorphic svg shape" />
-          </div>
-          <div className={style.diseño}>
+        <div className={style.Intro_ilustration}>
+          <img
+            className={style.Intro_ilustrationImage}
+            src={neomorphicSVG}
+            alt="neomorphic svg shape"
+          />
+          <div className={style.Intro_design}>
             <img src={manIllustrationSVG} alt="man and template boards illustration" />
           </div>
         </div>

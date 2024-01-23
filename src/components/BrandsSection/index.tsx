@@ -6,10 +6,10 @@ import MCPLogo from '../../../assets/images/logos/MCP.svg';
 import SECOGEYLogo from '../../../assets/images/logos/SECOGEY.svg';
 import SOCCERLogo from '../../../assets/images/logos/SOCCER.svg';
 import SOLAREKLogo from '../../../assets/images/logos/SOLAREK.svg';
-import style from '../../style/sass/brands.module.scss';
 import { FormShape } from '../../types/neomorphism';
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { BrandLogo } from './BrandLogo';
+import style from './brands.module.scss';
 const BrandsSection = () => {
   const logosArray = [
     ANGOLOLogo,
@@ -31,11 +31,11 @@ const BrandsSection = () => {
         distance: 45,
         blur: 90,
       }}
-      className={style.brands}
+      className={style.Brands}
     >
-      <div className={style.brandsContainer}>
-        <div className={style.programingSkills}>
-          <div className={style.skillTopic}>
+      <div className={style.Brands_brandsContainer}>
+        <div className={style.Brands_programingSkills}>
+          <div className={style.Brands_skillTopic}>
             <NeumorphicElement
               neumorphicOptions={{
                 form: FormShape.Convex,
@@ -45,7 +45,7 @@ const BrandsSection = () => {
                 distance: 45,
                 blur: 90,
               }}
-              className={style.section}
+              className={style.Brands_section}
             >
               <NeumorphicElement
                 neumorphicOptions={{
@@ -56,11 +56,11 @@ const BrandsSection = () => {
                   distance: 9,
                   blur: 18,
                 }}
-                className={style.title}
+                className={style.Brands_titleContainer}
               >
-                <p>COLABORACIONES</p>
+                <p className={style.Brands_title}>COLABORACIONES</p>
               </NeumorphicElement>
-              <div className={style.brandsLogos}>
+              <div className={style.Brands_brandsLogos}>
                 {logosArray.map((imgSrc, index) => (
                   <BrandLogo key={index} imageSource={imgSrc} />
                 ))}

@@ -1,0 +1,15 @@
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
+.FormInput {
+  width: 600px !important;
+  height: 56px !important;
+  flex-shrink: 0;
+  border-radius: 12px;
+  color: $color-placeholder-contact-input-text-area !important;
+  font-family: Nunito;
+  font-size: 25px !important;
+  font-style: normal;
+  font-weight: $weight-normal;
+  letter-spacing: -0.5px;
+  line-height: normal;
+}

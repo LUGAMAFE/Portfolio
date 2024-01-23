@@ -1,7 +1,7 @@
-import style from '../../style/sass/skills.module.scss';
 import { FormShape } from '../../types/neomorphism';
-import NeumorphicElement from '../neumorphic/NeumorphicElement';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { SkillBox } from './SkillBox';
+import style from './skills.module.scss';
 
 const SkillSection = () => {
   const array = ['Habilidades de programacion', 'Habilidades extra'];
@@ -15,7 +15,7 @@ const SkillSection = () => {
         distance: 45,
         blur: 90,
       }}
-      className={style.skills}
+      className={style.Skills}
     >
       <div
         style={{
@@ -23,7 +23,7 @@ const SkillSection = () => {
           height: '90px',
         }}
       ></div>
-      <div className={style.skillsContainer}>
+      <div className={style.Skills_skillsContainer}>
         {array.map((text, index) => (
           <SkillBox key={index} text={text} />
         ))}

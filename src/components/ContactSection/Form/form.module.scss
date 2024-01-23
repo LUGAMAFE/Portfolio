@@ -1,0 +1,46 @@
+@import '../../../style/sass/ITCSS/01_settings/colors';
+@import '../../../style/sass/ITCSS/01_settings/fonts';
+@import '../../../style/sass/ITCSS/01_settings/global';
+.Form {
+  display: flex;
+  width: 574px;
+  height: 586px;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  padding-top: 30px;
+  gap: 17px;
+  &_button {
+    width: 268px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: $color-gradient-pink-linear-horizontal;
+    box-shadow: $base-box-shadow-neon;
+    cursor: pointer;
+  }
+  &_buttonText {
+    color: $color-white;
+    font-family: Nunito;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: $weight-bolder;
+    letter-spacing: -0.6px;
+    line-height: normal;
+    text-align: center;
+  }
+  &_textarea {
+    width: 600px;
+    height: 198.897px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 12px;
+    color: $color-placeholder-contact-input-text-area;
+    font-family: Nunito;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: $weight-normal;
+    letter-spacing: -0.5px;
+    line-height: normal;
+  }
+}

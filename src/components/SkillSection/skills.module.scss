@@ -1,0 +1,19 @@
+@import '../../style/sass/ITCSS/01_settings/colors';
+
+.Skills {
+  display: flex;
+  height: 110vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  &_skillsContainer {
+    display: flex;
+    width: 1440px;
+    height: 842px;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0px 120px;
+    gap: 50px;
+  }
+}
