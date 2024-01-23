@@ -1,10 +1,10 @@
-import { useContext } from 'react';
+import { ChangeEvent, useContext } from 'react';
 import style from '../../style/sass/navbar.module.scss';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 
 export const ThemeColorSwitcher = () => {
   const { handleChangeColor: styleHandleChangeColor } = useContext(NeumorphicStylesContext);
-  const handleChangeColor = (event) => {
+  const handleChangeColor = (event: ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
     styleHandleChangeColor(isChecked);
   };

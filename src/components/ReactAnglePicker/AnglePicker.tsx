@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEventHandler, createRef } from 'react';
 import style from '../../style/sass/components/AnglePicker/anglePicker.module.scss';
 import Border from './Border';
 import Circle from './Circle';
@@ -16,19 +16,20 @@ const WIDTH: number = 30;
 const CIRCLE_WIDTH: number = 6;
 
 export interface PickerProps {
-  borderColor?: string | undefined;
-  pointerColor?: string | undefined;
-  pointerWidth?: number | undefined;
-  width?: number | undefined;
+  id?: string;
+  borderColor?: string;
+  pointerColor?: string;
+  pointerWidth?: number;
+  width?: number;
   value?: number;
-  borderStyle?: string | undefined;
-  borderWidth?: number | undefined;
+  borderStyle?: string;
+  borderWidth?: number;
 
   angle: number;
 
-  onChange?: (newValue?: number) => void | undefined;
+  onChange?: (newValue?: number) => void;
 
-  onAfterChange?: (interactiveValue: number) => void | undefined;
+  onAfterChange?: (interactiveValue: number) => void;
 
   preventDefault?: boolean;
 }
@@ -52,7 +53,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     this.getNewAngleByEvent = this.getNewAngleByEvent.bind(this);
   }
 
-  wrapperRef = React.createRef<HTMLDivElement>();
+  wrapperRef = createRef<HTMLDivElement>();
 
   static getDerivedStateFromProps(props: PickerProps, state: PickerState) {
     if (typeof props.value === 'number' && state.angle !== props.value) {
@@ -88,7 +89,7 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return { x, y };
   }
 
-  getNewAngleByEvent = (e: MouseEvent | React.MouseEvent) => {
+  getNewAngleByEvent = (e: MouseEvent) => {
     const wrapperEl = this.wrapperRef && this.wrapperRef.current;
     if (e && wrapperEl) {
       const center = this.getCenter();
@@ -104,8 +105,8 @@ export default class AnglePicker extends Component<PickerProps, PickerState> {
     return null;
   };
 
-  mousedown: React.MouseEventHandler<HTMLDivElement> = (e: MouseEvent | React.MouseEvent) => {
-    const angle = this.getNewAngleByEvent(e);
+  mousedown: MouseEventHandler<HTMLDivElement> = (e: React.MouseEvent<HTMLDivElement>) => {
+    const angle = this.getNewAngleByEvent(e.nativeEvent);
     if (typeof angle === 'number') {
       this.setState({ angle });
       if (this.props.onChange) {

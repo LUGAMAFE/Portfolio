@@ -1,4 +1,5 @@
 import style from '../../style/sass/contact.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { FormInputs } from './FormInputs';
 
@@ -12,12 +13,12 @@ export const Form = () => {
 
       <NeumorphicElement
         neumorphicOptions={{
-          form: 'pressed',
-          size: '174',
-          intensity: '0.55',
+          form: FormShape.Pressed,
+          size: 174,
+          intensity: 0.55,
           lightSource: 1,
-          distance: '13',
-          blur: '23',
+          distance: 13,
+          blur: 23,
         }}
         element={'textarea'}
         placeholder="mensaje"

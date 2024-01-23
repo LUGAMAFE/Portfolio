@@ -4,8 +4,8 @@ const CIRCLE_WIDTH: number = 6;
 interface CircelProps {
   x: number;
   y: number;
-  color?: string | undefined;
-  width?: number | undefined;
+  color?: string;
+  width?: number;
 }
 
 const Circle = (props: CircelProps) => {

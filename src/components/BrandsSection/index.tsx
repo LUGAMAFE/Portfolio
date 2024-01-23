@@ -7,6 +7,7 @@ import SECOGEYLogo from '../../../assets/images/logos/SECOGEY.svg';
 import SOCCERLogo from '../../../assets/images/logos/SOCCER.svg';
 import SOLAREKLogo from '../../../assets/images/logos/SOLAREK.svg';
 import style from '../../style/sass/brands.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { BrandLogo } from './BrandLogo';
 const BrandsSection = () => {
@@ -20,15 +21,14 @@ const BrandsSection = () => {
     SOCCERLogo,
     SOLAREKLogo,
   ];
-  console.log(logosArray);
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
-        size: '500',
-        intensity: '0.65',
+        form: FormShape.Pressed,
+        size: 500,
+        intensity: 0.65,
         lightSource: 3,
-        distance: '45',
+        distance: 45,
         blur: 90,
       }}
       className={style.brands}
@@ -38,22 +38,22 @@ const BrandsSection = () => {
           <div className={style.skillTopic}>
             <NeumorphicElement
               neumorphicOptions={{
-                form: 'convex',
-                size: '500',
-                intensity: '0.65',
+                form: FormShape.Convex,
+                size: 500,
+                intensity: 0.65,
                 lightSource: 1,
-                distance: '45',
+                distance: 45,
                 blur: 90,
               }}
               className={style.section}
             >
               <NeumorphicElement
                 neumorphicOptions={{
-                  form: 'convex',
-                  size: '102',
-                  intensity: '0.76',
+                  form: FormShape.Convex,
+                  size: 102,
+                  intensity: 0.76,
                   lightSource: 1,
-                  distance: '9',
+                  distance: 9,
                   blur: 18,
                 }}
                 className={style.title}

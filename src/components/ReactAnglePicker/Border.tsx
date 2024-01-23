@@ -1,14 +1,14 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { MouseEventHandler, forwardRef, useEffect, useState } from 'react';
 
 const WIDTH: number = 30;
 
 interface BorderProps {
-  width?: number | undefined;
-  borderColor?: string | undefined;
-  borderStyle?: string | undefined;
-  borderWidth?: number | undefined;
-  onMouseDown?: React.MouseEventHandler<HTMLDivElement>;
-  children: JSX.Element | JSX.Element[];
+  width?: number;
+  borderColor?: string;
+  borderStyle?: string;
+  borderWidth?: number;
+  onMouseDown?: MouseEventHandler<HTMLDivElement>;
+  children: React.ReactNode;
 }
 
 const Border = forwardRef<HTMLDivElement, BorderProps>((props, ref) => {

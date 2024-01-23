@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 interface CircelProps {
   x: number;
   y: number;
-  color?: string | undefined;
-  width?: number | undefined;
-  angle?: number | undefined;
+  color?: string;
+  width?: number;
+  angle?: number;
 }
 
 const Line = (props: CircelProps) => {

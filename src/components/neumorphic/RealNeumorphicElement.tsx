@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import styles from '../../style/sass/style.module.scss';
+import { NeomorphicElementShape, RealNeumorphicElementProps } from '../../types/neomorphism';
 import {
   angleGradient,
   colorLuminance,
@@ -9,6 +9,7 @@ import {
   getIfGradient,
   getIntFormValue,
 } from '../../utils';
+import { MakeRequired } from '../../utils/type-utils';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeuTooltipTool from './NeuTooltipTool';
 import { NeuElementContext } from './context/NeuElementContext';
@@ -16,7 +17,7 @@ import { NeuElementContext } from './context/NeuElementContext';
 const RealNeumorphicElement = ({
   element: Element = 'div',
   className = '',
-  neumorphicOptions = {}, // Add this new prop
+  neumorphicOptions = {},
   form = undefined,
   color = undefined,
   size = undefined,
@@ -27,21 +28,23 @@ const RealNeumorphicElement = ({
   style = undefined,
   onClick = undefined,
   ...rest
-}) => {
+}: RealNeumorphicElementProps) => {
   const { contextConfig, setContextConfig } = useContext(NeuElementContext);
-  // Set default values for individual props if they are not provided
-  const defaultProps = {
-    form: null,
-    color: null,
+
+  const defaultProps: MakeRequired<
+    NeomorphicElementShape,
+    'size' | 'intensity' | 'lightSource' | 'distance' | 'blur'
+  > = {
+    form: undefined,
+    color: undefined,
     size: 100,
     intensity: 0.15,
     lightSource: 1,
-    distance: '',
-    blur: '',
+    distance: 45,
+    blur: 90,
   };
 
-  // Merge individual props with neumorphicOptions object and prioritize individual props
-  const options = useMemo(
+  const options: NeomorphicElementShape = useMemo(
     () => ({
       form: form ?? (neumorphicOptions.form || defaultProps.form),
       color: color ?? (neumorphicOptions.color || defaultProps.color),
@@ -70,9 +73,9 @@ const RealNeumorphicElement = ({
     },
   } = useContext(NeumorphicStylesContext);
 
-  const [refElement, setRefElement] = useState(null);
+  const [refElement, setRefElement] = useState<HTMLElement | null>(null);
   const [tooltipReferenceProps, setTooltipReferenceProps] = useState({});
-  const [classesToApply, setClassesToApply] = useState(styles.softShadow);
+  const [classesToApply, setClassesToApply] = useState<string>(styles.softShadow);
   const [defaultCssVariables, setDefaultCssVariables] = useState({});
 
   useEffect(() => {
@@ -81,7 +84,7 @@ const RealNeumorphicElement = ({
       throw new Error('Form for neumorphic element not provided');
     }
 
-    let colorToUse, usingContextColor;
+    let colorToUse: string, usingContextColor: boolean;
     if (contextConfig.color != null) {
       usingContextColor = false;
       colorToUse = contextConfig.color;
@@ -90,10 +93,10 @@ const RealNeumorphicElement = ({
       colorToUse = mainColorContext;
     }
 
-    let darkColor;
-    let lightColor;
-    let darkGradientColor;
-    let lightGradientColor;
+    let darkColor: string;
+    let lightColor: string;
+    let darkGradientColor: string;
+    let lightGradientColor: string;
 
     if (usingContextColor && contextConfig.intensity == colorDifference) {
       darkColor = darkColorContext;
@@ -101,8 +104,8 @@ const RealNeumorphicElement = ({
       darkGradientColor = darkGradientColorContext;
       lightGradientColor = lightGradientColorContext;
     } else {
-      darkColor = colorLuminance(colorToUse, contextConfig.intensity * -1);
-      lightColor = colorLuminance(colorToUse, contextConfig.intensity);
+      darkColor = colorLuminance(colorToUse, contextConfig.intensity! * -1);
+      lightColor = colorLuminance(colorToUse, contextConfig.intensity!);
       darkGradientColor = colorLuminance(colorToUse, -0.1);
       lightGradientColor = colorLuminance(colorToUse, 0.07);
     }
@@ -129,17 +132,20 @@ const RealNeumorphicElement = ({
     let finalDistance = contextConfig.distance;
     let finalBlur = contextConfig.blur;
 
-    finalDistance = Math.round(contextConfig.size * 0.1);
-    finalBlur = Math.round(contextConfig.size * 0.2);
+    finalDistance = Math.round(size ? size : defaultProps.size * 0.1);
+    finalBlur = Math.round(size ? size : defaultProps.size * 0.2);
 
     if (contextConfig.distance) {
       finalDistance = contextConfig.distance;
-      finalBlur = contextConfig.blur * 2;
+      finalBlur = blur ? blur : defaultProps.blur * 2;
     }
     if (contextConfig.blur) {
       finalBlur = contextConfig.blur;
     }
-    const { positionX, positionY, angle } = angleGradient(contextConfig.lightSource, finalDistance);
+    const { positionX, positionY, angle } = angleGradient(
+      contextConfig.lightSource ? contextConfig.lightSource : defaultProps.lightSource,
+      finalDistance
+    );
 
     setDefaultCssVariables({
       '--positionX': `${positionX}px`,
@@ -175,7 +181,7 @@ const RealNeumorphicElement = ({
   return (
     <>
       <Element
-        ref={(node) => setRefElement(node)}
+        ref={(node: HTMLElement | null) => setRefElement(node)}
         style={{ ...defaultCssVariables, ...style }}
         className={`neuElement ${styles.softShadow} ${classesToApply} ${className}`}
         {...tooltipReferenceProps}
@@ -190,34 +196,6 @@ const RealNeumorphicElement = ({
       )}
     </>
   );
-};
-
-RealNeumorphicElement.propTypes = {
-  element: PropTypes.elementType,
-  className: PropTypes.string,
-  neumorphicOptions: PropTypes.shape({
-    form: PropTypes.any,
-    color: PropTypes.string,
-    size: PropTypes.number,
-    intensity: PropTypes.number,
-    lightSource: PropTypes.number,
-    distance: PropTypes.string,
-    blur: PropTypes.string,
-  }),
-  form: PropTypes.any,
-  color: PropTypes.string,
-  size: PropTypes.number,
-  intensity: PropTypes.number,
-  lightSource: PropTypes.number,
-  distance: PropTypes.string,
-  blur: PropTypes.string,
-  style: PropTypes.object,
-  onClick: PropTypes.func,
-};
-
-RealNeumorphicElement.defaultProps = {
-  className: '',
-  neumorphicOptions: {},
 };
 
 export default RealNeumorphicElement;

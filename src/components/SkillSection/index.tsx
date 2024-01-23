@@ -1,4 +1,5 @@
 import style from '../../style/sass/skills.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { SkillBox } from './SkillBox';
 
@@ -7,11 +8,11 @@ const SkillSection = () => {
   return (
     <NeumorphicElement
       neumorphicOptions={{
-        form: 'pressed',
-        size: '500',
-        intensity: '0.65',
+        form: FormShape.Pressed,
+        size: 500,
+        intensity: 0.65,
         lightSource: 3,
-        distance: '45',
+        distance: 45,
         blur: 90,
       }}
       className={style.skills}
@@ -23,8 +24,8 @@ const SkillSection = () => {
         }}
       ></div>
       <div className={style.skillsContainer}>
-        {array.map((elemento, index) => (
-          <SkillBox key={index} texto={elemento} />
+        {array.map((text, index) => (
+          <SkillBox key={index} text={text} />
         ))}
       </div>
     </NeumorphicElement>

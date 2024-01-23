@@ -1,5 +1,6 @@
 import callIcon from '../../../assets/images/call-1.svg';
 import style from '../../style/sass/contact.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 export const ContactInformation = () => {
   return (
@@ -10,9 +11,9 @@ export const ContactInformation = () => {
       </p>
       <NeumorphicElement
         neumorphicOptions={{
-          form: 'convex',
-          size: '82',
-          intensity: '0.65',
+          form: FormShape.Convex,
+          size: 82,
+          intensity: 0.65,
           lightSource: 1,
           distance: 8,
           blur: 16,
@@ -21,9 +22,9 @@ export const ContactInformation = () => {
       >
         <NeumorphicElement
           neumorphicOptions={{
-            form: 'concave',
-            size: '88',
-            intensity: '0.65',
+            form: FormShape.Concave,
+            size: 88,
+            intensity: 0.65,
             lightSource: 1,
             distance: 9,
             blur: 18,

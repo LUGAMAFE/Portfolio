@@ -1,6 +1,7 @@
 import manIllustrationSVG from '../../../assets/images/Ilustracion-Diseño.svg';
 import neomorphicSVG from '../../../assets/images/Vector-12.svg';
 import style from '../../style/sass/intro.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 import { ImageComparator } from './ImageComparator';
 const IntroSection = () => {
@@ -9,11 +10,11 @@ const IntroSection = () => {
       id="seccion1"
       className={style.intro}
       neumorphicOptions={{
-        form: 'pressed',
-        size: '500',
-        intensity: '0.65',
+        form: FormShape.Pressed,
+        size: 500,
+        intensity: 0.65,
         lightSource: 3,
-        distance: '45',
+        distance: 45,
         blur: 90,
       }}
     >

@@ -1,5 +1,6 @@
 import luisImage from '../../../assets/images/luis.png';
 import style from '../../style/sass/intro.module.scss';
+import { FormShape } from '../../types/neomorphism';
 import NeumorphicElement from '../neumorphic/NeumorphicElement';
 export const ImageComparator = () => {
   return (
@@ -7,9 +8,9 @@ export const ImageComparator = () => {
       <NeumorphicElement
         className={style.imageComparer}
         neumorphicOptions={{
-          form: 'convex',
-          size: '439',
-          intensity: '0.9',
+          form: FormShape.Convex,
+          size: 439,
+          intensity: 0.9,
           lightSource: 1,
           distance: 44,
           blur: 88,
