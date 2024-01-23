@@ -3,7 +3,6 @@ import { FormShape, RealNeumorphicElementProps } from '../../../types/neomorphis
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './languageSwitcher.module.scss';
 
-
 interface ExtendedRealNeumorphicElementProps extends RealNeumorphicElementProps {
   textClassName: string;
 }
@@ -41,16 +40,16 @@ export const LanguageSwitcher = () => {
       prev.map((button) =>
         button.id === id
           ? {
-            ...button,
-            neumorphicOptions: {
-              ...button.neumorphicOptions,
-              form: button.neumorphicOptions
-                ? button.neumorphicOptions.form === FormShape.Flat
-                  ? FormShape.Pressed
-                  : FormShape.Flat
-                : FormShape.Flat,
-            },
-          }
+              ...button,
+              neumorphicOptions: {
+                ...button.neumorphicOptions,
+                form: button.neumorphicOptions
+                  ? button.neumorphicOptions.form === FormShape.Flat
+                    ? FormShape.Pressed
+                    : FormShape.Flat
+                  : FormShape.Flat,
+              },
+            }
           : button
       )
     );

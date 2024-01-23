@@ -15,11 +15,14 @@ export const ImageComparator = () => {
           distance: 44,
           blur: 88,
         }}
-      >
-      </NeumorphicElement>
+      ></NeumorphicElement>
       <div className={style.ImageComparator_circle}>
         <div className={style.ImageComparator_line}></div>
-        <img className={style.ImageComparator_backImage} src={luisImage} alt="programer luis image" />
+        <img
+          className={style.ImageComparator_backImage}
+          src={luisImage}
+          alt="programer luis image"
+        />
       </div>
     </div>
   );

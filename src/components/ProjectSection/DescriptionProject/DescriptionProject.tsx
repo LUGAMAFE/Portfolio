@@ -4,7 +4,7 @@ export const DescriptionProject = () => {
   return (
     <div className={style.DescriptionProject}>
       <div className={style.DescriptionProject_softTitleContainer}>
-        <p className={style.DescriptionProject_softTitle} >WEB/UI</p>
+        <p className={style.DescriptionProject_softTitle}>WEB/UI</p>
       </div>
       <div className={style.DescriptionProject_content}>
         <div className={style.DescriptionProject_descriptionTextContainer}>

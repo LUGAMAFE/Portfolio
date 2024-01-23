@@ -28,10 +28,15 @@ const IntroSection = () => {
           <div className={style.Intro_line2}></div>
         </div>
         <p className={style.Intro_text}>
-          <strong className={style.Intro_strong} >Programador</strong> y <em className={style.Intro_em}>diseñador</em> de sitios web
+          <strong className={style.Intro_strong}>Programador</strong> y{' '}
+          <em className={style.Intro_em}>diseñador</em> de sitios web
         </p>
         <div className={style.Intro_ilustration}>
-          <img className={style.Intro_ilustrationImage} src={neomorphicSVG} alt="neomorphic svg shape" />
+          <img
+            className={style.Intro_ilustrationImage}
+            src={neomorphicSVG}
+            alt="neomorphic svg shape"
+          />
           <div className={style.Intro_design}>
             <img src={manIllustrationSVG} alt="man and template boards illustration" />
           </div>

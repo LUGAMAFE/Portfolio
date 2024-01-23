@@ -19,7 +19,11 @@ const LightSourceSelector = ({
 
   const directions = [1, 2, 4, 3];
   return (
-    <div className={`${style.LightSourceSelector} ${disabled ? style.LightSourceSelector_disabled : ''}`}>
+    <div
+      className={`${style.LightSourceSelector} ${
+        disabled ? style.LightSourceSelector_disabled : ''
+      }`}
+    >
       {directions.map((direction) => (
         <button
           key={direction}
@@ -28,7 +32,6 @@ const LightSourceSelector = ({
           name={`${direction}`}
         ></button>
       ))}
-
     </div>
   );
 };

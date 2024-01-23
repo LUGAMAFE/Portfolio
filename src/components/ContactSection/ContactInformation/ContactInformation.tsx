@@ -5,7 +5,9 @@ import style from './ContactInformation.module.scss';
 export const ContactInformation = () => {
   return (
     <div className={style.ContactInformation}>
-      <p className={style.ContactInformation_text}>Contactame y veamos como puedo ayudarle a tu proyecto o empresa.</p>
+      <p className={style.ContactInformation_text}>
+        Contactame y veamos como puedo ayudarle a tu proyecto o empresa.
+      </p>
       <p className={style.ContactInformation_text}>
         <span className={style.ContactInformation_span}>Correo:</span> luisjavier004@hotmail.com
       </p>
