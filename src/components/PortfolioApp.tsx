@@ -2,6 +2,7 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollSmoother from 'gsap-trial/ScrollSmoother';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import BrandsSection from './BrandsSection';
 import CodeSection from './CodeSection';
@@ -13,10 +14,11 @@ import ProjectSection from './ProjectSection';
 import { SectionPoints } from './SectionPoints';
 import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
-gsap.registerPlugin(ScrollSmoother);
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export const PortfolioApp = () => {
   const timelines = useRef({});
 
+  const lastClicked = useRef(null);
   const array = [
     '#seccion0', '#seccion1', '#seccion2', '#seccion3', '#seccion4', '#seccion5', '#seccion6'
   ];
@@ -28,33 +30,48 @@ export const PortfolioApp = () => {
     const svgPinkElement = document.getElementById(svgPinkId);
     const sectionElement = document.getElementById(seccionId);
     if (svgWhiteElement) {
-      timelines.current[svgWhiteId].to(svgWhiteElement, { r: 10, ease: "elastic", duration: 1, fill: "white" });
-      timelines.current[svgWhiteId].to(svgPinkElement, { r: 5, ease: "elastic", duration: 1 });
-      timelines.current[svgWhiteId] = gsap.timeline({ paused: true });
+      timelines.current[svgWhiteId].to(svgWhiteElement, { r: 10, ease: "elastic.inOut" });
+      timelines.current[svgWhiteId].to(svgPinkElement, { r: 5, ease: "elastic.inOut" });
+
     }
     if (seccionId) {
       smoother.current.scrollTo(sectionElement, true, 'top top');
+      // ScrollTrigger.create({
+      //   trigger: sectionElement,
+      //   start: "top center",
+      //   end: "bottom center",
+      //   markers: true,
+      //   onEnter: (self) => timelines.current[svgWhiteId].play(0.5),
+      //   onLeave: (self) => timelines.current[svgWhiteId].reverse(0.5),
+      // });
     };
-
+    if (lastClicked.current && lastClicked.current !== svgWhiteId) {
+      const lastSvgElement = document.getElementById(lastClicked.current);
+      if (lastSvgElement && timelines.current[lastClicked.current]) {
+        timelines.current[lastClicked.current].reverse(0.5);
+      }
+    }
+    lastClicked.current = svgWhiteId;
   }
+
 
   const handleMouseOver = (svgId) => {
     const svgElement = document.getElementById(svgId);
     if (svgElement) {
-      // Si no existe una línea de tiempo para este elemento, crearla
       if (!timelines.current[svgId]) {
         timelines.current[svgId] = gsap.timeline({ paused: true });
-        timelines.current[svgId].to(svgElement, { r: 5, ease: "elastic", duration: 1 });
+        timelines.current[svgId].to(svgElement, { r: 5, ease: "elastic.inOut", duration: 0.5 });
       }
-      // Reproducir la animación
-      timelines.current[svgId].play();
+
+      timelines.current[svgId].play(0.5);
     }
   };
 
   const handleMouseLeave = (svgId) => {
+    if (lastClicked.current === svgId) return;
     const svgElement = document.getElementById(svgId);
     if (svgElement && timelines.current[svgId]) {
-      timelines.current[svgId].reverse();
+      timelines.current[svgId].reverse(0.5);
     }
   };
 

@@ -16,6 +16,9 @@ dependencies:
   '@gsap/react':
     specifier: ^2.0.2
     version: 2.0.2(react@18.2.0)
+  '@tanstack/react-ranger':
+    specifier: ^0.0.4
+    version: 0.0.4(react@18.2.0)
   gsap:
     specifier: ^3.11.5
     version: 3.12.2
@@ -1076,6 +1079,20 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@tanstack/ranger@0.0.3:
+    resolution: {integrity: sha512-RYpW7MnEMxKLuskfadeyBfxpU8cUTGrtp5TnCV9PKEgMfrR6vwlk9/1/eU2EvJfYZbDAr1inphL4TGWCcRLAXQ==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /@tanstack/react-ranger@0.0.4(react@18.2.0):
+    resolution: {integrity: sha512-3re8xKJ6t3j8eKp6pdKi92FQegsxHipTgsvg7k0DP+SRWt/iJ2F8GSm8DuQVLHiE3R7kX1Q42fQhmku1PdcWOA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tanstack/ranger': 0.0.3
+      react: 18.2.0
+    dev: false
 
   /@tsconfig/node10@1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
