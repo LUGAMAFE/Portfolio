@@ -7,13 +7,15 @@ interface LanguageSwitcherProps {
 }
 
 export const LanguageButton = ({ config, onClick }: LanguageSwitcherProps) => {
-  <NeumorphicElement
-    key={config.id}
-    element={'button'}
-    onClick={() => onClick(config.id!)}
-    neumorphicOptions={config.neumorphicOptions}
-    className={config.className}
-  >
-    <p>{config.text}</p>
-  </NeumorphicElement>;
+  return (
+    <NeumorphicElement
+      key={config.id}
+      element={'button'}
+      onClick={() => onClick(config.id!)}
+      neumorphicOptions={config.neumorphicOptions}
+      className={config.className}
+    >
+      <p>{config.text}</p>
+    </NeumorphicElement>
+  );
 };
