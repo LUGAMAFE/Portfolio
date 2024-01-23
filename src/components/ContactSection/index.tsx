@@ -15,7 +15,7 @@ const ContactSection = () => {
         distance: 45,
         blur: 90,
       }}
-      id="seccion7"
+      id="seccion6"
       className={style.Contact}
     >
       <div className={style.Contact_contactContainer}>

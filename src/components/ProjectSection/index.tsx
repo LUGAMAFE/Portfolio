@@ -27,7 +27,7 @@ const ProyectSection = () => {
   }, { scope: container, });
 
   return (
-    <div ref={container} id="seccion3">
+    <div ref={container} id="seccion2">
       <div className="container" >
         <div className="description panel" >
           <div className={style.Projects_projectsContainer}>

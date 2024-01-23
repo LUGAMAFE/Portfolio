@@ -8,7 +8,7 @@ import style from './presentation.module.scss';
 const PresentationSection = () => {
   return (
     <NeumorphicElement
-      id="seccion2"
+      id="seccion1"
       neumorphicOptions={{
         form: FormShape.Pressed,
         size: 500,

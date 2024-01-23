@@ -1,18 +1,18 @@
-import { useGSAP } from '@gsap/react';
 import style from './sectionPoint.module.scss';
 
-export const SectionPoint = ({ onClick, classPointer, onMouseOver, index }) => {
-    useGSAP(() => {
+export const SectionPoint = ({ onClick, classPointer, onMouseOver, index, handleMouseLeave }) => {
 
-    }, {});
     return (
-        <button className={style.SectionPoint} name={`${classPointer}`} onClick={onClick} onMouseEnter={onMouseOver}>
+        <button className={style.SectionPoint} name={`${classPointer}`} onClick={onClick} onMouseEnter={onMouseOver} onMouseLeave={handleMouseLeave}>
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
                 <g filter="url(#filter0_d_42_14)">
                     <circle cx="18" cy="18" r="10" fill="url(#paint0_linear_42_14)" />
                 </g>
                 <g filter="url(#filter0_d_42_14)">
-                    <circle id={`hello${index}`} cx="18" cy="18" r="0" fill="white" />
+                    <circle id={`svgWhite${index}`} cx="18" cy="18" r="0" fill="white" />
+                </g>
+                <g filter="url(#filter0_d_42_14)">
+                    <circle id={`svgPink${index}`} cx="18" cy="18" r="0" fill="url(#paint0_linear_42_14)" />
                 </g>
                 <defs>
                     <filter id="filter0_d_42_14" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

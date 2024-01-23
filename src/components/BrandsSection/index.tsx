@@ -26,7 +26,7 @@ const BrandsSection = () => {
 
   return (
     <NeumorphicElement
-      id="seccion5"
+      id="seccion4"
       neumorphicOptions={{
         form: FormShape.Pressed,
         size: 500,

@@ -41,7 +41,7 @@ const SkillSection = () => {
         blur: 90,
       }}
       className={style.Skills}
-      id="seccion4"
+      id="seccion3"
     >
       <div ref={components}>
 
