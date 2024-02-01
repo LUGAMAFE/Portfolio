@@ -34,13 +34,13 @@ const ProyectSection = () => {
             <DescriptionProject />
           </div>
         </div>
-        <div className="panel red">
+        <div id={"seccion9"} className="panel red">
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-        <div className="panel orange">
+        <div id={"seccion10"} className="panel orange">
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />

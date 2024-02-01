@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollSmoother from 'gsap-trial/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import BrandsSection from './BrandsSection';
 import CodeSection from './CodeSection';
 import ContactSection from './ContactSection';
@@ -16,12 +16,18 @@ import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export const PortfolioApp = () => {
+  const [active, setActive] = useState(false)
   const timelines = useRef({});
-
   const lastClicked = useRef(null);
-  const array = [
-    '#seccion0', '#seccion1', '#seccion2', '#seccion3', '#seccion4', '#seccion5', '#seccion6'
-  ];
+  const arrays = {
+    array1: [
+      '#seccion0', '#seccion1', '#seccion2', '#seccion3', '#seccion4', '#seccion5', '#seccion6'
+    ],
+    array2: [
+      '#seccion7', '#seccion8', '#seccion9', '#seccion10', '#seccio11', '#seccion12', '#seccion13'
+    ]
+  }
+
   const componente = useRef();
   const smoother = useRef();
 
@@ -30,7 +36,7 @@ export const PortfolioApp = () => {
       smooth: 2, // seconds it takes to "catch up" to native scroll position
       effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
     });
-  }, { scope: componente });
+  }, { scope: componente, revertOnUpdate: true });
 
   const handleClick = contextSafe((seccionId, svgWhiteId, svgPinkId) => {
     const svgWhiteElement = document.getElementById(svgWhiteId);
@@ -71,8 +77,6 @@ export const PortfolioApp = () => {
     if (svgElement && timelines.current[svgId]) {
       timelines.current[svgId].reverse(0.5);
     }
-
-
   });
 
 
@@ -80,17 +84,20 @@ export const PortfolioApp = () => {
 
   return (
     <StyleProvider>
-      <SectionPoints onClick={handleClick} onMouseOver={handleMouseOver} array={array} handleMouseLeave={handleMouseLeave} />
-      <Navbar />
-      <div id="smooth-wrapper" ref={componente} >
-        <div id="smooth-content" >
-          <IntroSection />
-          <PresentationSection />
-          <ProjectSection />
-          <SkillSection />
-          <BrandsSection />
-          <CodeSection />
-          <ContactSection />
+      <div ref={componente}>
+
+        <SectionPoints onClick={handleClick} onMouseOver={handleMouseOver} array={arrays} handleMouseLeave={handleMouseLeave} />
+        <Navbar />
+        <div id="smooth-wrapper"  >
+          <div id="smooth-content" >
+            <IntroSection />
+            <PresentationSection />
+            <ProjectSection />
+            <SkillSection />
+            <BrandsSection />
+            <CodeSection />
+            <ContactSection />
+          </div>
         </div>
       </div>
     </StyleProvider>

@@ -3,16 +3,16 @@ import style from './sectionPoint.module.scss';
 export const SectionPointProjects = ({ onClick, classPointer, onMouseOver, index, handleMouseLeave }) => {
 
     return (
-        <button id={`svgProject`} className={style.SectionPoint___projects} name={`${classPointer}${index}`} onClick={onClick} onMouseEnter={onMouseOver} onMouseLeave={handleMouseLeave}>
+        <button className={style.SectionPoint___projects} name={`${classPointer}`} onClick={onClick} onMouseEnter={onMouseOver} onMouseLeave={handleMouseLeave}>
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
                 <g filter="url(#filter0_d_42_14)">
                     <circle cx="18" cy="18" r="10" fill="url(#paint0_linear_42_14)" />
                 </g>
                 <g filter="url(#filter0_d_42_14)">
-                    <circle id={`svgWhite${index}`} cx="18" cy="18" r="0" fill="white" />
+                    <circle id={`svgWhites${index}`} cx="18" cy="18" r="0" fill="white" />
                 </g>
                 <g filter="url(#filter0_d_42_14)">
-                    <circle id={`svgPink${index}`} cx="18" cy="18" r="0" fill="url(#paint0_linear_42_14)" />
+                    <circle id={`svgPinks${index}`} cx="18" cy="18" r="0" fill="url(#paint0_linear_42_14)" />
                 </g>
                 <defs>
                     <filter id="filter0_d_42_14" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

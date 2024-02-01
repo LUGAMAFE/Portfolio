@@ -22,11 +22,13 @@ export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave })
             });
             ScrollTrigger.create({
                 start: "12% top",
-                end: "+=1750",
+                end: "55% bottom",
                 trigger: section,
                 markers: true,
                 onEnter: () => anim.play(), // Reproducir cuando el elemento entra
                 onLeave: () => anim.reverse(), //
+                onEnterBack: () => anim.play(),
+                onLeaveBack: () => anim.reverse(),
             });
         });
     }, { scope: container });
@@ -36,13 +38,13 @@ export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave })
     return (
         <div ref={container} >
             <div className={style.SectionPoints} >
-                {array.map((classPointer, index) => (
+                {array.array1.map((classPointer, index) => (
                     <SectionPoint onClick={() => onClick(`seccion${index}`, `svgWhite${index}`, `svgPink${index}`)} onMouseOver={() => onMouseOver(`svgWhite${index}`)} key={classPointer} classPointer={classPointer} index={index} handleMouseLeave={() => handleMouseLeave(`svgWhite${index}`)} />
                 ))}
             </div>
             <div className={style.SectionPoints___projects} >
-                {array.map((classPointer, index) => (
-                    <SectionPointProjects onClick={() => onClick(`seccion${index}`, `svgWhite${index}`, `svgPink${index}`)} onMouseOver={() => onMouseOver(`svgWhite${index}`)} key={classPointer} classPointer={classPointer} index={index} handleMouseLeave={() => handleMouseLeave(`svgWhite${index}`)} />
+                {array.array2.map((classPointer, index) => (
+                    <SectionPointProjects onClick={() => onClick(`seccion${index}`, `svgWhites${index}`, `svgPinks${index}`)} onMouseOver={() => onMouseOver(`svgWhites${index}`)} key={classPointer} classPointer={classPointer} index={index} handleMouseLeave={() => handleMouseLeave(`svgWhites${index}`)} />
                 ))}
             </div>
 
