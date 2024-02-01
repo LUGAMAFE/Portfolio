@@ -9,7 +9,17 @@ interface SkillBoxProps {
   text: string;
 }
 export const SkillBox = ({ text }: SkillBoxProps) => {
-  const array = ['Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java', 'Java'];
+  const skillsData = [
+    { name: 'Java', endValue: 30 },
+    { name: 'Python', endValue: 50 },
+    { name: 'Java', endValue: 60 },
+    { name: 'Python', endValue: 90 },
+    { name: 'Java', endValue: 40 },
+    { name: 'Python', endValue: 75 },
+    { name: 'Java', endValue: 20 },
+    { name: 'Python', endValue: 60 },
+    // ... otros skills con sus respectivos valores
+  ];
   return (
     <div className={style.SkillBox}>
       <NeumorphicElement
@@ -38,8 +48,8 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
           <p className={style.SkillBox_title}>{text}</p>
         </NeumorphicElement>
         <div className={style.SkillBox_skillsInputs}>
-          {array.map((skillText, index) => (
-            <Skill key={index} skillText={skillText}></Skill>
+          {skillsData.map((skill, index) => (
+            <Skill key={index} skillText={skill.name} endValue={skill.endValue} />
           ))}
         </div>
       </NeumorphicElement>

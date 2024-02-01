@@ -9,4 +9,16 @@
   align-items: center;
   padding: 35px 3px;
   gap: 10px;
+  &___projects {
+    position: fixed;
+    z-index: 998;
+    top: 415px;
+    right: 51.5px;
+    display: flex;
+    width: 0px;
+    flex-direction: row;
+    align-items: center;
+    padding: 35px 3px;
+    gap: 0px;
+  }
 }

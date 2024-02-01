@@ -25,25 +25,23 @@ export const PortfolioApp = () => {
   const componente = useRef();
   const smoother = useRef();
 
-  const handleClick = (seccionId, svgWhiteId, svgPinkId) => {
+  const { contextSafe } = useGSAP(() => {
+    smoother.current = ScrollSmoother.create({
+      smooth: 2, // seconds it takes to "catch up" to native scroll position
+      effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
+    });
+  }, { scope: componente });
+
+  const handleClick = contextSafe((seccionId, svgWhiteId, svgPinkId) => {
     const svgWhiteElement = document.getElementById(svgWhiteId);
     const svgPinkElement = document.getElementById(svgPinkId);
     const sectionElement = document.getElementById(seccionId);
     if (svgWhiteElement) {
       timelines.current[svgWhiteId].to(svgWhiteElement, { r: 10, ease: "elastic.inOut" });
       timelines.current[svgWhiteId].to(svgPinkElement, { r: 5, ease: "elastic.inOut" });
-
     }
     if (seccionId) {
       smoother.current.scrollTo(sectionElement, true, 'top top');
-      // ScrollTrigger.create({
-      //   trigger: sectionElement,
-      //   start: "top center",
-      //   end: "bottom center",
-      //   markers: true,
-      //   onEnter: (self) => timelines.current[svgWhiteId].play(0.5),
-      //   onLeave: (self) => timelines.current[svgWhiteId].reverse(0.5),
-      // });
     };
     if (lastClicked.current && lastClicked.current !== svgWhiteId) {
       const lastSvgElement = document.getElementById(lastClicked.current);
@@ -52,36 +50,32 @@ export const PortfolioApp = () => {
       }
     }
     lastClicked.current = svgWhiteId;
-  }
+  })
 
 
-  const handleMouseOver = (svgId) => {
+  const handleMouseOver = contextSafe((svgId) => {
     const svgElement = document.getElementById(svgId);
     if (svgElement) {
       if (!timelines.current[svgId]) {
         timelines.current[svgId] = gsap.timeline({ paused: true });
         timelines.current[svgId].to(svgElement, { r: 5, ease: "elastic.inOut", duration: 0.5 });
       }
-
       timelines.current[svgId].play(0.5);
     }
-  };
+  });
 
-  const handleMouseLeave = (svgId) => {
+  const handleMouseLeave = contextSafe((svgId) => {
     if (lastClicked.current === svgId) return;
+    console.log(svgId, lastClicked.current)
     const svgElement = document.getElementById(svgId);
     if (svgElement && timelines.current[svgId]) {
       timelines.current[svgId].reverse(0.5);
     }
-  };
 
-  useGSAP(() => {
 
-    smoother.current = ScrollSmoother.create({
-      smooth: 2, // seconds it takes to "catch up" to native scroll position
-      effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
-    });
-  }, { scope: componente });
+  });
+
+
 
 
   return (

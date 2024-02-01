@@ -19,12 +19,11 @@ const ProyectSection = () => {
         trigger: container.current,
         pin: true,
         scrub: 1,
-
         end: () => "+=" + slider.offsetWidth
       }
     });
 
-  }, { scope: container, });
+  }, { scope: container });
 
   return (
     <div ref={container} id="seccion2">

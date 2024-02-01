@@ -1,14 +1,35 @@
+import { useGSAP } from '@gsap/react';
 import { Ranger, useRanger } from '@tanstack/react-ranger';
-import React from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useRef } from 'react';
 import { FormShape } from '../../../types/neomorphism';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
+import styleskills from '../skills.module.scss';
 import style from './skill.module.scss';
 interface SkillProps {
   skillText: string;
 }
-export const Skill = ({ skillText }: SkillProps) => {
+gsap.registerPlugin(ScrollTrigger);
+export const Skill = ({ skillText, endValue }: SkillProps) => {
   const rangerRef = React.useRef<HTMLDivElement>(null);
-  const [values, setValues] = React.useState<ReadonlyArray<number>>([80]);
+  const [values, setValues] = React.useState<ReadonlyArray<number>>([0]);
+  const sliderValue = useRef({ value: 0 });
+  useGSAP(() => {
+    const trigger = ScrollTrigger.create({
+      markers: true,
+      trigger: `.${styleskills.Skills}`,
+      start: "25% 60%",
+      end: "+=1750",
+    });
+    gsap.to(sliderValue.current, {
+      scrollTrigger: trigger,
+      value: endValue, // Valor final
+      duration: 2, // Duración de la animación
+      ease: "power1.inOut", // Suavizado
+      onUpdate: () => setValues([sliderValue.current.value]), // Actualiza el estado en cada paso
+    });
+  }, []);
 
   const rangerInstance = useRanger<HTMLDivElement>({
     getRangerElement: () => rangerRef.current,
@@ -16,10 +37,8 @@ export const Skill = ({ skillText }: SkillProps) => {
     min: 0,
     max: 100,
     stepSize: 1,
-    onChange: (instance: Ranger<HTMLDivElement>) =>
-      setValues(instance.sortedValues),
+    onChange: (instance: Ranger<HTMLDivElement>) => setValues(instance.sortedValues),
   });
-
   const trackStyle = {
     top: "10%",
     left: "0.5%",
@@ -28,24 +47,7 @@ export const Skill = ({ skillText }: SkillProps) => {
     position: 'absolute',
     userSelect: 'none',
     background: 'transparent',
-
     borderRadius: '10px',
-  };
-
-  const tickStyle = (percentage) => ({
-    position: 'absolute',
-    top: '5px',
-    left: `${percentage}%`,
-    transform: 'translateX(-50%)',
-  });
-
-  const tickLabelStyle = {
-    position: 'absolute',
-    fontSize: '0.6rem',
-    color: 'rgba(0, 0, 0, 0.5)',
-    top: '100%',
-    transform: 'translate(-50%, 1.2rem)',
-    whiteSpace: 'nowrap',
   };
 
   const segmentStyle = (index, left, width) => ({
@@ -54,22 +56,15 @@ export const Skill = ({ skillText }: SkillProps) => {
     background:
       index === 0
         ? 'var(--Lava-Linear-Horizontal, linear-gradient(90deg, #FF6161 0.16%, #F6D 99.81%))'
-        : index === 1
-          ? 'transparent'
-          : index === 2
-            ? '#f5c200'
-            : '#ff6050',
+        : 'transparent',
     left: `${left}%`,
     height: '100%',
-    width: `${width + 1}%`
-
+    width: `${width}%`
   });
 
   const handleStyle = (left, active) => ({
     position: 'absolute',
     top: '50%',
-
-
     transform: 'translate(-50%, -50%)',
     width: '50px',
     height: '50px',
@@ -77,15 +72,12 @@ export const Skill = ({ skillText }: SkillProps) => {
     borderRadius: '100%',
     background: "url('../../../../assets/images/Circulito-Carga.svg')",
     border: 'none',
-
     left: `${left}%`,
     zIndex: active ? 1 : 0,
     appearance: 'none',
-
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-
     fontSize: '0.7rem',
     whiteSpace: 'nowrap',
     color: 'white',
@@ -111,11 +103,6 @@ export const Skill = ({ skillText }: SkillProps) => {
             className={style.Skill_nullPart}
           ></NeumorphicElement>
           <div ref={rangerRef} style={trackStyle}>
-            {rangerInstance.getTicks().map(({ value, key, percentage }) => (
-              <div key={key} style={tickStyle(percentage)}>
-                <div style={tickLabelStyle}>{value}</div>
-              </div>
-            ))}
             {rangerInstance.getSteps().map(({ left, width }, i) => (
               <div key={i} style={segmentStyle(i, left, width)} />
             ))}
