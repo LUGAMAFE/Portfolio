@@ -7,10 +7,9 @@ import { SectionPointProjects } from './SectionPoint/SectionPointProjects';
 import styles from './SectionPoint/sectionPoint.module.scss';
 import style from './sectionPoints.module.scss';
 export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave }) => {
+    const containerProjects = useRef();
     gsap.registerPlugin(ScrollTrigger)
     const section = document.querySelector("#seccion2")
-    console.log(section)
-    const container = useRef();
     useGSAP(() => {
         const panels = gsap.utils.toArray(`.${styles.SectionPoint___projects}`);
         panels.forEach((panel, index) => {
@@ -31,12 +30,12 @@ export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave })
                 onLeaveBack: () => anim.reverse(),
             });
         });
-    }, { scope: container });
+    }, { scope: containerProjects });
 
 
 
     return (
-        <div ref={container} >
+        <div ref={containerProjects} >
             <div className={style.SectionPoints} >
                 {array.array1.map((classPointer, index) => (
                     <SectionPoint onClick={() => onClick(`seccion${index}`, `svgWhite${index}`, `svgPink${index}`)} onMouseOver={() => onMouseOver(`svgWhite${index}`)} key={classPointer} classPointer={classPointer} index={index} handleMouseLeave={() => handleMouseLeave(`svgWhite${index}`)} />
@@ -44,7 +43,7 @@ export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave })
             </div>
             <div className={style.SectionPoints___projects} >
                 {array.array2.map((classPointer, index) => (
-                    <SectionPointProjects onClick={() => onClick(`seccion${index}`, `svgWhites${index}`, `svgPinks${index}`)} onMouseOver={() => onMouseOver(`svgWhites${index}`)} key={classPointer} classPointer={classPointer} index={index} handleMouseLeave={() => handleMouseLeave(`svgWhites${index}`)} />
+                    <SectionPointProjects onClick={() => onClick(`seccion${index + 7}`, `svgWhites${index}`, `svgPinks${index}`)} onMouseOver={() => onMouseOver(`svgWhites${index}`)} key={classPointer} classPointer={classPointer} index={index} handleMouseLeave={() => handleMouseLeave(`svgWhites${index}`)} />
                 ))}
             </div>
 

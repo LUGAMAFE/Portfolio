@@ -44,7 +44,6 @@ const SkillSection = () => {
       id="seccion3"
     >
       <div ref={components}>
-
         <div className='box box-c' >
           <div className={style.Skills_skillsContainer}>
             {array.map((text, index) => (
