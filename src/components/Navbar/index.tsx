@@ -26,6 +26,7 @@ const Navbar = () => {
       <LanguageSwitcher />
       <div className={style.Navbar_menuToggle}>
         <NeumorphicElement
+          id='externalButton'
           element={'button'}
           neumorphicOptions={{
             form: FormShape.Level,

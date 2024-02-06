@@ -12,6 +12,9 @@ export const SectionPoint = ({ onClick, classPointer, onMouseOver, index, handle
                     <circle id={`svgWhite${index}`} cx="18" cy="18" r="0" fill="white" />
                 </g>
                 <g filter="url(#filter0_d_42_14)">
+                    <circle id={`svgWhiteClick${index}`} cx="18" cy="18" r="0" fill="white" />
+                </g>
+                <g filter="url(#filter0_d_42_14)">
                     <circle id={`svgPink${index}`} cx="18" cy="18" r="0" fill="url(#paint0_linear_42_14)" />
                 </g>
                 <defs>

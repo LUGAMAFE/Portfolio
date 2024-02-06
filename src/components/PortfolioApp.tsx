@@ -12,6 +12,7 @@ import Navbar from './Navbar';
 import PresentationSection from './PresentationSection';
 import ProjectSection from './ProjectSection';
 import { SectionPoints } from './SectionPoints';
+import { SideBarMenu } from './SidebarMenu';
 import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
@@ -25,7 +26,7 @@ export const PortfolioApp = () => {
       '#seccion0', '#seccion1', '#seccion2', '#seccion3', '#seccion4', '#seccion5', '#seccion6'
     ],
     array2: [
-      '#seccion7', '#seccion8', '#seccion9', '#seccion10', '#seccio11', '#seccion12', '#seccion13'
+      '#project1', '#project2', '#project3', '#project4'
     ]
   }
 
@@ -76,7 +77,6 @@ export const PortfolioApp = () => {
   });
 
   const handleMouseLeave = contextSafe((svgId) => {
-
     if (lastClicked.current === svgId) return;
     const svgElement = document.getElementById(svgId);
     if (svgElement && timelines.current[svgId]) {
@@ -88,9 +88,9 @@ export const PortfolioApp = () => {
   return (
     <StyleProvider>
       <div ref={componente}>
-
         <SectionPoints onClick={handleClick} onMouseOver={handleMouseOver} array={arrays} handleMouseLeave={handleMouseLeave} />
         <Navbar />
+        <SideBarMenu />
         <div id="smooth-wrapper"  >
           <div id="smooth-content" >
             <IntroSection />

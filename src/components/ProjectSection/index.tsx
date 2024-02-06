@@ -28,25 +28,25 @@ const ProyectSection = () => {
   return (
     <div ref={container} id="seccion2">
       <div className="container" >
-        <div className="description panel" >
+        <div id={"project0"} className="description panel" >
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-        <div id={"seccion9"} className="panel red">
+        <div id={"project1"} className="panel red">
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-        <div id={"seccion10"} className="panel orange">
+        <div id={"project2"} className="panel orange">
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-        <div className="panel purple">
+        <div id={"project3"} className="panel purple">
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
