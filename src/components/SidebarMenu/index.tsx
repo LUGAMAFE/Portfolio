@@ -42,7 +42,6 @@ export const SideBarMenu = () => {
     return (
         <div>
 
-
             <NeumorphicElement
                 neumorphicOptions={{
                     form: FormShape.Level,

@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FormShape, RealNeumorphicElementProps } from '../../../types/neomorphism';
+import { NeumorphicStylesContext } from '../../context/NeumorphicStylesContext';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './languageSwitcher.module.scss';
 
@@ -8,11 +9,14 @@ interface ExtendedRealNeumorphicElementProps extends RealNeumorphicElementProps 
   textClassName: string;
 }
 export const LanguageSwitcher = () => {
+  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
+
   const initialButtonConfigs: ExtendedRealNeumorphicElementProps[] = [
     {
       id: 'esBoton',
       text: 'Español',
       className: style.LanguageSwitcher_esButton,
+
       textClassName: style.LanguageSwitcher_esButtonText,
       neumorphicOptions: {
         form: FormShape.Flat,
@@ -25,6 +29,7 @@ export const LanguageSwitcher = () => {
       id: 'InButton',
       text: 'English',
       className: style.LanguageSwitcher_enButton,
+
       textClassName: style.LanguageSwitcher_enButtonText,
       neumorphicOptions: {
         form: FormShape.Pressed,
@@ -36,6 +41,27 @@ export const LanguageSwitcher = () => {
   ];
 
   const [buttonConfigs, setButtonConfigs] = useState(initialButtonConfigs);
+  useEffect(() => {
+    setButtonConfigs((currentConfigs) =>
+      currentConfigs.map((config) => {
+        // Comprueba si el botón es 'esBoton' antes de aplicar el estilo de degradado
+        if (config.id === 'esBoton') {
+          return {
+            ...config,
+            // Aplica el estilo de degradado solo a 'esBoton'
+            style: {
+              ...config.style,
+              backgroundImage: initialMainColorNeon, // Asegúrate de reemplazar <otroColor> con el color final del degradado
+            }
+          };
+        } else {
+          // Para otros botones, devuelve el config sin cambios
+          return config;
+        }
+      })
+    );
+  }, [initialMainColorNeon]);
+
   const handleButtonClick = (id: string | number) => {
     setButtonConfigs((prev) =>
       prev.map((button) =>
@@ -76,7 +102,7 @@ export const LanguageSwitcher = () => {
             neumorphicOptions={button.neumorphicOptions}
             className={button.className}
           >
-            <p className={button.textClassName}>{button.text}</p>
+            <p className={button.textClassName} style={button.style}>{button.text}</p>
           </NeumorphicElement>
         ))}
       </div>

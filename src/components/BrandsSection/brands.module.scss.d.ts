@@ -2,6 +2,7 @@ declare const classNames: {
   readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
+  readonly flair: 'flair';
   readonly Brands: 'Brands';
   readonly Brands_brandsContainer: 'Brands_brandsContainer';
   readonly Brands_skillTopic: 'Brands_skillTopic';

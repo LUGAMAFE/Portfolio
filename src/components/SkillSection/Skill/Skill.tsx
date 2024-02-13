@@ -2,8 +2,9 @@ import { useGSAP } from '@gsap/react';
 import { Ranger, useRanger } from '@tanstack/react-ranger';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { FormShape } from '../../../types/neomorphism';
+import { NeumorphicStylesContext } from '../../context/NeumorphicStylesContext';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import styleskills from '../skills.module.scss';
 import style from './skill.module.scss';
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const Skill = ({ skillText, endValue }: SkillProps) => {
   const rangerRef = React.useRef<HTMLDivElement>(null);
   const [values, setValues] = React.useState<ReadonlyArray<number>>([0]);
+  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
   const sliderValue = useRef({ value: 0 });
   useGSAP(() => {
     const trigger = ScrollTrigger.create({
@@ -55,7 +57,7 @@ export const Skill = ({ skillText, endValue }: SkillProps) => {
     borderRadius: '11px',
     background:
       index === 0
-        ? 'var(--Lava-Linear-Horizontal, linear-gradient(90deg, #FF6161 0.16%, #F6D 99.81%))'
+        ? initialMainColorNeon
         : 'transparent',
     left: `${left}%`,
     height: '100%',

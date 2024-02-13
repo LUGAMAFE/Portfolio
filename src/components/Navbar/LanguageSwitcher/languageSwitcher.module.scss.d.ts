@@ -2,6 +2,7 @@ declare const classNames: {
   readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
+  readonly flair: 'flair';
   readonly LanguageSwitcher: 'LanguageSwitcher';
   readonly LanguageSwitcher_buttons: 'LanguageSwitcher_buttons';
   readonly LanguageSwitcher_esButton: 'LanguageSwitcher_esButton';

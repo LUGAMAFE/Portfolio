@@ -15,6 +15,7 @@ import { SectionPoints } from './SectionPoints';
 import { SideBarMenu } from './SidebarMenu';
 import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
+import CustomCursor from './customCursor';
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export const PortfolioApp = () => {
 
@@ -88,6 +89,7 @@ export const PortfolioApp = () => {
   return (
     <StyleProvider>
       <div ref={componente}>
+        <CustomCursor />
         <SectionPoints onClick={handleClick} onMouseOver={handleMouseOver} array={arrays} handleMouseLeave={handleMouseLeave} />
         <Navbar />
         <SideBarMenu />

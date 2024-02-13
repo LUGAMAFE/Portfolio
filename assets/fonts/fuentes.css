@@ -70,30 +70,6 @@
     url('./RobotoCondensed/RobotoCondensed-Regular.ttf') format('truetype');
 }
 
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito';
-  font-style: italic;
-  font-weight: 200;
-  src: url('./Nunito/Nunito-ExtraLight.eot');
-  src: url('./Nunito/Nunito-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
-    url('./Nunito/Nunito-ExtraLightItalic.woff2') format('woff2'),
-    url('./Nunito/Nunito-ExtraLightItalic.woff') format('woff'),
-    url('./Nunito/Nunito-ExtraLightItalic.ttf') format('truetype');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 200;
-  src: url('./Nunito/Nunito-ExtraLight.eot');
-  src: url('./Nunito/Nunito-ExtraLight.eot?#iefix') format('embedded-opentype'),
-    url('./Nunito/Nunito-ExtraLight.woff2') format('woff2'),
-    url('./Nunito/Nunito-ExtraLight.woff') format('woff'),
-    url('./Nunito/Nunito-ExtraLight.ttf') format('truetype');
-}
-
 /* Fira Code */
 
 @font-face {

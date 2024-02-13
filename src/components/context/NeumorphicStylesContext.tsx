@@ -9,7 +9,8 @@ export interface NeumorphicStylesContext {
     darkGradientColor: string;
     lightGradientColor: string;
   };
-  initialMainColorNeon: any,
+  initialMainColorNeon: string,
+  initialColorNeonSVG: object,
   colorDifference: number;
   handleChangeColor: (isChecked: boolean) => void;
   handleChangeColorNeon: (e: any) => void;
@@ -57,6 +58,10 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
   });
   const [initialMainColor, setInitialMainColor] = useState('');
   const [initialMainColorNeon, setInitialMainColorNeon] = useState('');
+  const [initialColorNeonSVG, setinitialColorNeonSVG] = useState({
+    firstGradiantColor: "#FF6161",
+    secondGradiantColor: "#FF66DD",
+  });
   const [editorMode, setEditorMode] = useState(false);
   const [ctrlButton, setCtrlButton] = useState(true);
 
@@ -66,12 +71,16 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     }, 1200);
   }, []);
 
+
+
   useEffect(() => {
+
     const mainColor = obtainMainClass('--main-color').trim();
     setInitialMainColor(mainColor);
     setStyles(updateColors(mainColor, colorDifference));
     const mainColorNeon = obtainMainClass('--main-color-neon').trim();
     setInitialMainColorNeon(mainColorNeon);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -81,17 +90,42 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     setStyles(updateColors(newMainColor, colorDifference));
   };
   const handleChangeColorNeon = (e: any) => {
+    let newMainColor = '';
 
-    if (e.target.value === "Opcion1") {
-      const newMainColor = '#000';
-      setInitialMainColorNeon(newMainColor)
 
+    switch (e.target.value) {
+      case "Opcion1":
+        newMainColor = 'linear-gradient(90deg, #ff6161 0%, #f6d 100%)';
+        setinitialColorNeonSVG({
+          firstGradiantColor: "#FF6161",
+          secondGradiantColor: "#FF66DD",
+        })
+        break;
+      case "Opcion2":
+        newMainColor = 'linear-gradient(90deg, #009EFD 0%, #2AF598 100%)'; // Corregido el color
+        setinitialColorNeonSVG({
+          firstGradiantColor: "#009EFD",
+          secondGradiantColor: "#2AF598",
+        })
+        break;
+      case "Opcion3":
+        newMainColor = 'linear-gradient(90deg, #FF1741 0%, #FF6174 100%)';
+        setinitialColorNeonSVG({
+          firstGradiantColor: "#FF1741",
+          secondGradiantColor: "#FF6174",
+        })
+        break;
+      default:
+        // Opcional: manejar caso por defecto o dejar vacío si no es necesario
+        break;
     }
-    else if (e.target.value === "Opcion2") {
-      const newMainColor = '#fff';
-      setInitialMainColorNeon(newMainColor)
+
+    if (newMainColor) {
+      setInitialMainColorNeon(newMainColor);
     }
-    // const newMainColor = isChecked ? '#000' : initialMainColorNeon;
+
+    // Si deseas aplicar el color directamente como una variable CSS (comentado en tu código original),
+    // puedes descomentar y usar la siguiente línea:
     // document.documentElement.style.setProperty('--main-color', newMainColor);
   };
 
@@ -103,6 +137,7 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
       value={{
         styles,
         initialMainColorNeon,
+        initialColorNeonSVG,
         colorDifference,
         handleChangeColor,
         handleChangeColorNeon,

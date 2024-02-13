@@ -2,6 +2,7 @@ declare const classNames: {
   readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
+  readonly flair: 'flair';
   readonly Navbar: 'Navbar';
   readonly Navbar_logo: 'Navbar_logo';
   readonly Navbar_menuToggle: 'Navbar_menuToggle';

@@ -2,6 +2,7 @@ declare const classNames: {
   readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
+  readonly flair: 'flair';
   readonly ImageComparator: 'ImageComparator';
   readonly ImageComparator_imageComparer: 'ImageComparator_imageComparer';
   readonly ImageComparator_circle: 'ImageComparator_circle';

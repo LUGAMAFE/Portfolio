@@ -1,13 +1,17 @@
+import { useContext } from 'react';
 import callIcon from '../../../../assets/images/call-1.svg';
 import { FormShape } from '../../../types/neomorphism';
+import { NeumorphicStylesContext } from '../../context/NeumorphicStylesContext';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './ContactInformation.module.scss';
+
 export const ContactInformation = () => {
+  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
   return (
     <div className={style.ContactInformation}>
       <p className={style.ContactInformation_text}>Contactame y veamos como puedo ayudarle a tu proyecto o empresa.</p>
       <p className={style.ContactInformation_text}>
-        <span className={style.ContactInformation_span}>Correo:</span> luisjavier004@hotmail.com
+        <span className={style.ContactInformation_span} style={{ backgroundImage: initialMainColorNeon }}>Correo:</span> luisjavier004@hotmail.com
       </p>
       <NeumorphicElement
         neumorphicOptions={{
@@ -33,7 +37,7 @@ export const ContactInformation = () => {
         >
           <img src={callIcon} alt="neomorphic svg shape" />
         </NeumorphicElement>
-        <p className={style.ContactInformation_number}>9993777732</p>
+        <p className={style.ContactInformation_number} style={{ backgroundImage: initialMainColorNeon }}>9993777732</p>
       </NeumorphicElement>
     </div>
   );

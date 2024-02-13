@@ -11,8 +11,6 @@ import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement
 import { BrandLogo } from './BrandLogo';
 import style from './brands.module.scss';
 const BrandsSection = () => {
-
-
   const logosArray = [
     ANGOLOLogo,
     CHILLSIDELogo,

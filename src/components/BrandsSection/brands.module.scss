@@ -14,6 +14,7 @@
     flex-direction: column;
     align-items: center;
     gap: 50px;
+    will-change: transform;
   }
   &_skillTopic {
     display: flex;
@@ -52,6 +53,7 @@
     line-height: 68px;
     text-align: center;
     text-shadow: $base-text-shadow-title;
+    will-change: transform;
   }
 
   &_brandsLogos {

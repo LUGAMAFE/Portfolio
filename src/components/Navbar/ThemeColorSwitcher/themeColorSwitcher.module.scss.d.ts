@@ -2,6 +2,7 @@ declare const classNames: {
   readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
+  readonly flair: 'flair';
   readonly ThemeColorSwitcher: 'ThemeColorSwitcher';
   readonly ThemeColorSwitcher_text: 'ThemeColorSwitcher_text';
   readonly ThemeColorSwitcher_toggle: 'ThemeColorSwitcher_toggle';
