@@ -9,8 +9,10 @@ export interface NeumorphicStylesContext {
     darkGradientColor: string;
     lightGradientColor: string;
   };
+  initialMainColorNeon: any,
   colorDifference: number;
   handleChangeColor: (isChecked: boolean) => void;
+  handleChangeColorNeon: (e: any) => void;
   editorMode: boolean;
   setEditorMode: Dispatch<SetStateAction<boolean>>;
   ctrlButton: boolean;
@@ -54,6 +56,7 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     lightGradientColor: '',
   });
   const [initialMainColor, setInitialMainColor] = useState('');
+  const [initialMainColorNeon, setInitialMainColorNeon] = useState('');
   const [editorMode, setEditorMode] = useState(false);
   const [ctrlButton, setCtrlButton] = useState(true);
 
@@ -67,6 +70,8 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     const mainColor = obtainMainClass('--main-color').trim();
     setInitialMainColor(mainColor);
     setStyles(updateColors(mainColor, colorDifference));
+    const mainColorNeon = obtainMainClass('--main-color-neon').trim();
+    setInitialMainColorNeon(mainColorNeon);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -75,6 +80,21 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     document.documentElement.style.setProperty('--main-color', newMainColor);
     setStyles(updateColors(newMainColor, colorDifference));
   };
+  const handleChangeColorNeon = (e: any) => {
+
+    if (e.target.value === "Opcion1") {
+      const newMainColor = '#000';
+      setInitialMainColorNeon(newMainColor)
+
+    }
+    else if (e.target.value === "Opcion2") {
+      const newMainColor = '#fff';
+      setInitialMainColorNeon(newMainColor)
+    }
+    // const newMainColor = isChecked ? '#000' : initialMainColorNeon;
+    // document.documentElement.style.setProperty('--main-color', newMainColor);
+  };
+
 
 
   return (
@@ -82,8 +102,10 @@ export const StyleProvider = ({ children, colorDifference = 0.15 }: StyleProvide
     <NeumorphicStylesContext.Provider
       value={{
         styles,
+        initialMainColorNeon,
         colorDifference,
         handleChangeColor,
+        handleChangeColorNeon,
         editorMode,
         setEditorMode,
         ctrlButton,

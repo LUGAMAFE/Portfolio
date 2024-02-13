@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import crossIcon from '../../../assets/images/cross.svg';
 import { FormShape } from "../../types/neomorphism";
+import { NeumorphicStylesContext } from "../context/NeumorphicStylesContext";
 import NeumorphicElement from "../neumorphic/NeomorphicElement/NeumorphicElement";
 import style from './sidebarMenu.module.scss';
 export const SideBarMenu = () => {
+    const { handleChangeColorNeon } = useContext(NeumorphicStylesContext);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -35,9 +37,7 @@ export const SideBarMenu = () => {
         };
     }, []);
 
-    const handleChange = (e) => {
-        console.log(`Opción seleccionada: ${e.target.value}`);
-    }
+
 
     return (
         <div>
@@ -79,9 +79,9 @@ export const SideBarMenu = () => {
 
                 </NeumorphicElement>
                 <div className={style.SidebarMenu_button}>
-                    <input type="radio" id="opcion1" name="opciones" value="Opcion1" onChange={handleChange}></input>
-                    <input type="radio" id="opcion2" name="opciones" value="Opcion1" onChange={handleChange}></input>
-                    <input type="radio" id="opcion3" name="opciones" value="Opcion1" onChange={handleChange}></input>
+                    <input type="radio" id="opcion1" name="opciones" value="Opcion1" onChange={handleChangeColorNeon}></input>
+                    <input type="radio" id="opcion2" name="opciones" value="Opcion2" onChange={handleChangeColorNeon}></input>
+                    <input type="radio" id="opcion3" name="opciones" value="Opcion3" onChange={handleChangeColorNeon}></input>
                 </div>
             </NeumorphicElement>
         </div>

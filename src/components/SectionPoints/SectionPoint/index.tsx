@@ -1,12 +1,12 @@
 import style from './sectionPoint.module.scss';
 
 export const SectionPoint = ({ onClick, classPointer, onMouseOver, index, handleMouseLeave }) => {
-
+    const id = 2
     return (
         <button className={style.SectionPoint} name={`${classPointer}`} onClick={onClick} onMouseEnter={onMouseOver} onMouseLeave={handleMouseLeave}>
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
                 <g filter="url(#filter0_d_42_14)">
-                    <circle cx="18" cy="18" r="10" fill="url(#paint0_linear_42_14)" />
+                    <circle cx="18" cy="18" r="10" fill={`url(#${id === 1 ? "paint0_linear_42_14" : "paint0_linear_42_15"})`} />
                 </g>
                 <g filter="url(#filter0_d_42_14)">
                     <circle id={`svgWhite${index}`} cx="18" cy="18" r="0" fill="white" />
@@ -15,7 +15,7 @@ export const SectionPoint = ({ onClick, classPointer, onMouseOver, index, handle
                     <circle id={`svgWhiteClick${index}`} cx="18" cy="18" r="0" fill="white" />
                 </g>
                 <g filter="url(#filter0_d_42_14)">
-                    <circle id={`svgPink${index}`} cx="18" cy="18" r="0" fill="url(#paint0_linear_42_14)" />
+                    <circle id={`svgPink${index}`} cx="18" cy="18" r="0" fill={`url(#paint0_linear_42_14)`} />
                 </g>
                 <defs>
                     <filter id="filter0_d_42_14" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -30,6 +30,14 @@ export const SectionPoint = ({ onClick, classPointer, onMouseOver, index, handle
                     <linearGradient id="paint0_linear_42_14" x1="18" y1="8" x2="18" y2="28" gradientUnits="userSpaceOnUse">
                         <stop stopColor="#FF6161" />
                         <stop offset="1" stopColor="#FF66DD" />
+                    </linearGradient>
+                    <linearGradient id="paint0_linear_42_15" x1="18" y1="8" x2="18" y2="28" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#FF6" />
+                        <stop offset="1" stopColor="#FF66" />
+                    </linearGradient>
+                    <linearGradient id="paint0_linear_42_14" x1="18" y1="8" x2="18" y2="28" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#FFF" />
+                        <stop offset="1" stopColor="#000" />
                     </linearGradient>
                 </defs>
             </svg>

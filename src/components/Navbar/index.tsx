@@ -1,11 +1,15 @@
+import { useContext } from 'react';
 import hamburgerIcon from '../../../assets/images/bx-menu.svg';
 import { FormShape } from '../../types/neomorphism';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeColorSwitcher } from './ThemeColorSwitcher';
 import style from './navbar.module.scss';
 
+
 const Navbar = () => {
+  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
   return (
     <NeumorphicElement
       className={style.Navbar}
@@ -41,7 +45,7 @@ const Navbar = () => {
           <img className={style.Navbar_hamburger} src={hamburgerIcon} alt="circle part of input" />
         </NeumorphicElement>
       </div>
-      <div className={style.Navbar_bottomNeon}></div>
+      <div className={style.Navbar_bottomNeon} style={{ background: initialMainColorNeon }}></div>
     </NeumorphicElement>
   );
 };
