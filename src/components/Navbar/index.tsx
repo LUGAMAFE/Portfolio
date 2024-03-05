@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import hamburgerIcon from '../../../assets/images/bx-menu.svg';
 import { FormShape } from '../../types/neomorphism';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
@@ -10,6 +10,44 @@ import style from './navbar.module.scss';
 
 const Navbar = () => {
   const { initialMainColorNeon, initialColorNeonSVG, isChecked } = useContext(NeumorphicStylesContext);
+
+  const initialButtonConfigs: ExtendedRealNeumorphicElementProps[] = [
+    {
+      id: 'externalButton',
+      className: style.Navbar_button,
+
+      neumorphicOptions: {
+        form: FormShape.Flat,
+        size: 43,
+        intensity: 0.45,
+        lightSource: 1,
+        distance: 4,
+        blur: 9
+      },
+    },
+
+  ];
+
+  const [buttonConfig, setButtonConfig] = useState(initialButtonConfigs[0] || null);
+
+
+  const handleButtonClick = (id: string | number) => {
+    setButtonConfig(prevButtonConfig =>
+      prevButtonConfig.id === id
+        ? {
+          ...prevButtonConfig,
+          neumorphicOptions: {
+            ...prevButtonConfig.neumorphicOptions,
+            form: prevButtonConfig.neumorphicOptions
+              ? prevButtonConfig.neumorphicOptions.form === FormShape.Concave
+                ? FormShape.Pressed
+                : FormShape.Concave
+              : FormShape.Concave
+          },
+        }
+        : prevButtonConfig
+    );
+  };
   return (
     <NeumorphicElement
       className={style.Navbar}
@@ -29,21 +67,18 @@ const Navbar = () => {
       <ThemeColorSwitcher />
       <LanguageSwitcher />
       <div className={style.Navbar_menuToggle}>
+
         <NeumorphicElement
-          id='externalButton'
+          key={buttonConfig.id}
           element={'button'}
-          neumorphicOptions={{
-            form: FormShape.Level,
-            size: 55,
-            intensity: 0.19,
-            lightSource: 1,
-            distance: 6,
-            blur: 11,
-          }}
-          className={style.Navbar_button}
+          onClick={() => handleButtonClick(buttonConfig.id ? buttonConfig.id : '')}
+          neumorphicOptions={buttonConfig.neumorphicOptions}
+          className={buttonConfig.className}
+          id='externalButton'
         >
           <img className={style.Navbar_hamburger} src={hamburgerIcon} alt="circle part of input" />
         </NeumorphicElement>
+
       </div>
       <div className={style.Navbar_bottomNeon} style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }}></div>
     </NeumorphicElement>

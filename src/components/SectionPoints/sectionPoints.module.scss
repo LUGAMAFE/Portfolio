@@ -21,4 +21,17 @@
     padding: 35px 3px;
     gap: 0px;
   }
+  &_second {
+    position: fixed;
+    z-index: 998;
+    top: 440px;
+    right: 25px;
+    display: flex;
+    width: 10px;
+    flex-direction: column;
+
+    align-items: center;
+    padding: 35px 3px;
+    gap: 10px;
+  }
 }

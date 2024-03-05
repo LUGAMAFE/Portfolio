@@ -5,9 +5,45 @@ import { NeumorphicStylesContext } from "../context/NeumorphicStylesContext";
 import NeumorphicElement from "../neumorphic/NeomorphicElement/NeumorphicElement";
 import style from './sidebarMenu.module.scss';
 export const SideBarMenu = () => {
-    const { handleChangeColorNeon, initialMainColorNeon, initialColorNeonSVG } = useContext(NeumorphicStylesContext);
+    const { handleChangeColorNeon, initialColorNeonSVG } = useContext(NeumorphicStylesContext);
 
     const [isOpen, setIsOpen] = useState(false);
+
+    const initialButtonConfigsX: ExtendedRealNeumorphicElementProps[] = [
+        {
+            id: 'externalButton',
+            className: style.SidebarMenu_button,
+            neumorphicOptions: {
+                form: FormShape.Flat,
+                size: 43,
+                intensity: 0.45,
+                lightSource: 1,
+                distance: 4,
+                blur: 9
+            },
+        },
+
+    ];
+
+    const [buttonConfig, setButtonConfig] = useState(initialButtonConfigsX[0] || null);
+
+    const handleButtonClickX = (id: string | number) => {
+        setButtonConfig(prevButtonConfig =>
+            prevButtonConfig.id === id
+                ? {
+                    ...prevButtonConfig,
+                    neumorphicOptions: {
+                        ...prevButtonConfig.neumorphicOptions,
+                        form: prevButtonConfig.neumorphicOptions
+                            ? prevButtonConfig.neumorphicOptions.form === FormShape.Concave
+                                ? FormShape.Pressed
+                                : FormShape.Concave
+                            : FormShape.Concave
+                    },
+                }
+                : prevButtonConfig
+        );
+    };
 
     useEffect(() => {
         const externalButton = document.getElementById('externalButton');
@@ -87,31 +123,28 @@ export const SideBarMenu = () => {
 
     const [buttonConfigs, setButtonConfigs] = useState(initialButtonConfigs);
 
+
     useEffect(() => {
         setButtonConfigs((currentConfigs) =>
             currentConfigs.map((config) => {
-                // Comprueba si el botón es 'esBoton' antes de aplicar el estilo de degradado
                 if (config.id === 'Opcion1') {
                     return {
                         ...config,
-                        // Aplica el estilo de degradado solo a 'esBoton'
                         style: {
                             ...config.style,
-                            backgroundImage: initialMainColorNeon,
-                            textShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` // Asegúrate de reemplazar <otroColor> con el color final del degradado
+                            backgroundImage: "linear-gradient(90deg, #ff6161 0%, #f6d 100%)",
+                            textShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}`
                         }
                     };
-                } else {
-                    // Para otros botones, devuelve el config sin cambios
+                }
+                else {
                     return config;
                 }
             })
         );
-    }, [initialMainColorNeon]);
-
+    }, []);
     const handleButtonClick = (id: string | number) => {
         handleChangeColorNeon(id)
-
         setButtonConfigs((prev) =>
             prev.map((button) =>
                 button.id === id
@@ -119,14 +152,26 @@ export const SideBarMenu = () => {
                         ...button,
                         neumorphicOptions: {
                             ...button.neumorphicOptions,
-                            form: button.neumorphicOptions
-                                ? button.neumorphicOptions.form === FormShape.Concave
-                                    ? FormShape.Pressed
-                                    : FormShape.Concave
-                                : FormShape.Concave,
+                            form: FormShape.Pressed
                         },
+                        style: {
+                            ...button.style,
+                            backgroundImage: id === "Opcion1" ? "linear-gradient(90deg, #ff6161 0%, #f6d 100%)" : id === "Opcion2" ? "linear-gradient(90deg, #009EFD 0%, #2AF598 100%)" : "linear-gradient(90deg, #FF1741 0%, #FF6174 100%)",
+                            textShadow: `0px 0px 18px ${id === "Opcion1" ? "#ffb9bf" : id === "Opcion2" ? "#509eff" : "#FF355F"}`
+                        }
                     }
-                    : button
+                    : {
+                        ...button,
+                        neumorphicOptions: {
+                            ...button.neumorphicOptions,
+                            form: FormShape.Concave
+                        },
+                        style: {
+                            ...button.style,
+                            backgroundImage: "none",
+                            textShadow: `0px 0px 18px transparent`
+                        }
+                    }
             )
         );
     };
@@ -153,22 +198,16 @@ export const SideBarMenu = () => {
             >
 
                 <NeumorphicElement
-                    className={style.SidebarMenu_button}
-                    id='externalButtonClose'
+                    key={buttonConfig.id}
                     element={'button'}
-                    neumorphicOptions={{
-                        form: FormShape.Level,
-                        size: 55,
-                        intensity: 0.19,
-                        lightSource: 1,
-                        distance: 6,
-                        blur: 11,
-                    }}
-
+                    onClick={() => handleButtonClickX(buttonConfig.id ? buttonConfig.id : '')}
+                    neumorphicOptions={buttonConfig.neumorphicOptions}
+                    className={buttonConfig.className}
+                    id='externalButtonClose'
                 >
                     <img className={style.SidebarMenu_menuSVG} src={crossIcon} alt="circle part of input" />
-
                 </NeumorphicElement>
+
                 <div className={style.SidebarMenu_neuContainer}>
                     {buttonConfigs.map((button, index) => (
                         <div key={index} className="" style={{ display: "flex", gap: "5px" }}>
@@ -188,42 +227,4 @@ export const SideBarMenu = () => {
         </div>
     );
 }
-{/* <div className={style.SidebarMenu_button}>
-    <NeumorphicElement
-        className={style.SidebarMenu_neuContainer}
-        nTestId="SidebarMenu_neuContainer"
-        neumorphicOptions={{
-            form: FormShape.Pressed,
-            size: isChecked ? 196 : 196,
-            intensity: isChecked ? 0.17 : 0.51,
-            lightSource: 3,
-            distance: isChecked ? 20 : 23,
-            blur: isChecked ? 39 : 46,
-        }}
-    >   <input className={style.SidebarMenu_radio} type="radio" id="opcion1" name="opciones" value="Opcion1" onChange={handleChangeColorNeon}></input></NeumorphicElement>
 
-    <NeumorphicElement
-        className={style.SidebarMenu_neuContainer}
-        nTestId="SidebarMenu_neuContainer"
-        neumorphicOptions={{
-            form: FormShape.Pressed,
-            size: isChecked ? 196 : 196,
-            intensity: isChecked ? 0.17 : 0.51,
-            lightSource: 3,
-            distance: isChecked ? 20 : 23,
-            blur: isChecked ? 39 : 46,
-        }}
-    >   <input className={style.SidebarMenu_radio} type="radio" id="opcion1" name="opciones" value="Opcion1" onChange={handleChangeColorNeon}></input></NeumorphicElement>
-    <NeumorphicElement
-        className={style.SidebarMenu_neuContainer}
-        nTestId="SidebarMenu_neuContainer"
-        neumorphicOptions={{
-            form: FormShape.Pressed,
-            size: isChecked ? 196 : 196,
-            intensity: isChecked ? 0.17 : 0.51,
-            lightSource: 3,
-            distance: isChecked ? 20 : 23,
-            blur: isChecked ? 39 : 46,
-        }}
-    >   <input className={style.SidebarMenu_radio} type="radio" id="opcion1" name="opciones" value="Opcion1" onChange={handleChangeColorNeon}></input></NeumorphicElement>
-</div> */}

@@ -18,14 +18,14 @@ const SkillSection = () => {
     ScrollTrigger.create({
       trigger: `.${style.Skills}`,
       pin: ".box-c",
-      start: "20% 60%",
+      start: "17% 60%",
       end: "+=1750",
       markers: true
     });
     ScrollTrigger.create({
       trigger: ".box-b",
       pin: true,
-      start: "49% center",
+      start: "45% center",
       end: "+=1750",
       markers: true
     });

@@ -24,9 +24,12 @@ export const PortfolioApp = () => {
   const lastClicked = useRef(null);
   const arrays = {
     array1: [
-      '#seccion0', '#seccion1', '#seccion2', '#seccion3', '#seccion4', '#seccion5', '#seccion6'
+      '#seccion0', '#seccion1', '#project3'
     ],
     array2: [
+      '#project1', '#project2', '#project3'
+    ],
+    array3: [
       '#project1', '#project2', '#project3', '#project4'
     ]
   }

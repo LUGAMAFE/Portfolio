@@ -9,14 +9,13 @@ interface ExtendedRealNeumorphicElementProps extends RealNeumorphicElementProps 
   textClassName: string;
 }
 export const LanguageSwitcher = () => {
-  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
+  const { initialMainColorNeon, initialColorNeonSVG } = useContext(NeumorphicStylesContext);
 
   const initialButtonConfigs: ExtendedRealNeumorphicElementProps[] = [
     {
       id: 'esBoton',
       text: 'Español',
       className: style.LanguageSwitcher_esButton,
-
       textClassName: style.LanguageSwitcher_esButtonText,
       neumorphicOptions: {
         form: FormShape.Flat,
@@ -29,7 +28,6 @@ export const LanguageSwitcher = () => {
       id: 'InButton',
       text: 'English',
       className: style.LanguageSwitcher_enButton,
-
       textClassName: style.LanguageSwitcher_enButtonText,
       neumorphicOptions: {
         form: FormShape.Pressed,
@@ -44,14 +42,13 @@ export const LanguageSwitcher = () => {
   useEffect(() => {
     setButtonConfigs((currentConfigs) =>
       currentConfigs.map((config) => {
-        // Comprueba si el botón es 'esBoton' antes de aplicar el estilo de degradado
         if (config.id === 'esBoton') {
           return {
             ...config,
-
             style: {
               ...config.style,
-              backgroundImage: initialMainColorNeon, // Asegúrate de reemplazar <otroColor> con el color final del degradado
+              backgroundImage: initialMainColorNeon,
+              textShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}`
             }
           };
         } else {
