@@ -48,14 +48,14 @@ export const LanguageSwitcher = () => {
         if (config.id === 'esBoton') {
           return {
             ...config,
-            // Aplica el estilo de degradado solo a 'esBoton'
+
             style: {
               ...config.style,
               backgroundImage: initialMainColorNeon, // Asegúrate de reemplazar <otroColor> con el color final del degradado
             }
           };
         } else {
-          // Para otros botones, devuelve el config sin cambios
+
           return config;
         }
       })

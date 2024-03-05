@@ -11,7 +11,7 @@ import { ImageComparator } from './ImageComparator';
 import style from './intro.module.scss';
 gsap.registerPlugin(SplitText, TextPlugin);
 const IntroSection = () => {
-  const { initialMainColorNeon, initialColorNeonSVG } = useContext(NeumorphicStylesContext);
+  const { initialMainColorNeon, initialColorNeonSVG, isChecked } = useContext(NeumorphicStylesContext);
   const splitTextElement = useRef();
   // Añade más estados si hay más elementos strong
 
@@ -37,25 +37,8 @@ const IntroSection = () => {
 
 
 
-    const mysplitText2 = new SplitText(`.${style.Intro_strong}`, { type: "words" });
-    const chars2 = mysplitText2.words;
-    tl.from(chars2, {
-      transformOrigin: "50% top",
-      rotationX: 90,
-      y: -50,
 
-      duration: 1,
-      ease: 'linear', delay: 2,
 
-    })
-      .to(chars2, {
-        transformOrigin: "50% top",
-        rotationX: -90,
-        y: 100,
-        stagger: 1,
-        duration: 1,
-        ease: 'linear', delay: 4
-      })
   }, []);
 
 
@@ -65,11 +48,11 @@ const IntroSection = () => {
       className={style.Intro}
       neumorphicOptions={{
         form: FormShape.Pressed,
-        size: 500,
-        intensity: 0.65,
+        size: isChecked ? 44 : 500,
+        intensity: isChecked ? 0.47 : 0.65,
         lightSource: 3,
-        distance: 45,
-        blur: 90,
+        distance: isChecked ? 4 : 45,
+        blur: isChecked ? 39 : 90,
       }}
     >
       <ImageComparator />
@@ -80,11 +63,11 @@ const IntroSection = () => {
         </p>
         <div className={style.Intro_lines}>
 
-          <div style={{ background: initialMainColorNeon }} className={style.Intro_line1}></div>
-          <div style={{ background: initialMainColorNeon }} className={style.Intro_line2}></div>
+          <div style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }} className={style.Intro_line1}></div>
+          <div style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }} className={style.Intro_line2}></div>
         </div>
         <p className={style.Intro_text} >
-          <strong className={style.Intro_strong}>Hello</strong>
+          <strong className={style.Intro_strong}>Programador y Diseñador de sitios web</strong>
         </p>
         <div className={style.Intro_ilustration}>
           <img className={style.Intro_ilustrationImage} src={neomorphicSVG} alt="neomorphic svg shape" />

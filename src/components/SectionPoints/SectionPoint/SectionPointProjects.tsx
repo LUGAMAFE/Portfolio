@@ -8,7 +8,7 @@ export const
             <button className={style.SectionPoint___projects} name={`${classPointer}`} onClick={onClick} onMouseEnter={onMouseOver} onMouseLeave={handleMouseLeave}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
                     <g filter="url(#filter0_d_42_14)">
-                        <circle cx="18" cy="18" r="10" fill="url(#paint0_linear_42_14)" />
+                        <circle cx="18" cy="18" r="6" fill="url(#paint0_linear_42_14)" />
                     </g>
                     <g filter="url(#filter0_d_42_14)">
                         <circle id={`svgWhiteProjects${index}`} cx="18" cy="18" r="0" fill="white" />

@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const Skill = ({ skillText, endValue }: SkillProps) => {
   const rangerRef = React.useRef<HTMLDivElement>(null);
   const [values, setValues] = React.useState<ReadonlyArray<number>>([0]);
-  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
+  const { initialMainColorNeon, isChecked } = useContext(NeumorphicStylesContext);
   const sliderValue = useRef({ value: 0 });
   useGSAP(() => {
     const trigger = ScrollTrigger.create({
@@ -95,12 +95,13 @@ export const Skill = ({ skillText, endValue }: SkillProps) => {
         <div className={style.Skill_chargeBar}>
           <NeumorphicElement
             neumorphicOptions={{
+
               form: FormShape.Pressed,
-              size: 102,
-              intensity: 0.76,
+              size: isChecked ? 22 : 102,
+              intensity: isChecked ? 0.51 : 0.76,
               lightSource: 1,
-              distance: 9,
-              blur: 18,
+              distance: isChecked ? 2 : 9,
+              blur: isChecked ? 3 : 18,
             }}
             className={style.Skill_nullPart}
           ></NeumorphicElement>

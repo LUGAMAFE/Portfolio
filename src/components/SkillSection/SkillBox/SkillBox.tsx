@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import iconSkill from '../../../../assets/images/Icono.svg';
 import { FormShape } from '../../../types/neomorphism';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import { Skill } from '../Skill';
 
+import { NeumorphicStylesContext } from '../../context/NeumorphicStylesContext';
 import style from './skillBox.module.scss';
 
 interface SkillBoxProps {
@@ -20,27 +22,30 @@ export const SkillBox = ({ text }: SkillBoxProps) => {
     { name: 'Python', endValue: 60 },
     // ... otros skills con sus respectivos valores
   ];
+  const { isChecked } = useContext(NeumorphicStylesContext);
   return (
+
     <div className={style.SkillBox}>
       <NeumorphicElement
         neumorphicOptions={{
-          form: FormShape.Convex,
-          size: 500,
-          intensity: 0.65,
+          form: isChecked ? FormShape.Level : FormShape.Convex,
+          size: isChecked ? 85 : 500,
+          intensity: isChecked ? 0.23 : 0.65,
           lightSource: 1,
-          distance: 45,
-          blur: 90,
+          distance: isChecked ? 14 : 45,
+          blur: isChecked ? 28 : 90,
         }}
         className={style.SkillBox_section}
       >
         <NeumorphicElement
           neumorphicOptions={{
-            form: FormShape.Convex,
-            size: 102,
-            intensity: 0.76,
+
+            form: isChecked ? FormShape.Level : FormShape.Convex,
+            size: isChecked ? 36 : 102,
+            intensity: isChecked ? 0.39 : 0.76,
             lightSource: 1,
-            distance: 9,
-            blur: 18,
+            distance: isChecked ? 8 : 9,
+            blur: isChecked ? 16 : 18,
           }}
           className={style.SkillBox_titleContainer}
         >

@@ -17,7 +17,7 @@
     border-radius: 12px;
     background: $color-gradient-pink-linear-horizontal;
     box-shadow: $base-box-shadow-neon;
-    cursor: pointer;
+    cursor: none;
   }
   &_buttonText {
     color: $color-white;
@@ -37,9 +37,9 @@
     border-radius: 12px;
     color: $color-placeholder-contact-input-text-area;
     font-family: Nunito;
-    font-size: 25px;
+    font-size: 25px !important;
     font-style: normal;
-    font-weight: $weight-normal;
+    font-weight: $weight-bold !important;
     letter-spacing: -0.5px;
     line-height: normal;
   }

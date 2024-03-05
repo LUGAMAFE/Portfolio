@@ -27,7 +27,7 @@ input[type='range'] {
     border-radius: 3px;
     animate: 0.2s;
     background: var(--textColorOpposite);
-    cursor: pointer;
+    // cursor: none;
   }
   @mixin slider-thumb {
     width: 12px;
@@ -38,7 +38,7 @@ input[type='range'] {
     -webkit-appearance: none;
     background: var(--textColorOpposite);
     box-shadow: $base-box-shadow-inputs-configuration;
-    cursor: pointer;
+    // cursor: none;
   }
   &::-webkit-slider-thumb {
     @include slider-thumb();
@@ -120,7 +120,7 @@ input[type='range'] {
     border-radius: 1.3px;
     animate: 0.2s;
     background: var(--textColorOpposite);
-    cursor: pointer;
+    // cursor: none;
   }
   &::-moz-range-thumb,
   &::-ms-thumb {
@@ -130,7 +130,7 @@ input[type='range'] {
     border-radius: 50%;
     background: var(--textColorOpposite);
     box-shadow: $base-box-shadow-inputs-configuration;
-    cursor: pointer;
+    // cursor: none;
   }
   &::-ms-track {
     width: 100%;
@@ -140,7 +140,7 @@ input[type='range'] {
     animate: 0.2s;
     background: transparent;
     color: transparent;
-    cursor: pointer;
+    // cursor: none;
   }
   &::-ms-fill-lower,
   &::-ms-fill-upper {
@@ -151,7 +151,7 @@ input[type='range'] {
 
   &:disabled {
     opacity: 0.3;
-    pointer-events: none;
+    none-events: none;
   }
 }
 
@@ -173,7 +173,7 @@ input[type='color'] {
   border: 1px solid var(--textColorOpposite);
   -webkit-appearance: none;
 
-  cursor: pointer;
+  // cursor: none;
 
   &::-webkit-color-swatch-wrapper {
     padding: 0;
@@ -192,7 +192,7 @@ input[type='checkbox'] {
   margin-left: 5px;
   -webkit-appearance: none;
   appearance: none;
-  cursor: pointer;
+  // cursor: none;
   transition: 0.2s;
 }
 

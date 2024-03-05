@@ -2,15 +2,16 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap-trial/ScrollTrigger';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { FormShape } from '../../types/neomorphism';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { SkillBox } from './SkillBox';
 import style from './skills.module.scss';
 gsap.registerPlugin(ScrollTrigger);
 
 const SkillSection = () => {
-
+  const { isChecked } = useContext(NeumorphicStylesContext);
   const components = useRef();
   const array = ['Habilidades de programacion', 'Habilidades extra'];
   useGSAP(() => {
@@ -34,11 +35,11 @@ const SkillSection = () => {
     <NeumorphicElement
       neumorphicOptions={{
         form: FormShape.Pressed,
-        size: 500,
-        intensity: 0.65,
+        size: isChecked ? 44 : 500,
+        intensity: isChecked ? 0.47 : 0.65,
         lightSource: 3,
-        distance: 45,
-        blur: 90,
+        distance: isChecked ? 4 : 45,
+        blur: isChecked ? 39 : 90,
       }}
       className={style.Skills}
       id="seccion3"

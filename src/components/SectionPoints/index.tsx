@@ -15,7 +15,7 @@ export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave })
         const panels = gsap.utils.toArray(`.${styles.SectionPoint___projects}`);
         panels.forEach((panel, index) => {
             const anim = gsap.to(panel, {
-                x: -50 * (index + 1),
+                y: +20 * (index + 1),
                 ease: "linear",
                 duration: 1 + 0.7,
                 paused: true,

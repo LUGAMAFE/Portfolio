@@ -1,19 +1,22 @@
+import { useContext } from 'react';
 import neonContainer from '../../../assets/images/Vector-13.svg';
 import { FormShape } from '../../types/neomorphism';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { ContactInformation } from './ContactInformation';
 import { Form } from './Form';
 import style from './contact.module.scss';
 const ContactSection = () => {
+  const { isChecked } = useContext(NeumorphicStylesContext);
   return (
     <NeumorphicElement
       neumorphicOptions={{
         form: FormShape.Pressed,
-        size: 500,
-        intensity: 0.65,
+        size: isChecked ? 44 : 500,
+        intensity: isChecked ? 0.47 : 0.65,
         lightSource: 3,
-        distance: 45,
-        blur: 90,
+        distance: isChecked ? 4 : 45,
+        blur: isChecked ? 39 : 90,
       }}
       id="seccion6"
       className={style.Contact}

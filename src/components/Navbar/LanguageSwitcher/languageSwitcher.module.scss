@@ -8,6 +8,7 @@
   height: 50px;
   padding: 8px;
   border-radius: 16px;
+
   &_buttons {
     display: flex;
     width: 352px;
@@ -22,6 +23,7 @@
     border: 1px solid var(--light-color);
     border-radius: 8px;
     margin-right: 5px;
+    cursor: none;
   }
   &_esButtonText {
     width: 100%;
@@ -43,6 +45,7 @@
     height: 34px;
     border: none;
     border-radius: 8px;
+    cursor: none;
   }
   &_enButtonText {
     width: 100%;

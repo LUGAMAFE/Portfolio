@@ -14,8 +14,8 @@ const CustomCursor = () => {
             });
         };
 
-        // Función para aplicar throttling
-        const throttledMoveCursor = throttle(moveCursor, 16); // Aproximadamente 60fps
+
+        const throttledMoveCursor = throttle(moveCursor, 16);
 
         window.addEventListener('mousemove', throttledMoveCursor);
 
@@ -24,7 +24,14 @@ const CustomCursor = () => {
         };
     }, { scope: cursorRef });
 
-    return <div ref={cursorRef} style={cursorStyles}></div>;
+    return <div ref={cursorRef} style={cursorStyles}>
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g >
+                <circle cx="25.5" cy="25.5" r="2.5" fill="white" />
+                <circle cx="25" cy="25" r="23.5" stroke="white" strokeWidth="3" />
+            </g>
+        </svg>
+    </div>;
 };
 
 const cursorStyles = {
@@ -34,13 +41,13 @@ const cursorStyles = {
     width: '50px',
     height: '50px',
     borderRadius: '50%',
-    backgroundColor: 'black',
-    pointerEvents: 'none', // Asegúrate de que el cursor no interfiera con otros elementos
+    mixBlendMode: "difference",
+    border: "5px solid black",
+    pointerEvents: 'none',
     zIndex: 9999,
-    transform: 'translate(-50%, -50%)', // Centra el cursor
+    transform: 'translate(-50%, -50%)',
 };
 
-// Función de throttling para limitar la tasa de ejecución de una función
 function throttle(func, limit) {
     let inThrottle;
     return function () {

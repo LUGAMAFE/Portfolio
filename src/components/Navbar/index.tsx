@@ -9,18 +9,18 @@ import style from './navbar.module.scss';
 
 
 const Navbar = () => {
-  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
+  const { initialMainColorNeon, initialColorNeonSVG, isChecked } = useContext(NeumorphicStylesContext);
   return (
     <NeumorphicElement
       className={style.Navbar}
       nTestId="navbar"
       neumorphicOptions={{
         form: FormShape.Pressed,
-        size: 196,
-        intensity: 0.51,
+        size: isChecked ? 196 : 196,
+        intensity: isChecked ? 0.17 : 0.51,
         lightSource: 3,
-        distance: 23,
-        blur: 46,
+        distance: isChecked ? 20 : 23,
+        blur: isChecked ? 39 : 46,
       }}
     >
       <div className={style.Navbar_logo}>
@@ -45,7 +45,7 @@ const Navbar = () => {
           <img className={style.Navbar_hamburger} src={hamburgerIcon} alt="circle part of input" />
         </NeumorphicElement>
       </div>
-      <div className={style.Navbar_bottomNeon} style={{ background: initialMainColorNeon }}></div>
+      <div className={style.Navbar_bottomNeon} style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }}></div>
     </NeumorphicElement>
   );
 };

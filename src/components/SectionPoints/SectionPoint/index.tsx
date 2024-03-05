@@ -22,7 +22,7 @@ export const SectionPoint = ({ onClick, classPointer, onMouseOver, index, handle
                 <defs>
                     <filter id="filter0_d_42_14" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="100" result="hardAlpha" />
                         <feOffset />
                         <feGaussianBlur stdDeviation="4" />
                         <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.726042 0 0 0 0 0.748726 0 0 0 0.61 0" />

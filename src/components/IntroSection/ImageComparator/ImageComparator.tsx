@@ -2,14 +2,16 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import luisImage from '../../../../assets/images/luis.png';
 import { FormShape } from '../../../types/neomorphism';
+import { NeumorphicStylesContext } from '../../context/NeumorphicStylesContext';
 import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './ImageComparator.module.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 export const ImageComparator = () => {
+  const { isChecked } = useContext(NeumorphicStylesContext);
   const miElemento = useRef(null);
 
   useGSAP(() => {
@@ -37,11 +39,11 @@ export const ImageComparator = () => {
         className={style.ImageComparator_imageComparer}
         neumorphicOptions={{
           form: FormShape.Convex,
-          size: 439,
-          intensity: 0.9,
+          size: isChecked ? 378 : 439,
+          intensity: isChecked ? 0.28 : 0.9,
           lightSource: 1,
-          distance: 44,
-          blur: 88,
+          distance: isChecked ? 38 : 44,
+          blur: isChecked ? 16 : 88,
         }}
       >
       </NeumorphicElement>

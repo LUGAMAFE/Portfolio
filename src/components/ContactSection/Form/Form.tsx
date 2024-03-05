@@ -7,7 +7,7 @@ import style from './form.module.scss';
 
 export const Form = () => {
   const InputsArray = ['Nombre', 'Correo Electronico', 'Telefono', 'Razon de Contacto'];
-  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
+  const { initialMainColorNeon, isChecked } = useContext(NeumorphicStylesContext);
   return (
     <form className={style.Form}>
       {InputsArray.map((placeHolder, index) => {
@@ -16,15 +16,16 @@ export const Form = () => {
 
       <NeumorphicElement
         neumorphicOptions={{
+
           form: FormShape.Pressed,
-          size: 174,
-          intensity: 0.55,
+          size: isChecked ? 49 : 174,
+          intensity: isChecked ? 0.23 : 0.55,
           lightSource: 1,
-          distance: 13,
-          blur: 23,
+          distance: isChecked ? 5 : 13,
+          blur: isChecked ? 10 : 23,
         }}
         element={'textarea'}
-        placeholder="mensaje"
+        placeholder="Mensaje"
         className={style.Form_textarea}
       />
       <button className={style.Form_button} style={{ background: initialMainColorNeon }}>

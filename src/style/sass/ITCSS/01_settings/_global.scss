@@ -44,7 +44,7 @@ $base-text-shadow-neon: 0px 0px 4px $color-box-shadow-neon-pink;
 $base-text-shadow-neon-number: 0px 0px 4px $color-box-shadow-neon-pink-number;
 //Box-shadows
 
-$base-box-shadow-neon: 0px 0px 4px 0px $color-box-shadow-neon-pink;
+$base-box-shadow-neon: 0px 0px 18px 0px $color-box-shadow-neon-pink;
 $base-box-shadow-image-comparator: 0px 0px 10px $color-white;
 $base-box-shadow-gray: 0px 0px 3px $color-light-gray-text-shadow;
 $base-box-shadow-toggle-switch: inset 2px 2px 8px $color-box-shadow-color-switcher;
@@ -78,7 +78,7 @@ body {
 html,
 body {
   margin: 0;
-  cursor: none;
+  // cursor: none;
 }
 
 .container {
@@ -86,7 +86,6 @@ body {
   width: 400vw;
   height: 100vh;
   flex-wrap: wrap;
-  padding-top: 90px;
 }
 
 .panel {
@@ -99,15 +98,4 @@ body {
 }
 h1 span {
   color: #6fb936;
-}
-.flair {
-  position: fixed;
-  z-index: 999999;
-  top: 0;
-  left: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: black;
-  transform: translate(-50%, -50%);
 }

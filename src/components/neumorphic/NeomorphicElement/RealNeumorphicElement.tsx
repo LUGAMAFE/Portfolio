@@ -1,4 +1,6 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import { NeomorphicElementShape, RealNeumorphicElementProps } from '../../../types/neomorphism';
 import {
@@ -57,6 +59,8 @@ const RealNeumorphicElement = ({
     [form, color, size, intensity, lightSource, distance, blur, neumorphicOptions]
   );
 
+
+
   useDeepCompareEffect(() => {
     setContextConfig(options);
   }, [options]);
@@ -77,7 +81,17 @@ const RealNeumorphicElement = ({
   const [tooltipReferenceProps, setTooltipReferenceProps] = useState({});
   const [classesToApply, setClassesToApply] = useState<string>(styles.softShadow);
   const [defaultCssVariables, setDefaultCssVariables] = useState({});
+  const neuRef = useRef(null);
+  useGSAP(() => {
 
+    gsap.to(neuRef.current, {
+
+      // value: endValue, // Valor final
+      // duration: 2, // Duración de la animación
+      // ease: "power1.inOut", // Suavizado
+      // onUpdate: () => setValues([sliderValue.current.value]), // Actualiza el estado en cada paso
+    });
+  }, []);
   useEffect(() => {
     if (!mainColorContext) return;
     if (contextConfig.form == null) {
@@ -181,7 +195,11 @@ const RealNeumorphicElement = ({
   return (
     <>
       <Element
-        ref={(node: HTMLElement | null) => setRefElement(node)}
+
+        ref={(node: HTMLElement | null) => {
+          setRefElement(node);
+          neuRef.current = node; // Asigna el nodo a neuRef.current también.
+        }}
         style={{ ...defaultCssVariables, ...style }}
         className={`neuElement ${styles.softShadow} ${classesToApply} ${className}`}
         {...tooltipReferenceProps}

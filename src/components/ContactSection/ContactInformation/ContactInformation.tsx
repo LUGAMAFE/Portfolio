@@ -6,7 +6,7 @@ import NeumorphicElement from '../../neumorphic/NeomorphicElement/NeumorphicElem
 import style from './ContactInformation.module.scss';
 
 export const ContactInformation = () => {
-  const { initialMainColorNeon } = useContext(NeumorphicStylesContext);
+  const { initialMainColorNeon, isChecked } = useContext(NeumorphicStylesContext);
   return (
     <div className={style.ContactInformation}>
       <p className={style.ContactInformation_text}>Contactame y veamos como puedo ayudarle a tu proyecto o empresa.</p>
@@ -15,23 +15,25 @@ export const ContactInformation = () => {
       </p>
       <NeumorphicElement
         neumorphicOptions={{
-          form: FormShape.Convex,
-          size: 82,
-          intensity: 0.65,
+
+          form: isChecked ? FormShape.Level : FormShape.Convex,
+          size: isChecked ? 99 : 82,
+          intensity: isChecked ? 0.16 : 0.65,
           lightSource: 1,
-          distance: 8,
-          blur: 16,
+          distance: isChecked ? 10 : 8,
+          blur: isChecked ? 15 : 16,
         }}
         className={style.ContactInformation_numberContainer}
       >
         <NeumorphicElement
           neumorphicOptions={{
-            form: FormShape.Concave,
-            size: 88,
-            intensity: 0.65,
+
+            form: isChecked ? FormShape.Level : FormShape.Concave,
+            size: isChecked ? 34 : 88,
+            intensity: isChecked ? 0.3 : 0.65,
             lightSource: 1,
-            distance: 9,
-            blur: 18,
+            distance: isChecked ? 3 : 9,
+            blur: isChecked ? 8 : 18,
           }}
           className={style.ContactInformation_socialIconContainer}
         >

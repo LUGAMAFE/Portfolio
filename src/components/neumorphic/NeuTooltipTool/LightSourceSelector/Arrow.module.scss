@@ -5,7 +5,7 @@
   height: 12px;
   border: $color-border-light-source-selector 1px solid;
   background-color: transparent;
-  cursor: pointer;
+  // cursor: pointer;
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.active {
     background-color: $color-active-light-source-selector;

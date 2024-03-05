@@ -1,13 +1,16 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { FormShape } from '../../types/neomorphism';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import { CarrouselProjects } from './CarrouselProjects';
 import { DescriptionProject } from './DescriptionProject';
 import style from './projects.module.scss';
 gsap.registerPlugin(ScrollTrigger)
 const ProyectSection = () => {
-
+  const { isChecked } = useContext(NeumorphicStylesContext);
   const container = useRef();
   useGSAP(() => {
     const slider = document.querySelector(".container")
@@ -26,33 +29,88 @@ const ProyectSection = () => {
   }, { scope: container });
 
   return (
-    <div ref={container} id="seccion2">
-      <div className="container" >
+    <div id="seccion2" ref={container} className="container">
+      <NeumorphicElement
+        id="seccion1"
+        neumorphicOptions={{
+          form: FormShape.Pressed,
+          size: isChecked ? 44 : 500,
+          intensity: isChecked ? 0.47 : 0.65,
+          lightSource: 3,
+          distance: isChecked ? 4 : 45,
+          blur: isChecked ? 39 : 90,
+        }}
+        style={{ paddingTop: "90px" }}
+      >
+
         <div id={"project0"} className="description panel" >
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-        <div id={"project1"} className="panel red">
+      </NeumorphicElement>
+      <NeumorphicElement
+        id="seccion1"
+        neumorphicOptions={{
+          form: FormShape.Pressed,
+          size: isChecked ? 44 : 500,
+          intensity: isChecked ? 0.47 : 0.65,
+          lightSource: 3,
+          distance: isChecked ? 4 : 45,
+          blur: isChecked ? 39 : 90,
+        }}
+        style={{ paddingTop: "90px" }}
+      >
+
+        <div id={"project0"} className="description panel" >
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-        <div id={"project2"} className="panel orange">
+      </NeumorphicElement>
+      <NeumorphicElement
+        id="seccion1"
+        neumorphicOptions={{
+          form: FormShape.Pressed,
+          size: isChecked ? 44 : 500,
+          intensity: isChecked ? 0.47 : 0.65,
+          lightSource: 3,
+          distance: isChecked ? 4 : 45,
+          blur: isChecked ? 39 : 90,
+        }}
+        style={{ paddingTop: "90px" }}
+      >
+
+        <div id={"project0"} className="description panel" >
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-        <div id={"project3"} className="panel purple">
+      </NeumorphicElement>
+      <NeumorphicElement
+        id="seccion1"
+        neumorphicOptions={{
+          form: FormShape.Pressed,
+          size: isChecked ? 44 : 500,
+          intensity: isChecked ? 0.47 : 0.65,
+          lightSource: 3,
+          distance: isChecked ? 4 : 45,
+          blur: isChecked ? 39 : 90,
+        }}
+        style={{ paddingTop: "90px" }}
+      >
+
+        <div id={"project0"} className="description panel" >
           <div className={style.Projects_projectsContainer}>
             <CarrouselProjects />
             <DescriptionProject />
           </div>
         </div>
-      </div>
+      </NeumorphicElement>
+
     </div>
 
 

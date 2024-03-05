@@ -1,19 +1,22 @@
+import { useContext } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { codigoEjemplo } from '../../data/codeSintaxHighlighter';
 import { FormShape } from '../../types/neomorphism';
+import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
 import style from './code.module.scss';
 const CodeSection = () => {
+  const { isChecked } = useContext(NeumorphicStylesContext);
   return (
     <NeumorphicElement
       neumorphicOptions={{
         form: FormShape.Pressed,
-        size: 500,
-        intensity: 0.65,
+        size: isChecked ? 44 : 500,
+        intensity: isChecked ? 0.47 : 0.65,
         lightSource: 3,
-        distance: 45,
-        blur: 90,
+        distance: isChecked ? 4 : 45,
+        blur: isChecked ? 39 : 90,
       }}
       id="seccion5"
       className={style.Code}
