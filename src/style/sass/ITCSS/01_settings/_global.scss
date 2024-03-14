@@ -125,3 +125,44 @@ h1 span {
   clip-path: inset(0px 220px 0px 0px);
   filter: saturate(0) contrast(1.5);
 }
+
+.containers {
+  display: flex;
+  width: 600%;
+  height: 100%;
+  flex-wrap: nowrap;
+}
+
+#masthead {
+  position: fixed;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#masthead a {
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.blue {
+  background: blue;
+}
+
+.orange {
+  background: orange;
+}
+
+.purple {
+  background: purple;
+}
+.red {
+  background: red;
+}
+.green {
+  background: green;
+}
+
+.gray {
+  background: gray;
+}

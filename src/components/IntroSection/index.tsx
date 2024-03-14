@@ -34,11 +34,6 @@ const IntroSection = () => {
       duration: 2.5,
       delay: 0.8
     });
-
-
-
-
-
   }, []);
 
 

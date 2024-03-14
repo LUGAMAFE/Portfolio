@@ -5,6 +5,13 @@ declare const classNames: {
   readonly gallery: 'gallery';
   readonly dragger: 'dragger';
   readonly clipped: 'clipped';
+  readonly containers: 'containers';
+  readonly blue: 'blue';
+  readonly orange: 'orange';
+  readonly purple: 'purple';
+  readonly red: 'red';
+  readonly green: 'green';
+  readonly gray: 'gray';
   readonly Skill: 'Skill';
   readonly Skill_skillText: 'Skill_skillText';
   readonly Skill_chargeBarContainer: 'Skill_chargeBarContainer';
