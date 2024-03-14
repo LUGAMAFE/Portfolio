@@ -2,6 +2,9 @@ declare const classNames: {
   readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
+  readonly gallery: 'gallery';
+  readonly dragger: 'dragger';
+  readonly clipped: 'clipped';
   readonly Skill: 'Skill';
   readonly Skill_skillText: 'Skill_skillText';
   readonly Skill_chargeBarContainer: 'Skill_chargeBarContainer';

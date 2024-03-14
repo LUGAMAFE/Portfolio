@@ -13,11 +13,11 @@
     border-radius: 0px 299px 299px 0px;
   }
   &_circle {
+    overflow: hidden;
     width: 554px;
     height: 554px;
     border: 6px solid $color-middle-white;
     border-radius: 50%;
-
     filter: drop-shadow($base-box-shadow-image-comparator);
   }
   &_line {

@@ -27,10 +27,10 @@ export const PortfolioApp = () => {
       '#seccion0', '#seccion1', '#project3'
     ],
     array2: [
-      '#project1', '#project2', '#project3'
+      '#project1', '#project2', '#project3', '#project4'
     ],
     array3: [
-      '#project1', '#project2', '#project3', '#project4'
+      '#seccion4', '#seccion5', '#seccion6', '#seccion7'
     ]
   }
 

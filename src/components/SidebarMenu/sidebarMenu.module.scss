@@ -6,44 +6,45 @@
   z-index: 1;
   top: 0;
   right: 0;
+  display: flex;
   width: 0;
   height: 100%;
+  flex-direction: column;
   background-color: #111;
+
   overflow-x: hidden;
   transition: 0.5s;
   &_button {
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
     border: 1px solid var(--light-color);
-    border-radius: 10px;
+    border-radius: 16px;
     margin: 10px;
     cursor: none;
   }
   &_menuSVG {
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 75%;
     color: white;
   }
   &_neuContainer {
     display: flex;
     width: 300px;
-    height: 200px;
+    height: 170px;
     flex-direction: column;
-    padding: 20px;
+    justify-content: space-between;
+    margin: 26px;
     cursor: none;
-    gap: 20px;
   }
   &_radio {
     width: 40px;
-    height: 34px;
+    height: 37px;
     border: 1px solid var(--light-color);
     border-radius: 50%;
     margin-right: 5px;
     cursor: none;
   }
   &_esButtonText {
-    width: 100%;
-    height: 100%;
     background: $color-white;
     -webkit-background-clip: text;
     background-clip: text;
@@ -55,5 +56,58 @@
     line-height: 30px;
     -webkit-text-fill-color: transparent;
     text-shadow: transparent;
+  }
+  &_sectionsContainer {
+    display: flex;
+    width: 170px;
+    height: 350px;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+    gap: 10px;
+  }
+  &_listElement {
+    display: flex;
+    width: 240px;
+    height: 50px;
+    align-items: center;
+    border-radius: 16px;
+    margin: 0px;
+    &:hover {
+      background: #111;
+    }
+  }
+  &_listElementText {
+    background: $color-white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: 'Nunito';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    line-height: 30px;
+    text-align: center;
+    -webkit-text-fill-color: transparent;
+  }
+  &_imageContainer {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  &_listImage {
+    width: 50%;
+    height: 50%;
+    color: white;
+  }
+  &_divider {
+    width: 85%;
+    height: 2px;
+    align-self: center;
+    border-radius: 16px;
+    background: gray;
+    opacity: 70%;
   }
 }
