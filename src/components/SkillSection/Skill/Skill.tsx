@@ -19,7 +19,7 @@ export const Skill = ({ skillText, endValue }: SkillProps) => {
   const sliderValue = useRef({ value: 0 });
   useGSAP(() => {
     const trigger = ScrollTrigger.create({
-      markers: true,
+      // markers: true,
       trigger: `.${styleskills.Skills}`,
       start: "25% 60%",
       end: "+=1750",

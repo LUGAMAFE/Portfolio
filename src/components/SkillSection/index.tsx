@@ -20,14 +20,14 @@ const SkillSection = () => {
       pin: ".box-c",
       start: "17% 60%",
       end: "+=1750",
-      markers: true
+      // markers: true
     });
     ScrollTrigger.create({
       trigger: ".box-b",
       pin: true,
       start: "45% center",
       end: "+=1750",
-      markers: true
+      // markers: true
     });
 
   }, { scope: components });

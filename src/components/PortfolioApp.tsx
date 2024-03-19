@@ -4,7 +4,17 @@ import gsap from 'gsap';
 import ScrollSmoother from 'gsap-trial/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
+import BrandsSection from './BrandsSection';
+import CodeSection from './CodeSection';
+import ContactSection from './ContactSection';
+import CustomCursor from './CustomCursor';
+import IntroSection from './IntroSection';
+import Navbar from './Navbar';
+import PresentationSection from './PresentationSection';
 import ProjectSection from './ProjectSection';
+import { SectionPoints } from './SectionPoints';
+import { SideBarMenu } from './SidebarMenu';
+import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export const PortfolioApp = () => {
@@ -12,22 +22,16 @@ export const PortfolioApp = () => {
   const timelines = useRef({});
   const timelineClicked = useRef({});
   const lastClicked = useRef(null);
-  const arrays = {
-    array1: [
-      '#seccion0', '#seccion1', '#seccion2'
-    ],
-    array2: [
-      '#project1', '#project2', '#project3'
-    ],
-    array3: [
-      '#seccion3', '#seccion4', '#seccion5', '#seccion6'
-    ]
-  }
+
 
   const componente = useRef();
   const smoother = useRef();
 
   const { contextSafe } = useGSAP(() => {
+    smoother.current = ScrollSmoother.create({
+      smooth: 2,
+      effects: true,
+    });
 
   }, { scope: componente, revertOnUpdate: true });
 
@@ -108,10 +112,21 @@ export const PortfolioApp = () => {
   return (
     <StyleProvider>
       <div ref={componente}>
-
-
-        <ProjectSection />
-
+        <CustomCursor />
+        <SectionPoints onClick={handleClick} onMouseOver={handleMouseOver} handleMouseLeave={handleMouseLeave} handleClickProjects={handleClickProjects} handleMouseOverProjects={handleMouseOverProjects} />
+        <Navbar />
+        <SideBarMenu />
+        <div id="smooth-wrapper"  >
+          <div id="smooth-content" >
+            <IntroSection />
+            <PresentationSection />
+            <ProjectSection />
+            <SkillSection />
+            <BrandsSection />
+            <CodeSection />
+            <ContactSection />
+          </div>
+        </div>
       </div>
     </StyleProvider>
   );

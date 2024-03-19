@@ -12,7 +12,7 @@ export const Abilities = () => {
       xPercent: 10,
       duration: 1,
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: `.${style.Abilities_text}`,
         start: "center center", // Empieza la animación cuando el elemento está en la parte superior de la pantalla
         end: "center center", // Termina cuando el elemento está en la parte inferior

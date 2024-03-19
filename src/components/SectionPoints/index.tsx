@@ -6,7 +6,7 @@ import { SectionPoint } from './SectionPoint';
 import { SectionPointProjects } from './SectionPoint/SectionPointProjects';
 
 import style from './sectionPoints.module.scss';
-export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave, handleClickProjects, handleMouseOverProjects }) => {
+export const SectionPoints = ({ onClick, onMouseOver, handleMouseLeave, handleClickProjects, handleMouseOverProjects }) => {
     const containerProjects = useRef();
     gsap.registerPlugin(ScrollTrigger)
     const section = document.querySelector("#seccion2")
@@ -27,7 +27,7 @@ export const SectionPoints = ({ array, onClick, onMouseOver, handleMouseLeave, h
             start: "12% center",
             end: "55% center",
             trigger: section,
-            markers: true,
+            // markers: true,
 
             onEnter: () => anim2.play(),
             onLeave: () => anim2.reverse(), //

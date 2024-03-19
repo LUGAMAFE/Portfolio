@@ -13,6 +13,7 @@ declare const classNames: {
   readonly green: 'green';
   readonly gray: 'gray';
   readonly LanguageSwitcher: 'LanguageSwitcher';
+  readonly '875rem': '875rem';
   readonly LanguageSwitcher_buttons: 'LanguageSwitcher_buttons';
   readonly LanguageSwitcher_esButton: 'LanguageSwitcher_esButton';
   readonly LanguageSwitcher_esButtonText: 'LanguageSwitcher_esButtonText';

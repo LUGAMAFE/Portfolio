@@ -21,7 +21,7 @@ export const ImageComparator = () => {
       duration: 3, // Duración de la animación,
       delay: 0.7,
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: miElemento.current,
         start: "center bottom", // Empieza la animación cuando el elemento está en la parte superior de la pantalla
         end: "bottom top", // Termina cuando el elemento está en la parte inferior

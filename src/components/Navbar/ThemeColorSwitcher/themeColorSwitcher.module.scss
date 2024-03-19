@@ -1,11 +1,13 @@
 @import '../../../style/sass/ITCSS/01_settings/colors';
 @import '../../../style/sass/ITCSS/01_settings/fonts';
 @import '../../../style/sass/ITCSS/01_settings/global';
+@import '../../../style/sass/ITCSS/02_tools/breakpoints';
 .ThemeColorSwitcher {
   display: flex;
   align-items: center;
   color: $color-white;
   text-align: right;
+
   &_text {
     width: 194px;
     height: 34px;
@@ -16,14 +18,27 @@
     font-style: normal;
     font-weight: $weight-normal;
     letter-spacing: 0.1px;
-    line-height: 40px;
+
     text-shadow: $base-box-shadow-gray;
+    @include phone {
+      width: 48.5px;
+      height: 34px;
+      padding-top: 5px;
+      font-size: 9px;
+      line-height: 11px;
+      text-align: center;
+    }
   }
+
   &_toggle {
     display: inline-block;
     margin-top: 5px;
     cursor: none;
+    @include phone {
+      margin-top: 0px;
+    }
   }
+
   &_toggleSwitch {
     position: relative;
     display: inline-block;
@@ -50,21 +65,36 @@
       background: $color-color-switcher-before;
       box-shadow: $base-box-shadow-toggle-switch-before;
       transition: left 0.25s;
+      @include phone {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    @include phone {
+      width: 25px;
+      height: 16px;
     }
   }
+
   &:hover .ThemeColorSwitcher_toggleSwitch {
     &:before {
       background: $color-color-switcher-before;
       box-shadow: $base-box-shadow-toggle-switch-before;
     }
   }
+
   &_toggleCheckbox {
     position: absolute;
+    width: 0px !important;
+    height: 0px !important;
     visibility: hidden;
     &:checked + .ThemeColorSwitcher_toggleSwitch {
       background: $color-checked-state-color-switcher-button;
       &:before {
         left: 25px;
+        @include phone {
+          left: 10px;
+        }
       }
     }
   }
