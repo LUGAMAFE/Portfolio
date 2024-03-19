@@ -20,7 +20,7 @@ const PresentationSection = () => {
         distance: isChecked ? 4 : 45,
         blur: isChecked ? 39 : 90,
       }}
-      className={style.Presentation}
+      className={`${style.Presentation} section`}
     >
       <div
         style={{

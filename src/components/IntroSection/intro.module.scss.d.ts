@@ -1,17 +1,10 @@
 declare const classNames: {
-  readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
   readonly gallery: 'gallery';
   readonly dragger: 'dragger';
   readonly clipped: 'clipped';
-  readonly containers: 'containers';
-  readonly blue: 'blue';
-  readonly orange: 'orange';
-  readonly purple: 'purple';
-  readonly red: 'red';
-  readonly green: 'green';
-  readonly gray: 'gray';
+  readonly container: 'container';
   readonly Intro: 'Intro';
   readonly Intro_myIntroduction: 'Intro_myIntroduction';
   readonly Intro_text: 'Intro_text';
@@ -22,6 +15,7 @@ declare const classNames: {
   readonly Intro_line2: 'Intro_line2';
   readonly Intro_ilustration: 'Intro_ilustration';
   readonly Intro_ilustrationImage: 'Intro_ilustrationImage';
+  readonly '875rem': '875rem';
   readonly Intro_design: 'Intro_design';
 };
 export = classNames;

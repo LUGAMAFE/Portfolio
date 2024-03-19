@@ -18,7 +18,7 @@ import SkillSection from './SkillSection';
 import { StyleProvider } from './context/NeumorphicStylesContext';
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export const PortfolioApp = () => {
-
+  ScrollTrigger.normalizeScroll(true)
   const timelines = useRef({});
   const timelineClicked = useRef({});
   const lastClicked = useRef(null);
@@ -32,8 +32,29 @@ export const PortfolioApp = () => {
       smooth: 2,
       effects: true,
     });
+    document.querySelectorAll(".section").forEach((anchor, index) => {
+      const trigger = ScrollTrigger.create({
+        trigger: anchor, // Este es el elemento que activará el ScrollTrigger
+        start: "50% 80%",
+        // markers: true,
+        onEnter: () => {
+          handleClick(``, `svgWhiteClick${index}`, `svgPink${index}`);
+        },
 
-  }, { scope: componente, revertOnUpdate: true });
+      });
+      const triggerEnterback = ScrollTrigger.create({
+        trigger: anchor, // Este es el elemento que activará el ScrollTrigger
+        start: "top 1%",
+        // markers: true,
+
+        onEnterBack: () => {
+          handleClick(``, `svgWhiteClick${index}`, `svgPink${index}`);
+        },
+      });
+    });
+
+
+  }, { scope: componente });
 
   const handleClick = contextSafe((seccionId, svgWhiteId, svgPinkId) => {
     const svgWhiteElement = document.getElementById(svgWhiteId);

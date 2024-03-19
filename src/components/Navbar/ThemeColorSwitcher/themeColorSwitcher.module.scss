@@ -28,6 +28,12 @@
       line-height: 11px;
       text-align: center;
     }
+    @include desktop {
+      width: 194px;
+      height: 34px;
+      font-size: 22px;
+      line-height: 25px;
+    }
   }
 
   &_toggle {
@@ -36,6 +42,9 @@
     cursor: none;
     @include phone {
       margin-top: 0px;
+    }
+    @include desktop {
+      margin-top: 5px;
     }
   }
 
@@ -69,10 +78,18 @@
         width: 16px;
         height: 16px;
       }
+      @include desktop {
+        width: 31px;
+        height: 31px;
+      }
     }
     @include phone {
       width: 25px;
       height: 16px;
+    }
+    @include desktop {
+      width: 56px;
+      height: 32px;
     }
   }
 
@@ -94,6 +111,9 @@
         left: 25px;
         @include phone {
           left: 10px;
+        }
+        @include desktop {
+          left: 25px;
         }
       }
     }

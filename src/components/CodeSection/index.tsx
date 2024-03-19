@@ -19,7 +19,7 @@ const CodeSection = () => {
         blur: isChecked ? 39 : 90,
       }}
       id="seccion5"
-      className={style.Code}
+      className={`${style.Code} section`}
     >
       <SyntaxHighlighter
         language="javascript"

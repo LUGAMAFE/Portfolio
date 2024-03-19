@@ -1,14 +1,10 @@
 declare const classNames: {
-  readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
   readonly gallery: 'gallery';
   readonly dragger: 'dragger';
   readonly clipped: 'clipped';
-  readonly 'full-screen': 'full-screen';
-  readonly 'panels-navigation': 'panels-navigation';
-  readonly 'anchor-panel': 'anchor-panel';
-  readonly 'nav-panel': 'nav-panel';
+  readonly container: 'container';
   readonly DescriptionProject: 'DescriptionProject';
   readonly DescriptionProject_softTitleContainer: 'DescriptionProject_softTitleContainer';
   readonly DescriptionProject_softTitle: 'DescriptionProject_softTitle';

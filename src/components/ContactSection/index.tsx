@@ -19,7 +19,7 @@ const ContactSection = () => {
         blur: isChecked ? 39 : 90,
       }}
       id="seccion6"
-      className={style.Contact}
+      className={`${style.Contact} section`}
     >
       <div className={style.Contact_contactContainer}>
         <div className={style.Contact_section}>

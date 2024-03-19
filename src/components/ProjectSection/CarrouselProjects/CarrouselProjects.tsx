@@ -7,9 +7,9 @@ export const CarrouselProjects = () => {
     <div className={style.CarrouselProjects}>
       <div className={style.CarrouselProjects_carrouselContainer}>
         <div className={style.CarrouselProjects_textContainer}>
-          <div className={style.CarrouselProjects_svgContainer}>
-            <img src={SVGLogo} alt="company Logo" />
-          </div>
+
+          <img src={SVGLogo} alt="company Logo" />
+
         </div>
         <div className={style.CarrouselProjects_snapContainer}>
           <img src={snapShot} alt="Snap shot of company page" />

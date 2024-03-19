@@ -40,7 +40,7 @@ const IntroSection = () => {
   return (
     <NeumorphicElement
       id="seccion0"
-      className={style.Intro}
+      className={`${style.Intro} section`}
       neumorphicOptions={{
         form: FormShape.Pressed,
         size: isChecked ? 44 : 500,

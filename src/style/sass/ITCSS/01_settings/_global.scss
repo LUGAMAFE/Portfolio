@@ -81,13 +81,6 @@ body {
   // cursor: none;
 }
 
-.container {
-  display: flex;
-  width: 400vw;
-  height: 100vh;
-  flex-wrap: wrap;
-}
-
 .panel {
   width: 100vw;
   height: 100vh;
@@ -126,7 +119,7 @@ h1 span {
   filter: saturate(0) contrast(1.5);
 }
 
-.containers {
+.container {
   display: flex;
   width: 600%;
   height: 100%;
@@ -143,26 +136,4 @@ h1 span {
 #masthead a {
   padding: 1rem 2rem;
   color: white;
-}
-
-.blue {
-  background: blue;
-}
-
-.orange {
-  background: orange;
-}
-
-.purple {
-  background: purple;
-}
-.red {
-  background: red;
-}
-.green {
-  background: green;
-}
-
-.gray {
-  background: gray;
 }

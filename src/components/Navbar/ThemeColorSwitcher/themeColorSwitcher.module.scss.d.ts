@@ -1,17 +1,10 @@
 declare const classNames: {
-  readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
   readonly gallery: 'gallery';
   readonly dragger: 'dragger';
   readonly clipped: 'clipped';
-  readonly containers: 'containers';
-  readonly blue: 'blue';
-  readonly orange: 'orange';
-  readonly purple: 'purple';
-  readonly red: 'red';
-  readonly green: 'green';
-  readonly gray: 'gray';
+  readonly container: 'container';
   readonly ThemeColorSwitcher: 'ThemeColorSwitcher';
   readonly ThemeColorSwitcher_text: 'ThemeColorSwitcher_text';
   readonly '875rem': '875rem';

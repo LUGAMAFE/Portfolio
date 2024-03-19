@@ -35,7 +35,7 @@ const BrandsSection = () => {
         distance: isChecked ? 4 : 45,
         blur: isChecked ? 39 : 90,
       }}
-      className={style.Brands}
+      className={`${style.Brands} section`}
     >
       <div className={style.Brands_brandsContainer}>
 

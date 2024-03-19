@@ -41,7 +41,7 @@ const SkillSection = () => {
         distance: isChecked ? 4 : 45,
         blur: isChecked ? 39 : 90,
       }}
-      className={style.Skills}
+      className={`${style.Skills} section`}
       id="seccion3"
     >
       <div ref={components}>

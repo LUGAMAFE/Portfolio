@@ -1,19 +1,13 @@
 declare const classNames: {
-  readonly container: 'container';
   readonly panel: 'panel';
   readonly componente: 'componente';
   readonly gallery: 'gallery';
   readonly dragger: 'dragger';
   readonly clipped: 'clipped';
-  readonly containers: 'containers';
-  readonly blue: 'blue';
-  readonly orange: 'orange';
-  readonly purple: 'purple';
-  readonly red: 'red';
-  readonly green: 'green';
-  readonly gray: 'gray';
+  readonly container: 'container';
   readonly ImageComparator: 'ImageComparator';
   readonly ImageComparator_imageComparer: 'ImageComparator_imageComparer';
+  readonly '875rem': '875rem';
   readonly ImageComparator_circle: 'ImageComparator_circle';
   readonly ImageComparator_line: 'ImageComparator_line';
   readonly ImageComparator_backImage: 'ImageComparator_backImage';

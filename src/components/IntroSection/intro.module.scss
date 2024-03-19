@@ -1,6 +1,7 @@
 @import '../../style/sass/ITCSS/01_settings/colors';
 @import '../../style/sass/ITCSS/01_settings/fonts';
 @import '../../style/sass/ITCSS/01_settings/global';
+@import '../../style/sass/ITCSS/02_tools/breakpoints';
 .Intro {
   position: relative;
   display: flex;
@@ -87,6 +88,12 @@
   }
   &_ilustrationImage {
     height: 100%;
+    @include phone {
+      height: 25%;
+    }
+    @include desktop {
+      height: 100%;
+    }
   }
   &_design {
     position: absolute;

@@ -11,11 +11,16 @@
   padding: 8px;
   border-radius: 16px;
   @include phone {
-    width: 81px; // 25% de 368px
-    height: 20px; // 25% de 50px
-
+    width: 106px;
+    height: 20px;
     padding: 2px;
-    margin-top: 10px;
+    margin-top: 8px;
+  }
+  @include desktop {
+    width: 368px;
+    height: 50px;
+    padding: 8px;
+    margin-top: 0px;
   }
   &_buttons {
     display: flex;
@@ -25,8 +30,12 @@
     align-content: center;
     justify-content: center;
     @include phone {
-      width: 81px; // 25% de 368px
-      height: 20px;
+      width: 100px;
+      height: 17px;
+    }
+    @include desktop {
+      width: 352px;
+      height: 34px;
     }
   }
   &_esButton {
@@ -37,8 +46,12 @@
     margin-right: 5px;
     cursor: none;
     @include phone {
-      width: 38px; // 25% de 172px
-      height: 15px; // 25% de 34px
+      width: 46px;
+      height: 15px;
+    }
+    @include desktop {
+      width: 172px;
+      height: 34px;
     }
   }
   &_esButtonText {
@@ -58,6 +71,9 @@
     @include phone {
       font-size: 9px;
     }
+    @include desktop {
+      font-size: 22px;
+    }
   }
   &_enButton {
     width: 172px;
@@ -66,8 +82,12 @@
     border-radius: 8px;
     cursor: none;
     @include phone {
-      width: 38px; // 25% de 172px
-      height: 15px; // 25% de 34px
+      width: 46px;
+      height: 15px;
+    }
+    @include desktop {
+      width: 172px;
+      height: 34px;
     }
   }
   &_enButtonText {
@@ -82,6 +102,9 @@
     text-shadow: $base-box-shadow-gray;
     @include phone {
       font-size: 9px;
+    }
+    @include desktop {
+      font-size: 22px;
     }
   }
 }

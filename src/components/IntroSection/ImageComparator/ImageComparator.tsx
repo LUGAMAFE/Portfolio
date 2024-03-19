@@ -17,7 +17,7 @@ export const ImageComparator = () => {
 
   useGSAP(() => {
     gsap.to(miElemento.current, {
-      x: -400, // Iniciar desde la izquierda
+      x: -0, // Iniciar desde la izquierda
       duration: 3, // Duración de la animación,
       delay: 0.7,
       scrollTrigger: {

@@ -4,6 +4,14 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useContext, useRef } from 'react';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
+import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
+import { CarrouselProjects } from './CarrouselProjects';
+import { DescriptionProject } from './DescriptionProject';
+
+import { FormShape } from '../../types/neomorphism';
+import style from './projects.module.scss';
+
+
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -26,18 +34,12 @@ const ProyectSection = () => {
       }
     });
 
-
-    const panelsSection = document.querySelector(".container");
-
-    document.querySelectorAll(".anchor").forEach(anchor => {
+    document.querySelectorAll(".anchor").forEach((anchor, index) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const targetElem = document.querySelector(e.target.getAttribute("href"));
-        const containerOffset = (panelsSection.offsetTop + targetElem.offsetLeft) * (document.querySelector(".container").offsetWidth / (document.querySelector(".container").offsetWidth - window.innerWidth));
-
         gsap.to(window, {
           scrollTo: {
-            y: containerOffset,
+            y: 1838 + (index * 2284),
             autoKill: false
           },
           duration: 1
@@ -49,43 +51,142 @@ const ProyectSection = () => {
 
   return (
     <div ref={container} >
-      <header id="masthead" className="site-header" role="banner" >
-        <nav className="anchor-nav" role="navigation">
-
-          <a href="#panel-0" className="anchor">Home</a>
-          <a href="#panel-1" className="anchor">Panel 1</a>
-          <a href="#panel-2" className="anchor">Panel 2</a>
-          <a href="#panel-3" className="anchor">Panel 3</a>
-          <a href="#panel-4" className="anchor">Panel 4</a>
-          <a href="#panel-5" className="anchor">Panel 5</a>
-
-        </nav>
-      </header>
-
-      <div className="container" >
+      <div className="container section" id="seccion2">
 
         <div id="panel-0" className="description panel blue">
-          <div><h1>Horizontal snapping sections (simple)</h1>
-            <p>Scroll vertically to scrub the horizontal animation. It also dynamically snaps to the sections in an organic way based on the velocity. The snapping occurs based on the natural ending position after momentum is applied, not a simplistic "wherever it is when the user stops".</p>
-            <div className="scroll-down">Scroll down<div className="arrow"></div></div>
-          </div>
+          <NeumorphicElement
+            neumorphicOptions={{
+              form: FormShape.Pressed,
+              size: isChecked ? 44 : 500,
+              intensity: isChecked ? 0.47 : 0.65,
+              lightSource: 3,
+              distance: isChecked ? 4 : 45,
+              blur: isChecked ? 39 : 90,
+            }}
+            style={{ height: "100%", paddingTop: "90px" }}
+          >
+            <div className={style.Projects_projectsContainer}>
+              <CarrouselProjects />
+              <DescriptionProject />
+            </div>
+
+          </NeumorphicElement>
         </div>
 
 
         <section id="panel-1" className="panel red">
-          ONE
+          <NeumorphicElement
+
+            neumorphicOptions={{
+              form: FormShape.Pressed,
+              size: isChecked ? 44 : 500,
+              intensity: isChecked ? 0.47 : 0.65,
+              lightSource: 3,
+              distance: isChecked ? 4 : 45,
+              blur: isChecked ? 39 : 90,
+            }}
+            style={{ height: "100%", paddingTop: "90px" }}
+
+          >
+
+            <div className={style.Projects_projectsContainer}>
+              <CarrouselProjects />
+              <DescriptionProject />
+            </div>
+
+          </NeumorphicElement>
         </section>
+
         <section id="panel-2" className="panel orange">
-          TWO
+          <NeumorphicElement
+
+            neumorphicOptions={{
+              form: FormShape.Pressed,
+              size: isChecked ? 44 : 500,
+              intensity: isChecked ? 0.47 : 0.65,
+              lightSource: 3,
+              distance: isChecked ? 4 : 45,
+              blur: isChecked ? 39 : 90,
+            }}
+            style={{ height: "100%", paddingTop: "90px" }}
+
+          >
+
+
+            <div className={style.Projects_projectsContainer}>
+              <CarrouselProjects />
+              <DescriptionProject />
+            </div>
+
+          </NeumorphicElement>
         </section>
+
         <section id="panel-3" className="panel purple">
-          THREE
+          <NeumorphicElement
+
+            neumorphicOptions={{
+              form: FormShape.Pressed,
+              size: isChecked ? 44 : 500,
+              intensity: isChecked ? 0.47 : 0.65,
+              lightSource: 3,
+              distance: isChecked ? 4 : 45,
+              blur: isChecked ? 39 : 90,
+            }}
+            style={{ height: "100%", paddingTop: "90px" }}
+          >
+
+
+            <div className={style.Projects_projectsContainer}>
+              <CarrouselProjects />
+              <DescriptionProject />
+            </div>
+
+          </NeumorphicElement>
         </section>
         <section id="panel-4" className="panel green">
-          FOUR
+          <NeumorphicElement
+
+            neumorphicOptions={{
+              form: FormShape.Pressed,
+              size: isChecked ? 44 : 500,
+              intensity: isChecked ? 0.47 : 0.65,
+              lightSource: 3,
+              distance: isChecked ? 4 : 45,
+              blur: isChecked ? 39 : 90,
+            }}
+            style={{ height: "100%", paddingTop: "90px" }}
+          >
+
+
+            <div className={style.Projects_projectsContainer}>
+              <CarrouselProjects />
+              <DescriptionProject />
+            </div>
+
+          </NeumorphicElement>
         </section>
+
         <section id="panel-5" className="panel gray">
-          FIVE
+          <NeumorphicElement
+
+            neumorphicOptions={{
+              form: FormShape.Pressed,
+              size: isChecked ? 44 : 500,
+              intensity: isChecked ? 0.47 : 0.65,
+              lightSource: 3,
+              distance: isChecked ? 4 : 45,
+              blur: isChecked ? 39 : 90,
+            }}
+            style={{ height: "100%", paddingTop: "90px" }}
+          >
+
+
+            <div className={style.Projects_projectsContainer}>
+              <CarrouselProjects />
+              <DescriptionProject />
+            </div>
+
+          </NeumorphicElement>
         </section>
 
       </div>

@@ -14,7 +14,10 @@
   align-content: center;
   justify-content: space-around;
   @include phone {
-    height: 53px; // 25% de 90px
+    height: 53px;
+  }
+  @include desktop {
+    height: 90px;
   }
   &_logo {
     display: flex;
@@ -30,6 +33,9 @@
     @include phone {
       font-size: 13px;
     }
+    @include desktop {
+      font-size: 28px;
+    }
   }
   &_menuToggle {
     display: flex;
@@ -38,11 +44,21 @@
   }
 
   &_button {
-    width: 14px; // 25% de 56px
-    height: 14px; // 25% de 56px
+    width: 14px;
+    height: 14px;
     border: 1px solid var(--light-color);
     border-radius: 16px;
     cursor: none;
+    @include phone {
+      width: 27px;
+      height: 27px;
+      border-radius: 8px;
+    }
+    @include desktop {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+    }
   }
   &_hamburger {
     width: 100%;
@@ -56,7 +72,10 @@
     background: $color-gradient-pink-linear-horizontal;
     box-shadow: 0px 0px 18px $color-box-shadow-neon-pink;
     @include phone {
-      top: 53px; // 25% de 90px
+      top: 53px;
+    }
+    @include desktop {
+      top: 83px;
     }
   }
 }

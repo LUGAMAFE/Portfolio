@@ -4,7 +4,7 @@
 .CarrouselProjects {
   overflow: hidden;
   width: 50%;
-  height: calc(100% - 90px);
+  height: 100%;
   background: $color-middle-white;
   box-shadow: $base-box-shadow-carrousel-projects;
   &_carrouselContainer {
