@@ -67,7 +67,7 @@ const IntroSection = () => {
         <div className={style.Intro_ilustration}>
           <img className={style.Intro_ilustrationImage} src={neomorphicSVG} alt="neomorphic svg shape" />
           <div className={style.Intro_design}>
-            <svg width="370" height="303" viewBox="0 0 370 303" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className={style.Intro_svg} width="370" height="303" viewBox="0 0 370 303" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_54_154)">
                 <path d="M296.444 303C333.509 303 363.556 296.196 363.556 287.802C363.556 279.408 333.509 272.604 296.444 272.604C259.38 272.604 229.333 279.408 229.333 287.802C229.333 296.196 259.38 303 296.444 303Z" fill="url(#paint0_linear_54_154)" />
                 <path d="M302.667 298.53C339.731 298.53 369.778 291.726 369.778 283.332C369.778 274.938 339.731 268.134 302.667 268.134C265.602 268.134 235.556 274.938 235.556 283.332C235.556 291.726 265.602 298.53 302.667 298.53Z" stroke="#646876" strokeMiterlimit="10" />

@@ -17,20 +17,18 @@ export const ImageComparator = () => {
 
   useGSAP(() => {
     gsap.to(miElemento.current, {
-      x: -0, // Iniciar desde la izquierda
-      duration: 3, // Duración de la animación,
+      x: -400,
+      duration: 3,
       delay: 0.7,
       scrollTrigger: {
-        // markers: true,
         trigger: miElemento.current,
-        start: "center bottom", // Empieza la animación cuando el elemento está en la parte superior de la pantalla
-        end: "bottom top", // Termina cuando el elemento está en la parte inferior
-        scrub: true, // Hace que la animación siga el scroll
-        // Otras opciones...
+        start: "center bottom",
+        end: "bottom top",
+        scrub: true,
+
       }
     });
     function init() {
-      //gsap.set(".gallery", { scale: 0.7 });
       gsap.to(".gallery", { autoAlpha: 1 });
       gsap.set(".dragger", { x: 320 });
     }
@@ -41,13 +39,9 @@ export const ImageComparator = () => {
       onDrag: function () {
         const x = 535 - gsap.getProperty(this.target, "x");
         gsap.set(".clipped", { clipPath: `inset(0px ${x}px 0px 0px)` });
-        // line above using template literals is same as
-        // gsap.set(".clipped", {clipPath: "inset(0px " + x + "px 0px 0px)"});
       }
     });
-
     window.addEventListener("load", init);
-
   }, { scope: miElemento });
   useEffect(() => {
 
@@ -70,10 +64,8 @@ export const ImageComparator = () => {
         <div className="gallery">
           <img className={style.ImageComparator_backImage} src={luisImage} alt="programer luis image" />
           <img className={`${style.ImageComparator_backImage} clipped`} src={luisImagereal} alt="programer luis image" />
-
           <div className="dragger"></div>
         </div>
-
       </div>
     </div>
   );
