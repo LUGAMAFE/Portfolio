@@ -93,32 +93,6 @@ h1 span {
   color: #6fb936;
 }
 
-.gallery {
-  width: 550px;
-  height: 480px;
-
-  visibility: hidden;
-}
-
-.gallery img {
-  position: absolute;
-  width: 700px;
-  height: 560px;
-}
-
-.dragger {
-  position: absolute;
-  width: 10px;
-  height: 560px;
-  background: $color-middle-white;
-  box-shadow: $base-box-shadow-image-comparator;
-}
-
-.clipped {
-  clip-path: inset(0px 220px 0px 0px);
-  filter: saturate(0) contrast(1.5);
-}
-
 .container {
   display: flex;
   width: 600%;

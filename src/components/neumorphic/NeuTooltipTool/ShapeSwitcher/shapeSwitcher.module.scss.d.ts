@@ -1,9 +1,6 @@
 declare const classNames: {
   readonly panel: 'panel';
   readonly componente: 'componente';
-  readonly gallery: 'gallery';
-  readonly dragger: 'dragger';
-  readonly clipped: 'clipped';
   readonly container: 'container';
   readonly NeuTooltipTool_row: 'NeuTooltipTool_row';
   readonly NeuTooltipTool_labelContainer: 'NeuTooltipTool_labelContainer';

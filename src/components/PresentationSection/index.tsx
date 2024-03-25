@@ -22,16 +22,16 @@ const PresentationSection = () => {
       }}
       className={`${style.Presentation} section`}
     >
-      <div
+      {/* <div
         style={{
           width: '100%',
           height: '90px',
         }}
-      ></div>
-      <div className={style.Presentation_container}>
-        <Abilities />
-        <Illustration />
-      </div>
+      ></div> */}
+
+      <Abilities />
+      <Illustration />
+
     </NeumorphicElement>
   );
 };

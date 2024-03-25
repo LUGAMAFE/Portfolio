@@ -17,7 +17,7 @@ export const ImageComparator = () => {
 
   useGSAP(() => {
     gsap.to(miElemento.current, {
-      x: -400,
+      x: -0,
       duration: 3,
       delay: 0.7,
       scrollTrigger: {
@@ -29,16 +29,16 @@ export const ImageComparator = () => {
       }
     });
     function init() {
-      gsap.to(".gallery", { autoAlpha: 1 });
-      gsap.set(".dragger", { x: 320 });
+      gsap.to(`.${style.ImageComparator_gallery}`, { autoAlpha: 1 });
+      gsap.set(`.${style.ImageComparator_dragger}`, { x: 320 });
     }
 
-    Draggable.create(".dragger", {
+    Draggable.create(`.${style.ImageComparator_dragger}`, {
       type: "x",
-      bounds: ".gallery",
+      bounds: `.${style.ImageComparator_gallery}`,
       onDrag: function () {
         const x = 535 - gsap.getProperty(this.target, "x");
-        gsap.set(".clipped", { clipPath: `inset(0px ${x}px 0px 0px)` });
+        gsap.set(`.${style.ImageComparator_clipped}`, { clipPath: `inset(0px ${x}px 0px 0px)` });
       }
     });
     window.addEventListener("load", init);
@@ -59,14 +59,14 @@ export const ImageComparator = () => {
           blur: isChecked ? 16 : 88,
         }}
       >
-      </NeumorphicElement>
-      <div className={style.ImageComparator_circle}>
-        <div className="gallery">
-          <img className={style.ImageComparator_backImage} src={luisImage} alt="programer luis image" />
-          <img className={`${style.ImageComparator_backImage} clipped`} src={luisImagereal} alt="programer luis image" />
-          <div className="dragger"></div>
+        <div className={style.ImageComparator_circle}>
+          <div className={style.ImageComparator_gallery} >
+            <img className={`${style.ImageComparator_backImage} ${style.ImageComparator_galleryImage}`} src={luisImage} alt="programer luis image" />
+            <img className={`${style.ImageComparator_backImage} ${style.ImageComparator_clipped} ${style.ImageComparator_galleryImage}`} src={luisImagereal} alt="programer luis image" />
+            <div className={style.ImageComparator_dragger}></div>
+          </div>
         </div>
-      </div>
+      </NeumorphicElement>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 declare const classNames: {
   readonly Presentation: 'Presentation';
-  readonly Presentation_container: 'Presentation_container';
+  readonly '875rem': '875rem';
 };
 export = classNames;

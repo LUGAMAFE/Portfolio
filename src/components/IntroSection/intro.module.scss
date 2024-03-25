@@ -10,26 +10,45 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   @include phone {
-    justify-content: flex-start;
+    align-content: flex-start;
   }
   @include desktop {
-    justify-content: space-around;
+    align-content: center;
   }
   &_myIntroduction {
     display: grid;
-    height: calc(100% - 150px);
     margin-top: 150px;
     @include phone {
-      margin-top: 0px;
+      margin-top: 62px;
     }
     @include desktop {
-      margin-top: 150px;
+      margin-top: 69px;
     }
   }
-  &_text {
-    position: relative;
+  &_introTextContainer {
+    left: 20px;
+    display: flex;
+    width: 595px;
+    height: 411px;
+    flex-direction: column;
+    padding: 10px 0px 40.71px 20px;
+    gap: 25px;
+
+    @include phone {
+      left: 20px;
+      width: 327px;
+      height: 411px;
+      gap: 10px;
+    }
+    @include desktop {
+      left: 20px;
+      width: 595px;
+      height: 411px;
+      padding: 69px 0px 40.71px 0px;
+      gap: 25px;
+    }
   }
   &_text:first-child {
     overflow: hidden;
@@ -52,21 +71,7 @@
       font-size: 54px;
     }
   }
-  &_text:nth-child(3) {
-    color: $color-light-gray;
-    font-family: 'Fira code';
-    font-size: 31px;
-    font-weight: $weight-normal;
-    letter-spacing: -2.2px;
-    line-height: 38px;
-    word-spacing: -4px;
-    @include phone {
-      font-size: 20px;
-    }
-    @include desktop {
-      font-size: 31px;
-    }
-  }
+
   &_strong {
     position: absolute;
     top: 0;
@@ -98,16 +103,17 @@
     width: 595px;
     height: 8.38px;
     border-radius: 14px;
-    margin-bottom: 33.53px;
+    margin-bottom: 20px;
     background: $color-gradient-pink-linear-horizontal;
     box-shadow: $base-box-shadow-neon;
     @include phone {
-      width: 595px;
-      height: 8.38px;
+      width: 300px;
+      height: 6px;
     }
     @include desktop {
       width: 595px;
       height: 8.38px;
+      margin-bottom: 33.53px;
     }
   }
 
@@ -119,8 +125,8 @@
     background: $color-gradient-pink-linear-horizontal;
     box-shadow: $base-box-shadow-neon;
     @include phone {
-      width: 297.5px;
-      height: 8.38px;
+      width: 250px;
+      height: 6px;
     }
     @include desktop {
       width: 297.5px;
@@ -130,11 +136,14 @@
 
   &_ilustration {
     position: relative;
+    width: 300px;
     @include phone {
-      height: 25%;
+      width: 300px;
+      margin-left: 74px;
     }
     @include desktop {
-      height: 100%;
+      width: 100%;
+      margin: 0;
     }
   }
   &_ilustrationImage {
@@ -147,8 +156,8 @@
     width: 370px;
     height: 303px;
     @include phone {
-      top: 293px;
-      left: 239px;
+      top: 0px;
+      left: 50px;
       width: 173px;
       height: 194px;
     }
@@ -162,5 +171,27 @@
   &_svg {
     width: 100%;
     height: 100%;
+  }
+  &_neomorphicSVG {
+    width: 100%;
+    height: 100%;
+  }
+  &_textDescription {
+    font-family: Fira Code;
+    font-size: 31px;
+    font-weight: $weight-bold;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 26px;
+    text-align: left;
+    text-shadow: $base-text-shadow-sub-title;
+
+    @include phone {
+      font-size: 20px;
+    }
+    @include desktop {
+      font-size: 31px;
+      line-height: 38.5px;
+    }
   }
 }

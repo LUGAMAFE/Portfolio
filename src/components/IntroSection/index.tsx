@@ -3,7 +3,6 @@ import gsap from 'gsap-trial';
 import SplitText from 'gsap-trial/SplitText';
 import TextPlugin from 'gsap-trial/TextPlugin';
 import { useContext, useRef } from 'react';
-import neomorphicSVG from "../../../assets/images/Vector-12.svg";
 import { FormShape } from '../../types/neomorphism';
 import { NeumorphicStylesContext } from '../context/NeumorphicStylesContext';
 import NeumorphicElement from '../neumorphic/NeomorphicElement/NeumorphicElement';
@@ -50,22 +49,50 @@ const IntroSection = () => {
         blur: isChecked ? 39 : 90,
       }}
     >
+
       <ImageComparator />
-
       <div className={style.Intro_myIntroduction}>
-        <p ref={splitTextElement} className={style.Intro_text} >
-          !Hola! mi nombre es: Luis martinez
-        </p>
-        <div className={style.Intro_lines}>
-
-          <div style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }} className={style.Intro_line1}></div>
-          <div style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }} className={style.Intro_line2}></div>
+        <div className={style.Intro_introTextContainer}>
+          <p ref={splitTextElement} className={style.Intro_text} >
+            !Hola! mi nombre es: Luis martinez
+          </p>
+          <div className={style.Intro_lines}>
+            <div style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }} className={style.Intro_line1}></div>
+            <div style={{ background: initialMainColorNeon, boxShadow: `0px 0px 18px ${initialColorNeonSVG.gradiantColorBoxShadow}` }} className={style.Intro_line2}></div>
+          </div>
+          <div className="">
+            <p className={style.Intro_textDescription} >
+              Programador y Diseñador de sitios web
+            </p>
+          </div>
         </div>
-        <p className={style.Intro_text} >
-          <strong className={style.Intro_strong}>Programador y Diseñador de sitios web</strong>
-        </p>
         <div className={style.Intro_ilustration}>
-          <img className={style.Intro_ilustrationImage} src={neomorphicSVG} alt="neomorphic svg shape" />
+          <svg className={style.Intro_neomorphicSVG} width="635" height="441" viewBox="0 0 635 441" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_dd_78_19)">
+              <path d="M543.261 131.124C607.286 174.068 649 423 613.383 444C577.766 465 423.5 472 406.574 444C372 403.5 304.964 366.041 263.5 373.214C211.671 382.18 124.562 414.27 90.0091 373.214C80.6216 362.059 47.0441 299.596 32.0823 241.079C-40.0722 -41.1225 231.778 40.0457 297.326 56.0906C407.082 82.9564 491.272 96.2526 543.261 131.124Z" fill="url(#paint0_linear_78_19)" />
+              <path d="M543.261 131.124C607.286 174.068 649 423 613.383 444C577.766 465 423.5 472 406.574 444C372 403.5 304.964 366.041 263.5 373.214C211.671 382.18 124.562 414.27 90.0091 373.214C80.6216 362.059 47.0441 299.596 32.0823 241.079C-40.0722 -41.1225 231.778 40.0457 297.326 56.0906C407.082 82.9564 491.272 96.2526 543.261 131.124Z" stroke="#26292E" />
+            </g>
+            <defs>
+              <filter id="filter0_dd_78_19" x="-5.49983" y="0.499878" width="667.457" height="504.468" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dx="5" dy="-2" />
+                <feGaussianBlur stdDeviation="15" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.0578125 0 0 0 0 0.0646875 0 0 0 0 0.075 0 0 0 1 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_78_19" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dx="12" dy="22" />
+                <feGaussianBlur stdDeviation="10" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.100781 0 0 0 0 0.104129 0 0 0 0 0.1125 0 0 0 1 0" />
+                <feBlend mode="normal" in2="effect1_dropShadow_78_19" result="effect2_dropShadow_78_19" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_78_19" result="shape" />
+              </filter>
+              <linearGradient id="paint0_linear_78_19" x1="168.033" y1="-11.8316" x2="562.579" y2="510.7" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#353A40" />
+                <stop offset="1" stopColor="#16171B" />
+              </linearGradient>
+            </defs>
+          </svg>
           <div className={style.Intro_design}>
             <svg className={style.Intro_svg} width="370" height="303" viewBox="0 0 370 303" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_54_154)">
@@ -176,6 +203,7 @@ const IntroSection = () => {
           </div>
         </div>
       </div>
+
     </NeumorphicElement >
   );
 };

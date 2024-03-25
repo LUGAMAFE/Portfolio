@@ -1,10 +1,18 @@
 @import '../../../style/sass/ITCSS/01_settings/colors';
 @import '../../../style/sass/ITCSS/01_settings/fonts';
 @import '../../../style/sass/ITCSS/01_settings/global';
+@import '../../../style/sass/ITCSS//02_tools/breakpoints';
 .Illustration {
   will-change: transform;
   &_svgContainer {
     display: flex;
+    @include phone {
+      width: 300px;
+    }
+    @include desktop {
+      width: 100%;
+      height: 100%;
+    }
   }
   &_svg {
     width: 100%;

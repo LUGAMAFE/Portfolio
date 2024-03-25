@@ -1,34 +1,42 @@
 @import '../../../style/sass/ITCSS/01_settings/colors';
 @import '../../../style/sass/ITCSS/01_settings/global';
 @import '../../../style/sass/ITCSS/02_tools/breakpoints';
+@import '../intro.module';
 .ImageComparator {
   position: relative;
   display: flex;
   align-items: center;
-
-  &_imageComparer {
+  @include phone {
     position: absolute;
+    top: 270px;
+    left: 0px;
+  }
+  @include desktop {
+    position: relative;
+    top: 0px;
+    left: -200px;
+  }
+  &_imageComparer {
     left: -300px;
     width: 875px;
     height: 604px;
     border-radius: 0px 299px 299px 0px;
     @include phone {
+      top: 270px;
       left: 0px;
-      width: 243px;
-      height: 250px;
+      width: 200px;
+      height: 210px;
       padding: 2px;
-      margin-top: 500px;
     }
     @include desktop {
       left: 0px;
-      width: 400px;
-      height: 300px;
+      width: 875px;
+      height: 604px;
       padding: 8px;
       margin-top: 0px;
     }
   }
   &_circle {
-    position: absolute;
     overflow: hidden;
     width: 554px;
     height: 554px;
@@ -36,16 +44,14 @@
     border-radius: 50%;
     filter: drop-shadow($base-box-shadow-image-comparator);
     @include phone {
-      width: 250px;
-      height: 250px;
-      padding: 2px;
-      margin-top: 8px;
+      width: 200px;
+      height: 200px;
     }
     @include desktop {
-      width: 250px;
-      height: 250px;
-      padding: 8px;
-      margin-top: 0px;
+      width: 554px;
+      height: 554px;
+      margin-top: 12px;
+      margin-left: 270px;
     }
   }
   &_line {
@@ -70,8 +76,46 @@
     }
   }
   &_backImage {
+    @include phone {
+      width: 25%;
+      height: 100%;
+    }
+    @include desktop {
+      width: 25%;
+      height: 100%;
+    }
     width: 100%;
     height: 100%;
     border-radius: 301px;
+  }
+  &_gallery {
+    width: 550px;
+    height: 480px;
+
+    visibility: hidden;
+  }
+  &_galleryImage {
+    position: absolute;
+    width: 700px;
+    height: 560px;
+    @include phone {
+      width: 300px;
+      height: 250px;
+    }
+    @include desktop {
+      width: 700px;
+      height: 560px;
+    }
+  }
+  &_dragger {
+    position: absolute;
+    width: 10px;
+    height: 560px;
+    background: $color-middle-white;
+    box-shadow: $base-box-shadow-image-comparator;
+  }
+  &_clipped {
+    clip-path: inset(0px 220px 0px 0px);
+    filter: saturate(0) contrast(1.5);
   }
 }
