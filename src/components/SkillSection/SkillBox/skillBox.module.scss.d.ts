@@ -1,8 +1,6 @@
 declare const classNames: {
-  readonly panel: 'panel';
-  readonly componente: 'componente';
-  readonly container: 'container';
   readonly SkillBox: 'SkillBox';
+  readonly '875rem': '875rem';
   readonly SkillBox_section: 'SkillBox_section';
   readonly SkillBox_titleContainer: 'SkillBox_titleContainer';
   readonly SkillBox_title: 'SkillBox_title';

@@ -9,9 +9,8 @@ import { CarrouselProjects } from './CarrouselProjects';
 import { DescriptionProject } from './DescriptionProject';
 
 import { FormShape } from '../../types/neomorphism';
+import './horizontalScroll.scss';
 import style from './projects.module.scss';
-
-
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -51,7 +50,7 @@ const ProyectSection = () => {
 
   return (
     <div ref={container} >
-      <div className="container section" id="seccion2">
+      <div className="container " id="seccion2">
 
         <div id="panel-0" className="description panel blue">
           <NeumorphicElement
@@ -63,7 +62,7 @@ const ProyectSection = () => {
               distance: isChecked ? 4 : 45,
               blur: isChecked ? 39 : 90,
             }}
-            style={{ height: "100%", paddingTop: "90px" }}
+            className={style.Projects_projectContainer}
           >
             <div className={style.Projects_projectsContainer}>
               <CarrouselProjects />
@@ -72,8 +71,6 @@ const ProyectSection = () => {
 
           </NeumorphicElement>
         </div>
-
-
         <section id="panel-1" className="panel red">
           <NeumorphicElement
 
@@ -85,8 +82,7 @@ const ProyectSection = () => {
               distance: isChecked ? 4 : 45,
               blur: isChecked ? 39 : 90,
             }}
-            style={{ height: "100%", paddingTop: "90px" }}
-
+            className={style.Projects_projectContainer}
           >
 
             <div className={style.Projects_projectsContainer}>
@@ -108,7 +104,7 @@ const ProyectSection = () => {
               distance: isChecked ? 4 : 45,
               blur: isChecked ? 39 : 90,
             }}
-            style={{ height: "100%", paddingTop: "90px" }}
+            className={style.Projects_projectContainer}
 
           >
 
@@ -132,7 +128,7 @@ const ProyectSection = () => {
               distance: isChecked ? 4 : 45,
               blur: isChecked ? 39 : 90,
             }}
-            style={{ height: "100%", paddingTop: "90px" }}
+            className={style.Projects_projectContainer}
           >
 
 
@@ -154,7 +150,7 @@ const ProyectSection = () => {
               distance: isChecked ? 4 : 45,
               blur: isChecked ? 39 : 90,
             }}
-            style={{ height: "100%", paddingTop: "90px" }}
+            className={style.Projects_projectContainer}
           >
 
 
@@ -177,7 +173,7 @@ const ProyectSection = () => {
               distance: isChecked ? 4 : 45,
               blur: isChecked ? 39 : 90,
             }}
-            style={{ height: "100%", paddingTop: "90px" }}
+            className={style.Projects_projectContainer}
           >
 
 

@@ -1,7 +1,4 @@
 declare const classNames: {
-  readonly panel: 'panel';
-  readonly componente: 'componente';
-  readonly container: 'container';
   readonly Arrow: 'Arrow';
   readonly active: 'active';
   readonly LightSourceSelector: 'LightSourceSelector';

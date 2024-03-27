@@ -80,34 +80,3 @@ body {
   margin: 0;
   // cursor: none;
 }
-
-.panel {
-  width: 100vw;
-  height: 100vh;
-}
-.componente {
-  width: 100vw;
-  height: 100vh;
-}
-h1 span {
-  color: #6fb936;
-}
-
-.container {
-  display: flex;
-  width: 600%;
-  height: 100%;
-  flex-wrap: nowrap;
-}
-
-#masthead {
-  position: fixed;
-  z-index: 9999;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-#masthead a {
-  padding: 1rem 2rem;
-  color: white;
-}

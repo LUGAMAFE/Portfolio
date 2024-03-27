@@ -31,6 +31,13 @@ export const PortfolioApp = () => {
     smoother.current = ScrollSmoother.create({
       smooth: 2,
       effects: true,
+      normalizeScroll: true,
+      ignoreMobileResize: true,
+
+      //preventDefault: true,
+      //ease: 'power4.out',
+      //smoothTouch: 0.1,
+
     });
     document.querySelectorAll(".section").forEach((anchor, index) => {
       const trigger = ScrollTrigger.create({

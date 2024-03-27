@@ -6,7 +6,7 @@ export const Illustration = () => {
   return (
     <div className={style.Illustration}>
       <div className={style.Illustration_svgContainer}>
-        <svg width="539" height="377" viewBox="0 0 539 377" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={style.Illustration_svg} width="539" height="377" viewBox="0 0 539 377" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_78_51)">
             <path d="M432.85 350.641C429.352 363.918 417.093 372.215 417.093 372.215C417.093 372.215 410.506 358.986 414.004 345.709C417.503 332.431 429.762 324.134 429.762 324.134C429.762 324.134 436.349 337.363 432.85 350.641Z" fill="#3F3D56" />
             <path d="M427.544 347.832C417.745 357.48 416.649 372.208 416.649 372.208C416.649 372.208 431.439 371.294 441.238 361.646C451.037 351.998 452.134 337.27 452.134 337.27C452.134 337.27 437.343 338.184 427.544 347.832Z" fill="url(#paint0_linear_78_51)" />

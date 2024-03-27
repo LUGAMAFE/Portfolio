@@ -1,7 +1,4 @@
 declare const classNames: {
-  readonly panel: 'panel';
-  readonly componente: 'componente';
-  readonly container: 'container';
   readonly Contact: 'Contact';
   readonly Contact_contactContainer: 'Contact_contactContainer';
   readonly Contact_section: 'Contact_section';

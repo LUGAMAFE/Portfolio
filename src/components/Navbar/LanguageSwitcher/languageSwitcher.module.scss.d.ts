@@ -1,7 +1,4 @@
 declare const classNames: {
-  readonly panel: 'panel';
-  readonly componente: 'componente';
-  readonly container: 'container';
   readonly LanguageSwitcher: 'LanguageSwitcher';
   readonly '875rem': '875rem';
   readonly LanguageSwitcher_buttons: 'LanguageSwitcher_buttons';

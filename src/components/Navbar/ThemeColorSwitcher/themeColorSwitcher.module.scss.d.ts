@@ -1,7 +1,4 @@
 declare const classNames: {
-  readonly panel: 'panel';
-  readonly componente: 'componente';
-  readonly container: 'container';
   readonly ThemeColorSwitcher: 'ThemeColorSwitcher';
   readonly ThemeColorSwitcher_text: 'ThemeColorSwitcher_text';
   readonly '875rem': '875rem';

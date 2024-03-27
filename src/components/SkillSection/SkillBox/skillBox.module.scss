@@ -1,6 +1,7 @@
 @import '../../../style/sass/ITCSS/01_settings/colors';
 @import '../../../style/sass/ITCSS/01_settings/fonts';
 @import '../../../style/sass/ITCSS/01_settings/global';
+@import '../../../style/sass/ITCSS/02_tools/breakpoints';
 .SkillBox {
   display: flex;
   width: 635px;
@@ -9,6 +10,14 @@
   flex-shrink: 0;
   align-items: center;
   will-change: transform;
+  @include phone {
+    width: 285px; /* 635px / 2 */
+    height: 422.5px; /* 845px / 2 */
+  }
+  @include desktop {
+    width: 635px;
+    height: 845px;
+  }
   &_section {
     display: flex;
     flex-direction: column;
@@ -16,6 +25,16 @@
     padding: 30px 20px;
     border-radius: 25px;
     gap: 40px;
+    @include phone {
+      padding: 15px 10px; /* 30px 20px / 2 */
+      border-radius: 12.5px; /* 25px / 2 */
+      gap: 20px; /* 40px / 2 */
+    }
+    @include desktop {
+      padding: 30px 20px;
+      border-radius: 25px;
+      gap: 40px;
+    }
   }
   &_titleContainer {
     display: flex;
@@ -24,6 +43,14 @@
     justify-content: center;
     padding: 7px 130px 10px 128px;
     border-radius: 20px;
+    @include phone {
+      padding: 3.5px 6px 5px 6px; /* 7px 130px 10px 128px / 2 */
+      border-radius: 10px; /* 20px / 2 */
+    }
+    @include desktop {
+      padding: 7px 130px 10px 128px;
+      border-radius: 20px;
+    }
   }
   &_title {
     padding-left: 20px;
@@ -35,6 +62,12 @@
     letter-spacing: 0.2px;
     line-height: 27px;
     text-shadow: $base-text-shadow-sub-title;
+    @include phone {
+      font-size: 19px;
+    }
+    @include desktop {
+      font-size: 24px;
+    }
   }
   &_skillsInputs {
     display: flex;
@@ -43,5 +76,15 @@
     align-items: center;
     padding: 0px 40px;
     gap: 25px;
+    @include phone {
+      width: 258.5px; /* 595px / 2 */
+      padding: 0px 0px; /* 0px 40px / 2 */
+      gap: 12.5px; /* 25px / 2 */
+    }
+    @include desktop {
+      width: 595px;
+      padding: 0px 40px;
+      gap: 25px;
+    }
   }
 }

@@ -3,15 +3,31 @@
 @import '../../../style/sass/ITCSS/01_settings/global';
 @import '../../../style/sass/ITCSS//02_tools/breakpoints';
 .Illustration {
+  display: flex;
+  width: 635px;
+  height: 842px;
+  flex-direction: column;
+  align-items: center;
   will-change: transform;
+  @include phone {
+    width: 317px;
+    height: 421px;
+  }
+  @include desktop {
+    width: 635px;
+    height: 842px;
+  }
   &_svgContainer {
-    display: flex;
+    width: 539px;
+    height: 527px;
+
     @include phone {
-      width: 300px;
+      width: 269px;
+      height: 263px;
     }
     @include desktop {
-      width: 100%;
-      height: 100%;
+      width: 539px;
+      height: 527px;
     }
   }
   &_svg {
@@ -27,6 +43,16 @@
     margin: 40px 100px;
     background: $color-gradient-pink-linear-horizontal;
     box-shadow: $base-box-shadow-neon-pink-button;
+    @include phone {
+      width: 150px;
+      height: 45px;
+      margin: 20px 50px;
+    }
+    @include desktop {
+      width: 338px;
+      height: 70px;
+      margin: 40px 100px;
+    }
   }
   &_contactButtonText {
     color: $color-white;
@@ -37,5 +63,11 @@
     letter-spacing: -0.6px;
     line-height: normal;
     text-align: center;
+    @include phone {
+      font-size: 15px;
+    }
+    @include desktop {
+      font-size: 30px;
+    }
   }
 }

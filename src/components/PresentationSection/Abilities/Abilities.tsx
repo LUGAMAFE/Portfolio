@@ -79,7 +79,7 @@ export const Abilities = () => {
 
       </div>
       <div className={style.Abilities_svgContainer}>
-        <svg className={style.Abilities_text} width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={style.Abilities_neomorphicSVG} width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_ii_94_110)">
             <circle cx="75" cy="75" r="75" fill="#E4EBF2" />
           </g>

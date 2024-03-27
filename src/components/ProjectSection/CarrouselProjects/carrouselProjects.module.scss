@@ -1,12 +1,19 @@
 @import '../../../style/sass/ITCSS/01_settings/colors';
 @import '../../../style/sass/ITCSS/02_tools/mixins';
 @import '../../../style/sass/ITCSS/01_settings/global';
+@import '../../../style/sass/ITCSS/02_tools/breakpoints';
 .CarrouselProjects {
   overflow: hidden;
   width: 50%;
   height: 100%;
   background: $color-middle-white;
   box-shadow: $base-box-shadow-carrousel-projects;
+  @include phone {
+    width: 53%;
+  }
+  @include desktop {
+    width: 50%;
+  }
   &_carrouselContainer {
     height: 100%;
     align-items: center;
@@ -26,11 +33,36 @@
     background: var(--Middle-Color-White, $color-middle-white);
     box-shadow: $base-box-shadow-carrousel-projects-text-container;
     justify-self: center;
+    @include phone {
+      width: 264px;
+      height: 83px;
+      margin-top: 78px;
+      margin-left: 68px;
+      justify-self: self-start;
+    }
+    @include desktop {
+      width: 510px;
+      height: 140px;
+      margin-top: 0px;
+      justify-self: center;
+    }
+  }
+  &_logoSVG {
+    width: 100%;
+    height: 100%;
   }
   &_snapContainer {
     width: 719px;
     height: 525px;
     align-self: flex-end;
     justify-self: end;
+    @include phone {
+      width: 719px;
+      height: 525px;
+    }
+    @include desktop {
+      width: 719px;
+      height: 525px;
+    }
   }
 }

@@ -1,7 +1,4 @@
 declare const classNames: {
-  readonly panel: 'panel';
-  readonly componente: 'componente';
-  readonly container: 'container';
   readonly Navbar: 'Navbar';
   readonly '875rem': '875rem';
   readonly Navbar_logo: 'Navbar_logo';
